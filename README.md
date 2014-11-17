@@ -1,2 +1,4 @@
-redaction
-=========
+Redaction
+===========
+
+Protection Profile for Redaction
