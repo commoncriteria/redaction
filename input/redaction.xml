@@ -698,9 +698,11 @@
         <f-component id="RED_DIN_EXT.1 " name="Deep Inspection"> Hierarchical to: No other
           components.<br/> Dependencies: None <f-element id="RED_DIN_EXT.1.1 ">
             <title>For each element of the file format that can contain its own metadata, other
-              elements, or hidden data, the <span title="Target of Evaluation">TOE</span> must <selectables>
+              elements, or hidden data, the <span title="Target of Evaluation">TOE</span> must 
+              <selectables linebreak="yes">
                 <selectable>recurse through the element chain and apply the <span
-                    title="Protection Profile">PP</span> to each layer</selectable>
+                    title="Protection Profile">PP</span> to each layer
+                </selectable>
                 <selectable>simplify the element</selectable>
                 <selectable>redact the element</selectable>
               </selectables>. </title>
@@ -895,7 +897,8 @@
           </f-element>
           <f-element id="RED_ID_EXT.1.2">
             <title>The <span title="Target of Evaluation">TOE</span> must identify all obscured data
-              and must <selectables>
+              and must 
+              <selectables linebreak="yes">
                 <selectable>remove the obscured data automatically</selectable>
                 <selectable>allow the user to redact the obscured data</selectable>
               </selectables>.</title>
@@ -918,15 +921,13 @@
           <f-element id="RED_ID_EXT.1.3">
             <title>The <span title="Target of Evaluation">TOE</span> must identify images where the
               visible representation is reduced in size or resolution from the representation stored
-              in the file format and must <selectables>
-                <selectable>replace the stored data with the visible representation
-                  automatically</selectable>
-                <selectable> allow the user to <selectables>
-                    <selectable>replace the stored data with the visible representation</selectable>
-                    <selectable>leave the image unaltered</selectable>
-                  </selectables>
-                </selectable>
-              </selectables>.</title>
+              in the file format and must
+              <selectables linebreak="yes">
+                <selectable>automatically replace the stored data with the visible representation</selectable>
+                <selectable>allow the user to replace the stored data with the visible representation</selectable>
+                <selectable>allow the user to leave the image unaltered</selectable>
+              </selectables>.
+            </title>
             <aactivity>The evaluator shall create a test document with an image that is stored in a
               larger size and resolution than the visible image and apply the <span
                 title="Target of Evaluation">TOE</span> without selecting the image for redaction.
