@@ -935,7 +935,8 @@
     </section>
   </chapter>
 
-  <appendix id="" title="Supporting Tables"> In this Protection Profile, the focus in the initial
+
+  <appendix id="stable" title="Supporting Tables"> In this Protection Profile, the focus in the initial
     sections of the document is to use a narrative presentation in an attempt to increase the
     overall understandability of the threats to Redaction Tools; the methods used to mitigate those
     threats; and the extent of the mitigation achieved by compliant <span
@@ -947,6 +948,7 @@
     assumptions include both practical realities in the development of the <span
       title="Target of Evaluation">TOE</span> security requirements and the essential environmental
     conditions on the use of the <span title="Target of Evaluation">TOE</span>.<br/>
+    <!--  
     <table>
       <TR class="header"><TH colspan="2">Table 1: <span title="Target of Evaluation">TOE</span>
           Assumptions</TH></TR>
@@ -1068,6 +1070,7 @@
             title="Target of Evaluation">TOE</span> will produce a clean document for redaction
           without involving the user.</TD></TR>
     </table>
+    -->
     <h4>Security Threats to Security Objectives</h4> The following table contains a mapping of
     Security Threats to Objectives for the <span title="Target of Evaluation">TOE</span>.<br/>
     <table>
