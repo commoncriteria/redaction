@@ -551,7 +551,7 @@
     Security Threats to Objectives for the <span title="Target of Evaluation">TOE</span>.<br/>
     <table>
       <TR class="header"><TH colspan="2">Security Threats to Objectives Mapping</TH></TR>
-      <TR>Threat<TH/><TH>Security Objectives</TH></TR>
+      <TR><TH/><TH>Security Objectives</TH></TR>
       <TR><TD>T.Clues_to_Original_Data</TD><TD>O.Re place;<br/> O.Remove_References </TD></TR>
       <TR><TD>T.Expose_Process_Data</TD><TD>O.No_New_Hidden_Data</TD></TR>
       <TR><TD>T.Implementation_Flaws</TD><TD>O.Report</TD></TR>
