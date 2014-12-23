@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PP xmlns="http://common-criteria.rhcloud.com/ns/cc" name="Redaction Tools">
-  <PPReference title="PP"> Reference" id="ID003">
-    <ReferenceTable>
-      <PPTitle>Protection Profile for Redaction Tools</PPTitle>
-      <PPVersion>1.0</PPVersion>
+  <PPReference title="PP"> Reference" id="ID003"> <ReferenceTable>
+      <PPTitle>Application Software Extended Package for Redaction Tools</PPTitle>
+      <PPVersion>1.1</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2014-05-14</PPPubDate>
-      <PPCertificationID>NIAP-whoknows</PPCertificationID>
-      <CCVersion>1.0 Revision 0</CCVersion>
+      <PPPubDate>2014-12-23</PPPubDate>
+      <PPCertificationID>unassigned</PPCertificationID>
+      <CCVersion>Version 3.1</CCVersion>
       <Keywords>redaction; software</Keywords>
       <entry>
         <name>Registration</name>
@@ -15,59 +14,119 @@
       </entry>
     </ReferenceTable>
   </PPReference>
-  <RevisionHistory>
+  <RevisionHistory role="draft">
     <entry>
       <version>v 1.0</version>
       <date>2014-05-14</date>
       <subject>Final Version 1.0 Released</subject>
     </entry>
+    <entry>
+      <version>v 1.1</version>
+      <date>2014-12-23</date>
+      <subject>Interim Draft - Update as Extended Package of the Protection Profile for Application
+        Software</subject>
+    </entry>
+  </RevisionHistory>
+  <RevisionHistory role="release">
+    <entry>
+      <version>v 1.0</version>
+      <date>2014-05-14</date>
+      <subject>Final Version 1.0 Released</subject>
+    </entry>
+    <entry>
+      <version>v 2.0</version>
+      <date>2014-12-23</date>
+      <subject>Update as Extended Package of the Protection Profile for Application
+        Software</subject>
+    </entry>
   </RevisionHistory>
   <chapter title="PP Introduction" id="int">
-    <section title="PP Reference Identification" id="ppreference">PP Reference: Protection Profile
-      for Redaction Tools<br/> PP Version: 1.0<br/> PP Date: 14 May 2014<br/>
-      <cite linkend="bibCC"/>
-    </section>
-    <section title="CC Conformance" id="ccconformance">As defined by the references [CC1], [CC2] and
-      [CC3], this <span title="Protection Profile">PP</span> conforms to the requirements of Common Criteria v3.1, Revision 4.</section>
-    <section title="TOE Overview" id="overview"> Redaction is the process of selectively removing
-      and replacing information from a document or other logical container of data for release to an
-      audience not intended to view that information. Redacted information is not limited to
-      classified material; other examples include privacy data, proprietary information, trade
-      secrets, and legal strategy. Instances of redaction include replacing classified text with a
-      black box to release a document to an unclassified environment, replacing privacy-related data
-      such as telephone numbers with all Xs to release a database to a contractor, converting a
-      proprietary format document to Portable Document Format (PDF) to release a
-      what-you-see-is-what-you-get (WYSIWYG) document. The risk from improper or incomplete
-      redaction is the inadvertent disclosure of classified or sensitive data.<br/> Redaction has
-      become a more complex problem due to electronic file formats, including documents,
-      spreadsheets, databases or others that act as a logical container for data. These formats
-      include the visual content as well as hidden data such as document properties, comments, and
-      executable content. Users cannot easily access or examine some of the hidden data making it a
-      substantial avenue for inadvertent disclosure. Redaction tools are designed to assist the user
-      with review and removal of both visible and hidden information.<br/> In the past, the typical
-      redaction method for electronic documents was to print the document, black out the necessary
-      information, then make a photocopy releasing a physical document. This paper method has the
-      advantage of assurance but the disadvantage of loss of usability. The physical printed copy is
-      exactly what is visible, a true WYSIWYG representation of the information. The photocopy could
-      be scanned back into the computer for release as an electronic document, but the usability is
-      greatly diminished. This method of redaction is no longer satisfactory in situations where the
-      released document must retain the usability of the original source, or in situations where the
-      object is not a document but a database table or other unprintable container.<br/> Redaction
-      is not sanitization. In the sanitization process, information is removed with no indication
-      that the sanitization process took place. In the redaction process, selected visible
-      information is removed and replaced with something innocuous (e.g. black box or text) so that
-      the reader knows redaction took place. This replacement is a critical part of the process not
-      shared with sanitization. <subsection title="Types of Data - Terminology for Requirements"
-        id="typesofdata"> An electronic document is a logical container that is the product of an
-        application such as a word processor or other text-based editor. Documents contain data in
-        the form of text, images, video, audio, or other embedded logical containers such as
-        spreadsheets (e.g. Microsoft Object Linking and Embedding (OLE)).<br/> Data that users may
-        need to redact from documents falls into two broad types: visible data and hidden data. The
-        same element of a document can have both a visual representation as well as a different
-        hidden representation. For example, the image displayed to the user may be a smaller size
-        and resolution from the image stored in the internal format of the document file. The
-        following terms for types of visible and hidden data are established for use in the
-        requirements section of the protection profile:<br/> Visible Data:<br/>
+    <section title="Overview" id="ppoverview">The scope of this Extended Package (EP) is to describe
+      the security functionality of Redaction tools in terms of <cite linkend="bibCC"/>. Redaction
+      is the process of selectively removing and replacing information from a document or other
+      logical container of data for release to an audience not intended to view that information.
+      Redacted information is not limited to classified material; other examples include privacy
+      data, proprietary information, trade secrets, and legal strategy. Instances of redaction
+      include replacing classified text with a black box to release a document to an unclassified
+      environment, replacing privacy-related data such as telephone numbers with all Xs to release a
+      database to a contractor, converting a proprietary format document to Portable Document Format
+      (PDF) to release a what-you-see-is-what-you-get (WYSIWYG) document. The risk from improper or
+      incomplete redaction is the inadvertent disclosure of classified or sensitive data.<br/>
+      Redaction has become a more complex problem due to electronic file formats, including
+      documents, spreadsheets, databases or others that act as a logical container for data. These
+      formats include the visual content as well as hidden data such as document properties,
+      comments, and executable content. Users cannot easily access or examine some of the hidden
+      data making it a substantial avenue for inadvertent disclosure. Redaction tools are designed
+      to assist the user with review and removal of both visible and hidden information.<br/> In the
+      past, the typical redaction method for electronic documents was to print the document, black
+      out the necessary information, then make a photocopy releasing a physical document. This paper
+      method has the advantage of assurance but the disadvantage of loss of usability. The physical
+      printed copy is exactly what is visible, a true WYSIWYG representation of the information. The
+      photocopy could be scanned back into the computer for release as an electronic document, but
+      the usability is greatly diminished. This method of redaction is no longer satisfactory in
+      situations where the released document must retain the usability of the original source, or in
+      situations where the object is not a document but a database table or other unprintable
+      container.<br/> Redaction is not sanitization. In the sanitization process, information is
+      removed with no indication that the sanitization process took place. In the redaction process,
+      selected visible information is removed and replaced with something innocuous (e.g. black box
+      or text) so that the reader knows redaction took place. This replacement is a critical part of
+      the process not shared with sanitization. </section>
+    <section title="Terms" id="glossary">The following sections provide both Common Criteria and
+      technology terms used in this Extended Package. <subsection title="Common Criteria Terms"
+        id="ccterms">
+        <glossary>
+          <entry>
+            <term><abbr title="Common Criteria">CC</abbr></term>
+            <description>Common Criteria for Information Technology Security
+              Evaluation.</description>
+          </entry>
+          <entry>
+            <term><abbr title="Common Evaluation Methodology">CEM</abbr></term>
+            <description>Common Evaluation Methodology for Information Technology Security
+              Evaluation.</description>
+          </entry>
+          <entry>
+            <term><abbr title="Extended Package">EP</abbr></term>
+            <description>An implementation-independent set of security requirements for a category
+              of products, which extends those in a Protection Profile.</description>
+          </entry>
+          <entry>
+            <term><abbr title="Protection Profile">PP</abbr></term>
+            <description>An implementation-independent set of security requirements for a category
+              of products.</description>
+          </entry>
+          <entry>
+            <term><abbr title="Security Target">ST</abbr></term>
+            <description>A set of implementation-dependent security requirements for a specific
+              product.</description>
+          </entry>
+          <entry>
+            <term><abbr title="Target of Evaluation">TOE</abbr></term>
+            <description>The product under evaluation. In this case, application software and its
+              supporting documentation.</description>
+          </entry>
+          <entry>
+            <term><abbr title="TOE Security Functionality">TSF</abbr></term>
+            <description>The security functionality of the product under evaluation.</description>
+          </entry>
+          <entry>
+            <term><abbr title="TOE Summary Specification">TSS</abbr></term>
+            <description>A description of how a <abbr linkend="TOE"/> satisfies the SFRs in a <abbr
+                linkend="ST"/>. </description>
+          </entry>
+          <entry>
+            <term><abbr title="Security Functional Requirement">SFR</abbr></term>
+            <description>A requirement for security enforcement by the <abbr linkend="TOE"/>.
+            </description>
+          </entry>
+          <entry>
+            <term><abbr title="Security Assurance Requirement">SAR</abbr></term>
+            <description>A requirement to assure the security of the <abbr linkend="TOE"/>.
+            </description>
+          </entry>
+        </glossary>
+      </subsection>
+      <subsection title="Technology Terms" id="techterms">
         <glossary>
           <entry>
             <term>Visible contents</term>
@@ -154,35 +213,38 @@
               embedded spreadsheet on a page where only a small portion of the spreadsheet is
               visible within the view container on the page while content in the rest of the
               spreadsheet is in the document but hidden from the viewer. To simplify such an object,
-              the <span title="Target of Evaluation">TOE</span> could create a single layer image (with no metadata of its own) from just the
-              portion of the spreadsheet that is visible, place that image on the page and remove
-              the embedded spreadsheet. This is just one solution. The intent of simplifying an
-              object is to remove something complex that could contain hidden data and replace it
-              with something simple that does not contain hidden data. </description>
+              the <span title="Target of Evaluation">TOE</span> could create a single layer image
+              (with no metadata of its own) from just the portion of the spreadsheet that is
+              visible, place that image on the page and remove the embedded spreadsheet. This is
+              just one solution. The intent of simplifying an object is to remove something complex
+              that could contain hidden data and replace it with something simple that does not
+              contain hidden data. </description>
           </entry>
           <entry>
             <term>Examine a test file or document</term>
             <description>the evaluator uses a hex editor or similar tool to view the raw binary (or
               hex) data of the file and the format structure. This allows the evaluator to view the
-              contents of the file directly rather than through the <span title="Target of Evaluation">TOE</span>’s interpretation of those
-              contents. The examination can include the use of tools to extract, decode or
-              decompress certain types of elements from the format, such as text or images. Care
-              must be taken so that the extraction process does not change the element’s size,
-              resolution, or content. The Technical Community will identify appropriate tools.
-            </description>
+              contents of the file directly rather than through the <span
+                title="Target of Evaluation">TOE</span>’s interpretation of those contents. The
+              examination can include the use of tools to extract, decode or decompress certain
+              types of elements from the format, such as text or images. Care must be taken so that
+              the extraction process does not change the element’s size, resolution, or content. The
+              Technical Community will identify appropriate tools. </description>
           </entry>
           <entry>
             <term>Apply the <span title="Target of Evaluation">TOE</span></term>
             <description>follow the multi-step process where the user selects or marks areas or
-              items in a document for redaction and then instructs the <span title="Target of Evaluation">TOE</span> to redact the marked
-              areas and hidden information from the file. </description>
+              items in a document for redaction and then instructs the <span
+                title="Target of Evaluation">TOE</span> to redact the marked areas and hidden
+              information from the file. </description>
           </entry>
           <entry>
             <term>Test files</term>
-            <description>to test the <span title="Target of Evaluation">TOE</span>, the evaluator will have to use test documents that have
-              content expected to produce a certain result. The evaluator will apply the redaction
-              tool to the test files and examine the output to determine if it is as expected. The
-              same test documents can be used for each <span title="Target of Evaluation">TOE</span> that produces the same format as those
+            <description>to test the <span title="Target of Evaluation">TOE</span>, the evaluator
+              will have to use test documents that have content expected to produce a certain
+              result. The evaluator will apply the redaction tool to the test files and examine the
+              output to determine if it is as expected. The same test documents can be used for each
+                <span title="Target of Evaluation">TOE</span> that produces the same format as those
               test documents. For example, a set of PDF test files can be used for all PDF redaction
               tools. Test files will usually contain only one testable item at a time to make it
               easier to identify that item in the structure of the document, but some test files
@@ -193,15 +255,45 @@
       </subsection>
     </section>
 
-
-
+    <section title="Compliant Targets of Evaluation" id="TOEdescription"> This document provides an
+      extended set of Security Functional Requirements (SFRs) for a redaction tool, which is the
+      Target of Evaluation (TOE). <br/> The Protection Profile for Application Software defines the
+      baseline SFRs for application software which runs on mobile devices ("apps") as well as on
+      desktop and server platforms. This Extended Package (EP) for redaction tools is not complete
+      in itself, but rather extends the Protection Profile for Application Software. <br/> Redaction
+      tools are client applications requiring the user to selectively review and redact information
+      one document at a time. This <span title="Extended Package">EP</span> is limited to the
+      redaction of electronic documents defined in standards such as the series International
+      Organization for Standards (ISO)/International Electrotechnical Commission (IEC)-29500 (Office
+      OpeneXtensible Markup Language (XML), e.g. Microsoft Word, PowerPoint, and Excel documents)
+      and ISO/IEC-32000 (PDF), or the definitive standard for a format. Mail guards, filters, and
+      batch redaction tools are beyond the scope of this <span title="Extended Package"
+      >EP</span>.<br/> Requirements that apply to features such as administrative control over
+      particular redaction settings, multi-person review prior to release, etc., are outside the
+      scope of this <span title="Extended Package">EP</span>. The <span title="Target of Evaluation"
+        > TOE</span> may have those features but is not required to have them and their use and
+      enforcement is governed by the organization’s redaction policy.<br/> This <span
+        title="Extended Package">PP</span> covers the software functionality of the redaction
+      process; it does not include requirements for how users should decide what to redact or other
+      policy issues. Analysis of documents for covert data transfer is part of the decision-making
+      process for what to redact and so occurs prior to the redaction itself. The requirements in
+      this document are independent of requirements levied on document release by statute or the
+      judiciary.<br/> Data execution risks inherent in some file formats are beyond the scope of
+      this <span title="Extended Package">EP</span>. This <span title="Extended Package">EP</span>
+      assumes that scanning for such risks occurs prior to the document entering the redaction
+      functionality of the <span title="Target of Evaluation">TOE</span>.<br/> Documents to be
+      redacted may contain objects that are vulnerable to steganography, such as images or video.
+      Functional data such as scripts can contain strings or images that may not be accessible to
+      the redaction tool. Analysis of such objects for attacks or covert data transfer will occur
+      outside of the redaction process. An organization’s security policy will determine whether
+      such objects are released or redacted in their entirety. </section>
 
     <section title="Use Case" id="usecase">A user needs to release an electronic document to an
       audience outside of some boundary. Some of the information in the document must not be
       available to that audience. The user must first redact this information from the document
       before moving the document across the boundary. The user manually selects the data to be
       redacted with an interactive software application. The format of the source and destination
-      documents can be the same or different.<br/>
+      documents can be the same or different.<br/>      
       <figure entity="images/workflow.jpg"
         title="Figure 1: One possible workflow of an electronic document through the redaction process."
         id="workflow"/> Figure 1 shows the typical workflow of a document from source to destination
@@ -251,63 +343,42 @@
       other tools used in the workflow, the organization's redaction policy as well as security
       requirements and security policies that apply to other parts of the workflow is beyond the
       scope of this protection profile. </section>
-    <section title="TOE Scope" id="TOEscope"> This <span title="Protection Profile">PP</span> is limited to the redaction of electronic
-      documents defined in standards such as the series International Organization for Standards
-      (ISO)/International Electrotechnical Commission (IEC)-29500 (Office OpeneXtensible Markup
-      Language (XML), e.g. Microsoft Word, PowerPoint, and Excel documents) and ISO/IEC-32000 (PDF),
-      or the definitive standard for a format. This <span title="Protection Profile">PP</span> applies to an interactive tool requiring the
-      user to selectively review and redact information one document at a time. Mail guards,
-      filters, and batch redaction tools are beyond the scope of this <span title="Protection Profile">PP</span>.<br/> Requirements that
-      apply to features such as administrative control over particular redaction settings,
-      multi-person review prior to release, etc., are outside the scope of this <span title="Protection Profile">PP</span>. The <span title="Target of Evaluation">TOE</span> may have
-      those features but is not required to have them and their use and enforcement is governed by
-      the organization’s redaction policy.<br/> This <span title="Protection Profile">PP</span> covers the software functionality of the
-      redaction process; it does not include requirements for how users should decide what to redact
-      or other policy issues. Analysis of documents for covert data transfer is part of the
-      decision-making process for what to redact and so occurs prior to the redaction itself. The
-      requirements in this document are independent of requirements levied on document release by
-      statute or the judiciary.<br/> Data execution risks inherent in some file formats are beyond
-      the scope of this <span title="Protection Profile">PP</span>. This <span title="Protection Profile">PP</span> assumes that scanning for such risks occurs prior to the
-      document entering the redaction functionality of the <span title="Target of Evaluation">TOE</span>.<br/> Documents to be redacted may
-      contain objects that are vulnerable to steganography, such as images or video. Functional data
-      such as scripts can contain strings or images that may not be accessible to the redaction
-      tool. Analysis of such objects for attacks or covert data transfer will occur outside of the
-      redaction process. An organization’s security policy will determine whether such objects are
-      released or redacted in their entirety.<br/>
-    </section>
   </chapter>
-  <chapter title="Security Problem Definition" id="spd">
-    <section title="Threats" id="threats">The security problem to be addressed by compliant <span title="Target of Evaluation">TOE</span>s is
-      described by threats that might be targeted by the specific functionality of a Redaction Tool.
-      Annex A: Supporting Tables presents the Security Problem Description (SPD) in a more
-      “traditional” form. The following sections detail the problems that compliant <span title="Target of Evaluation">TOE</span>s will
-      address; references to the “traditional” statements in Annex A are included. <threats>
-        <threat id="T.NETWORK_ATTACK">
-          <description>Remove this threat after I talk to Jason! An attacker is positioned on a
-            communications channel or elsewhere on the network infrastructure. Attackers may engage
-            in communications with the application software or alter communications between the
-            application software and other endpoints in order to compromise it.</description>
-          <objective-refer ref="O.PROTECTED_COMMS">
-            <rationale>The threat T.NETWORK_EAVESDROP is countered by O.PROTECTED_COMMS as this
-              provides for integrity of transmitted data.</rationale>
-          </objective-refer>
-          <objective-refer ref="O.INTEGRITY">
-            <rationale>The threat T.NETWORK_EAVESDROP is countered by O.INTEGRITY as this provides
-              for integrity of software that is installed onto the system from the
-              network.</rationale>
-          </objective-refer>
-        </threat>
+
+  <chapter title="Conformance Claims" id="conf">
+    <h3>CC Conformance Claims</h3>
+    <description>This <abbr linkend="EP"/> is conformant to Part 2 (extended) of Common Criteria
+        <cite linkend="bibCC"/> Version 3.1, Revision 4.</description>
+    <h3>PP Claim</h3>
+    <description>This <abbr linkend="EP"/> extends the Protection Profile for Application Software
+      but does not claim conformance to any other Protection Profile.</description>
+    <h3>Package Claim</h3>
+    <description>This <abbr linkend="EP"/> does not claim conformance to any packages.</description>
+  </chapter>
+
+  <chapter title="Security Problem Description" id="spd"> The security problem is described in terms
+    of the threats that the redaction tool is expected to address, assumptions about the operational
+    environment, and any organizational security policies that it is expected to enforce. <br/> This
+    Extended Package does not repeat the threats, assumptions, and organizational security policies
+    identified in the <i>Protection Profile for Application Software</i> (App PP), though they all
+    apply given the conformance and hence dependence of this EP on it. Together the threats,
+    assumptions and organizational security policies of the App PP and those defined in this EP
+    describe those addressed by a web browser as the Target of Evaluation. <br/>
+    <section title="Threats" id="threattable">The following threats are specific to redaction tools,
+      and represent an addition to those identified in the App PP. <threats>
         <threat id="T.Clues_to_Original_Data">
           <description>A user or application may release redacted documents, where, the text or
-            graphics placed in the redacted area by the <span title="Target of Evaluation">TOE</span> may contain clues to the nature of the
-            original redacted information.</description>
+            graphics placed in the redacted area by the <span title="Target of Evaluation"
+              >TOE</span> may contain clues to the nature of the original redacted
+            information.</description>
         </threat>
         <threat id="T.Expose_Process_Data">
           <description>A user or application may release documents containing hidden elements that
             may contain information on process details unnecessary for release. </description>
         </threat>
         <threat id="T.Implementation_Flaws">
-          <description>The <span title="Target of Evaluation">TOE</span> software may contain flaws that result in improper <span title="Target of Evaluation">TOE</span>
+          <description>The <span title="Target of Evaluation">TOE</span> software may contain flaws
+            that result in improper <span title="Target of Evaluation">TOE</span>
             operation.</description>
         </threat>
         <threat id="T.Inaccessible_Data">
@@ -337,47 +408,19 @@
             distract a user (noise, excessive workload, coworkers).</description>
         </threat>
         <threat id="T.Unredacted_Release">
-          <description>The <span title="Target of Evaluation">TOE</span> may fail to redact selected or hidden data elements that may contain
-            information deemed unreleasable for dissemination outside of the data owner’s
-            organization.</description>
+          <description>The <span title="Target of Evaluation">TOE</span> may fail to redact selected
+            or hidden data elements that may contain information deemed unreleasable for
+            dissemination outside of the data owner’s organization.</description>
         </threat>
       </threats>
     </section>
     <section title="Assumptions" id="assumptions">This section of the security problem definition
       shows the assumptions that are made on the operational environment in order to be able to
-      provide security functionality. If the <span title="Target of Evaluation">TOE</span> is placed in an operational environment that does
-      not meet these assumptions, the <span title="Target of Evaluation">TOE</span> may not be able to provide all of its security
-      functionality. Assumptions can be for physical, personnel and connectivity aspects of the
-      operational environment. <assumptions>
-        <assumption id="A.PLATFORM">
-          <description>Remove this as soon as I talk to Jason! The <span title="Target of Evaluation">TOE</span> relies upon
-            a trustworthy computing platform for its execution. This includes the underlying
-            operating system and the runtime environment it provides to the <span title="Target of Evaluation">TOE</span>.</description>
-          <objective-refer ref="OE.PLATFORM">
-            <rationale>The assumption A.PLATFORM is covered by security objectives OE.PLATFORM as
-              directly follows.</rationale>
-          </objective-refer>
-        </assumption>
-        <assumption id="A.Platform">
-          <description>The <span title="Target of Evaluation">TOE</span> relies upon a trustworthy computing platform for its execution. This
-            includes the underlying operating system and the runtime environment it provides to the
-            <span title="Target of Evaluation">TOE</span>.</description>
-        </assumption>
-        <assumption id="A.Proper User">
-          <description>The user of the application software is not willfully negligent or hostile,
-            and uses the software within compliance of a reasonable Enterprise security
-            policy.</description>
-        </assumption>
-        <assumption id="A.Proper Admin">
-          <description>The administrator of the application software is not careless, willfully
-            negligent or hostile, and administers the software within compliance of a reasonable
-            Enterprise security policy.</description>
-        </assumption>
-        <assumption id="A.Enterprise ">
-          <description>The configuration of the application software must adhere to the Enterprise
-            security policy.</description>
-        </assumption>
-        <assumption id="A.Knowledge User">
+      provide security functionality. If the <span title="Target of Evaluation">TOE</span> is placed
+      in an operational environment that does not meet these assumptions, the <span
+        title="Target of Evaluation">TOE</span> may not be able to provide all of its security
+      functionality. <assumptions>
+        <assumption id="A.Knowledgeable User">
           <description>The user is knowledgeable concerning document management and has appropriate
             training with the redaction tool. Part of this knowledge and training includes how to
             prepare a document for the redaction tool, e.g. resolve and turn off tracked changes
@@ -389,581 +432,669 @@
             organization which the user follows.</description>
         </assumption>
         <assumption id="A.Preservation of Document Layout">
-          <description>The <span title="Target of Evaluation">TOE</span> will preserve the layout of the document.</description>
+          <description>The <span title="Target of Evaluation">TOE</span> will preserve the layout of
+            the document.</description>
         </assumption>
       </assumptions>
     </section>
   </chapter>
-  <chapter title="Security Objectives" id="obj">Compliant <span title="Target of Evaluation">TOE</span>s will provide security functionality
-    that address threats to the <span title="Target of Evaluation">TOE</span>. The following sections provide a description of this
+
+  <chapter title="Security Objectives" id="obj">Compliant <span title="Target of Evaluation"
+      >TOE</span>s will provide security functionality that address threats to the <span
+      title="Target of Evaluation">TOE</span>. The following sections provide a description of this
     functionality in light of the threats previously discussed that motivate its inclusion in
-    compliant <span title="Target of Evaluation">TOE</span>s. The security functionality provided includes generation of reports of redacted
-    items, validation of files designated for redaction, and removal of data and elements designated
-    for redaction. <SOs>
+    compliant <span title="Target of Evaluation">TOE</span>s. The security functionality provided
+    includes generation of reports of redacted items, validation of files designated for redaction,
+    and removal of data and elements designated for redaction. <SOs>
       <SO id="O.PROTECTED_STORAGE">
         <description>Remove this after I talk to Jason! To address the issue of loss of
           confidentiality of user data in the event of loss of physical control of the storage
-          medium, conformant <span title="Target of Evaluation">TOE</span>s will use data-at-rest protection. This involves
-          encrypting data and keys stored by the <span title="Target of Evaluation">TOE</span> in order to prevent unauthorized access to this
+          medium, conformant <span title="Target of Evaluation">TOE</span>s will use data-at-rest
+          protection. This involves encrypting data and keys stored by the <span
+            title="Target of Evaluation">TOE</span> in order to prevent unauthorized access to this
           encrypted data.</description>
         <component-refer ref="fdp_dar_ext.1"/>
         <component-refer ref="fcs_rbg_ext.1"/>
       </SO>
       <SO id="O.Deep_Inspection">
-        <description>The <span title="Target of Evaluation">TOE</span> will analyze the file content for metadata and elements, to include any
-          that are purposely hidden or not immediately visible to the naked eye. This metadata and
-          elements includes, but is not limited to those that are obstructed from view such as
-          shapes on top of text, hidden objects (manual direct formatting or programmatically
-          hidden), and text that is positioned off the margins, and/or is located in header and
-          footer sections of the file.</description>
+        <description>The <span title="Target of Evaluation">TOE</span> will analyze the file content
+          for metadata and elements, to include any that are purposely hidden or not immediately
+          visible to the naked eye. This metadata and elements includes, but is not limited to those
+          that are obstructed from view such as shapes on top of text, hidden objects (manual direct
+          formatting or programmatically hidden), and text that is positioned off the margins,
+          and/or is located in header and footer sections of the file.</description>
       </SO>
       <SO id="O.Failure">
         <description>The user must have assurance that the redaction is complete to avoid releasing
-          the document prior to proper redaction. The <span title="Target of Evaluation">TOE</span> can fail redaction for several reasons.
-          Failing in a secure state will assure the user that a partially redacted file will not be
-          released.</description>
+          the document prior to proper redaction. The <span title="Target of Evaluation">TOE</span>
+          can fail redaction for several reasons. Failing in a secure state will assure the user
+          that a partially redacted file will not be released.</description>
       </SO>
       <SO id="O.Hidden Data">
-        <description>The <span title="Target of Evaluation">TOE</span> will provide the capability to find and remove hidden data elements in
-          the document. The <span title="Target of Evaluation">TOE</span> will include the capability to automatically remove certain hidden
-          data elements that are unnecessary for the functionality, display or printing of the
-          document.</description>
+        <description>The <span title="Target of Evaluation">TOE</span> will provide the capability
+          to find and remove hidden data elements in the document. The <span
+            title="Target of Evaluation">TOE</span> will include the capability to automatically
+          remove certain hidden data elements that are unnecessary for the functionality, display or
+          printing of the document.</description>
       </SO>
       <SO id="O.Locate_and_Remove">
         <description>Complex file formats may store multiple instances of data in different
-          locations within the file. The <span title="Target of Evaluation">TOE</span> must locate all instances of data to be redacted and
-          completely remove this data from the file.</description>
+          locations within the file. The <span title="Target of Evaluation">TOE</span> must locate
+          all instances of data to be redacted and completely remove this data from the
+          file.</description>
       </SO>
       <SO id="O.No_New_Hidden_Data">
-        <description>The <span title="Target of Evaluation">TOE</span> may not add hidden data to the redacted file without informing the
-          user. This hidden data may include metadata, document management system tracking
-          information, or other process related information.</description>
+        <description>The <span title="Target of Evaluation">TOE</span> may not add hidden data to
+          the redacted file without informing the user. This hidden data may include metadata,
+          document management system tracking information, or other process related
+          information.</description>
       </SO>
       <SO id="O.Remove">
-        <description>The <span title="Target of Evaluation">TOE</span> will provide the capability to completely remove any data selected for
-          redaction.</description>
+        <description>The <span title="Target of Evaluation">TOE</span> will provide the capability
+          to completely remove any data selected for redaction.</description>
       </SO>
       <SO id="O.Remove_References">
         <description>Complex file formats may contain multiple internal references to data to be
-          redacted. The <span title="Target of Evaluation">TOE</span> will remove all such internal references.</description>
+          redacted. The <span title="Target of Evaluation">TOE</span> will remove all such internal
+          references.</description>
       </SO>
       <SO id="O.Replace">
-        <description>During the redaction process the <span title="Target of Evaluation">TOE</span> will place text or graphics in the area of
-          the redacted information to signify data has been redacted. This newly placed information
-          cannot convey any information which may offer clues as to the nature of the original
-          redacted information.</description>
+        <description>During the redaction process the <span title="Target of Evaluation">TOE</span>
+          will place text or graphics in the area of the redacted information to signify data has
+          been redacted. This newly placed information cannot convey any information which may offer
+          clues as to the nature of the original redacted information.</description>
       </SO>
       <SO id="O.Report ">
         <description>As users employ redaction tools to remove elements from documents or other
           types of logical containers, confirmation that the elements selected by the user and the
-          <span title="Target of Evaluation">TOE</span> were removed is necessary. Report generation is one means of providing users with
-          feedback about what was redacted. This capability allows the user to call up a report upon
-          request.</description>
+            <span title="Target of Evaluation">TOE</span> were removed is necessary. Report
+          generation is one means of providing users with feedback about what was redacted. This
+          capability allows the user to call up a report upon request.</description>
       </SO>
       <SO id="O.Selected_Elements">
-        <description>The <span title="Target of Evaluation">TOE</span> will provide the capability to select any type of document object in
-          whole or in part for redaction.</description>
+        <description>The <span title="Target of Evaluation">TOE</span> will provide the capability
+          to select any type of document object in whole or in part for redaction.</description>
       </SO>
       <SO id="O.Validation">
-        <description>The <span title="Target of Evaluation">TOE</span> will provide the capability to parse through the structure of the
-          document and extraneous or unnecessary data without affecting the overall structure or
-          functionality (e.g., display, print) of the document. The <span title="Target of Evaluation">TOE</span> will also provide the
-          capability to parse different complex objects based on the format and simplify or remove
-          those that it cannot interpret. In doing so, the <span title="Target of Evaluation">TOE</span> will produce a clean document for
-          redaction without involving the user.</description>
+        <description>The <span title="Target of Evaluation">TOE</span> will provide the capability
+          to parse through the structure of the document and extraneous or unnecessary data without
+          affecting the overall structure or functionality (e.g., display, print) of the document.
+          The <span title="Target of Evaluation">TOE</span> will also provide the capability to
+          parse different complex objects based on the format and simplify or remove those that it
+          cannot interpret. In doing so, the <span title="Target of Evaluation">TOE</span> will
+          produce a clean document for redaction without involving the user.</description>
       </SO>
     </SOs>
   </chapter>
-  <chapter title="Security Functional Requirements" id="req">Some of the Security Functional
-    Requirements (<span title="Security Functional Requirement">SFR</span>s) included in this section are derived from Part 2 of the Common Criteria for
-    Information Technology Security Evaluation, Version 3.1, Revision 4, with additional extended
-    functional components.<br/> Conventions<br/> The <span title="Common Criteria">CC</span> defines operations on Security Functional
-    Requirements: assignments, selections, assignments within selections and refinements. This
-    document uses the following font conventions to identify the operations defined by the <span title="Common Criteria">CC</span>: <ul>
-      <li> Assignment: Indicated with <i>italicized</i> text; </li>
-      <li> Refinement made by <span title="Protection Profile">PP</span> author: Indicated by the word “Refinement” in <b>bold text</b>
-        after the element number with additional text in <b>bold</b> text and deletions with
-        strikethroughs, if necessary; </li>
-      <li> Selection: Indicated with underlined text;</li>
-      <li> Assignment within a Selection: Indicated with <i>italicized and underlined text</i>; </li>
-      <li> Iteration: Indicated by appending the iteration number in parenthesis, e.g. (1), (2),
-        (3).</li>
-    </ul> Explicitly stated <span title="Security Functional Requirement">SFR</span>s are identified by having a label ‘EXT’ after the requirement name
-    for <span title="Target of Evaluation">TOE</span> <span title="Security Functional Requirement">SFR</span>s. 
-    <section title="Report Generation and Review" id="RGR">
-      <f-component id="REP_GEN_EXT.1" name="Report Generation"> Hierarchical to: No other
-        components. <br/> Dependencies: None <f-element id="REP_GEN_EXT.1.1">
-          <title>The <span title="Target of Evaluation">TOE</span> must be able to generate a report entry that contains metadata about each
-            element that was redacted, including at least the following: the type of the element
-            that was removed, the location if it was a visible element, and whether the element was
-            selected by the user or removed automatically. </title>
-          <note role="application">The report can be a configurable feature that is only generated
-            on user request. Location can be a page number, a cell number for a spreadsheet, or some
-            other indication that allows the user to easily locate the visible element. </note>
-          <aactivity>The evaluator shall examine the <span title="TOE Summary Specification">TSS</span> to ensure it describes the <span title="Target of Evaluation">TOE</span>’s reporting
-            feature and the metadata that is included for each report entry. The evaluator shall
-            examine the operational guidance to ensure it contains instructions for the
-            configuration of the reporting feature in accordance with this requirement. The
-            evaluator shall create test files with specific elements to redact, apply the <span title="Target of Evaluation">TOE</span> to the
-            test files, and observe that there is a report for each element expected to be redacted.
-            This assurance activity can be done in conjunction with REP_RVW_EXT.1. </aactivity>
-        </f-element>
-      </f-component> <f-component id="REP_RVW_EXT.1" name="Report Review"> Hierarchical to: No other
-        components.<br/> Dependencies: REP_GEN.1 <f-element id="REP_RVW_EXT.1.1">
-          <title>The <span title="Target of Evaluation">TOE</span> must allow the user to access a report of the data that was
-            redacted.</title>
-          <note role="application">This can be satisfied with a dialog box or other simple list of
-            items that were redacted. The report can be a configurable feature that is only
-            generated on user request.</note>
-          <aactivity>The evaluator shall create test files with specific elements to redact, apply
-            the <span title="Target of Evaluation">TOE</span> to the test files, and observe that there is a report entry for each element
-            expected to be redacted.</aactivity>
-        </f-element>
-      </f-component>
-    </section>
-    <section title="Validation Stage" id="VS">
-      <f-component id="VAL_REM_EXT.1" name="Validation of Data">
-        Hierarchical to: No other components.<br></br>
-        Dependencies: None
-        <f-element id="VAL_REM_EXT.1.1">
-        <title>The <span title="Target of Evaluation">TOE</span> must remove unrecognized data, unexpected data, and extraneous structural data. </title>
-         <note role="application">
-          Structural data is extraneous if it is unnecessary for the printing or display of the document contents, or unnecessary for the functionality of the document.<br></br>
-            Example - many formats include comments, e.g. PDF allows file format comments which are preceded by %. When these comments are unnecessary, unrelated to the printing or display of the content of the document, or provide no functionality whatsoever they must be removed.<br></br>
-            Example – some formats expect a header structure starting at the first byte of a file, but a tool may be able to interpret a file where the header starts at a later byte by ignoring the data that precedes the header structure. In this case, the preceding data must be removed since it is unexpected.
-         </note>
-          <aactivity>The evaluator shall create or acquire test files that contain unrecognized data, unexpected data, and extraneous structural data. The evaluator shall examine the files prior to redaction to identify the data. The evaluator shall apply the <span title="Target of Evaluation">TOE</span> but make no visible redactions and save the output files. The evaluator shall examine the output files, comparing it to the originals, to verify that the data has been removed.</aactivity>           
-        </f-element>
-        <f-element id="VAL_REM_EXT.1.2">
-          <title>The <span title="Target of Evaluation">TOE</span> must 
-            <selectables>
-              <selectable>simplify</selectable>
-              <selectable>remove</selectable>
-            </selectables> any element which it cannot completely interpret. </title>
-          <note role="application">For example, if the tool cannot recurse through a stream with embedded OLE objects, it must convert the stream to a single layer image with no metadata or remove it. If the redaction tool cannot interpret or process temporal objects, it must remove the temporal object and replace it with a simplified object or other placeholder. If a stream of data is compressed, encoded or encrypted and the redaction tool cannot uncompress, decode or decrypt the data, the tool must delete the stream.</note>
-          <aactivity>The evaluator shall examine the <span title="TOE Summary Specification">TSS</span> to ensure that it describes how the <span title="Target of Evaluation">TOE</span> handles data that it cannot completely interpret. The evaluator shall create or acquire test files with data that the <span title="Target of Evaluation">TOE</span> should not be able to completely interpret, apply the <span title="Target of Evaluation">TOE</span> and examine the output to verify that the <span title="Target of Evaluation">TOE</span> handled the data according to the requirement.</aactivity>
-        </f-element>
+
+  <chapter title="Security Requirements" id="req">This chapter describes the security requirements
+    which have to be fulfilled by the TOE. Those requirements comprise functional components from
+    Part 2 of <cite linkend="bibCC"/>. The following notations are used: <ul>
+      <li>
+        <b>Refinement</b> operation (denoted by <b>bold text</b>): is used to add details to a
+        requirement, and thus further restricts a requirement.</li>
+      <li>
+        <b>Selection</b> (denoted by <i>italicized text</i>): is used to select one or more options
+        provided by the [CC] in stating a requirement.</li>
+      <li>
+        <b>Assignment</b> operation (denoted by <i>italicized text</i>): is used to assign a
+        specific value to an unspecified parameter, such as the length of a password. Showing the
+        value in square brackets indicates assignment.</li>
+      <li>
+        <b>Iteration</b> operation: are identified with a number inside parentheses (e.g.
+        "(1)")</li>
+    </ul>
+    <section title="Security Functional Requirements" id="SFR">This section addresses those Security
+      Functional Requirements that may be met by the TOE. <subsection
+        title="Report Generation and Review" id="RGR">
+        <f-component id="REP_GEN_EXT.1" name="Report Generation"> Hierarchical to: No other
+          components. <br/> Dependencies: None <f-element id="REP_GEN_EXT.1.1">
+            <title>The <span title="Target of Evaluation">TOE</span> must be able to generate a
+              report entry that contains metadata about each element that was redacted, including at
+              least the following: the type of the element that was removed, the location if it was
+              a visible element, and whether the element was selected by the user or removed
+              automatically. </title>
+            <note role="application">The report can be a configurable feature that is only generated
+              on user request. Location can be a page number, a cell number for a spreadsheet, or
+              some other indication that allows the user to easily locate the visible element. </note>
+            <aactivity>The evaluator shall examine the <span title="TOE Summary Specification"
+                >TSS</span> to ensure it describes the <span title="Target of Evaluation"
+              >TOE</span>’s reporting feature and the metadata that is included for each report
+              entry. The evaluator shall examine the operational guidance to ensure it contains
+              instructions for the configuration of the reporting feature in accordance with this
+              requirement. The evaluator shall create test files with specific elements to redact,
+              apply the <span title="Target of Evaluation">TOE</span> to the test files, and observe
+              that there is a report for each element expected to be redacted. This assurance
+              activity can be done in conjunction with REP_RVW_EXT.1. </aactivity>
+          </f-element>
         </f-component>
+        <f-component id="REP_RVW_EXT.1" name="Report Review"> Hierarchical to: No other
+          components.<br/> Dependencies: REP_GEN.1 <f-element id="REP_RVW_EXT.1.1">
+            <title>The <span title="Target of Evaluation">TOE</span> must allow the user to access a
+              report of the data that was redacted.</title>
+            <note role="application">This can be satisfied with a dialog box or other simple list of
+              items that were redacted. The report can be a configurable feature that is only
+              generated on user request.</note>
+            <aactivity>The evaluator shall create test files with specific elements to redact, apply
+              the <span title="Target of Evaluation">TOE</span> to the test files, and observe that
+              there is a report entry for each element expected to be redacted.</aactivity>
+          </f-element>
+        </f-component>
+      </subsection>
+      <subsection title="Validation Stage" id="VS">
+        <f-component id="VAL_REM_EXT.1" name="Validation of Data"> Hierarchical to: No other
+          components.<br/> Dependencies: None <f-element id="VAL_REM_EXT.1.1">
+            <title>The <span title="Target of Evaluation">TOE</span> must remove unrecognized data,
+              unexpected data, and extraneous structural data. </title>
+            <note role="application"> Structural data is extraneous if it is unnecessary for the
+              printing or display of the document contents, or unnecessary for the functionality of
+              the document.<br/> Example - many formats include comments, e.g. PDF allows file
+              format comments which are preceded by %. When these comments are unnecessary,
+              unrelated to the printing or display of the content of the document, or provide no
+              functionality whatsoever they must be removed.<br/> Example – some formats expect a
+              header structure starting at the first byte of a file, but a tool may be able to
+              interpret a file where the header starts at a later byte by ignoring the data that
+              precedes the header structure. In this case, the preceding data must be removed since
+              it is unexpected. </note>
+            <aactivity>The evaluator shall create or acquire test files that contain unrecognized
+              data, unexpected data, and extraneous structural data. The evaluator shall examine the
+              files prior to redaction to identify the data. The evaluator shall apply the <span
+                title="Target of Evaluation">TOE</span> but make no visible redactions and save the
+              output files. The evaluator shall examine the output files, comparing it to the
+              originals, to verify that the data has been removed.</aactivity>
+          </f-element>
+          <f-element id="VAL_REM_EXT.1.2">
+            <title>The <span title="Target of Evaluation">TOE</span> must <selectables>
+                <selectable>simplify</selectable>
+                <selectable>remove</selectable>
+              </selectables> any element which it cannot completely interpret. </title>
+            <note role="application">For example, if the tool cannot recurse through a stream with
+              embedded OLE objects, it must convert the stream to a single layer image with no
+              metadata or remove it. If the redaction tool cannot interpret or process temporal
+              objects, it must remove the temporal object and replace it with a simplified object or
+              other placeholder. If a stream of data is compressed, encoded or encrypted and the
+              redaction tool cannot uncompress, decode or decrypt the data, the tool must delete the
+              stream.</note>
+            <aactivity>The evaluator shall examine the <span title="TOE Summary Specification"
+                >TSS</span> to ensure that it describes how the <span title="Target of Evaluation"
+                >TOE</span> handles data that it cannot completely interpret. The evaluator shall
+              create or acquire test files with data that the <span title="Target of Evaluation"
+                >TOE</span> should not be able to completely interpret, apply the <span
+                title="Target of Evaluation">TOE</span> and examine the output to verify that the
+                <span title="Target of Evaluation">TOE</span> handled the data according to the
+              requirement.</aactivity>
+          </f-element>
+        </f-component>
+      </subsection>
+      <subsection title="Redaction Stage" id="RS">
+        <f-component id="RED_SEL_EXT.1" name="Selected Redaction"> Hierarchical to: No other
+          components.<br/> Dependencies: None <f-element id="RED_SEL_EXT.1.1 ">
+            <title>The <span title="Target of Evaluation">TOE</span> must <selectables>
+                <selectable>simplify</selectable>
+                <selectable>remove</selectable>
+              </selectables> any complex object, embedded object or graphic image which is selected
+              for redaction. </title>
+            <note role="application">The selection may be of either the whole element or only part
+              of the element. If part of an element is selected, only that part must be simplified
+              or removed.</note>
+            <aactivity>The evaluator shall examine the <span title="TOE Summary Specification"
+                >TSS</span> to ensure it describes in detail which complex objects can be simplified
+              by the <span title="Target of Evaluation">TOE</span> and how they are simplified (e.g.
+              whether the object or the whole page is converted to another format and what that
+              format is). The <span title="TOE Summary Specification">TSS</span> shall also list
+              those complex objects or images that cannot be simplified and will be removed. The
+              evaluator shall create or acquire test documents that contain complex objects and
+              examine the documents to identify where those objects are in the format. The evaluator
+              shall then apply the <span title="Target of Evaluation">TOE</span> and examine the
+              output to verify that the objects have been simplified or removed. The evaluator shall
+              test all objects that can be simplified as well as all objects that should be removed
+              according to the <span title="TOE Summary Specification">TSS</span>.<br/> The
+              evaluator shall also create or acquire test documents with complex objects that are
+              not documented in the <span title="TOE Summary Specification">TSS</span>, apply the
+                <span title="Target of Evaluation">TOE</span>, and verify that those objects are
+              removed from the document. </aactivity>
+          </f-element>
+        </f-component>
+        <f-component id="RED_DIN_EXT.1 " name="Deep Inspection"> Hierarchical to: No other
+          components.<br/> Dependencies: None <f-element id="RED_DIN_EXT.1.1 ">
+            <title>For each element of the file format that can contain its own metadata, other
+              elements, or hidden data, the <span title="Target of Evaluation">TOE</span> must <selectables>
+                <selectable>recurse through the element chain and apply the <span
+                    title="Protection Profile">PP</span> to each layer</selectable>
+                <selectable>simplify the element</selectable>
+                <selectable>redact the element</selectable>
+              </selectables>. </title>
+            <note role="application">For example, JPG images can contain metadata called exif data.
+              Some image formats can contain the same image in another format, such as raw which can
+              contain a complete jpg version of the image. A complex object can contain other
+              complex objects (e.g. Microsoft OLE). The tool must apply the requirements to each
+              layer of every element and identify hidden/metadata not just at the top layer of the
+              document but in each element and in all layers within that element. If the <span
+                title="Target of Evaluation">TOE</span> cannot recurse through the layers, it must
+              simplify the element at the top level.</note>
+            <aactivity>The evaluator shall examine the <span title="TOE Summary Specification"
+                >TSS</span> to ensure it lists and describes the methods used to replace redacted
+              elements that contain metadata, other elements, or hidden data. The evaluator shall
+              ensure that the <span title="TOE Summary Specification">TSS</span>’ description
+              complies with the requirement that each element is handled by either recursing through
+              the element chain and applying the <span title="Target of Evaluation">TOE</span> to
+              each layer, simplifying the element, or redacting the element. The evaluator shall
+              create or acquire test files that contain elements that themselves contain other
+              elements and hidden data. The evaluator shall examine the document to identify these
+              elements in the structure, apply the <span title="Target of Evaluation">TOE</span>,
+              and examine the output to verify that the elements were handled properly via either
+              redaction or simplification in accordance with the requirement.</aactivity>
+          </f-element>
+        </f-component>
+        <f-component id="RED_RPL_EXT.1" name="Visible Space Replace"> Hierarchical to: No other
+          components.<br/> Dependencies: None <f-element id="RED_RPL_EXT.1.1 ">
+            <title>The <span title="Target of Evaluation">TOE</span> must replace the visible space
+              of redacted content in such a way that the visible space conveys no information about
+              the previous contents.</title>
+            <note role="application">A vendor may use several different methods to replace content,
+              such as opaque blocks, text, whitespace or some other vendor-defined method. These
+              methods must not convey information about the content being replaced. For example, if
+              text is replaced with text, the replacement text must not indicate length of component
+              words. Blocks of color used to replace parts of images must not show variations in
+              intensity that could convey information about the image content.</note>
+            <aactivity>The evaluator shall examine the <span title="TOE Summary Specification"
+                >TSS</span> to ensure it lists and describes the content used to replace redacted
+              elements. The evaluator shall ensure that the <span title="TOE Summary Specification"
+                >TSS</span>’ description complies with the requirement to convey no information
+              about the previous contents. The evaluator shall create or acquire a test file with an
+              image, mark part of the image for redaction and apply the <span
+                title="Target of Evaluation">TOE</span>, and examine the image in the output to
+              verify that the visual appearance does not provide any indication of the content that
+              was redacted. If the <span title="Target of Evaluation">TOE</span> allows text content
+              to be replaced with text, the evaluator shall create or acquire a test file with some
+              text as content, apply the <span title="Target of Evaluation">TOE</span>, and verify
+              that the replacement text does not preserve word length or other identifying
+              information that could allow recovery of the original content.</aactivity>
+          </f-element>
+        </f-component>
+        <f-component id="RED_REM_EXT.1 " name="Removal of Redacted Data"> Hierarchical to: No other
+          components.<br/> Dependencies: None <f-element id="RED_REM_EXT.1.1">
+            <title>All data that is either selected by the user for redaction or identified by the
+                <span title="Target of Evaluation">TOE</span> for redaction must be removed from the
+              document.</title>
+            <note role="application">Selected content must be removed, not obscured by encryption,
+              encoding, conversion to a proprietary format, or any other method.</note>
+            <aactivity>The evaluator shall examine the <span title="TOE Summary Specification"
+                >TSS</span> to ensure it describes the removal of all data selected for redaction
+              and verify that no encryption, encoding or proprietary process is used to obscure
+              selected data. The evaluator shall ensure that the <span
+                title="TOE Summary Specification">TSS</span>’ description complies with the
+              requirement to remove all data selected by the user or identified by the <span
+                title="Target of Evaluation">TOE</span> for redaction. The evaluator shall acquire
+              or create test files that contain text, images and other elements. The evaluator shall
+              examine the test files to locate the content in the format. The evaluator shall apply
+              the <span title="Target of Evaluation">TOE</span>, marking some of the content for
+              redaction, and examine the output to verify that the marked content was removed and
+              not obscured through encryption, encoding, or conversion to a proprietary
+              format.</aactivity>
+          </f-element>
+        </f-component>
+        <f-component id="RED_LOC_EXT.1" name="Redact Content from Every Location"> Hierarchical to:
+          No other components.<br/> Dependencies: None <f-element id="RED_LOC_EXT.1.1">
+            <title>The <span title="Target of Evaluation">TOE</span> must remove redacted content
+              from every location in the file format where it is stored.</title>
+            <aactivity>The evaluator shall create or acquire test files that contain content in
+              multiple places and examine the files to locate the content. The evaluator shall apply
+              the <span title="Target of Evaluation">TOE</span> and examine the output to verify
+              that it has been removed from every location.</aactivity>
+          </f-element>
+        </f-component>
+        <f-component id="RED_NND_EXT.1" name="No New Data Introduced by TOE"> Hierarchical to: No
+          other components.<br/> Dependencies: None <f-element id="RED_NND_EXT.1 .1">
+            <title>The <span title="Target of Evaluation">TOE</span> itself must not introduce new
+              hidden data that was not requested by the user without warning the user of the
+              addition. </title>
+            <note role="application">If the redaction process changes the format of an object, such
+              as converting a complex object to an image, the conversion must not introduce new
+              metadata.<br/> The <span title="Target of Evaluation">TOE</span> can modify or add
+              structural data, including fonts, without alerting the user if the modification is
+              necessary for the proper display or print of the file. </note>
+            <aactivity>The evaluator shall examine the <span title="TOE Summary Specification"
+                >TSS</span> to ensure it describes the actions taken by the <span
+                title="Target of Evaluation">TOE</span> when removing, simplifying, or redacting an
+              element. If structural data is added, the <span title="TOE Summary Specification"
+                >TSS</span> shall specify what structural data is added and the purpose of the
+              structural data. If non-structural hidden data is added, the <span
+                title="TOE Summary Specification">TSS</span> shall detail the added hidden data and
+              describe how the user is notified of the addition. The evaluator shall ensure that the
+                <span title="TOE Summary Specification">TSS</span>’ description complies with the
+              requirement to not introduce new hidden data, other than structural data, without
+              warning the user. The evaluator shall create or acquire test files with complex
+              objects or other elements and examine the files to locate those items in the
+              structure. The examiner shall apply the <span title="Target of Evaluation">TOE</span>
+              and examine the output to verify that no new hidden/metadata was
+              introduced.</aactivity>
+          </f-element>
+        </f-component>
+        <f-component id="RED_OBJ_EXT.1 " name="Removal of Objects and Corresponding References">
+          Hierarchical to: No other components.<br/> Dependencies: None <f-element
+            id="RED_OBJ_EXT.1.1 ">
+            <title>The <span title="Target of Evaluation">TOE</span> must remove all references and
+              indicators in the structural data to objects that are completely redacted by the <span
+                title="Target of Evaluation">TOE</span>.</title>
+            <note role="application">In some formats, there are references in the structural data to
+              objects, such as a name dictionary in PDF. If an object in a PDF document, such as an
+              image, is completely redacted (i.e. the user has selected the entire image to be
+              redacted), then not only must the image data be removed, but references to it in a
+              name dictionary as well as all structural references to the image must be removed. If
+              only part of the object is selected for redaction, then the references necessarily
+              remain in the file since the object remains in the file.</note>
+            <aactivity>The evaluator shall examine the <span title="TOE Summary Specification"
+                >TSS</span> to ensure its description of the removal of redacted objects includes
+              the removal of all references and indicators to the redacted objects in conformance
+              with the requirement. The evaluator shall create or acquire test files that contain
+              objects and examine the files to locate these objects in the file format and all
+              references to them in the structural data. The evaluator shall apply the <span
+                title="Target of Evaluation">TOE</span> and select elements for complete redaction.
+              The evaluator shall examine the output files to verify that the objects and all
+              references to them have been redacted. </aactivity>
+          </f-element>
+        </f-component>
+        <f-component id="RED_RIP_EXT.1 " name="Residual Information Removal"> Hierarchical to: No
+          other components.<br/> Dependencies: None <f-element id="RED_RIP_EXT.1.1 ">
+            <title>The <span title="Target of Evaluation">TOE</span> must automatically remove all
+              remnant data, undo buffers, tracked changes buffers, multiple versions of the same
+              object, and any buffer or cache type container of data.</title>
+            <note role="application">The user does not have to select this data for removal.</note>
+            <aactivity>The evaluator shall examine the <span title="TOE Summary Specification"
+                >TSS</span> to ensure it specifies the residual data and objects (e.g., remnant
+              data, undo buffers, tracked changes buffers, multiple versions of the same object, and
+              any buffer or cache type data container) that the <span title="Target of Evaluation"
+                >TOE</span> will remove from files without any user interaction. The evaluator shall
+              ensure that the <span title="TOE Summary Specification">TSS</span>’ description
+              complies with the requirement to automatically remove all such data. The evaluator
+              shall create or acquire test files that contain the types of data described in the
+              requirement and examine the files to locate the data. The evaluator shall apply the
+                <span title="Target of Evaluation">TOE</span> and not select anything for redaction,
+              and examine the files to verify that this data has been removed
+              automatically.</aactivity>
+          </f-element>
+        </f-component>
+        <f-component id="FPT_FLS.1" name="Failure with Preservation of Secure State "> Hierarchical
+          to: No other components.<br/> Dependencies: None <f-element id="FPT_FLS.1.1 ">
+            <title>The <span title="TOE Security Functionality">TSF</span> shall preserve a secure
+              state when the following types of failures occur: [assignment: any failure].</title>
+            <note role="application">If the redaction functionality fails for any reason, the <span
+                title="Target of Evaluation">TOE</span> must not produce a partially redacted
+              file.</note>
+            <aactivity>The evaluator shall examine the <span title="TOE Summary Specification"
+                >TSS</span> to ensure it describes what actions the <span
+                title="Target of Evaluation">TOE</span> performs upon any failure. The evaluator
+              shall ensure that the <span title="TOE Summary Specification">TSS</span>’ description
+              complies with the requirement to not produce a partially redacted file. The evaluator
+              shall create or acquire test files that cause the <span title="Target of Evaluation"
+                >TOE</span> to fail and observe that the <span title="Target of Evaluation"
+                >TOE</span> fails and does not produce partially redacted files.</aactivity>
+          </f-element>
+        </f-component>
+      </subsection>
+      <subsection title="User Experience" id="UE">User Experience <f-component id="RED_ID_EXT.1"
+          name="Identification of Data"> Hierarchical to: No other components.<br/> Dependencies:
+          None <f-element id="RED_ID_EXT.1.1">
+            <title>The <span title="Target of Evaluation">TOE</span> must identify all hidden data
+              in the document, except remnant data and undo or tracked change buffers, and allow the
+              user to review and select each hidden data element individually for redaction.</title>
+            <note role="application">Remnant data and undo or tracked change buffers are removed
+              automatically according to RED_RIP_EXT.1. If the file or part of the file is
+              encrypted, the <span title="Target of Evaluation">TOE</span> will have to reject the
+              file or decrypt it so that the tool and the user can review the hidden data.</note>
+            <aactivity>The evaluator shall examine the <span title="TOE Summary Specification"
+                >TSS</span> to ensure it specifies the hidden data that it identifies and allows the
+              user to select for redaction. The evaluator shall ensure that the <span
+                title="TOE Summary Specification">TSS</span>’ description complies with the
+              requirement for the <span title="Target of Evaluation">TOE</span> to identify all
+              hidden data and allow the user to review and select each hidden data element for
+              redaction. The evaluator shall create test documents with various types of hidden data
+              apply the <span title="Target of Evaluation">TOE</span>, and verify that it identifies
+              each expected element and allows the user to select and redact each.</aactivity>
+          </f-element>
+          <f-element id="RED_ID_EXT.1.2">
+            <title>The <span title="Target of Evaluation">TOE</span> must identify all obscured data
+              and must <selectables>
+                <selectable>remove the obscured data automatically</selectable>
+                <selectable>allow the user to redact the obscured data</selectable>
+              </selectables>.</title>
+            <note role="application">Obscured data is anything that could be visible but is obscured
+              in some way, such as the cropped portion of an image or graphic. While the user sees
+              only the portion of the graphic in the view container, the document contains the data
+              in the cropped area. The tool must either remove the obscured data automatically or
+              give the user the choice to remove or retain the obscured area.</note>
+            <aactivity>The evaluator shall examine the <span title="TOE Summary Specification"
+                >TSS</span> to ensure it describes how the <span title="Target of Evaluation"
+                >TOE</span> handles all obscured data. The evaluator shall ensure that the <span
+                title="TOE Summary Specification">TSS</span>’ description complies with the
+              requirement that all obscured data is identified and either removed automatically or
+              redacted by the user. The evaluator shall create test documents with various forms of
+              obscured data, apply the <span title="Target of Evaluation">TOE</span>, and verify
+              that the tool identifies the obscured data and either removes the obscured data
+              automatically or gives the user the choice to remove or retain the obscured
+              data.</aactivity>
+          </f-element>
+          <f-element id="RED_ID_EXT.1.3">
+            <title>The <span title="Target of Evaluation">TOE</span> must identify images where the
+              visible representation is reduced in size or resolution from the representation stored
+              in the file format and must <selectables>
+                <selectable>replace the stored data with the visible representation
+                  automatically</selectable>
+                <selectable> allow the user to <selectables>
+                    <selectable>replace the stored data with the visible representation</selectable>
+                    <selectable>leave the image unaltered</selectable>
+                  </selectables>
+                </selectable>
+              </selectables>.</title>
+            <aactivity>The evaluator shall create a test document with an image that is stored in a
+              larger size and resolution than the visible image and apply the <span
+                title="Target of Evaluation">TOE</span> without selecting the image for redaction.
+              The evaluator shall verify that the <span title="Target of Evaluation">TOE</span>
+              either <li>gives the user a choice to retain the image unaltered or replace the stored
+                data with the visible data. For the choice to replace the image, the evaluator shall
+                examine the output file to locate the image and verify its size and resolution, or
+                extract the image with an appropriate tool for that format and compare the size and
+                resolution of the extracted image to the visible image to determine if they
+                match.</li>
+              <li>resizes the stored image. To determine this, the evaluator shall examine the
+                output file to locate the image and verify its size and resolution, or extract the
+                image with an appropriate tool for that format and compare the size and resolution
+                of the extracted image to the visible image to determine if they match.</li>
+            </aactivity>
+          </f-element>
+        </f-component>
+        <f-component id="RED_RVW_EXT.1" name="Element Review"> Hierarchical to: No other
+          components.<br/> Dependencies: None <f-element id="RED_RVW_EXT.1.1">
+            <title>The <span title="Target of Evaluation">TOE</span> must allow the user to review
+              and select each element of visible data in whole or in part for redaction.</title>
+            <note role="application">If the file or part of the file is encrypted, the <span
+                title="Target of Evaluation">TOE</span> will have to reject the file or decrypt it
+              so that the user can review the data.</note>
+            <aactivity>The evaluator shall create test documents that contain images, text, and
+              complex objects, apply the <span title="Target of Evaluation">TOE</span> and verify
+              that each element is selectable for redaction in whole or in part.</aactivity>
+          </f-element>
+        </f-component>
+        <f-component id="RED_ALR_EXT.1" name="Redaction Failure Notification"> Hierarchical to: No
+          other components.<br/> Dependencies: None <f-element id="RED_ALR_EXT.1.1">
+            <title>The <span title="Target of Evaluation">TOE</span> must make the user aware when
+              redaction fails for any reason.</title>
+            <aactivity>The evaluator shall examine the <span title="TOE Summary Specification"
+                >TSS</span> to ensure it describes how the <span title="Target of Evaluation"
+                >TOE</span> notifies the user when redaction fails. The evaluator shall ensure that
+              the <span title="TOE Summary Specification">TSS</span>’ description complies with the
+              requirement that the user is notified when redaction fails for any reason. The
+              evaluator shall acquire or create test files that should fail the redaction, apply the
+                <span title="Target of Evaluation">TOE</span> and verify that the <span
+                title="Target of Evaluation">TOE</span> alerts the user that the redaction
+              failed.</aactivity>
+          </f-element>
+        </f-component>
+      </subsection>
     </section>
-    <section title="Redaction Stage" id="RS">
-      <f-component id="RED_SEL_EXT.1" name="Selected Redaction">
-        Hierarchical to: No other components.<br></br>
-        Dependencies: None
-        <f-element id="RED_SEL_EXT.1.1 ">
-          <title>The <span title="Target of Evaluation">TOE</span> must 
-            <selectables>
-              <selectable>simplify</selectable>
-              <selectable>remove</selectable>
-            </selectables>
-            any complex object, embedded object or graphic image which is selected for redaction. </title>
-          <note role="application">The selection may be of either the whole element or only part of the element. If part of an element is selected, only that part must be simplified or removed.</note>
-          <aactivity>The evaluator shall examine the <span title="TOE Summary Specification">TSS</span> to ensure it describes in detail which complex objects can be simplified by the <span title="Target of Evaluation">TOE</span> and how they are simplified (e.g. whether the object or the whole page is converted to another format and what that format is). The <span title="TOE Summary Specification">TSS</span> shall also list those complex objects or images that cannot be simplified and will be removed. The evaluator shall create or acquire test documents that contain complex objects and examine the documents to identify where those objects are in the format. The evaluator shall then apply the <span title="Target of Evaluation">TOE</span> and examine the output to verify that the objects have been simplified or removed. The evaluator shall test all objects that can be simplified as well as all objects that should be removed according to the <span title="TOE Summary Specification">TSS</span>.<br></br>
-            The evaluator shall also create or acquire test documents with complex objects that are not documented in the <span title="TOE Summary Specification">TSS</span>, apply the <span title="Target of Evaluation">TOE</span>, and verify that those objects are removed from the document.
-          </aactivity>
-        </f-element>
-        </f-component>     
-      <f-component id="RED_DIN_EXT.1 " name="Deep Inspection">
-        Hierarchical to: No other components.<br></br>
-        Dependencies: None
-        <f-element id="RED_DIN_EXT.1.1 ">
-          <title>For each element of the file format that can contain its own metadata, other elements, or hidden data, the <span title="Target of Evaluation">TOE</span> must 
-            <selectables>
-              <selectable>recurse through the element chain and apply the <span title="Protection Profile">PP</span> to each layer</selectable>
-              <selectable>simplify the element</selectable>
-              <selectable>redact the element</selectable>
-            </selectables>.
-          </title>
-          <note role="application">For example, JPG images can contain metadata called exif data. Some image formats can contain the same image in another format, such as raw which can contain a complete jpg version of the image. A complex object can contain other complex objects (e.g. Microsoft OLE). The tool must apply the requirements to each layer of every element and identify hidden/metadata not just at the top layer of the document but in each element and in all layers within that element. If the <span title="Target of Evaluation">TOE</span> cannot recurse through the layers, it must simplify the element at the top level.</note>          
-          <aactivity>The evaluator shall examine the <span title="TOE Summary Specification">TSS</span> to ensure it lists and describes the methods used to replace redacted elements that contain metadata, other elements, or hidden data. The evaluator shall ensure that the <span title="TOE Summary Specification">TSS</span>’ description complies with the requirement that each element is handled by either recursing through the element chain and applying the <span title="Target of Evaluation">TOE</span> to each layer, simplifying the element, or redacting the element. The evaluator shall create or acquire test files that contain elements that themselves contain other elements and hidden data. The evaluator shall examine the document to identify these elements in the structure, apply the <span title="Target of Evaluation">TOE</span>, and examine the output to verify that the elements were handled properly via either redaction or simplification in accordance with the requirement.</aactivity>
-        </f-element>
-      </f-component> 
-      <f-component id="RED_RPL_EXT.1" name="Visible Space Replace">
-        Hierarchical to: No other components.<br></br>
-        Dependencies: None
-        <f-element id="RED_RPL_EXT.1.1 ">
-          <title>The <span title="Target of Evaluation">TOE</span> must replace the visible space of redacted content in such a way that the visible space conveys no information about the previous contents.</title>
-          <note role="application">A vendor may use several different methods to replace content, such as opaque blocks, text, whitespace or some other vendor-defined method. These methods must not convey information about the content being replaced. For example, if text is replaced with text, the replacement text must not indicate length of component words. Blocks of color used to replace parts of images must not show variations in intensity that could convey information about the image content.</note>
-          <aactivity>The evaluator shall examine the <span title="TOE Summary Specification">TSS</span> to ensure it lists and describes the content used to replace redacted elements. The evaluator shall ensure that the <span title="TOE Summary Specification">TSS</span>’ description complies with the requirement to convey no information about the previous contents.  The evaluator shall create or acquire a test file with an image, mark part of the image for redaction and apply the <span title="Target of Evaluation">TOE</span>, and examine the image in the output to verify that the visual appearance does not provide any indication of the content that was redacted. If the <span title="Target of Evaluation">TOE</span> allows text content to be replaced with text, the evaluator shall create or acquire a test file with some text as content, apply the <span title="Target of Evaluation">TOE</span>, and verify that the replacement text does not preserve word length or other identifying information that could allow recovery of the original content.</aactivity>
-        </f-element>
-      </f-component> 
-      <f-component id="RED_REM_EXT.1 " name="Removal of Redacted Data">
-        Hierarchical to: No other components.<br></br>
-        Dependencies: None
-        <f-element id="RED_REM_EXT.1.1">
-          <title>All data that is either selected by the user for redaction or identified by the <span title="Target of Evaluation">TOE</span> for redaction must be removed from the document.</title>
-          <note role="application">Selected content must be removed, not obscured by encryption, encoding, conversion to a proprietary format, or any other method.</note> 
-          <aactivity>The evaluator shall examine the <span title="TOE Summary Specification">TSS</span> to ensure it describes the removal of all data selected for redaction and verify that no encryption, encoding or proprietary process is used to obscure selected data. The evaluator shall ensure that the <span title="TOE Summary Specification">TSS</span>’ description complies with the requirement to remove all data selected by the user or identified by the <span title="Target of Evaluation">TOE</span> for redaction. The evaluator shall acquire or create test files that contain text, images and other elements. The evaluator shall examine the test files to locate the content in the format. The evaluator shall apply the <span title="Target of Evaluation">TOE</span>, marking some of the content for redaction, and examine the output to verify that the marked content was removed and not obscured through encryption, encoding, or conversion to a proprietary format.</aactivity>
-        </f-element>
-      </f-component> 
-      <f-component id="RED_LOC_EXT.1" name="Redact Content from Every Location">
-        Hierarchical to: No other components.<br></br>
-        Dependencies: None
-        <f-element id="RED_LOC_EXT.1.1">
-          <title>The <span title="Target of Evaluation">TOE</span> must remove redacted content from every location in the file format where it is stored.</title>
-          <aactivity>The evaluator shall create or acquire test files that contain content in multiple places and examine the files to locate the content. The evaluator shall apply the <span title="Target of Evaluation">TOE</span> and examine the output to verify that it has been removed from every location.</aactivity>
-        </f-element>
-      </f-component> 
-      <f-component id="RED_NND_EXT.1" name="No New Data Introduced by TOE">
-        Hierarchical to: No other components.<br></br>
-        Dependencies: None
-        <f-element id="RED_NND_EXT.1 .1">
-          <title>The <span title="Target of Evaluation">TOE</span> itself must not introduce new hidden data that was not requested by the user without warning the user of the addition. </title>
-          <note role="application">If the redaction process changes the format of an object, such as converting a complex object to an image, the conversion must not introduce new metadata.<br></br>
-            The <span title="Target of Evaluation">TOE</span> can modify or add structural data, including fonts, without alerting the user if the modification is necessary for the proper display or print of the file.
-          </note>
-          <aactivity>The evaluator shall examine the <span title="TOE Summary Specification">TSS</span> to ensure it describes the actions taken by the <span title="Target of Evaluation">TOE</span> when removing, simplifying, or redacting an element. If structural data is added, the <span title="TOE Summary Specification">TSS</span> shall specify what structural data is added and the purpose of the structural data. If non-structural hidden data is added, the <span title="TOE Summary Specification">TSS</span> shall detail the added hidden data and describe how the user is notified of the addition. The evaluator shall ensure that the <span title="TOE Summary Specification">TSS</span>’ description complies with the requirement to not introduce new hidden data, other than structural data, without warning the user. The evaluator shall create or acquire test files with complex objects or other elements and examine the files to locate those items in the structure. The examiner shall apply the <span title="Target of Evaluation">TOE</span> and examine the output to verify that no new hidden/metadata was introduced.</aactivity>
-        </f-element>
-      </f-component> 
-      <f-component id="RED_OBJ_EXT.1 " name="Removal of Objects and Corresponding References">
-        Hierarchical to: No other components.<br></br>
-        Dependencies: None
-        <f-element id="RED_OBJ_EXT.1.1 ">
-          <title>The <span title="Target of Evaluation">TOE</span> must remove all references and indicators in the structural data to objects that are completely redacted by the <span title="Target of Evaluation">TOE</span>.</title>
-          <note role="application">In some formats, there are references in the structural data to objects, such as a name dictionary in PDF. If an object in a PDF document, such as an image, is completely redacted (i.e. the user has selected the entire image to be redacted), then not only must the image data be removed, but references to it in a name dictionary as well as all structural references to the image must be removed. If only part of the object is selected for redaction, then the references necessarily remain in the file since the object remains in the file.</note>
-          <aactivity>The evaluator shall examine the <span title="TOE Summary Specification">TSS</span> to ensure its description of the removal of redacted objects includes the removal of all references and indicators to the redacted objects in conformance with the requirement. The evaluator shall create or acquire test files that contain objects and examine the files to locate these objects in the file format and all references to them in the structural data. The evaluator shall apply the <span title="Target of Evaluation">TOE</span> and select elements for complete redaction. The evaluator shall examine the output files to verify that the objects and all references to them have been redacted. </aactivity>         
-        </f-element>
-      </f-component> 
-      <f-component id="RED_RIP_EXT.1 " name="Residual Information Removal">
-        Hierarchical to: No other components.<br></br>
-        Dependencies: None
-        <f-element id="RED_RIP_EXT.1.1 ">
-          <title>The <span title="Target of Evaluation">TOE</span> must automatically remove all remnant data, undo buffers, tracked changes buffers, multiple versions of the same object, and any buffer or cache type container of data.</title>
-          <note role="application">The user does not have to select this data for removal.</note>
-          <aactivity>The evaluator shall examine the <span title="TOE Summary Specification">TSS</span> to ensure it specifies the residual data and objects (e.g., remnant data, undo buffers, tracked changes buffers, multiple versions of the same object, and any buffer or cache type data container) that the <span title="Target of Evaluation">TOE</span> will remove from files without any user interaction. The evaluator shall ensure that the <span title="TOE Summary Specification">TSS</span>’ description complies with the requirement to automatically remove all such data. The evaluator shall create or acquire test files that contain the types of data described in the requirement and examine the files to locate the data. The evaluator shall apply the <span title="Target of Evaluation">TOE</span> and not select anything for redaction, and examine the files to verify that this data has been removed automatically.</aactivity>        
-        </f-element>
-      </f-component> 
-      <f-component id="FPT_FLS.1" name="Failure with Preservation of Secure State ">
-        Hierarchical to: No other components.<br></br>
-        Dependencies: None
-        <f-element id="FPT_FLS.1.1 ">
-          <title>The <span title="TOE Security Functionality">TSF</span> shall preserve a secure state when the following types of failures occur:  [assignment: any failure].</title>
-          <note role="application">If the redaction functionality fails for any reason, the <span title="Target of Evaluation">TOE</span> must not produce a partially redacted file.</note>
-          <aactivity>The evaluator shall examine the <span title="TOE Summary Specification">TSS</span> to ensure it describes what actions the <span title="Target of Evaluation">TOE</span> performs upon any failure. The evaluator shall ensure that the <span title="TOE Summary Specification">TSS</span>’ description complies with the requirement to not produce a partially redacted file. The evaluator shall create or acquire test files that cause the <span title="Target of Evaluation">TOE</span> to fail and observe that the <span title="Target of Evaluation">TOE</span> fails and does not produce partially redacted files.</aactivity>        
-        </f-element>
-      </f-component> 
-    </section>
- <section title="User Experience" id="UE">User Experience
-   <f-component id="RED_ID_EXT.1" name="Identification of Data">
-     Hierarchical to: No other components.<br></br>
-     Dependencies: None
-     <f-element id="RED_ID_EXT.1.1">
-       <title>The <span title="Target of Evaluation">TOE</span> must identify all hidden data in the document, except remnant data and undo or tracked change buffers, and allow the user to review and select each hidden data element individually for redaction.</title>
-       <note role="application">Remnant data and undo or tracked change buffers are removed automatically according to RED_RIP_EXT.1. If the file or part of the file is encrypted, the <span title="Target of Evaluation">TOE</span> will have to reject the file or decrypt it so that the tool and the user can review the hidden data.</note>
-       <aactivity>The evaluator shall examine the <span title="TOE Summary Specification">TSS</span> to ensure it specifies the hidden data that it identifies and allows the user to select for redaction. The evaluator shall ensure that the <span title="TOE Summary Specification">TSS</span>’ description complies with the requirement for the <span title="Target of Evaluation">TOE</span> to identify all hidden data and allow the user to review and select each hidden data element for redaction. The evaluator shall create test documents with various types of hidden data apply the <span title="Target of Evaluation">TOE</span>, and verify that it identifies each expected element and allows the user to select and redact each.</aactivity>       
-     </f-element>
-     <f-element id="RED_ID_EXT.1.2">
-       <title>The <span title="Target of Evaluation">TOE</span> must identify all obscured data and must 
-         <selectables>
-           <selectable>remove the obscured data automatically</selectable>
-           <selectable>allow the user to redact the obscured data</selectable>
-         </selectables>.</title>
-       <note role="application">Obscured data is anything that could be visible but is obscured in some way, such as the cropped portion of an image or graphic. While the user sees only the portion of the graphic in the view container, the document contains the data in the cropped area. The tool must either remove the obscured data automatically or give the user the choice to remove or retain the obscured area.</note>
-       <aactivity>The evaluator shall examine the <span title="TOE Summary Specification">TSS</span> to ensure it describes how the <span title="Target of Evaluation">TOE</span> handles all obscured data.  The evaluator shall ensure that the <span title="TOE Summary Specification">TSS</span>’ description complies with the requirement that all obscured data is identified and either removed automatically or redacted by the user. The evaluator shall create test documents with various forms of obscured data, apply the <span title="Target of Evaluation">TOE</span>, and verify that the tool identifies the obscured data and either removes the obscured data automatically or gives the user the choice to remove or retain the obscured data.</aactivity>
-     </f-element>
-     <f-element id="RED_ID_EXT.1.3">
-       <title>The <span title="Target of Evaluation">TOE</span> must identify images where the visible representation is reduced in size or resolution from the representation stored in the file format and must 
-         <selectables>
-           <selectable>replace the stored data with the visible representation automatically</selectable>
-           <selectable>
-             allow the user to 
-             <selectables>
-               <selectable>replace the stored data with the visible representation</selectable>
-               <selectable>leave the image unaltered</selectable>
-             </selectables>
-           </selectable>
-         </selectables>.</title>
-       <aactivity>The evaluator shall create a test document with an image that is stored in a larger size and resolution than the visible image and apply the <span title="Target of Evaluation">TOE</span> without selecting the image for redaction. The evaluator shall verify that the <span title="Target of Evaluation">TOE</span> either 
-         <li>gives the user a choice to retain the image unaltered or replace the stored data with the visible data. For the choice to replace the image, the evaluator shall examine the output file to locate the image and verify its size and resolution, or extract the image with an appropriate tool for that format and compare the size and resolution of the extracted image to the visible image to determine if they match.</li>
-         <li>resizes the stored image. To determine this, the evaluator shall examine the output file to locate the image and verify its size and resolution, or extract the image with an appropriate tool for that format and compare the size and resolution of the extracted image to the visible image to determine if they match.</li>
-       </aactivity>
-     </f-element>
-   </f-component> 
-   <f-component id="RED_RVW_EXT.1" name="Element Review">
-     Hierarchical to: No other components.<br></br>
-     Dependencies: None
-     <f-element id="RED_RVW_EXT.1.1">
-       <title>The <span title="Target of Evaluation">TOE</span> must allow the user to review and select each element of visible data in whole or in part for redaction.</title>
-       <note role="application">If the file or part of the file is encrypted, the <span title="Target of Evaluation">TOE</span> will have to reject the file or decrypt it so that the user can review the data.</note>
-       <aactivity>The evaluator shall create test documents that contain images, text, and complex objects, apply the <span title="Target of Evaluation">TOE</span> and verify that each element is selectable for redaction in whole or in part.</aactivity>    
-     </f-element>
-   </f-component> 
-   <f-component id="RED_ALR_EXT.1" name="Redaction Failure Notification">
-     Hierarchical to: No other components.<br></br>
-     Dependencies: None
-     <f-element id="RED_ALR_EXT.1.1">
-       <title>The <span title="Target of Evaluation">TOE</span> must make the user aware when redaction fails for any reason.</title>
-       <aactivity>The evaluator shall examine the <span title="TOE Summary Specification">TSS</span> to ensure it describes how the <span title="Target of Evaluation">TOE</span> notifies the user when redaction fails. The evaluator shall ensure that the <span title="TOE Summary Specification">TSS</span>’ description complies with the requirement that the user is notified when redaction fails for any reason. The evaluator shall acquire or create test files that should fail the redaction, apply the <span title="Target of Evaluation">TOE</span> and verify that the <span title="Target of Evaluation">TOE</span> alerts the user that the redaction failed.</aactivity>    
-     </f-element>
-   </f-component> 
- </section>
   </chapter>
 
-  <chapter title="Security Assurance Requirements" id="sar">
-    The Security Objectives for the <span title="Target of Evaluation">TOE</span> in <secref linkend="req"/> were constructed to address threats identified in
-        <secref linkend="threats"/>. The <span title="Security Functional Requirement">SFR</span>s in <secref linkend="SFRs"/> are a formal
-      instantiation of the Security Objectives. The <span title="Protection Profile">PP</span> draws from the <span title="Common Criteria">CC</span> <span title="Security Assurance Requirement">SAR</span>s) to frame the
-      extent to which the evaluator assesses the documentation applicable for the evaluation and
-      performs independent testing. <br/> While this section contains the complete set of SARs from
-      the <span title="Common Criteria">CC</span>, the Assurance Activities to be performed by an evaluator are detailed in <secref
-        linkend="SFRs"/> as well as in this section. <br/>The general model for evaluating <span title="Target of Evaluation">TOE</span>s
-      against STs written to conform to this <span title="Protection Profile">PP</span> is as follows: <br/>
-    After the <span title="Security Target">ST</span> has been approved for evaluation, the Common Criteria Testing Laboratory (CCTL) will obtain the <span title="Target of Evaluation">TOE</span>, supporting IT environment, and the administrative guides for the <span title="Target of Evaluation">TOE</span>.  The Assurance Activities listed in the <span title="Security Target">ST</span> (which will be refined by the CCTL to be <span title="Target of Evaluation">TOE</span>-specific, either within the <span title="Security Target">ST</span> or in a separate document) will then be performed by the CCTL. The results of these activities will be documented and presented (along with the administrative guidance used) for validation.<br></br>
-    For each assurance family, “Developer Notes” are provided on the developer action elements to clarify what, if any, additional documentation/activity needs to be provided by the developer.  For the content/presentation and evaluator activity elements, additional assurance activities are described as a whole for the family, rather than for each element.  Additionally, the assurance activities described in this section are complementary to those specified in Section 4.2. <br></br>
-    The <span title="Target of Evaluation">TOE</span> security assurance requirements, summarized in Table 2, identify the management and evaluative activities required to address the threats identified in Section 2 of this <span title="Protection Profile">PP</span>. <br></br>
+  <appendix id="" title="Supporting Tables"> In this Protection Profile, the focus in the initial
+    sections of the document is to use a narrative presentation in an attempt to increase the
+    overall understandability of the threats to Redaction Tools; the methods used to mitigate those
+    threats; and the extent of the mitigation achieved by compliant <span
+      title="Target of Evaluation">TOE</span>s. This presentation style does not readily lend itself
+    to a formalized evaluation activity, so this Annex contains the tabular artifacts that can be
+    used for the evaluation activities associated with this document.<br/>
+    <h4>Assumptions</h4> The specific conditions listed in the following subsections are assumed to
+    exist in the <span title="Target of Evaluation">TOE</span>’s Operational Environment. These
+    assumptions include both practical realities in the development of the <span
+      title="Target of Evaluation">TOE</span> security requirements and the essential environmental
+    conditions on the use of the <span title="Target of Evaluation">TOE</span>.<br/>
     <table>
-      <TR class="header">
-        <TH colspan="3">Table 2: <span title="Target of Evaluation">TOE</span> Security Assurance Requirements</TH>
-      </TR>
-      <TR>
-        <TH>Assurance Class</TH>
-        <TH>Assurance Components</TH>
-        <TH>Assurance Components Description</TH>
-      </TR>
-      <TR>
-        <TD>Development</TD>
-        <TD>ADV_FSP.1</TD>
-        <TD>Basic Functional Specification</TD>
-      </TR>
-      <TR>
-        <TD>Guidance Documents</TD>
-        <TD colspan="2"><!-- HERE this looks funky -->
-          <TABLE>
-            <TR><TD valign="top">AGD_OPE.1</TD><TD>Operational user guidance</TD></TR>
-            <TR><TD valign="top">AGD_PRE.1</TD><TD>Preparative user guidance</TD></TR>
-          </TABLE>          
-        </TD>
-      </TR>
-      <TR>
-        <TD>Tests</TD>
-        <TD>ATE_IND.1</TD>
-        <TD>Independent testing - conformance</TD>
-      </TR>
-      <TR>
-        <TD>Vulnerability Assessment</TD>
-        <TD>AVA_VAN.1</TD>
-        <TD>Vulnerability analysis</TD>
-      </TR>
-      <TR>
-        <TD>Life Cycle Support</TD>
-        <TD colspan="2"><!-- HERE this looks funky -->
-          <TABLE>
-            <TR><TD valign="top">ALC_CMC.1</TD><TD>Labeling of the <span title="Target of Evaluation">TOE</span></TD></TR>
-            <TR><TD valign="top">ALC_CMS.1</TD><TD><span title="Target of Evaluation">TOE</span> CM coverage</TD></TR>
-          </TABLE>          
-        </TD>
-      </TR>
-    </table>
-    <section id="" title="Class ADV: Development">
-      The information about the <span title="Target of Evaluation">TOE</span> is contained in the guidance documentation available to the end user as well as the <span title="Target of Evaluation">TOE</span> Summary Specification (<span title="TOE Summary Specification">TSS</span>) portion of the <span title="Security Target">ST</span>.  While it is not required that the <span title="Target of Evaluation">TOE</span> developer write the <span title="TOE Summary Specification">TSS</span>, the <span title="Target of Evaluation">TOE</span> developer must concur with the description of the product that is contained in the <span title="TOE Summary Specification">TSS</span> as it relates to the functional requirements.  The Assurance Activities contained in Section 4.2, should provide the <span title="Security Target">ST</span> authors with sufficient information to determine the appropriate content for the <span title="TOE Summary Specification">TSS</span> section.
-      <a-conmponent id="ADV_FSP.1" title="Basic Functional Specification">
-        The functional specification describes the Target Security Functions Interfaces (TSFIs).  It is not necessary to have a formal or complete specification of these interfaces.  Additionally, because <span title="Target of Evaluation">TOE</span>s conforming to this <span title="Protection Profile">PP</span> will necessarily have interfaces to the Operational Environment that are not directly invokable by <span title="Target of Evaluation">TOE</span> users, there is little point specifying that such interfaces be described in and of themselves since only indirect testing of such interfaces may be possible.  For this <span title="Protection Profile">PP</span>, the activities for this family should focus on understanding the interfaces presented in the <span title="TOE Summary Specification">TSS</span> in response to the functional requirements and the interfaces presented in the AGD documentation.  No additional “functional specification” documentation is necessary to satisfy the assurance activities specified.<br></br>
-        The interfaces that need to be evaluated are characterized through the information needed to perform the assurance activities listed, rather than as an independent, abstract list.<br></br>
-        <h4>Developer action elements:</h4>
-        <a-element id="ADV_FSP.1.1D">
-          <title>The developer shall provide a functional specification.</title>
-        </a-element>
-        <a-element id="ADV_FSP.1.2D">
-          <title>The developer shall provide a tracing from the functional specification to the <span title="Security Functional Requirement">SFR</span>s.</title>
-        </a-element>
-        <a-element id="Developer Note">
-          <title>As indicated in the introduction to this section, the functional specification is comprised of the information contained in the AGD_OPE and AGD_PRE documentation, coupled with the information provided in the <span title="TOE Summary Specification">TSS</span> of the <span title="Security Target">ST</span>.  The assurance activities in the functional requirements point to evidence that should exist in the documentation and <span title="TOE Summary Specification">TSS</span> section; since these are directly associated with the <span title="Security Functional Requirement">SFR</span>s, the tracing in element ADV_FSP.1.2D is implicitly already done and no additional documentation is necessary.
-            </title></a-element>
-        <h4>Content and presentation elements:</h4>
-        <a-element id="ADV_FSP.1.1C"><title>The functional specification shall describe the purpose and method of use for each <span title="Security Functional Requirement">SFR</span>-enforcing and <span title="Security Functional Requirement">SFR</span>-supporting TSFI.</title></a-element>
-        <a-element id="ADV_FSP.1.2C"><title>The functional specification shall identify all parameters associated with each <span title="Security Functional Requirement">SFR</span>-enforcing and <span title="Security Functional Requirement">SFR</span>-supporting TSFI</title></a-element>
-        <a-element id="ADV_FSP.1.3C"><title>The functional specification shall provide rationale for the implicit categorization of interfaces as <span title="Security Functional Requirement">SFR</span>-non-interfering.</title></a-element>
-        <a-element id="ADV_FSP.1.4C"><title>The tracing shall demonstrate that the <span title="Security Functional Requirement">SFR</span>s trace to TSFIs in the functional specification.</title></a-element>
-        <h4>Evaluator action elements:</h4>
-        <a-element id="ADV_ FSP.1.1E"><title>The evaluator shall confirm that the information provided meets all requirements for content and presentation of evidence.</title></a-element>
-        <a-element id="ADV_ FSP.1.2E"><title>The evaluator shall determine that the functional specification is an accurate and complete instantiation of the <span title="Security Functional Requirement">SFR</span>s.</title></a-element>
-      <aactivity>
-        There are no specific assurance activities associated with these SARs.  The functional specification documentation is provided to support the evaluation activities described in Section 4.2, and other activities described for AGD, ATE, and AVA SARs.  The requirements on the content of the functional specification information is implicitly assessed by virtue of the other assurance activities being performed; if the evaluator is unable to perform an activity because the there is insufficient interface information, then an adequate functional specification has not been provided.
-      </aactivity>
-      </a-conmponent>
-    </section>
-    <section id="" title="Class AGD:  Guidance Documents">
-      The guidance documents will be provided with the developer’s security target.  Guidance must include a description of how the authorized user verifies that the Operational Environment can fulfill its role for the security functionality. The documentation should be in an informal style and readable by an authorized user.<br></br>
-      Guidance must be provided for every operational environment that the product supports as claimed in the <span title="Security Target">ST</span>. This guidance includes<br></br>
-      <ul>
-        <li>instructions to successfully install the <span title="Target of Evaluation">TOE</span> in that environment;  and</li>
-        <li>instructions to manage the security of the <span title="Target of Evaluation">TOE</span> as a product and as a component of the larger operational environment. </li>
-      </ul>
-      Guidance pertaining to particular security functionality is also provided; specific requirements on such guidance are contained in the assurance activities specified in Section 4.2.<br></br>
-      <a-component id="AGD_OPE.1" title="Operational User Guidance">
-        <h4>Developer action elements:</h4>
-        <a-element id="AGD_OPE.1.1D"><title>The developer shall provide operational user guidance.</title></a-element>
-        <a-element id="Developer Note:"><title>Rather than repeat information here, the developer should review the assurance activities for this component to ascertain the specifics of the guidance that the evaluator will be checking for.  This will provide the necessary information for the preparation of acceptable guidance.</title></a-element>
-        <h4>Content and presentation elements:</h4>
-        <a-element id="AGD_OPE.1.1C"><title>The operational user guidance shall describe what the authorized user-accessible functions and privileges that should be controlled in a secure processing environment, including appropriate warnings.</title></a-element>
-        <a-element id="AGD_OPE.1.2C"><title>The operational user guidance shall describe, for the authorized user, how to use the available interfaces provided by the <span title="Target of Evaluation">TOE</span> in a secure manner.</title></a-element>
-        <a-element id="AGD_OPE.1.3C"><title>The operational user guidance shall describe, for the authorized user, the available functions and interfaces, in particular all security parameters under the control of the user, indicating secure values as appropriate.</title></a-element>
-        <a-element id="AGD_OPE.1.4C"><title>The operational user guidance shall, for the authorized user, clearly present each type of security-relevant event relative to the user-accessible functions that need to be performed, including changing the security characteristics of entities under the control of the <span title="TOE Security Functionality">TSF</span>.</title></a-element>
-        <a-element id="AGD_OPE.1.5C"><title>The operational user guidance shall identify all possible modes of operation of the <span title="Target of Evaluation">TOE</span> (including operation following failure or operational error), their consequences and implications for maintaining secure operation.</title></a-element>
-        <a-element id="AGD_OPE.1.6C"><title>The operational user guidance shall, for the authorized user, describe the security measures to be followed in order to fulfill the security objectives for the operational environment as described in the <span title="Security Target">ST</span>.</title></a-element>
-        <a-element id="AGD_OPE.1.7C"><title>The operational user guidance shall be clear and reasonable.</title></a-element>
-        <h4>Evaluator action elements:</h4>
-        <a-element id="AGD_OPE.1.1E"><title>The evaluator shall confirm that the information provided meets all requirements for content and presentation of evidence.</title></a-element>
-        <aactivity>
-          Some of the contents of the operational guidance will be verified by the assurance activities in Section 4.2 and evaluation of the <span title="Target of Evaluation">TOE</span> according to the CEM.  The following additional information is also required.  <br></br>
-          The operational guidance shall at a minimum list the processes that comprise the <span title="Target of Evaluation">TOE</span> in its evaluated configuration.  For each process listed, the administrative guidance will contain a short (e.g., one- or two-line) description of the process' function, and the privilege with which the process runs.  "Privilege" includes the hardware privilege level (e.g., ring 0, ring 1), any software privileges specifically associated with the process, and the privileges associated with the user role the process runs as or under.
-        </aactivity>
-    </a-component>
-        <a-component id="AGD_PRE.1" name="Preparative procedures">
-          <h4>Developer action elements:</h4>
-          <a-element id="AGD_PRE.1.1D"><title>
-            The developer shall provide the <span title="Target of Evaluation">TOE</span> including its preparative procedures.
-          </title>
-            <a-element id="Developer Note"><title>As with the operational guidance, the developer should look to the assurance activities to determine the required content with respect to preparative procedures.</title></a-element>
-          </a-element>
-          <h4>Content and presentation elements</h4>
-          <a-element id="AGD_PRE.1.1C"><title>The preparative procedures shall describe all the steps necessary for secure acceptance of the delivered <span title="Target of Evaluation">TOE</span> in accordance with the developer’s delivery procedures.</title></a-element>
-          <a-element id="AGD_PRE.1.2C"><title>The preparative procedures shall describe all the steps necessary for secure installation of the <span title="Target of Evaluation">TOE</span> and for the secure preparation of the operational environment in accordance with the security objectives for the operational environment as described in the <span title="Security Target">ST</span>.</title></a-element>
-          <h4>Evaluator action elements:</h4>
-          <a-element id="AGD_PRE.1.1E"><title>The evaluator shall confirm that the information provided meets all requirements for content and presentation of evidence.</title></a-element>
-          <a-element id="AGD_PRE.1.2E"><title>The evaluator shall apply the preparative procedures to confirm that the <span title="Target of Evaluation">TOE</span> can be prepared securely for operation.</title></a-element>
-          <aactivity>As indicated in the introduction above, there are significant expectations with respect to the documentation—especially when configuring the operational environment to support <span title="Target of Evaluation">TOE</span> functional requirements. The evaluator shall check to ensure that the guidance provided for the <span title="Target of Evaluation">TOE</span> adequately addresses all platforms claimed for the <span title="Target of Evaluation">TOE</span> in the <span title="Security Target">ST</span>.</aactivity>
-      </a-component>
-    </section>
-    <section title="Class ATE: Tests" id="ate">Testing is specified for functional aspects of the system as well as aspects that take advantage of design or implementation weaknesses.  The former is done through the ATE_IND family, while the latter is through the AVA_VAN family.  At the assurance level specified in this <span title="Protection Profile">PP</span>, testing is based on advertised functionality and interfaces with dependency on the availability of design information.  One of the primary outputs of the evaluation process is the test report as specified in the following requirements.
-      <a-component id="ATE_IND.1" name="Independent testing - conformance">
-        Testing is performed to confirm the functionality described in the <span title="TOE Summary Specification">TSS</span> as well as the administrative (including configuration and operational) documentation provided.  The focus of the testing is to confirm that the requirements specified in Section 4.2 are being met, although some additional testing is specified for SARs in Section 4.3.  The Assurance Activities identify the additional testing activities associated with these components.  The evaluator produces a test report documenting the plan for and results of testing, as well as coverage arguments focused on the platform/<span title="Target of Evaluation">TOE</span> combinations that are claiming conformance to this <span title="Protection Profile">PP</span>. 
-        <h4>Developer action elements:</h4>
-        <a-element id="ATE_IND.1.1D"><title>The developer shall provide the <span title="Target of Evaluation">TOE</span> for testing.</title></a-element>
-        <h4>Content and presentation elements:</h4>
-        <a-element id="ATE_IND.1.1C"><title>The <span title="Target of Evaluation">TOE</span> shall be suitable for testing.</title></a-element> 
-        <h4>Evaluator action elements:</h4>      
-        <a-element id="ATE_IND.1.1E"><title>The evaluator shall confirm that the information provided meets all requirements for content and presentation of evidence.</title></a-element>
-        <a-element id="ATE_IND.1.2E"><title>The evaluator shall test a subset of the <span title="TOE Security Functionality">TSF</span> to confirm that the <span title="TOE Security Functionality">TSF</span> operates as specified.</title></a-element>
-        <aactivity>
-          The evaluator shall prepare a test plan and report documenting the testing aspects of the system.  The test plan covers all of the testing actions contained in the CEM and the body of this <span title="Protection Profile">PP</span>’s Assurance Activities.  While it is not necessary to have one test case per test listed in an Assurance Activity, the evaluator must document in the test plan that each applicable testing requirement in the <span title="Security Target">ST</span> is covered. <br></br>
-          The test plan identifies the platforms to be tested, and for those platforms not included in the test plan but included in the <span title="Security Target">ST</span>, the test plan provides a justification for not testing the platforms.  This justification must address the differences between the tested platforms and the untested platforms, and make an argument that the differences do not affect the testing to be performed.  It is not sufficient to merely assert that the differences have no affect; rationale must be provided.  If all platforms claimed in the <span title="Security Target">ST</span> are tested, then no rationale is necessary. <br></br>
-          The test plan describes the composition of each platform to be tested, and any setup that is necessary beyond what is contained in the AGD documentation.  It should be noted that the evaluator is expected to follow the AGD documentation for installation and setup of each platform either as part of a test or as a standard pre-test condition.  This may include special test drivers or tools.  For each driver or tool, an argument (not just an assertion) should be provided that the driver or tool will not adversely affect the performance of the functionality by the <span title="Target of Evaluation">TOE</span> and its platform.<br></br>  
-          The test plan identifies high-level test objectives as well as the test procedures to be followed to achieve those objectives.  These procedures include expected results.  The test report (which could just be an annotated version of the test plan) details the activities that took place when the test procedures were executed, and includes the actual results of the tests.  This shall be a cumulative account, so if there was a test run that resulted in a failure; a fix installed; and then a successful re-run of the test, the report would show a “fail” and “pass” result (and the supporting details), and not just the “pass” result.<br></br>
-        </aactivity>
-      </a-component>
-    </section>
-    <section title="Class AVA: Vulnerability Assessment" id="ava">168. For the first generation of this protection profile, the evaluation lab is expected to survey open sources to learn what vulnerabilities have been discovered in these types of products. In most cases, these vulnerabilities will require sophistication beyond that of a basic attacker. Until penetration tools are created and uniformly distributed to the evaluation labs, evaluators will not be expected to test for these vulnerabilities in the <span title="Target of Evaluation">TOE</span>. The labs will be expected to comment on the likelihood of these vulnerabilities given the documentation provided by the vendor. This information will be used in the development of penetration testing tools and for the development of future protection profiles.
-      <a-component id="AVA_VAN.1" name="Vulnerability survey">
-        <h4>Developer action elements:</h4>
-        <a-element id="AVA_VAN.1.1D"><title>The developer shall provide the <span title="Target of Evaluation">TOE</span> for testing.</title></a-element>
-        <h4>Content and presentation elements:</h4>
-        <a-element id="AVA_VAN.1.1C"><title>The <span title="Target of Evaluation">TOE</span> shall be suitable for testing.</title></a-element>
-        <h4>Evaluator action elements:</h4>     
-        <a-element id="AVA_VAN.1.1E"><title>The evaluator shall confirm that the information provided meets all requirements for content and presentation of evidence.</title></a-element>
-        <a-element id="AVA_VAN.1.2E"><title>The evaluator shall perform a search of public domain sources to identify potential vulnerabilities in the <span title="Target of Evaluation">TOE</span>.</title></a-element>
-        <a-element id="AVA_VAN.1.3E"><title>The evaluator shall conduct penetration testing, based on the identified potential vulnerabilities, to determine that the <span title="Target of Evaluation">TOE</span> is resistant to attacks performed by an attacker possessing Basic attack potential.</title></a-element>
-        <aactivity>
-          As with ATE_IND, the evaluator shall generate a report to document their findings with respect to this requirement.  This report could physically be part of the overall test report mentioned in ATE_IND, or a separate document.  The evaluator performs a search of public information to determine the vulnerabilities that have been found in redaction tools in general, as well as those that pertain to the particular <span title="Target of Evaluation">TOE</span>.  The evaluator documents the sources consulted and the vulnerabilities found in the report.  For each vulnerability found, the evaluator either provides a rationale with respect to its non-applicability, or the evaluator formulates a test (using the guidelines provided in ATE_IND) to confirm the vulnerability, if suitable.  Suitability is determined by assessing the attack vector needed to take advantage of the vulnerability.  For example, if the vulnerability can be detected by pressing a key combination on boot-up, a test would be suitable at the assurance level of this <span title="Protection Profile">PP</span>.   If exploiting the vulnerability requires expert skills and an electron microscope, for instance, then a test would not be suitable and an appropriate justification would be formulated.
-        </aactivity>
-      </a-component>
-    </section>
-    <section title="Class ALC: Life-cycle Support" id="alc">At the assurance level provided for <span title="Target of Evaluation">TOE</span>s conformant to this <span title="Protection Profile">PP</span>, life-cycle support is limited to an examination of the <span title="Target of Evaluation">TOE</span> vendor‟s development and configuration management process. This is a result of the critical role that a developer‟s practices play in contributing to the overall trustworthiness of a product.
-      <a-component id="ALC_CMC.1" name="Labeling of the TOE">This component is targeted at identifying the <span title="Target of Evaluation">TOE</span> such that it can be distinguished from other products or versions from the same vendor and can be easily specified when being procured by an end user.
-        <h4>Developer action elements:</h4>
-        <a-element id="ALC_CMC.1.1D"><title>The developer shall provide the <span title="Target of Evaluation">TOE</span> and a reference for the <span title="Target of Evaluation">TOE</span>.</title></a-element>
-        <h4>Content and presentation elements:</h4>
-        <a-element id="ALC_CMC.1.1C"><title>The <span title="Target of Evaluation">TOE</span> shall be labeled with its unique reference.</title></a-element>
-        <h4>Evaluator action elements:</h4>
-        <a-element id="ALC_CMC.2.1E"><title>The evaluator shall confirm that the information provided meets all requirements for content and presentation of evidence.</title></a-element>
-      </a-component>
-      <aactivity>
-        The evaluator shall check the <span title="Security Target">ST</span> to ensure that it contains an identifier (such as a product name/version number) that specifically identifies the version that meets the requirements of the <span title="Security Target">ST</span>.  Further, the evaluator shall check the AGD guidance and <span title="Target of Evaluation">TOE</span> samples received for testing to ensure that the version number is consistent with that in the <span title="Security Target">ST</span>.  If the vendor maintains a web site advertising the <span title="Target of Evaluation">TOE</span>, the evaluator shall examine the information on the web site to ensure that the information in the <span title="Security Target">ST</span> is sufficient to distinguish the product.
-      </aactivity>
-      <a-component id="ALC_CMS.1" name="TOE CM coverage">Given the scope of the <span title="Target of Evaluation">TOE</span> and its associated evaluation evidence requirements, this component’s assurance activities are covered by the assurance activities listed for ALC_CMC.1. 
-        <h4>Developer action elements:</h4>
-        <a-element id="ALC_CMS.2.1D"><title>The developer shall provide a configuration list for the <span title="Target of Evaluation">TOE</span>.</title></a-element>  
-        <h4>Content and presentation elements:</h4>
-        <a-element id="ALC_CMS.2.1C"><title>The configuration list shall include the following: the <span title="Target of Evaluation">TOE</span> itself; and the evaluation evidence required by the SARs.</title></a-element>
-        <a-element id="ALC_CMS.2.2C"><title>The configuration list shall uniquely identify the configuration items.</title></a-element>
-        <h4>Evaluator action elements:</h4>
-        <a-element id="ALC_CMS.2.1E"><title>The evaluator shall confirm that the information provided meets all requirements for content and presentation of evidence.</title></a-element>
-      </a-component>
-      <aactivity>
-        The “evaluation evidence required by the SARs” in this <span title="Protection Profile">PP</span> is limited to the information in the <span title="Security Target">ST</span> coupled with the guidance provided to administrators and users under the AGD requirements.  By ensuring that the <span title="Target of Evaluation">TOE</span> is specifically identified and that this identification is consistent in the <span title="Security Target">ST</span> and in the AGD guidance (as done in the assurance activity for ALC_CMC.1), the evaluator implicitly confirms the information required by this component.
-</aactivity>
-    </section>
-  </chapter>
-  <chapter id="" title="Rationale">The rationale tracing the threats to the objectives and the objectives to the requirements is contained in the prose in Sections 2.0 and 3.0.  The only outstanding mappings are those for the Assumptions and Organizational Security Policies; those are contained in Annex A below.
-  </chapter>
-  <appendix id="" title="Supporting Tables">
-    In this Protection Profile, the focus in the initial sections of the document is to use a narrative presentation in an attempt to increase the overall understandability of the threats to Redaction Tools; the methods used to mitigate those threats; and the extent of the mitigation achieved by compliant <span title="Target of Evaluation">TOE</span>s.  This presentation style does not readily lend itself to a formalized evaluation activity, so this Annex contains the tabular artifacts that can be used for the evaluation activities associated with this document.<br></br>
-    <h4>Assumptions</h4>
-    The specific conditions listed in the following subsections are assumed to exist in the <span title="Target of Evaluation">TOE</span>’s Operational Environment. These assumptions include both practical realities in the development of the <span title="Target of Evaluation">TOE</span> security requirements and the essential environmental conditions on the use of the <span title="Target of Evaluation">TOE</span>.<br></br>
-    <table>
-      <TR class="header"><TH colspan="2">Table 1: <span title="Target of Evaluation">TOE</span> Assumptions</TH></TR>
+      <TR class="header"><TH colspan="2">Table 1: <span title="Target of Evaluation">TOE</span>
+          Assumptions</TH></TR>
       <TR><TH>Assumption Name</TH><TH>Assumption Definition</TH></TR>
-      <TR><TD>A.Platform</TD><TD>The <span title="Target of Evaluation">TOE</span> relies upon a trustworthy computing platform for its execution. This includes the underlying operating system and the runtime environment it provides to the <span title="Target of Evaluation">TOE</span>.</TD></TR>
-      <TR><TD>A.Proper_User </TD><TD>The user of the application software is not willfully negligent or hostile, and uses the software within compliance of a reasonable Enterprise security policy. </TD></TR>
-      <TR><TD>A.Proper_Admin </TD><TD>The administrator of the application software is not careless, willfully negligent or hostile, and administers the software within compliance of a reasonable Enterprise security policy.</TD></TR>
-      <TR><TD>A.Enterprise </TD><TD>The configuration of the application software must adhere to the Enterprise security policy. </TD></TR>
-      <TR><TD>A.Knowledge_User</TD><TD>The user is knowledgeable concerning document management and has appropriate training with the redaction tool. Part of this knowledge and training includes how to prepare a document for the redaction tool, e.g. resolve and turn off tracked changes prior to redaction, work with a copy of the document and preserve the original file, remove passwords and decrypt files, etc. </TD></TR>
-      <TR><TD>A.Information_Release_Policy</TD><TD>There is a redaction or information release policy in place for the organization which the user follows.</TD></TR>
-      <TR><TD>A.Preservation_of_Document_Layout</TD><TD>The <span title="Target of Evaluation">TOE</span> will preserve the layout of the document.</TD></TR>
+      <TR><TD>A.Platform</TD><TD>The <span title="Target of Evaluation">TOE</span> relies upon a
+          trustworthy computing platform for its execution. This includes the underlying operating
+          system and the runtime environment it provides to the <span title="Target of Evaluation"
+            >TOE</span>.</TD></TR>
+      <TR><TD>A.Proper_User </TD><TD>The user of the application software is not willfully negligent
+          or hostile, and uses the software within compliance of a reasonable Enterprise security
+          policy. </TD></TR>
+      <TR><TD>A.Proper_Admin </TD><TD>The administrator of the application software is not careless,
+          willfully negligent or hostile, and administers the software within compliance of a
+          reasonable Enterprise security policy.</TD></TR>
+      <TR><TD>A.Enterprise </TD><TD>The configuration of the application software must adhere to the
+          Enterprise security policy. </TD></TR>
+      <TR><TD>A.Knowledge_User</TD><TD>The user is knowledgeable concerning document management and
+          has appropriate training with the redaction tool. Part of this knowledge and training
+          includes how to prepare a document for the redaction tool, e.g. resolve and turn off
+          tracked changes prior to redaction, work with a copy of the document and preserve the
+          original file, remove passwords and decrypt files, etc. </TD></TR>
+      <TR><TD>A.Information_Release_Policy</TD><TD>There is a redaction or information release
+          policy in place for the organization which the user follows.</TD></TR>
+      <TR><TD>A.Preservation_of_Document_Layout</TD><TD>The <span title="Target of Evaluation"
+            >TOE</span> will preserve the layout of the document.</TD></TR>
     </table>
-    <h4>Threats</h4>
-    The following threats should be integrated into the threats that are specific to the technology by the <span title="Protection Profile">PP</span> authors when including the requirements described in this document.  Modifications, omissions, and additions to the requirements may impact this list, so the <span title="Protection Profile">PP</span> author should modify or delete these threats as appropriate.<br></br>
+    <h4>Threats</h4> The following threats should be integrated into the threats that are specific
+    to the technology by the <span title="Protection Profile">PP</span> authors when including the
+    requirements described in this document. Modifications, omissions, and additions to the
+    requirements may impact this list, so the <span title="Protection Profile">PP</span> author
+    should modify or delete these threats as appropriate.<br/>
     <table>
       <TR class="header"><TH colspan="2">Table 2: Threats</TH></TR>
       <TR><TH>Threat Name</TH><TH>Threat Definition</TH></TR>
-      <TR><TD>T.Clues_to_Original_Data</TD><TD>A user or application may release redacted documents; where, the text or graphics placed in the redacted area by the <span title="Target of Evaluation">TOE</span> may contain clues to the nature of the original redacted information.</TD></TR>
-      <TR><TD>T.Expose_Process_Data</TD><TD>A user or application may release documents containing hidden elements that may contain information on process details unnecessary for release.</TD></TR>
-      <TR><TD>T.Implementation_Flaws</TD><TD>The <span title="Target of Evaluation">TOE</span> may contain flaws that result in improper <span title="Target of Evaluation">TOE</span> operation</TD></TR>
-      <TR><TD>T.Inaccessible_Data</TD><TD>Inaccessible files and/or files that are 'unhealthy' to open or modify can prevent proper inspection of metadata and elements that are selected for redaction.</TD></TR>
-      <TR><TD>T.Obscured_Data</TD><TD>A user or application may release documents containing data that is obscured via some well-known or proprietary process. Because the original data is still present, there is a risk that an adversary can reverse the process to reveal data deemed unreleasable for dissemination.</TD></TR>
-      <TR><TD>T.Unredacted_Visible_Data</TD><TD>A user or application may release documents containing visible objects or text that may contain information deemed unreleasable for dissemination outside of the data owner’s organization.</TD></TR>
-      <TR><TD>T.Unredacted_Hidden_Data</TD><TD>A user or application may release documents containing hidden elements that may contain information deemed unreleasable for dissemination outside of the data owner’s organization.</TD></TR>
-      <TR><TD>T.User_Error</TD><TD>Unintentional or accidental user errors can occur due to certain human factors (fatigue, drowsiness, illness) as well as certain environmental aspects that can distract a user (noise, excessive workload, coworkers).</TD></TR>
-      <TR><TD>T.Unredacted_Release</TD><TD>The <span title="Target of Evaluation">TOE</span> may fail to redact selected or hidden data elements that may contain information deemed unreleasable for dissemination outside of the data owner’s organization.</TD></TR>
+      <TR><TD>T.Clues_to_Original_Data</TD><TD>A user or application may release redacted documents;
+          where, the text or graphics placed in the redacted area by the <span
+            title="Target of Evaluation">TOE</span> may contain clues to the nature of the original
+          redacted information.</TD></TR>
+      <TR><TD>T.Expose_Process_Data</TD><TD>A user or application may release documents containing
+          hidden elements that may contain information on process details unnecessary for
+          release.</TD></TR>
+      <TR><TD>T.Implementation_Flaws</TD><TD>The <span title="Target of Evaluation">TOE</span> may
+          contain flaws that result in improper <span title="Target of Evaluation">TOE</span>
+          operation</TD></TR>
+      <TR><TD>T.Inaccessible_Data</TD><TD>Inaccessible files and/or files that are 'unhealthy' to
+          open or modify can prevent proper inspection of metadata and elements that are selected
+          for redaction.</TD></TR>
+      <TR><TD>T.Obscured_Data</TD><TD>A user or application may release documents containing data
+          that is obscured via some well-known or proprietary process. Because the original data is
+          still present, there is a risk that an adversary can reverse the process to reveal data
+          deemed unreleasable for dissemination.</TD></TR>
+      <TR><TD>T.Unredacted_Visible_Data</TD><TD>A user or application may release documents
+          containing visible objects or text that may contain information deemed unreleasable for
+          dissemination outside of the data owner’s organization.</TD></TR>
+      <TR><TD>T.Unredacted_Hidden_Data</TD><TD>A user or application may release documents
+          containing hidden elements that may contain information deemed unreleasable for
+          dissemination outside of the data owner’s organization.</TD></TR>
+      <TR><TD>T.User_Error</TD><TD>Unintentional or accidental user errors can occur due to certain
+          human factors (fatigue, drowsiness, illness) as well as certain environmental aspects that
+          can distract a user (noise, excessive workload, coworkers).</TD></TR>
+      <TR><TD>T.Unredacted_Release</TD><TD>The <span title="Target of Evaluation">TOE</span> may
+          fail to redact selected or hidden data elements that may contain information deemed
+          unreleasable for dissemination outside of the data owner’s organization.</TD></TR>
     </table>
     <h4>Security Objectives for the <span title="Target of Evaluation">TOE</span></h4>
     <table>
-      <TR class="header"><TH colspan="2">Table 3: Security Objectives for the <span title="Target of Evaluation">TOE</span></TH></TR>
-      <TR><TH><span title="Target of Evaluation">TOE</span> Security Objective</TH><TH><span title="Target of Evaluation">TOE</span> Objective Definition</TH></TR>
-      <TR><TD>O.Deep_Inspection</TD><TD>The <span title="Target of Evaluation">TOE</span> will analyze the file content for metadata and elements, to include any that are purposely hidden or not immediately visible to the naked eye. This metadata and elements includes, but is not limited to those that are obstructed from view such as shapes on top of text, hidden objects (manual direct formatting or programmatically hidden), and text that is positioned off the margins, and/or is located in header and footer sections of the file.</TD></TR>
-      <TR><TD>O.Failure</TD><TD>The user must have assurance that the redaction is complete to avoid releasing the document prior to proper redaction. The <span title="Target of Evaluation">TOE</span> can fail redaction for several reasons. Failing in a secure state will assure the user that a partially redacted file will not be released.</TD></TR>
-      <TR><TD>O.Hidden Data</TD><TD>The <span title="Target of Evaluation">TOE</span> will provide the capability to find and remove hidden data elements in the document. The <span title="Target of Evaluation">TOE</span> will include the capability to automatically remove certain hidden data elements that are unnecessary for the functionality, display or printing of the document.</TD></TR>
-      <TR><TD>O.Locate_and_Remove</TD><TD>Complex file formats may store multiple instances of data in different locations within the file. The <span title="Target of Evaluation">TOE</span> must locate all instances of data to be redacted and completely remove this data from the file.</TD></TR>
-      <TR><TD>O.No_New_Hidden_Data</TD><TD>The <span title="Target of Evaluation">TOE</span> may not add hidden data to the redacted file without informing the user.  This hidden data may include metadata, document management system tracking information, or other process related information.</TD></TR>
-      <TR><TD>O.Remove</TD><TD>The <span title="Target of Evaluation">TOE</span> will provide the capability to completely remove any data selected for redaction.</TD></TR>
-      <TR><TD>O.Remove_References</TD><TD>Complex file formats may contain multiple internal references to data to be redacted.  The <span title="Target of Evaluation">TOE</span> will remove all such internal references.</TD></TR>
-      <TR><TD>O.Replace</TD><TD>During the redaction process the <span title="Target of Evaluation">TOE</span> will place text or graphics in the area of the redacted information to signify data has been redacted. This newly placed information cannot convey any information which may offer clues as to the nature of the original redacted information.</TD></TR>
-      <TR><TD>O.Report </TD><TD>As users employ redaction tools to remove elements from documents or other types of logical containers, confirmation that the elements selected by the user and the <span title="Target of Evaluation">TOE</span> were removed is necessary. Report generation is one means of providing users with feedback about what was redacted. This capability allows the user to call up a report upon request.</TD></TR>
-      <TR><TD>O.Selected_Elements</TD><TD>The <span title="Target of Evaluation">TOE</span> will provide the capability to select any type of document object in whole or in part for redaction.</TD></TR>
-      <TR><TD>O.Validation</TD><TD>The <span title="Target of Evaluation">TOE</span> will provide the capability to parse through the structure of the document and extraneous or unnecessary data without affecting the overall structure or functionality (e.g., display, print) of the document. The <span title="Target of Evaluation">TOE</span> will also provide the capability to parse different complex objects based on the format and simplify or remove those that it cannot interpret. In doing so, the <span title="Target of Evaluation">TOE</span> will produce a clean document for redaction without involving the user.</TD></TR>
+      <TR class="header"><TH colspan="2">Table 3: Security Objectives for the <span
+            title="Target of Evaluation">TOE</span></TH></TR>
+      <TR><TH><span title="Target of Evaluation">TOE</span> Security Objective</TH><TH><span
+            title="Target of Evaluation">TOE</span> Objective Definition</TH></TR>
+      <TR><TD>O.Deep_Inspection</TD><TD>The <span title="Target of Evaluation">TOE</span> will
+          analyze the file content for metadata and elements, to include any that are purposely
+          hidden or not immediately visible to the naked eye. This metadata and elements includes,
+          but is not limited to those that are obstructed from view such as shapes on top of text,
+          hidden objects (manual direct formatting or programmatically hidden), and text that is
+          positioned off the margins, and/or is located in header and footer sections of the
+          file.</TD></TR>
+      <TR><TD>O.Failure</TD><TD>The user must have assurance that the redaction is complete to avoid
+          releasing the document prior to proper redaction. The <span title="Target of Evaluation"
+            >TOE</span> can fail redaction for several reasons. Failing in a secure state will
+          assure the user that a partially redacted file will not be released.</TD></TR>
+      <TR><TD>O.Hidden Data</TD><TD>The <span title="Target of Evaluation">TOE</span> will provide
+          the capability to find and remove hidden data elements in the document. The <span
+            title="Target of Evaluation">TOE</span> will include the capability to automatically
+          remove certain hidden data elements that are unnecessary for the functionality, display or
+          printing of the document.</TD></TR>
+      <TR><TD>O.Locate_and_Remove</TD><TD>Complex file formats may store multiple instances of data
+          in different locations within the file. The <span title="Target of Evaluation">TOE</span>
+          must locate all instances of data to be redacted and completely remove this data from the
+          file.</TD></TR>
+      <TR><TD>O.No_New_Hidden_Data</TD><TD>The <span title="Target of Evaluation">TOE</span> may not
+          add hidden data to the redacted file without informing the user. This hidden data may
+          include metadata, document management system tracking information, or other process
+          related information.</TD></TR>
+      <TR><TD>O.Remove</TD><TD>The <span title="Target of Evaluation">TOE</span> will provide the
+          capability to completely remove any data selected for redaction.</TD></TR>
+      <TR><TD>O.Remove_References</TD><TD>Complex file formats may contain multiple internal
+          references to data to be redacted. The <span title="Target of Evaluation">TOE</span> will
+          remove all such internal references.</TD></TR>
+      <TR><TD>O.Replace</TD><TD>During the redaction process the <span title="Target of Evaluation"
+            >TOE</span> will place text or graphics in the area of the redacted information to
+          signify data has been redacted. This newly placed information cannot convey any
+          information which may offer clues as to the nature of the original redacted
+          information.</TD></TR>
+      <TR><TD>O.Report </TD><TD>As users employ redaction tools to remove elements from documents or
+          other types of logical containers, confirmation that the elements selected by the user and
+          the <span title="Target of Evaluation">TOE</span> were removed is necessary. Report
+          generation is one means of providing users with feedback about what was redacted. This
+          capability allows the user to call up a report upon request.</TD></TR>
+      <TR><TD>O.Selected_Elements</TD><TD>The <span title="Target of Evaluation">TOE</span> will
+          provide the capability to select any type of document object in whole or in part for
+          redaction.</TD></TR>
+      <TR><TD>O.Validation</TD><TD>The <span title="Target of Evaluation">TOE</span> will provide
+          the capability to parse through the structure of the document and extraneous or
+          unnecessary data without affecting the overall structure or functionality (e.g., display,
+          print) of the document. The <span title="Target of Evaluation">TOE</span> will also
+          provide the capability to parse different complex objects based on the format and simplify
+          or remove those that it cannot interpret. In doing so, the <span
+            title="Target of Evaluation">TOE</span> will produce a clean document for redaction
+          without involving the user.</TD></TR>
     </table>
-    <h4>Security Threats to Security Objectives</h4>
-    The following table contains a mapping of Security Threats to Objectives for the <span title="Target of Evaluation">TOE</span>.<br></br>
+    <h4>Security Threats to Security Objectives</h4> The following table contains a mapping of
+    Security Threats to Objectives for the <span title="Target of Evaluation">TOE</span>.<br/>
     <table>
       <TR class="header"><TH colspan="2">Table 4: Security Threats to Objectives Mapping</TH></TR>
-      <TR>Threat<TH></TH><TH>Security Objectives</TH></TR>
-      <TR><TD>T.Clues_to_Original_Data</TD><TD>O.Re place;<br></br>
-        O.Remove_References
-      </TD></TR>
+      <TR>Threat<TH/><TH>Security Objectives</TH></TR>
+      <TR><TD>T.Clues_to_Original_Data</TD><TD>O.Re place;<br/> O.Remove_References </TD></TR>
       <TR><TD>T.Expose_Process_Data</TD><TD>O.No_New_Hidden_Data</TD></TR>
       <TR><TD>T.Implementation_Flaws</TD><TD>O.Report</TD></TR>
       <TR><TD>T.Inaccessible_Data</TD><TD>O.Deep_Inspection</TD></TR>
       <TR><TD>T.Obscured_Data</TD><TD>O.Remove</TD></TR>
-      <TR><TD>T.Unredacted_Visible_Data</TD><TD>O.Failure;<Br></Br>
-        O.Selected_Elements
-      </TD></TR>
-      <TR><TD>T.Unredacted_Hidden_Data</TD><TD>O.Locate_and_Remove;<br></br>
-        O.Selected_Elements;<br></br>
-        O.Deep_Inspection<br></br>
-        O.Hidden Data<br></br>
-        O.Failure<br></br>
-        O.Validation
-      </TD></TR>
+      <TR><TD>T.Unredacted_Visible_Data</TD><TD>O.Failure;<Br/> O.Selected_Elements </TD></TR>
+      <TR><TD>T.Unredacted_Hidden_Data</TD><TD>O.Locate_and_Remove;<br/> O.Selected_Elements;<br/>
+          O.Deep_Inspection<br/> O.Hidden Data<br/> O.Failure<br/> O.Validation </TD></TR>
       <TR><TD>T.User_Error</TD><TD>O.Report</TD></TR>
       <TR><TD>T.Unredacted Release</TD><TD>O.Failure</TD></TR>
     </table>
-    <h4>Security Objectives to Security Requirements</h4>
-    The following table contains a mapping of Security Objectives for the <span title="Target of Evaluation">TOE</span> to Security Functional Requirements.<br></br>
+    <h4>Security Objectives to Security Requirements</h4> The following table contains a mapping of
+    Security Objectives for the <span title="Target of Evaluation">TOE</span> to Security Functional
+    Requirements.<br/>
     <table>
       <TR class="header"><TH colspan="2">Table 5: Security Objectives to Requirements</TH></TR>
-      <TR><TH><span title="Target of Evaluation">TOE</span> Security Objective</TH><TH>Security Functional Requirements</TH></TR>
+      <TR><TH><span title="Target of Evaluation">TOE</span> Security Objective</TH><TH>Security
+          Functional Requirements</TH></TR>
       <TR><TD>O.Deep_Inspection</TD><TD>RED_DIN_EXT.1</TD></TR>
-      <TR><TD>O.Failure</TD><TD>FPT_FLS_EXT.1;RED_ALR_EXT.1	</TD></TR>
-      <TR><TD>O.Hidden_Data</TD><TD>RED_RIP_EXT.1.1; RED_ID_EXT.1.1; RED_ID_EXT.1.2; RED_ID_EXT.1.4</TD></TR>
+      <TR><TD>O.Failure</TD><TD>FPT_FLS_EXT.1;RED_ALR_EXT.1 </TD></TR>
+      <TR><TD>O.Hidden_Data</TD><TD>RED_RIP_EXT.1.1; RED_ID_EXT.1.1; RED_ID_EXT.1.2;
+          RED_ID_EXT.1.4</TD></TR>
       <TR><TD>O.Locate_and_Remove</TD><TD>RED_LOC_EXT.1.1</TD></TR>
       <TR><TD>O.No_New_Hidden_Data</TD><TD>RED_NND_EXT.1 .1</TD></TR>
       <TR><TD>O.Remove</TD><TD>RED_REM_EXT.1</TD></TR>
@@ -974,59 +1105,183 @@
       <TR><TD>O.Validation</TD><TD>VAL_PAR_EXT.1.1</TD></TR>
     </table>
   </appendix>
-  <appendix id="" title="Optional Requirements">
-    As indicated in the introduction to this <span title="Protection Profile">PP</span>, the baseline requirements (those that must be performed by the <span title="Target of Evaluation">TOE</span> or its underlying platform) are contained in the body of this <span title="Protection Profile">PP</span>.  Additionally, there are three other types of requirements specified in Annexes B, C, and D.<br></br>
-    The first type (in this Annex) is requirements that can be included in the <span title="Security Target">ST</span>, but do not have to be in order for a <span title="Target of Evaluation">TOE</span> to claim conformance to this <span title="Protection Profile">PP</span>. The second type (in Annex C) is requirements based on selections in the body of the <span title="Protection Profile">PP</span>: if certain selections are made, then additional requirements in that annex will need to be included.  The third type (in Annex D) is components that are not required in order to conform to this <span title="Protection Profile">PP</span>, but will be included in the baseline requirements in future versions of this <span title="Protection Profile">PP</span>, so adoption by redaction tool vendors is encouraged. Note that the <span title="Security Target">ST</span> author is responsible for ensuring that requirements that may be associated with those in Annex B, Annex C, and/or Annex D but are not listed (e.g., FMT-type requirements) are also included in the <span title="Security Target">ST</span>.<br></br>
-    No optional requirements have been identified at this time.<br></br>
+
+  <appendix title="Optional Requirements" id="optional"> As indicated in <secref linkend="ccl"/>,
+    the baseline requirements (those that must be performed by the <abbr linkend="TOE"/>) are
+    contained in the body of this EP. Additionally, there are three other types of requirements
+    specified in <appref linkend="optional"/>, <appref linkend="sel-based"/>, and <appref
+      linkend="objective"/>. The first type (in this Appendix) are requirements that can be included
+    in the <abbr linkend="ST"/>, but are not required in order for a TOE to claim conformance to
+    this PP. The second type (in <appref linkend="sel-based"/>) are requirements based on selections
+    in the body of the EP: if certain selections are made, then additional requirements in that
+    appendix must be included. The third type (in <appref linkend="objective"/> are components that
+    are not required in order to conform to this EP, but will be included in the baseline
+    requirements in future versions of this EP, so adoption by vendors is encouraged. Note that the
+    ST author is responsible for ensuring that requirements that may be associated with those in
+      <appref linkend="optional"/>, <appref linkend="sel-based"/>, and <appref linkend="objective"/>
+    but are not listed (e.g., FMT-type requirements) are also included in the ST. </appendix>
+
+  <appendix title="Selection-Based Requirements" id="sel-based">As indicated in the introduction to
+    this EP, the baseline requirements (those that must be performed by the browser or its
+    underlying platform) are contained in the App PP and in the body of this EP. There are
+    additional requirements based on selections from the App PP and/or in the body of the EP: if
+    certain selections are made, then additional requirements below will need to be included. </appendix>
+
+  <appendix title="Objective Requirements" id="objective"> This Annex includes requirements that
+    specify security functionality which also addresses threats. The requirements are not currently
+    mandated in the body of this EP as they describe security functionality not yet widely-available
+    in commercial technology. However, these requirements may be included in the ST such that the
+    TOE is still conformant to this EP, and it is expected that they be included as soon as
+    possible. </appendix>
+
+  <appendix id="biblio" title="References">
+    <bibliography>
+      <entry id="bibCC">
+        <tag>CC</tag>
+        <description>Common Criteria for Information Technology Security Evaluation - <ul>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R4.pdf">Part
+                1: Introduction and General Model</a>, CCMB-2012-09-001, Version 3.1 Revision 4,
+              September 2012.</li>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART2V3.1R4.pdf">Part
+                2: Security Functional Components</a>, CCMB-2012-09-002, Version 3.1 Revision 4,
+              September 2012.</li>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART3V3.1R4.pdf">Part
+                3: Security Assurance Components</a>, CCMB-2012-09-003, Version 3.1 Revision 4,
+              September 2012.</li>
+          </ul></description>
+      </entry>
+      <entry id="bibCC">
+        <tag>AppPP</tag>
+        <description>
+          <a href="https://www.niap-ccevs.org/pp/PP_APP_v1.1/">Protection Profile for Application
+            Software</a>
+        </description>
+      </entry>
+    </bibliography>
   </appendix>
-  <appendix id="" title="Selection-Based Requirements">
-    In some cases when certain selections are made in <span title="Security Functional Requirement">SFR</span>s, additional requirements in may need to be included.<br></br>
-    Note that minor adjustments to the narrative information in the beginning of the <span title="Security Target">ST</span> may be required depending on the selections performed.  Additionally, depending on the requirements selected, the appropriate information from Section C.2 Auditable Events will need to be added to the auditable events table in the <span title="Security Target">ST</span>.<br></br>
-    No Selection-Based items have been identified at this time.
+
+  <appendix title="Acronyms" id="acronyms">
+    <acronyms>
+      <entry>
+        <term>AES</term>
+        <description>Advanced Encryption Standard</description>
+      </entry>
+      <entry>
+        <term>CBC</term>
+        <description>Cipher Block Chaining</description>
+      </entry>
+      <entry>
+        <term>CRL</term>
+        <description>Certificate Revocation List</description>
+      </entry>
+      <entry>
+        <term>CSP</term>
+        <description>Cryptographic Service Provider</description>
+      </entry>
+      <entry>
+        <term>CSRF</term>
+        <description>Cross Site Request Forgery</description>
+      </entry>
+      <entry>
+        <term>DHE</term>
+        <description>Diffie-Hellman Key Exchange</description>
+      </entry>
+      <entry>
+        <term>DN</term>
+        <description>Distinguished Name</description>
+      </entry>
+      <entry>
+        <term>DSA</term>
+        <description>Digital Signature Algorithm</description>
+      </entry>
+      <entry>
+        <term>DTLS</term>
+        <description>Datagram Transport Layer Security</description>
+      </entry>
+      <entry>
+        <term>ECC</term>
+        <description>Elliptic Curve Cryptography</description>
+      </entry>
+      <entry>
+        <term>ECDSA</term>
+        <description>Elliptic Curve Digital Signature Algorithm</description>
+      </entry>
+      <entry>
+        <term>EP</term>
+        <description>Extended Package</description>
+      </entry>
+      <entry>
+        <term>FFC</term>
+        <description>Finite-Field Cryptography</description>
+      </entry>
+      <entry>
+        <term>FIPS</term>
+        <description>Federal Information Processing Standards</description>
+      </entry>
+      <entry>
+        <term>HMAC</term>
+        <description>Keyed Hash Message Authentication Code</description>
+      </entry>
+      <entry>
+        <term>IETF</term>
+        <description>Internet Engineering Task Force</description>
+      </entry>
+      <entry>
+        <term>IV</term>
+        <description>Initialization Vector</description>
+      </entry>
+      <entry>
+        <term>KAT</term>
+        <description>Known Answer Test</description>
+      </entry>
+      <entry>
+        <term>KDF</term>
+        <description>Key Derivation Function</description>
+      </entry>
+      <entry>
+        <term>NIST</term>
+        <description>National Institute of Standards and Technology</description>
+      </entry>
+      <entry>
+        <term>OID</term>
+        <description>Object Identifier</description>
+      </entry>
+      <entry>
+        <term>PDF</term>
+        <description>Portable Document Format</description>
+      </entry>
+      <entry>
+        <term>rDSA</term>
+        <description>RSA Digital Signature Algorithm</description>
+      </entry>
+      <entry>
+        <term>RFC</term>
+        <description>Request for Comment (IETF)</description>
+      </entry>
+      <entry>
+        <term>RGB</term>
+        <description>Random Bit Generator</description>
+      </entry>
+      <entry>
+        <term>RSA</term>
+        <description>Rivest Shamir Adelman</description>
+      </entry>
+      <entry>
+        <term>SaaS</term>
+        <description>Software as a Service</description>
+      </entry>
+      <entry>
+        <term>SHA</term>
+        <description>Secure Hash Algorithm</description>
+      </entry>
+      <entry>
+        <term>SSL</term>
+        <description>Secure Sockets Layer</description>
+      </entry>
+      <entry>
+        <term>TLS</term>
+        <description>Transport Layer Security</description>
+      </entry>
+    </acronyms>
   </appendix>
-  <appendix id="" title="Objective Requirements">
-    As indicated in the introduction to this <span title="Protection Profile">PP</span>, the baseline requirements (those that must be performed by the <span title="Target of Evaluation">TOE</span> or its underlying platform) are contained in the body of this <span title="Protection Profile">PP</span>.  There are additional requirements that specify security functionality that is desirable and these requirements are contained in this Annex.  It is expected that these requirements will transition from objective requirements to baseline requirements in future versions of this <span title="Protection Profile">PP</span>.<br></br>
-    At any time these may be included in the <span title="Security Target">ST</span> such that the <span title="Target of Evaluation">TOE</span> is still conformant to this <span title="Protection Profile">PP</span>. <br></br>
-    No objective items have been identified at this time.
-  </appendix>
-  <appendix id="" title="Glossary and Acronyms">
-    <h4>Technical Definitions used in this document</h4>
-    <table>
-      <TR><TH>Term</TH><TH>Meaning</TH></TR>
-      <TR><TD>EXIF</TD><TD>Exchangeable Image File Format</TD></TR>
-      <TR><TD>IEC</TD><TD>International Electrotechnical Commission</TD></TR>
-      <TR><TD>ISO</TD><TD>International Organization of Standards</TD></TR>
-      <TR><TD>JPG (JPEG)</TD><TD>Joint Photographic Experts Group</TD></TR>
-      <TR><TD>OLE</TD><TD>Object Linked and Embedding</TD></TR>
-      <TR><TD>PDF</TD><TD>Portable Document Format</TD></TR>
-      <TR><TD>TIFF</TD><TD>Tagged Image File Format</TD></TR>
-      <TR><TD>URL</TD><TD>Uniform Resource Locator</TD></TR>
-      <TR><TD>WYSIWYG</TD><TD>What You See is What You Get</TD></TR>
-      <TR><TD>XML</TD><TD>eXtensible Markup Language</TD></TR>
-    </table>
-    <h4>Common Criteria Definitions</h4>
-    <table>
-      <TR><TH>Term</TH><TH>Meaning</TH></TR>
-        <tr><TD>Assurance</TD><TD>Grounds for confidence that a <span title="Target of Evaluation">TOE</span> meets the <span title="Security Functional Requirement">SFR</span>s [CC1].</TD></tr>
-      <tr><TD><abbr id="CC">CC</abbr></TD><TD>Common Criteria</TD></tr>
-      <tr><TD><abbr id="PP">PP</abbr></TD><TD>Protection Profile</TD></tr>
-      <tr><TD><abbr id="SAR">SAR</abbr></TD><TD>Security Assurance Requirement</TD></tr>
-      <tr><TD><abbr id="SFR">SFR</abbr></TD><TD>Security Functional Requirement</TD></tr>
-      <tr><TD>Security Target (<abbr id="ST">ST</abbr>)</TD><TD>Implementation dependent statement of security needs for a specific identified <span title="Target of Evaluation">TOE</span>.</TD></tr>
-      <tr><TD>Target of Evaluation (<abbr id="TOE">TOE</abbr>)</TD><TD>Set of software, firmware and hardware under evaluation, possibly accompanied by guidance.</TD></tr>
-      <tr><TD>TOE Security Functionality (<abbr id="TSF">TSF</abbr>)</TD><TD>Combined functionality of all hardware, software, and firmware of a TOE that must be relied upon for the correct enforcement of the <span title="Security Functional Requirement">SFR</span></TD></tr>
-      <tr><TD>TOE Summary Specification (<abbr id="TSS">TSS</abbr>)</TD><TD>Documentation which provides evaluators with a description of the implementation of <span title="Security Functional Requirement">SFR</span>s in the TOE.</TD></tr>  
-    </table>
-  </appendix>
-  <!-- 
-              <TR class="header">
-        <TH colspan="2">Table 3: Security Threats to Objectives Mapping</TH>
-      </TR>
-      <TR>
-        <TH>Threat</TH>
-        <TH>Objective</TH>
-      </TR>
-      -->
-  
-  
 </PP>
