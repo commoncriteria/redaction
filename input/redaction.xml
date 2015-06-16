@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="..\transforms\pp2html.xsl"?>
 <PP xmlns="http://common-criteria.rhcloud.com/ns/cc" name="Redaction Tools">
   <PPReference title="PP"> Reference" id="ID003"> <ReferenceTable>
       <PPTitle>Application Software Extended Package for Redaction Tools</PPTitle>
       <PPVersion>1.1</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2014-12-23</PPPubDate>
+      <PPPubDate>2015-06-16</PPPubDate>
       <PPCertificationID>unassigned</PPCertificationID>
       <CCVersion>Version 3.1</CCVersion>
       <Keywords>redaction; software</Keywords>
@@ -22,7 +23,7 @@
     </entry>
     <entry>
       <version>v 1.1</version>
-      <date>2014-12-23</date>
+      <date>2015-06-16</date>
       <subject>Interim Draft - Update as Extended Package of the Protection Profile for Application
         Software</subject>
     </entry>
@@ -34,8 +35,8 @@
       <subject>Final Version 1.0 Released</subject>
     </entry>
     <entry>
-      <version>v 2.0</version>
-      <date>2014-12-23</date>
+      <version>v 1.1</version>
+      <date>2015-06-16</date>
       <subject>Update as Extended Package of the Protection Profile for Application
         Software</subject>
     </entry>
@@ -70,7 +71,57 @@
       removed with no indication that the sanitization process took place. In the redaction process,
       selected visible information is removed and replaced with something innocuous (e.g. black box
       or text) so that the reader knows redaction took place. This replacement is a critical part of
-      the process not shared with sanitization. </section>
+      the process not shared with sanitization. 
+      <figure entity="images/workflow.jpg"
+        title="Figure 1: One possible workflow of an electronic document through the redaction process."
+        id="workflow"/> Figure 1 shows the typical workflow of a document from source to destination
+      and through the redaction process. The original source of the document can be either internal
+      or external to the system which hosts the redaction tool. If the source is external, the
+      document will first go through the system’s security policy for importing documents, e.g.
+      virus scanning. A document from an internal source was either created on the system or has
+      already gone through security scans. When a document enters the redaction process, it should
+      have already been checked for malicious executable content.<br/> During the pre-release
+      process, the user or another authority in the workflow determines what to redact using the
+      organization’s information policies or declassification guidelines. The authority makes a
+      determination about the release of images, audio, video or other complex objects that are in
+      the document that may require other pre-processing before release. For example, the document
+      will be examined for potential steganography attacks or a decision will be made to redact
+      those portions that may contain such issues. For encrypted or password-protected files, the
+      user will remove passwords and decrypt files during this phase, which assumes the host system
+      is secured to a level appropriate to contain the decrypted data.<br/> There are several
+      different types of interactive redaction tools: stand-alone, plug-in, or multi-purpose. A
+      stand-alone tool is self-contained and performs only redaction-related functions. A plug-in
+      performs redaction-related functions as part of another application when installed in that
+      application. A multi-purpose tool includes other functionality along with built-in redaction
+      functions, such as a word processor that includes built-in redaction functionality or a
+      redaction tool that also performs encryption and digital signature functions. This protection
+      profile applies to the redaction functionality in all of these types of interactive tools.
+      <br/> During the redaction process, the user will manually mark visible data or select hidden
+      data. The redaction tool will remove this data from the document in such a way that reverse
+      engineering the document will not allow recovery of the redacted data. The organization should
+      have a redaction policy that specifies which features of the redaction tool to use, such as
+      whether to remove all hidden data automatically or to review and select elements individually,
+      whether to replace redacted text with other text or with solid blocks of color, what color to
+      use, etc. While this policy is part of the redaction process, it is separate from the
+      redaction tool.<br/> The organization will apply review and final approval policies during the
+      review and release process. There may also be post-processing requirements for the document
+      such as inserting special metadata, adding passwords, document encryption or digital
+      signature. The redaction tool may include the functionality to perform these post-processing
+      requirements but they are not within the scope of the redaction functionality of the
+      tool.<br/> Once approved for release, the organization may have additional inspection and
+      sanitization requirements that depend on the source and destination. For example, documents on
+      a classified system may have to go through additional processing before being moved to an
+      unclassified destination.<br/> Other workflows are possible. For example, decryption and
+      re-encryption of data may be performed by the redaction tool without the data ever being saved
+      as an intermediate file. Again, the host system is assumed to be secured to the level
+      necessary for the decrypted data. Software vendors have the flexibility to devise their own
+      workflow solutions for their target consumer. However, in any workflow, this protection
+      profile applies only to the part of the workflow that is performed by the redaction tool and
+      only to the redaction functionality in that tool. Other functionality in the redaction tool,
+      other tools used in the workflow, the organization's redaction policy as well as security
+      requirements and security policies that apply to other parts of the workflow is beyond the
+      scope of this protection profile. 
+    </section>
     <section title="Terms" id="glossary">The following sections provide both Common Criteria and
       technology terms used in this Extended Package. <subsection title="Common Criteria Terms"
         id="ccterms">
@@ -130,22 +181,20 @@
         <glossary>
           <entry>
             <term>Visible contents</term>
-            <description>the visible contents of the file; the visual representation of text, images
-              and complex objects</description>
+            <description>The visible contents of the file; the visual representation of text, images
+              and complex objects.</description>
           </entry>
           <entry>
             <term>Obscured visible data</term>
-            <description>content that could be visible but is obscured in some way such as content
+            <description>Content that could be visible but is obscured in some way such as content
               that runs off an edge of the container, text in a black font on black background (or
               any color of font on a similar color background), very small fonts, cropped or clipped
               graphics or images, hidden layers, portions of an embedded object (e.g. Microsoft OLE)
               that are outside the view container.</description>
-          </entry>
-        </glossary> Hidden Data:<br/>
-        <glossary>
+          </entry> 
           <entry>
             <term>Static data or metadata</term>
-            <description>file properties such as author or creation date, stored form field data,
+            <description>File properties such as author or creation date, stored form field data,
               undo cache or any data kept to revert to a prior version of an element or the document
               itself, incremental updates, collaboration data such as comments, tracked changes,
               workflow data, embedded search indexes, bookmarks, document info added by 3rd-party
@@ -153,52 +202,52 @@
           </entry>
           <entry>
             <term>Structural data</term>
-            <description>data that is part of the file format structure, such as a file header or
+            <description>Data that is part of the file format structure, such as a file header or
               fonts, and is necessary to interpret the file properly for display or
-              print</description>
+              print.</description>
           </entry>
           <entry>
             <term>Functional data</term>
-            <description>forms, scripts, link Uniform Resource Locators (URLs), workflow data,
+            <description>Forms, scripts, link Uniform Resource Locators (URLs), workflow data,
               action buttons, formulas in a spreadsheet, macros or any type of executable
-              content</description>
+              content.</description>
           </entry>
           <entry>
             <term>Remnant data</term>
-            <description>artifacts of the original application or source file format such as remnant
+            <description>Artifacts of the original application or source file format such as remnant
               or unreferenced data from fast saves, unreferenced or unused elements, malformed
-              elements that cannot be fixed, garbage data in the file structure</description>
+              elements that cannot be fixed, garbage data in the file structure.</description>
           </entry>
           <entry>
             <term>Images</term>
-            <description>the actual image data stored in the file as opposed to what is visible; the
+            <description>The actual image data stored in the file as opposed to what is visible; the
               visible image can be cropped or resized but the full image could still be retained in
               the file format and may or may not match the visible image; some image formats can
               have their own metadata, such as Joint Photographic Experts Group (JPG) and Tagged
-              Image File Format (TIFF)</description>
+              Image File Format (TIFF).</description>
           </entry>
           <entry>
             <term>Complex Objects</term>
-            <description>objects that may have their own static or functional metadata and may
+            <description>Objects that may have their own static or functional metadata and may
               differ between the stored and visible form, such as images, attachments, Microsoft OLE
-              objects, Microsoft ActiveX controls, and temporal objects</description>
+              objects, Microsoft ActiveX controls, and temporal objects.</description>
           </entry>
           <entry>
             <term>Temporal Objects</term>
-            <description>a particular type of complex object whose representation extends through a
+            <description>A particular type of complex object whose representation extends through a
               time interval, such as video, audio, flash animation, slide shows, etc. References to
               “complex objects” in the requirements section of this paper include temporal
-              objects</description>
+              objects.</description>
           </entry>
           <entry>
             <term>Metadata of objects or embedded objects</term>
-            <description>such as EXIF data of images; images themselves can contain other images and
+            <description>Such as EXIF data of images; images themselves can contain other images and
               their own metadata</description>
           </entry>
           <entry>
             <term>Attachments</term>
-            <description>an electronic document or data file that is part of the main file but is
-              logically distinct and separable from the main electronic document</description>
+            <description>An electronic document or data file that is part of the main file but is
+              logically distinct and separable from the main electronic document.</description>
           </entry>
         </glossary>
       </subsection>
@@ -255,14 +304,18 @@
       </subsection>
     </section>
 
-    <section title="Compliant Targets of Evaluation" id="TOEdescription"> This document provides an
-      extended set of Security Functional Requirements (SFRs) for a redaction tool, which is the
-      Target of Evaluation (TOE). <br/> The Protection Profile for Application Software defines the
-      baseline SFRs for application software which runs on mobile devices ("apps") as well as on
-      desktop and server platforms. This Extended Package (EP) for redaction tools is not complete
-      in itself, but rather extends the Protection Profile for Application Software. <br/> Redaction
-      tools are client applications requiring the user to selectively review and redact information
-      one document at a time. This <span title="Extended Package">EP</span> is limited to the
+    <section title="Compliant Targets of Evaluation" id="TOEdescription">The Target of Evaluation
+      (TOE) in this <abbr linkend="EP"/> is a redaction application running on a desktop or
+      mobile operating system. <br/>This <abbr linkend="EP"/> describes the extended security
+      functionality of a redaction tool in terms of <cite linkend="bibCC"/>. As an extension of the App
+      PP, it is expected that the content of this <abbr linkend="EP"/> will be appropriately
+      combined with the App PP to include selection-based requirements in accordance with the
+      selections and/or assignments made, and any optional and/or objective components to include:
+      FCS_CKM.2.1, FCS_COP.1.1(*), FCS_RBG_EXT.2.*, FCS_TLSC_EXT.1.*, FIA_X509_EXT.1.*,
+      FIA_X509_EXT.2.*. <br/>An ST must identify the applicable version of the App PP and this <abbr
+      linkend="EP"/> in its conformance claims.
+      
+      <br/>This <span title="Extended Package">EP</span> is limited to the
       redaction of electronic documents defined in standards such as the series International
       Organization for Standards (ISO)/International Electrotechnical Commission (IEC)-29500 (Office
       OpeneXtensible Markup Language (XML), e.g. Microsoft Word, PowerPoint, and Excel documents)
@@ -286,74 +339,41 @@
       Functional data such as scripts can contain strings or images that may not be accessible to
       the redaction tool. Analysis of such objects for attacks or covert data transfer will occur
       outside of the redaction process. An organization’s security policy will determine whether
-      such objects are released or redacted in their entirety. </section>
+      such objects are released or redacted in their entirety. 
+    </section>
 
-    <section title="Use Case" id="usecase">A user needs to release an electronic document to an
-      audience outside of some boundary. Some of the information in the document must not be
-      available to that audience. The user must first redact this information from the document
-      before moving the document across the boundary. The user manually selects the data to be
-      redacted with an interactive software application. The format of the source and destination
-      documents can be the same or different.<br/>      
-      <figure entity="images/workflow.jpg"
-        title="Figure 1: One possible workflow of an electronic document through the redaction process."
-        id="workflow"/> Figure 1 shows the typical workflow of a document from source to destination
-      and through the redaction process. The original source of the document can be either internal
-      or external to the system which hosts the redaction tool. If the source is external, the
-      document will first go through the system’s security policy for importing documents, e.g.
-      virus scanning. A document from an internal source was either created on the system or has
-      already gone through security scans. When a document enters the redaction process, it should
-      have already been checked for malicious executable content.<br/> During the pre-release
-      process, the user or another authority in the workflow determines what to redact using the
-      organization’s information policies or declassification guidelines. The authority makes a
-      determination about the release of images, audio, video or other complex objects that are in
-      the document that may require other pre-processing before release. For example, the document
-      will be examined for potential steganography attacks or a decision will be made to redact
-      those portions that may contain such issues. For encrypted or password-protected files, the
-      user will remove passwords and decrypt files during this phase, which assumes the host system
-      is secured to a level appropriate to contain the decrypted data.<br/> There are several
-      different types of interactive redaction tools: stand-alone, plug-in, or multi-purpose. A
-      stand-alone tool is self-contained and performs only redaction-related functions. A plug-in
-      performs redaction-related functions as part of another application when installed in that
-      application. A multi-purpose tool includes other functionality along with built-in redaction
-      functions, such as a word processor that includes built-in redaction functionality or a
-      redaction tool that also performs encryption and digital signature functions. This protection
-      profile applies to the redaction functionality in all of these types of interactive tools.
-      <br/> During the redaction process, the user will manually mark visible data or select hidden
-      data. The redaction tool will remove this data from the document in such a way that reverse
-      engineering the document will not allow recovery of the redacted data. The organization should
-      have a redaction policy that specifies which features of the redaction tool to use, such as
-      whether to remove all hidden data automatically or to review and select elements individually,
-      whether to replace redacted text with other text or with solid blocks of color, what color to
-      use, etc. While this policy is part of the redaction process, it is separate from the
-      redaction tool.<br/> The organization will apply review and final approval policies during the
-      review and release process. There may also be post-processing requirements for the document
-      such as inserting special metadata, adding passwords, document encryption or digital
-      signature. The redaction tool may include the functionality to perform these post-processing
-      requirements but they are not within the scope of the redaction functionality of the
-      tool.<br/> Once approved for release, the organization may have additional inspection and
-      sanitization requirements that depend on the source and destination. For example, documents on
-      a classified system may have to go through additional processing before being moved to an
-      unclassified destination.<br/> Other workflows are possible. For example, decryption and
-      re-encryption of data may be performed by the redaction tool without the data ever being saved
-      as an intermediate file. Again, the host system is assumed to be secured to the level
-      necessary for the decrypted data. Software vendors have the flexibility to devise their own
-      workflow solutions for their target consumer. However, in any workflow, this protection
-      profile applies only to the part of the workflow that is performed by the redaction tool and
-      only to the redaction functionality in that tool. Other functionality in the redaction tool,
-      other tools used in the workflow, the organization's redaction policy as well as security
-      requirements and security policies that apply to other parts of the workflow is beyond the
-      scope of this protection profile. </section>
+    <section title="Use Case" id="usecase">Redaction Tools perform tasks associated primarily with
+      the following use case.
+      <usecase title="Content Redaction">
+        <description>Redaction Tools are used for the redaction of user selected 
+          content from a document.
+        </description>
+      </usecase>    
+      </section>
   </chapter>
 
   <chapter title="Conformance Claims" id="conf">
-    <h3>CC Conformance Claims</h3>
-    <description>This <abbr linkend="EP"/> is conformant to Part 2 (extended) of Common Criteria
-        <cite linkend="bibCC"/> Version 3.1, Revision 4.</description>
-    <h3>PP Claim</h3>
-    <description>This <abbr linkend="EP"/> extends the Protection Profile for Application Software
-      but does not claim conformance to any other Protection Profile.</description>
-    <h3>Package Claim</h3>
-    <description>This <abbr linkend="EP"/> does not claim conformance to any packages.</description>
+    <cclaims>
+      <cclaim id="Conformance Statement">
+        <description> The Protection Profile for Application Software (<cite linkend="bibAppPP"/>)
+          defines the baseline Security Functional Requirements (SFRs) and Security Assurance
+          Requirements (SARs) for application software products. This <abbr linkend="EP"/> serves to
+          extend the App PP baseline with additional SFRs and associated Assurance Activities
+          specific to redaction tools. Assurance Activities are the actions that the evaluator
+          performs in order to determine an email client's compliance to the SFRs.<br/> This <abbr
+            linkend="EP"/> conforms to Common Criteria <cite linkend="bibCC"/> for Information
+          Technology Security Evaluation, Version 3.1, Revision 4. It is CC Part 2 extended and CC
+          Part 3 conformant. In order to be conformant to this <abbr linkend="EP"/>, the <abbr
+            linkend="ST"/> must include all components in this <abbr linkend="EP"/> and the
+          associated App PP that are: <ul><li>unconditional (which are always required)</li>
+            <li>selection-based (which are required when certain selections are chosen in the
+              unconditional requirements)</li>
+          </ul> and may include optional and/or objective components that are desirable but not
+          required for conformance. <br/> In accordance with CC Part 1, dependencies are not
+          included when they are addressed by other SFRs. The assurance activities provide adequate
+          proof that any dependencies are also satisfied. </description>
+      </cclaim>
+    </cclaims>
   </chapter>
 
   <chapter title="Security Problem Description" id="spd"> The security problem is described in terms
@@ -363,9 +383,10 @@
     identified in the <i>Protection Profile for Application Software</i> (App PP), though they all
     apply given the conformance and hence dependence of this EP on it. Together the threats,
     assumptions and organizational security policies of the App PP and those defined in this EP
-    describe those addressed by a web browser as the Target of Evaluation. <br/>
+    describe those addressed by a redaction tool as the Target of Evaluation. <br/>
     <section title="Threats" id="threattable">The following threats are specific to redaction tools,
-      and represent an addition to those identified in the App PP. <threats>
+      and represent an addition to those identified in the App PP. 
+      <threats>
         <threat id="T.Clues_to_Original_Data">
           <description>A user or application may release redacted documents, where, the text or
             graphics placed in the redacted area by the <span title="Target of Evaluation"
@@ -392,12 +413,12 @@
             there is a risk that an adversary can reverse the process to reveal data deemed
             unreleasable for dissemination.</description>
         </threat>
-        <threat id="T.Unredacted_Visible_Data">
+        <threat id="T.UNREDACTED_VISABLE_DATA">
           <description>A user or application may release documents containing visible objects or
             text that may contain information deemed unreleasable for dissemination outside of the
             data owner’s organization.</description>
         </threat>
-        <threat id="T.Unredacted_Hidden_Data">
+        <threat id="T.UNREDACTED_HIDDEN_DATA">
           <description>A user or application may release documents containing hidden, extraneous,
             unrecognized or noninterpretable elements that may contain information deemed
             unreleasable for dissemination outside of the data owner’s organization.</description>
@@ -414,12 +435,14 @@
         </threat>
       </threats>
     </section>
+    
     <section title="Assumptions" id="assumptions">This section of the security problem definition
       shows the assumptions that are made on the operational environment in order to be able to
       provide security functionality. If the <span title="Target of Evaluation">TOE</span> is placed
       in an operational environment that does not meet these assumptions, the <span
         title="Target of Evaluation">TOE</span> may not be able to provide all of its security
-      functionality. <assumptions>
+      functionality.
+      <assumptions>
         <assumption id="A.Knowledgeable User">
           <description>The user is knowledgeable concerning document management and has appropriate
             training with the redaction tool. Part of this knowledge and training includes how to
@@ -437,28 +460,14 @@
         </assumption>
       </assumptions>
     </section>
+    
   </chapter>
 
   <chapter title="Security Objectives" id="obj">
-    <section title="Security Objectives for the TOE" id="SecurityObjectivesTOE">
-    Compliant <span title="Target of Evaluation">TOE</span>s will provide
-    security functionality that address threats to the <span title="Target of Evaluation">
-    TOE</span>. The following sections provide a description of this
-    functionality in light of the threats previously discussed that motivate its inclusion in
-    compliant <span title="Target of Evaluation">TOE</span>s. The security functionality provided
-    includes generation of reports of redacted items, validation of files designated for redaction,
-    and removal of data and elements designated for redaction. <SOs>
-      <SO id="O.PROTECTED_STORAGE">
-        <description>Remove this after I talk to Jason! To address the issue of loss of
-          confidentiality of user data in the event of loss of physical control of the storage
-          medium, conformant <span title="Target of Evaluation">TOE</span>s will use data-at-rest
-          protection. This involves encrypting data and keys stored by the <span
-            title="Target of Evaluation">TOE</span> in order to prevent unauthorized access to this
-          encrypted data.</description>
-        <component-refer ref="FDP_DAR_EXT.1"/>
-        <component-refer ref="FCS_RBG_EXT.1"/>
-      </SO>
-      <SO id="O.Deep_Inspection">
+    This Extended Package adds SFRs to objectives identified in the App PP
+    and describes an additional objective specific to this <abbr linkend="EP"/>. 
+    <SOs>
+      <SO id="O.INSPECTION">
         <description>The <span title="Target of Evaluation">TOE</span> will analyze the file content
           for metadata and elements, to include any that are purposely hidden or not immediately
           visible to the naked eye. This metadata and elements includes, but is not limited to those
@@ -467,14 +476,22 @@
           and/or is located in header and footer sections of the file.</description>
         <component-refer ref="RED_DIN_EXT.1"/>
       </SO>
-      <SO id="O.Failure">
-        <description>The user must have assurance that the redaction is complete to avoid releasing
-          the document prior to proper redaction. The <span title="Target of Evaluation">TOE</span>
-          can fail redaction for several reasons. Failing in a secure state will assure the user
-          that a partially redacted file will not be released.</description>
+      <SO id="O.PROTECTED_STORAGE">
+        <component-refer ref="FDP_DAR_EXT.1"/>
+        <component-refer ref="FCS_RBG_EXT.1"/>
+      </SO>
+      <SO id="O.QUALITY">
         <component-refer ref="FPT_FLS_EXT.1"/>
         <component-refer ref="RED_ALR_EXT.1"/>
       </SO>
+      <SO id="O.REDACTION">
+        <description>The <span title="Target of Evaluation">TOE</span> will provide the capability
+          to completely remove any data selected for redaction.</description>
+        <component-refer ref="RED_REM_EXT.1"/>
+      </SO>
+      
+      <!--
+        
       <SO id="O.Hidden Data">
         <description>The <span title="Target of Evaluation">TOE</span> will provide the capability
           to find and remove hidden data elements in the document. The <span
@@ -500,11 +517,7 @@
           information.</description>
         <component-refer ref="RED_NND_EXT.1.1"/>
       </SO>
-      <SO id="O.Remove">
-        <description>The <span title="Target of Evaluation">TOE</span> will provide the capability
-          to completely remove any data selected for redaction.</description>
-        <component-refer ref="RED_REM_EXT.1"/>
-      </SO>
+     
       <SO id="O.Remove_References">
         <description>Complex file formats may contain multiple internal references to data to be
           redacted. The <span title="Target of Evaluation">TOE</span> will remove all such internal
@@ -542,33 +555,14 @@
           produce a clean document for redaction without involving the user.</description>
         <component-refer ref="VAL_PAR_EXT.1.1"/>
       </SO>
-    </SOs>
-    </section>
-    
-    <!-- We might be able to remove this table, but keeping it for now -->
-    <section title="Security Threats to Security Objectives" id="ThreatstoSecurityObjectivesTOE">
-    The following table contains a mapping of
-    Security Threats to Objectives for the <span title="Target of Evaluation">TOE</span>.<br/>
-    <table>
-      <TR class="header"><TH colspan="2">Security Threats to Objectives Mapping</TH></TR>
-      <TR><TH/><TH>Security Objectives</TH></TR>
-      <TR><TD>T.Clues_to_Original_Data</TD><TD>O.Re place;<br/> O.Remove_References </TD></TR>
-      <TR><TD>T.Expose_Process_Data</TD><TD>O.No_New_Hidden_Data</TD></TR>
-      <TR><TD>T.Implementation_Flaws</TD><TD>O.Report</TD></TR>
-      <TR><TD>T.Inaccessible_Data</TD><TD>O.Deep_Inspection</TD></TR>
-      <TR><TD>T.Obscured_Data</TD><TD>O.Remove</TD></TR>
-      <TR><TD>T.Unredacted_Visible_Data</TD><TD>O.Failure;<Br/> O.Selected_Elements </TD></TR>
-      <TR><TD>T.Unredacted_Hidden_Data</TD><TD>O.Locate_and_Remove;<br/> O.Selected_Elements;<br/>
-        O.Deep_Inspection<br/> O.Hidden Data<br/> O.Failure<br/> O.Validation </TD></TR>
-      <TR><TD>T.User_Error</TD><TD>O.Report</TD></TR>
-      <TR><TD>T.Unredacted Release</TD><TD>O.Failure</TD></TR>
-    </table>
-    </section>
-   
+      
+      -->
+      
+    </SOs>   
   </chapter>
 
   <chapter title="Security Requirements" id="req">This chapter describes the security requirements
-    which have to be fulfilled by the TOE. Those requirements comprise functional components from
+    which have to be fulfilled by the redacion tool. Those requirements comprise functional components from
     Part 2 of <cite linkend="bibCC"/>. The following notations are used: <ul>
       <li>
         <b>Refinement</b> operation (denoted by <b>bold text</b>): is used to add details to a
@@ -584,8 +578,11 @@
         <b>Iteration</b> operation: are identified with a number inside parentheses (e.g.
         "(1)")</li>
     </ul>
-    <section title="Security Functional Requirements" id="SFR">This section addresses those Security
-      Functional Requirements that may be met by the TOE. <subsection
+    <section title="Security Functional Requirements" id="SFR">The Security Functional Requirements
+      included in this section are derived from Part 2 of the Common Criteria for Information
+      Technology Security Evaluation, Version 3.1, Revision 4, with additional extended functional
+      components.
+      <subsection
         title="Report Generation and Review" id="RGR">
         <f-component id="REP_GEN_EXT.1" name="Report Generation"> Hierarchical to: No other
           components. <br/> Dependencies: None <f-element id="REP_GEN_EXT.1.1">
@@ -1033,124 +1030,12 @@
   <appendix title="Acronyms" id="acronyms">
     <acronyms>
       <entry>
-        <term>AES</term>
-        <description>Advanced Encryption Standard</description>
-      </entry>
-      <entry>
-        <term>CBC</term>
-        <description>Cipher Block Chaining</description>
-      </entry>
-      <entry>
-        <term>CRL</term>
-        <description>Certificate Revocation List</description>
-      </entry>
-      <entry>
-        <term>CSP</term>
-        <description>Cryptographic Service Provider</description>
-      </entry>
-      <entry>
-        <term>CSRF</term>
-        <description>Cross Site Request Forgery</description>
-      </entry>
-      <entry>
-        <term>DHE</term>
-        <description>Diffie-Hellman Key Exchange</description>
-      </entry>
-      <entry>
-        <term>DN</term>
-        <description>Distinguished Name</description>
-      </entry>
-      <entry>
-        <term>DSA</term>
-        <description>Digital Signature Algorithm</description>
-      </entry>
-      <entry>
-        <term>DTLS</term>
-        <description>Datagram Transport Layer Security</description>
-      </entry>
-      <entry>
-        <term>ECC</term>
-        <description>Elliptic Curve Cryptography</description>
-      </entry>
-      <entry>
-        <term>ECDSA</term>
-        <description>Elliptic Curve Digital Signature Algorithm</description>
-      </entry>
-      <entry>
         <term>EP</term>
         <description>Extended Package</description>
       </entry>
       <entry>
-        <term>FFC</term>
-        <description>Finite-Field Cryptography</description>
-      </entry>
-      <entry>
-        <term>FIPS</term>
-        <description>Federal Information Processing Standards</description>
-      </entry>
-      <entry>
-        <term>HMAC</term>
-        <description>Keyed Hash Message Authentication Code</description>
-      </entry>
-      <entry>
-        <term>IETF</term>
-        <description>Internet Engineering Task Force</description>
-      </entry>
-      <entry>
-        <term>IV</term>
-        <description>Initialization Vector</description>
-      </entry>
-      <entry>
-        <term>KAT</term>
-        <description>Known Answer Test</description>
-      </entry>
-      <entry>
-        <term>KDF</term>
-        <description>Key Derivation Function</description>
-      </entry>
-      <entry>
-        <term>NIST</term>
-        <description>National Institute of Standards and Technology</description>
-      </entry>
-      <entry>
-        <term>OID</term>
-        <description>Object Identifier</description>
-      </entry>
-      <entry>
         <term>PDF</term>
         <description>Portable Document Format</description>
-      </entry>
-      <entry>
-        <term>rDSA</term>
-        <description>RSA Digital Signature Algorithm</description>
-      </entry>
-      <entry>
-        <term>RFC</term>
-        <description>Request for Comment (IETF)</description>
-      </entry>
-      <entry>
-        <term>RGB</term>
-        <description>Random Bit Generator</description>
-      </entry>
-      <entry>
-        <term>RSA</term>
-        <description>Rivest Shamir Adelman</description>
-      </entry>
-      <entry>
-        <term>SaaS</term>
-        <description>Software as a Service</description>
-      </entry>
-      <entry>
-        <term>SHA</term>
-        <description>Secure Hash Algorithm</description>
-      </entry>
-      <entry>
-        <term>SSL</term>
-        <description>Secure Sockets Layer</description>
-      </entry>
-      <entry>
-        <term>TLS</term>
-        <description>Transport Layer Security</description>
       </entry>
     </acronyms>
   </appendix>
