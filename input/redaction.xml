@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="..\transforms\pp2html.xsl"?>
 <PP xmlns="http://common-criteria.rhcloud.com/ns/cc" name="Redaction Tools">
-  <PPReference title="PP"> Reference" id="ID003"> <ReferenceTable>
+  <PPReference title="PP Reference" id="ID003">
+    <ReferenceTable>
       <PPTitle>Application Software Extended Package for Redaction Tools</PPTitle>
       <PPVersion>1.1</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
@@ -321,7 +322,7 @@
       scope of this <span title="Extended Package">EP</span>. The <span title="Target of Evaluation"
         > TOE</span> may have those features but is not required to have them and their use and
       enforcement is governed by the organization’s redaction policy.<br/> This <span
-        title="Extended Package">PP</span> covers the software functionality of the redaction
+        title="Extended Package">EP</span> covers the software functionality of the redaction
       process; it does not include requirements for how users should decide what to redact or other
       policy issues. Analysis of documents for covert data transfer is part of the decision-making
       process for what to redact and so occurs prior to the redaction itself. The requirements in
