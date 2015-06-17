@@ -41,7 +41,7 @@
         Software</subject>
     </entry>
   </RevisionHistory>
-  <chapter title="PP Introduction" id="int">
+  <chapter title="Introduction" id="int">
     <section title="Overview" id="ppoverview">The scope of this Extended Package (EP) is to describe
       the security functionality of Redaction tools in terms of <cite linkend="bibCC"/>. Redaction
       is the process of selectively removing and replacing information from a document or other
@@ -71,8 +71,7 @@
       removed with no indication that the sanitization process took place. In the redaction process,
       selected visible information is removed and replaced with something innocuous (e.g. black box
       or text) so that the reader knows redaction took place. This replacement is a critical part of
-      the process not shared with sanitization. 
-      <figure entity="images/workflow.jpg"
+      the process not shared with sanitization. <figure entity="images/workflow.jpg"
         title="Figure 1: One possible workflow of an electronic document through the redaction process."
         id="workflow"/> Figure 1 shows the typical workflow of a document from source to destination
       and through the redaction process. The original source of the document can be either internal
@@ -120,8 +119,7 @@
       only to the redaction functionality in that tool. Other functionality in the redaction tool,
       other tools used in the workflow, the organization's redaction policy as well as security
       requirements and security policies that apply to other parts of the workflow is beyond the
-      scope of this protection profile. 
-    </section>
+      scope of this protection profile. </section>
     <section title="Terms" id="glossary">The following sections provide both Common Criteria and
       technology terms used in this Extended Package. <subsection title="Common Criteria Terms"
         id="ccterms">
@@ -191,7 +189,7 @@
               any color of font on a similar color background), very small fonts, cropped or clipped
               graphics or images, hidden layers, portions of an embedded object (e.g. Microsoft OLE)
               that are outside the view container.</description>
-          </entry> 
+          </entry>
           <entry>
             <term>Static data or metadata</term>
             <description>File properties such as author or creation date, stored form field data,
@@ -255,7 +253,7 @@
         in the assurance activities. <glossary>
           <entry>
             <term>Simplify (or simplified)</term>
-            <description>replace a complex object or element with a single layer element that does
+            <description>Replace a complex object or element with a single layer element that does
               not contain hidden or obscured data. The original representation of the object and all
               of the original hidden data must be removed from the document and the visible space
               must be replaced with the simplified element. For example, a document could contain an
@@ -271,7 +269,7 @@
           </entry>
           <entry>
             <term>Examine a test file or document</term>
-            <description>the evaluator uses a hex editor or similar tool to view the raw binary (or
+            <description>The evaluator uses a hex editor or similar tool to view the raw binary (or
               hex) data of the file and the format structure. This allows the evaluator to view the
               contents of the file directly rather than through the <span
                 title="Target of Evaluation">TOE</span>’s interpretation of those contents. The
@@ -281,15 +279,14 @@
               Technical Community will identify appropriate tools. </description>
           </entry>
           <entry>
-            <term>Apply the <span title="Target of Evaluation">TOE</span></term>
-            <description>follow the multi-step process where the user selects or marks areas or
-              items in a document for redaction and then instructs the <span
-                title="Target of Evaluation">TOE</span> to redact the marked areas and hidden
-              information from the file. </description>
+            <term>Apply the TOE</term>
+            <description>Follow the multi-step process where the user selects or marks areas or
+              items in a document for redaction and then instructs the TOE to redact the marked
+              areas and hidden information from the file. </description>
           </entry>
           <entry>
             <term>Test files</term>
-            <description>to test the <span title="Target of Evaluation">TOE</span>, the evaluator
+            <description>To test the <span title="Target of Evaluation">TOE</span>, the evaluator
               will have to use test documents that have content expected to produce a certain
               result. The evaluator will apply the redaction tool to the test files and examine the
               output to determine if it is as expected. The same test documents can be used for each
@@ -305,17 +302,15 @@
     </section>
 
     <section title="Compliant Targets of Evaluation" id="TOEdescription">The Target of Evaluation
-      (TOE) in this <abbr linkend="EP"/> is a redaction application running on a desktop or
-      mobile operating system. <br/>This <abbr linkend="EP"/> describes the extended security
-      functionality of a redaction tool in terms of <cite linkend="bibCC"/>. As an extension of the App
-      PP, it is expected that the content of this <abbr linkend="EP"/> will be appropriately
-      combined with the App PP to include selection-based requirements in accordance with the
-      selections and/or assignments made, and any optional and/or objective components to include:
-      FCS_CKM.2.1, FCS_COP.1.1(*), FCS_RBG_EXT.2.*, FCS_TLSC_EXT.1.*, FIA_X509_EXT.1.*,
-      FIA_X509_EXT.2.*. <br/>An ST must identify the applicable version of the App PP and this <abbr
-      linkend="EP"/> in its conformance claims.
-      
-      <br/>This <span title="Extended Package">EP</span> is limited to the
+      (TOE) in this <abbr linkend="EP"/> is a redaction application running on a desktop or mobile
+      operating system. <br/>This <abbr linkend="EP"/> describes the extended security functionality
+      of a redaction tool in terms of <cite linkend="bibCC"/>. As an extension of the App PP, it is
+      expected that the content of this <abbr linkend="EP"/> will be appropriately combined with the
+      App PP to include selection-based requirements in accordance with the selections and/or
+      assignments made, and any optional and/or objective components to include: FCS_CKM.2.1,
+      FCS_COP.1.1(*), FCS_RBG_EXT.2.*, FCS_TLSC_EXT.1.*, FIA_X509_EXT.1.*, FIA_X509_EXT.2.*. <br/>An
+      ST must identify the applicable version of the App PP and this <abbr linkend="EP"/> in its
+      conformance claims. <br/>This <span title="Extended Package">EP</span> is limited to the
       redaction of electronic documents defined in standards such as the series International
       Organization for Standards (ISO)/International Electrotechnical Commission (IEC)-29500 (Office
       OpeneXtensible Markup Language (XML), e.g. Microsoft Word, PowerPoint, and Excel documents)
@@ -339,17 +334,17 @@
       Functional data such as scripts can contain strings or images that may not be accessible to
       the redaction tool. Analysis of such objects for attacks or covert data transfer will occur
       outside of the redaction process. An organization’s security policy will determine whether
-      such objects are released or redacted in their entirety. 
-    </section>
+      such objects are released or redacted in their entirety. </section>
 
-    <section title="Use Case" id="usecase">Redaction Tools perform tasks associated primarily with
-      the following use case.
-      <usecase title="Content Redaction">
-        <description>Redaction Tools are used for the redaction of user selected 
-          content from a document.
-        </description>
-      </usecase>    
-      </section>
+    <section title="Use Cases" id="usecases">Redaction Tools perform tasks associated primarily with
+      the following use case. 
+      <usecases>
+        <usecase title="Content Redaction">
+          <description>Redaction Tools are used for the redaction of user selected content from a
+            document. </description>
+        </usecase>
+      </usecases>
+    </section>
   </chapter>
 
   <chapter title="Conformance Claims" id="conf">
@@ -385,8 +380,7 @@
     assumptions and organizational security policies of the App PP and those defined in this EP
     describe those addressed by a redaction tool as the Target of Evaluation. <br/>
     <section title="Threats" id="threattable">The following threats are specific to redaction tools,
-      and represent an addition to those identified in the App PP. 
-      <threats>
+      and represent an addition to those identified in the App PP. <threats>
         <threat id="T.Clues_to_Original_Data">
           <description>A user or application may release redacted documents, where, the text or
             graphics placed in the redacted area by the <span title="Target of Evaluation"
@@ -435,14 +429,12 @@
         </threat>
       </threats>
     </section>
-    
     <section title="Assumptions" id="assumptions">This section of the security problem definition
       shows the assumptions that are made on the operational environment in order to be able to
       provide security functionality. If the <span title="Target of Evaluation">TOE</span> is placed
       in an operational environment that does not meet these assumptions, the <span
         title="Target of Evaluation">TOE</span> may not be able to provide all of its security
-      functionality.
-      <assumptions>
+      functionality. <assumptions>
         <assumption id="A.Knowledgeable User">
           <description>The user is knowledgeable concerning document management and has appropriate
             training with the redaction tool. Part of this knowledge and training includes how to
@@ -460,13 +452,11 @@
         </assumption>
       </assumptions>
     </section>
-    
   </chapter>
 
-  <chapter title="Security Objectives" id="obj">
-    This Extended Package adds SFRs to objectives identified in the App PP
-    and describes an additional objective specific to this <abbr linkend="EP"/>. 
-    <SOs>
+  <chapter title="Security Objectives" id="obj"> This Extended Package adds SFRs to objectives
+    identified in the App PP and describes an additional objective specific to this <abbr
+      linkend="EP"/>. <SOs>
       <SO id="O.INSPECTION">
         <description>The <span title="Target of Evaluation">TOE</span> will analyze the file content
           for metadata and elements, to include any that are purposely hidden or not immediately
@@ -489,7 +479,6 @@
           to completely remove any data selected for redaction.</description>
         <component-refer ref="RED_REM_EXT.1"/>
       </SO>
-      
       <!--
         
       <SO id="O.Hidden Data">
@@ -557,13 +546,12 @@
       </SO>
       
       -->
-      
-    </SOs>   
+    </SOs>
   </chapter>
 
   <chapter title="Security Requirements" id="req">This chapter describes the security requirements
-    which have to be fulfilled by the redacion tool. Those requirements comprise functional components from
-    Part 2 of <cite linkend="bibCC"/>. The following notations are used: <ul>
+    which have to be fulfilled by the redacion tool. Those requirements comprise functional
+    components from Part 2 of <cite linkend="bibCC"/>. The following notations are used: <ul>
       <li>
         <b>Refinement</b> operation (denoted by <b>bold text</b>): is used to add details to a
         requirement, and thus further restricts a requirement.</li>
@@ -581,9 +569,7 @@
     <section title="Security Functional Requirements" id="SFR">The Security Functional Requirements
       included in this section are derived from Part 2 of the Common Criteria for Information
       Technology Security Evaluation, Version 3.1, Revision 4, with additional extended functional
-      components.
-      <subsection
-        title="Report Generation and Review" id="RGR">
+      components. <subsection title="Report Generation and Review" id="RGR">
         <f-component id="REP_GEN_EXT.1" name="Report Generation"> Hierarchical to: No other
           components. <br/> Dependencies: None <f-element id="REP_GEN_EXT.1.1">
             <title>The <span title="Target of Evaluation">TOE</span> must be able to generate a
@@ -695,11 +681,10 @@
         <f-component id="RED_DIN_EXT.1 " name="Deep Inspection"> Hierarchical to: No other
           components.<br/> Dependencies: None <f-element id="RED_DIN_EXT.1.1 ">
             <title>For each element of the file format that can contain its own metadata, other
-              elements, or hidden data, the <span title="Target of Evaluation">TOE</span> must 
-              <selectables linebreak="yes">
+              elements, or hidden data, the <span title="Target of Evaluation">TOE</span> must
+                <selectables linebreak="yes">
                 <selectable>recurse through the element chain and apply the <span
-                    title="Protection Profile">PP</span> to each layer
-                </selectable>
+                    title="Protection Profile">PP</span> to each layer </selectable>
                 <selectable>simplify the element</selectable>
                 <selectable>redact the element</selectable>
               </selectables>. </title>
@@ -894,8 +879,7 @@
           </f-element>
           <f-element id="RED_ID_EXT.1.2">
             <title>The <span title="Target of Evaluation">TOE</span> must identify all obscured data
-              and must 
-              <selectables linebreak="yes">
+              and must <selectables linebreak="yes">
                 <selectable>remove the obscured data automatically</selectable>
                 <selectable>allow the user to redact the obscured data</selectable>
               </selectables>.</title>
@@ -918,13 +902,13 @@
           <f-element id="RED_ID_EXT.1.3">
             <title>The <span title="Target of Evaluation">TOE</span> must identify images where the
               visible representation is reduced in size or resolution from the representation stored
-              in the file format and must
-              <selectables linebreak="yes">
-                <selectable>automatically replace the stored data with the visible representation</selectable>
-                <selectable>allow the user to replace the stored data with the visible representation</selectable>
+              in the file format and must <selectables linebreak="yes">
+                <selectable>automatically replace the stored data with the visible
+                  representation</selectable>
+                <selectable>allow the user to replace the stored data with the visible
+                  representation</selectable>
                 <selectable>allow the user to leave the image unaltered</selectable>
-              </selectables>.
-            </title>
+              </selectables>. </title>
             <aactivity>The evaluator shall create a test document with an image that is stored in a
               larger size and resolution than the visible image and apply the <span
                 title="Target of Evaluation">TOE</span> without selecting the image for redaction.
@@ -1017,7 +1001,7 @@
               September 2012.</li>
           </ul></description>
       </entry>
-      <entry id="bibCC">
+      <entry id="bibAppPP">
         <tag>AppPP</tag>
         <description>
           <a href="https://www.niap-ccevs.org/pp/PP_APP_v1.1/">Protection Profile for Application
