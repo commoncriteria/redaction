@@ -338,8 +338,7 @@
       such objects are released or redacted in their entirety. </section>
 
     <section title="Use Cases" id="usecases">Redaction Tools perform tasks associated primarily with
-      the following use case. 
-      <usecases>
+      the following use case. <usecases>
         <usecase title="Content Redaction">
           <description>Redaction Tools are used for the redaction of user selected content from a
             document. </description>
@@ -571,8 +570,8 @@
       included in this section are derived from Part 2 of the Common Criteria for Information
       Technology Security Evaluation, Version 3.1, Revision 4, with additional extended functional
       components. <subsection title="Report Generation and Review" id="RGR">
-        <f-component id="REP_GEN_EXT.1" name="Report Generation"> Hierarchical to: No other
-          components. <br/> Dependencies: None <f-element id="REP_GEN_EXT.1.1">
+        <f-component id="REP_GEN_EXT.1" name="Report Generation" status="threshold"> Hierarchical
+          to: No other components. <br/> Dependencies: None <f-element id="REP_GEN_EXT.1.1">
             <title>The <span title="Target of Evaluation">TOE</span> must be able to generate a
               report entry that contains metadata about each element that was redacted, including at
               least the following: the type of the element that was removed, the location if it was
@@ -592,8 +591,8 @@
               activity can be done in conjunction with REP_RVW_EXT.1. </aactivity>
           </f-element>
         </f-component>
-        <f-component id="REP_RVW_EXT.1" name="Report Review"> Hierarchical to: No other
-          components.<br/> Dependencies: REP_GEN.1 <f-element id="REP_RVW_EXT.1.1">
+        <f-component id="REP_RVW_EXT.1" name="Report Review" status="threshold"> Hierarchical to: No
+          other components.<br/> Dependencies: REP_GEN.1 <f-element id="REP_RVW_EXT.1.1">
             <title>The <span title="Target of Evaluation">TOE</span> must allow the user to access a
               report of the data that was redacted.</title>
             <note role="application">This can be satisfied with a dialog box or other simple list of
@@ -606,8 +605,8 @@
         </f-component>
       </subsection>
       <subsection title="Validation Stage" id="VS">
-        <f-component id="VAL_REM_EXT.1" name="Validation of Data"> Hierarchical to: No other
-          components.<br/> Dependencies: None <f-element id="VAL_REM_EXT.1.1">
+        <f-component id="VAL_REM_EXT.1" name="Validation of Data" status="threshold"> Hierarchical
+          to: No other components.<br/> Dependencies: None <f-element id="VAL_REM_EXT.1.1">
             <title>The <span title="Target of Evaluation">TOE</span> must remove unrecognized data,
               unexpected data, and extraneous structural data. </title>
             <note role="application"> Structural data is extraneous if it is unnecessary for the
@@ -651,8 +650,8 @@
         </f-component>
       </subsection>
       <subsection title="Redaction Stage" id="RS">
-        <f-component id="RED_SEL_EXT.1" name="Selected Redaction"> Hierarchical to: No other
-          components.<br/> Dependencies: None <f-element id="RED_SEL_EXT.1.1 ">
+        <f-component id="RED_SEL_EXT.1" name="Selected Redaction" status="threshold"> Hierarchical
+          to: No other components.<br/> Dependencies: None <f-element id="RED_SEL_EXT.1.1 ">
             <title>The <span title="Target of Evaluation">TOE</span> must <selectables>
                 <selectable>simplify</selectable>
                 <selectable>remove</selectable>
@@ -679,8 +678,8 @@
               removed from the document. </aactivity>
           </f-element>
         </f-component>
-        <f-component id="RED_DIN_EXT.1 " name="Deep Inspection"> Hierarchical to: No other
-          components.<br/> Dependencies: None <f-element id="RED_DIN_EXT.1.1 ">
+        <f-component id="RED_DIN_EXT.1 " name="Deep Inspection" status="threshold"> Hierarchical to:
+          No other components.<br/> Dependencies: None <f-element id="RED_DIN_EXT.1.1 ">
             <title>For each element of the file format that can contain its own metadata, other
               elements, or hidden data, the <span title="Target of Evaluation">TOE</span> must
                 <selectables linebreak="yes">
@@ -711,8 +710,9 @@
               redaction or simplification in accordance with the requirement.</aactivity>
           </f-element>
         </f-component>
-        <f-component id="RED_RPL_EXT.1" name="Visible Space Replace"> Hierarchical to: No other
-          components.<br/> Dependencies: None <f-element id="RED_RPL_EXT.1.1 ">
+        <f-component id="RED_RPL_EXT.1" name="Visible Space Replace" status="threshold">
+          Hierarchical to: No other components.<br/> Dependencies: None <f-element
+            id="RED_RPL_EXT.1.1 ">
             <title>The <span title="Target of Evaluation">TOE</span> must replace the visible space
               of redacted content in such a way that the visible space conveys no information about
               the previous contents.</title>
@@ -737,8 +737,9 @@
               information that could allow recovery of the original content.</aactivity>
           </f-element>
         </f-component>
-        <f-component id="RED_REM_EXT.1 " name="Removal of Redacted Data"> Hierarchical to: No other
-          components.<br/> Dependencies: None <f-element id="RED_REM_EXT.1.1">
+        <f-component id="RED_REM_EXT.1 " name="Removal of Redacted Data" status="threshold">
+          Hierarchical to: No other components.<br/> Dependencies: None <f-element
+            id="RED_REM_EXT.1.1">
             <title>All data that is either selected by the user for redaction or identified by the
                 <span title="Target of Evaluation">TOE</span> for redaction must be removed from the
               document.</title>
@@ -759,8 +760,9 @@
               format.</aactivity>
           </f-element>
         </f-component>
-        <f-component id="RED_LOC_EXT.1" name="Redact Content from Every Location"> Hierarchical to:
-          No other components.<br/> Dependencies: None <f-element id="RED_LOC_EXT.1.1">
+        <f-component id="RED_LOC_EXT.1" name="Redact Content from Every Location" status="threshold"
+          > Hierarchical to: No other components.<br/> Dependencies: None <f-element
+            id="RED_LOC_EXT.1.1">
             <title>The <span title="Target of Evaluation">TOE</span> must remove redacted content
               from every location in the file format where it is stored.</title>
             <aactivity>The evaluator shall create or acquire test files that contain content in
@@ -769,8 +771,9 @@
               that it has been removed from every location.</aactivity>
           </f-element>
         </f-component>
-        <f-component id="RED_NND_EXT.1" name="No New Data Introduced by TOE"> Hierarchical to: No
-          other components.<br/> Dependencies: None <f-element id="RED_NND_EXT.1 .1">
+        <f-component id="RED_NND_EXT.1" name="No New Data Introduced by TOE" status="threshold">
+          Hierarchical to: No other components.<br/> Dependencies: None <f-element
+            id="RED_NND_EXT.1 .1">
             <title>The <span title="Target of Evaluation">TOE</span> itself must not introduce new
               hidden data that was not requested by the user without warning the user of the
               addition. </title>
@@ -796,9 +799,9 @@
               introduced.</aactivity>
           </f-element>
         </f-component>
-        <f-component id="RED_OBJ_EXT.1 " name="Removal of Objects and Corresponding References">
-          Hierarchical to: No other components.<br/> Dependencies: None <f-element
-            id="RED_OBJ_EXT.1.1 ">
+        <f-component id="RED_OBJ_EXT.1 " name="Removal of Objects and Corresponding References"
+          status="threshold"> Hierarchical to: No other components.<br/> Dependencies: None
+            <f-element id="RED_OBJ_EXT.1.1 ">
             <title>The <span title="Target of Evaluation">TOE</span> must remove all references and
               indicators in the structural data to objects that are completely redacted by the <span
                 title="Target of Evaluation">TOE</span>.</title>
@@ -820,8 +823,9 @@
               references to them have been redacted. </aactivity>
           </f-element>
         </f-component>
-        <f-component id="RED_RIP_EXT.1 " name="Residual Information Removal"> Hierarchical to: No
-          other components.<br/> Dependencies: None <f-element id="RED_RIP_EXT.1.1 ">
+        <f-component id="RED_RIP_EXT.1 " name="Residual Information Removal" status="threshold">
+          Hierarchical to: No other components.<br/> Dependencies: None <f-element
+            id="RED_RIP_EXT.1.1 ">
             <title>The <span title="Target of Evaluation">TOE</span> must automatically remove all
               remnant data, undo buffers, tracked changes buffers, multiple versions of the same
               object, and any buffer or cache type container of data.</title>
@@ -840,8 +844,9 @@
               automatically.</aactivity>
           </f-element>
         </f-component>
-        <f-component id="FPT_FLS.1" name="Failure with Preservation of Secure State "> Hierarchical
-          to: No other components.<br/> Dependencies: None <f-element id="FPT_FLS.1.1 ">
+        <f-component id="FPT_FLS.1" name="Failure with Preservation of Secure State "
+          status="threshold"> Hierarchical to: No other components.<br/> Dependencies: None
+            <f-element id="FPT_FLS.1.1 ">
             <title>The <span title="TOE Security Functionality">TSF</span> shall preserve a secure
               state when the following types of failures occur: [assignment: any failure].</title>
             <note role="application">If the redaction functionality fails for any reason, the <span
@@ -859,8 +864,8 @@
         </f-component>
       </subsection>
       <subsection title="User Experience" id="UE">User Experience <f-component id="RED_ID_EXT.1"
-          name="Identification of Data"> Hierarchical to: No other components.<br/> Dependencies:
-          None <f-element id="RED_ID_EXT.1.1">
+          name="Identification of Data" status="threshold"> Hierarchical to: No other
+          components.<br/> Dependencies: None <f-element id="RED_ID_EXT.1.1">
             <title>The <span title="Target of Evaluation">TOE</span> must identify all hidden data
               in the document, except remnant data and undo or tracked change buffers, and allow the
               user to review and select each hidden data element individually for redaction.</title>
@@ -927,8 +932,8 @@
             </aactivity>
           </f-element>
         </f-component>
-        <f-component id="RED_RVW_EXT.1" name="Element Review"> Hierarchical to: No other
-          components.<br/> Dependencies: None <f-element id="RED_RVW_EXT.1.1">
+        <f-component id="RED_RVW_EXT.1" name="Element Review" status="threshold"> Hierarchical to:
+          No other components.<br/> Dependencies: None <f-element id="RED_RVW_EXT.1.1">
             <title>The <span title="Target of Evaluation">TOE</span> must allow the user to review
               and select each element of visible data in whole or in part for redaction.</title>
             <note role="application">If the file or part of the file is encrypted, the <span
@@ -939,8 +944,9 @@
               that each element is selectable for redaction in whole or in part.</aactivity>
           </f-element>
         </f-component>
-        <f-component id="RED_ALR_EXT.1" name="Redaction Failure Notification"> Hierarchical to: No
-          other components.<br/> Dependencies: None <f-element id="RED_ALR_EXT.1.1">
+        <f-component id="RED_ALR_EXT.1" name="Redaction Failure Notification" status="threshold">
+          Hierarchical to: No other components.<br/> Dependencies: None <f-element
+            id="RED_ALR_EXT.1.1">
             <title>The <span title="Target of Evaluation">TOE</span> must make the user aware when
               redaction fails for any reason.</title>
             <aactivity>The evaluator shall examine the <span title="TOE Summary Specification"
