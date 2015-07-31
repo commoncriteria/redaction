@@ -402,51 +402,15 @@
     describe those addressed by a redaction tool as the Target of Evaluation. <br/>
     <section title="Threats" id="threattable">The following threats are specific to redaction tools,
       and represent an addition to those identified in the App PP. <threats>
-        <threat id="T.Clues_to_Original_Data">
-          <description>A user or application may release redacted documents, where, the text or
-            graphics placed in the redacted area by the <span title="Target of Evaluation"
-              >TOE</span> may contain clues to the nature of the original redacted
-            information.</description>
+        <threat id="T.CLUES_TO_ORIGINAL_DATA">
+          <description>Text or graphics placed in the redacted area by the <span title="Target 
+            of Evaluation">TOE</span> may contain clues to the nature of the original 
+            redacted information.</description>
         </threat>
-        <threat id="T.Expose_Process_Data">
-          <description>A user or application may release documents containing hidden elements that
-            may contain information on process details unnecessary for release. </description>
-        </threat>
-        <threat id="T.Implementation_Flaws">
-          <description>The <span title="Target of Evaluation">TOE</span> software may contain flaws
-            that result in improper <span title="Target of Evaluation">TOE</span>
-            operation.</description>
-        </threat>
-        <threat id="T.Inaccessible_Data">
-          <description>Inaccessible files and/or files that are 'unhealthy' to open or modify can
-            prevent proper inspection of metadata and elements that are selected for
-            redaction.</description>
-        </threat>
-        <threat id="T.Obscured_Data">
-          <description>A user or application may release documents containing data that is obscured
-            via some well-known or proprietary process. Because the original data is still present,
-            there is a risk that an adversary can reverse the process to reveal data deemed
-            unreleasable for dissemination.</description>
-        </threat>
-        <threat id="T.UNREDACTED_VISABLE_DATA">
-          <description>A user or application may release documents containing visible objects or
-            text that may contain information deemed unreleasable for dissemination outside of the
-            data owner’s organization.</description>
-        </threat>
-        <threat id="T.UNREDACTED_HIDDEN_DATA">
-          <description>A user or application may release documents containing hidden, extraneous,
-            unrecognized or noninterpretable elements that may contain information deemed
-            unreleasable for dissemination outside of the data owner’s organization.</description>
-        </threat>
-        <threat id="T.User_Error">
-          <description>Unintentional or accidental user errors can occur due to certain human
-            factors (fatigue, drowsiness, illness) as well as certain environmental aspects that can
-            distract a user (noise, excessive workload, coworkers).</description>
-        </threat>
-        <threat id="T.Unredacted_Release">
-          <description>The <span title="Target of Evaluation">TOE</span> may fail to redact selected
-            or hidden data elements that may contain information deemed unreleasable for
-            dissemination outside of the data owner’s organization.</description>
+        <threat id="T.UNREDACTED_DATA">
+          <description>A failure of the redaction tool to remove user selected visable or 
+            hidden data could reuslt in the inadvertant dissemination of information.
+          </description>
         </threat>
       </threats>
     </section>
@@ -456,18 +420,18 @@
       in an operational environment that does not meet these assumptions, the <span
         title="Target of Evaluation">TOE</span> may not be able to provide all of its security
       functionality. <assumptions>
-        <assumption id="A.Knowledgeable User">
+        <assumption id="A.KNOWLEDGEABLE_USER">
           <description>The user is knowledgeable concerning document management and has appropriate
             training with the redaction tool. Part of this knowledge and training includes how to
             prepare a document for the redaction tool, e.g. resolve and turn off tracked changes
             prior to redaction, work with a copy of the document and preserve the original file,
             remove passwords and decrypt files, etc.</description>
         </assumption>
-        <assumption id="A.Information Release Policy">
+        <assumption id="A.INFORMATION_RELEASE_POLICY">
           <description>There is a redaction or information release policy in place for the
             organization which the user follows.</description>
         </assumption>
-        <assumption id="A.Preservation of Document Layout">
+        <assumption id="A.PRESERVE_DOCUMENT_LAYOUT">
           <description>The <span title="Target of Evaluation">TOE</span> will preserve the layout of
             the document.</description>
         </assumption>
@@ -486,20 +450,34 @@
           formatting or programmatically hidden), and text that is positioned off the margins,
           and/or is located in header and footer sections of the file.</description>
         <component-refer ref="RED_DIN_EXT.1"/>
+        <component-refer ref="RED_ID_EXT.1"/>
       </SO>
-      <SO id="O.PROTECTED_STORAGE">
-        <component-refer ref="FDP_DAR_EXT.1"/>
-        <component-refer ref="FCS_RBG_EXT.1"/>
+      <SO id="O.MANAGEMENT">
+        <component-refer ref="RED_RVW_EXT.1"/>
       </SO>
       <SO id="O.QUALITY">
-        <component-refer ref="FPT_FLS_EXT.1"/>
-        <component-refer ref="RED_ALR_EXT.1"/>
+        <component-refer ref="VAL_REM_EXT.1"/> 
+        <component-refer ref="RED_NND_EXT.1"/>
+        <component-refer ref="FPT_FLS.1"/>
       </SO>
       <SO id="O.REDACTION">
         <description>The <span title="Target of Evaluation">TOE</span> will provide the capability
           to completely remove any data selected for redaction.</description>
+        <component-refer ref="RED_SEL_EXT.1"/>
+        <component-refer ref="RED_RPL_EXT.1"/>
         <component-refer ref="RED_REM_EXT.1"/>
+        <component-refer ref="RED_LOC_EXT.1"/>
+        <component-refer ref="RED_OBJ_EXT.1"/>
+        <component-refer ref="RED_RIP_EXT.1"/>
       </SO>
+      <SO id="O.REPORT">
+        <description>The <span title="Target of Evaluation">TOE</span> will provide the capability
+          to produce a report of all data redacted and any errors during redaction.</description>
+        <component-refer ref="REP_GEN_EXT.1"/>
+        <component-refer ref="REP_RVW_EXT.1"/>
+        <component-refer ref="RED_ALR_EXT.1"/>
+      </SO>
+        
       <!--
         
       <SO id="O.Hidden Data">
