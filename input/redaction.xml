@@ -677,7 +677,7 @@
               removed from the document. </aactivity>
           </f-element>
         </f-component>
-        <f-component id="RED_DIN_EXT.1 " name="Deep Inspection" status="threshold"> Hierarchical to:
+        <f-component id="RED_DIN_EXT.1" name="Deep Inspection" status="threshold"> Hierarchical to:
           No other components.<br/> Dependencies: None <f-element id="RED_DIN_EXT.1.1 ">
             <title>For each element of the file format that can contain its own metadata, other
               elements, or hidden data, the <span title="Target of Evaluation">TOE</span> must
@@ -736,7 +736,7 @@
               information that could allow recovery of the original content.</aactivity>
           </f-element>
         </f-component>
-        <f-component id="RED_REM_EXT.1 " name="Removal of Redacted Data" status="threshold">
+        <f-component id="RED_REM_EXT.1" name="Removal of Redacted Data" status="threshold">
           Hierarchical to: No other components.<br/> Dependencies: None <f-element
             id="RED_REM_EXT.1.1">
             <title>All data that is either selected by the user for redaction or identified by the
@@ -798,7 +798,7 @@
               introduced.</aactivity>
           </f-element>
         </f-component>
-        <f-component id="RED_OBJ_EXT.1 " name="Removal of Objects and Corresponding References"
+        <f-component id="RED_OBJ_EXT.1" name="Removal of Objects and Corresponding References"
           status="threshold"> Hierarchical to: No other components.<br/> Dependencies: None
             <f-element id="RED_OBJ_EXT.1.1 ">
             <title>The <span title="Target of Evaluation">TOE</span> must remove all references and
@@ -822,7 +822,7 @@
               references to them have been redacted. </aactivity>
           </f-element>
         </f-component>
-        <f-component id="RED_RIP_EXT.1 " name="Residual Information Removal" status="threshold">
+        <f-component id="RED_RIP_EXT.1" name="Residual Information Removal" status="threshold">
           Hierarchical to: No other components.<br/> Dependencies: None <f-element
             id="RED_RIP_EXT.1.1 ">
             <title>The <span title="Target of Evaluation">TOE</span> must automatically remove all
