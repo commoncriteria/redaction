@@ -54,12 +54,15 @@
       database to a contractor, converting a proprietary format document to Portable Document Format
       (PDF) to release a what-you-see-is-what-you-get (WYSIWYG) document. The risk from improper or
       incomplete redaction is the inadvertent disclosure of classified or sensitive data.<br/>
-      Redaction has become a more complex problem due to electronic file formats, including
+      
+      <!--Redaction has become a more complex problem due to electronic file formats, including
       documents, spreadsheets, databases or others that act as a logical container for data. These
       formats include the visual content as well as hidden data such as document properties,
       comments, and executable content. Users cannot easily access or examine some of the hidden
       data making it a substantial avenue for inadvertent disclosure. Redaction tools are designed
-      to assist the user with review and removal of both visible and hidden information.<br/> In the
+      to assist the user with review and removal of both visible and hidden information.<br/> --> 
+      
+      <!--In the
       past, the typical redaction method for electronic documents was to print the document, black
       out the necessary information, then make a photocopy releasing a physical document. This paper
       method has the advantage of assurance but the disadvantage of loss of usability. The physical
@@ -68,19 +71,37 @@
       the usability is greatly diminished. This method of redaction is no longer satisfactory in
       situations where the released document must retain the usability of the original source, or in
       situations where the object is not a document but a database table or other unprintable
-      container.<br/> Redaction is not sanitization. In the sanitization process, information is
+      container.<br/> -->
+      
+      Redaction is not sanitization. In the sanitization process, information is
       removed with no indication that the sanitization process took place. In the redaction process,
       selected visible information is removed and replaced with something innocuous (e.g. black box
       or text) so that the reader knows redaction took place. This replacement is a critical part of
-      the process not shared with sanitization. <figure entity="images/workflow.jpg"
+      the process not shared with sanitization.<br />
+      
+      <figure entity="images/workflow.jpg"
         title="Figure 1: One possible workflow of an electronic document through the redaction process."
-        id="workflow"/> Figure 1 shows the typical workflow of a document from source to destination
-      and through the redaction process. The original source of the document can be either internal
+        id="workflow"/> 
+      
+      Figure 1 shows the typical workflow of a document from source to destination
+      and through the redaction process. Other workflows are possible. <!--For example, decryption and
+      re-encryption of data may be performed by the redaction tool without the data ever being saved
+      as an intermediate file. Again, the host system is assumed to be secured to the level
+      necessary for the decrypted data. -->Software vendors have the flexibility to devise their own
+      workflow solutions for their target consumer. However, in any workflow, this protection
+      profile applies only to the part of the workflow that is performed by the redaction tool and
+      only to the redaction functionality in that tool. Other functionality in the redaction tool,
+      other tools used in the workflow, the organization's redaction policy as well as security
+      requirements and security policies that apply to other parts of the workflow are beyond the
+      scope of this protection profile. <br/>
+      <!--The original source of the document can be either internal
       or external to the system which hosts the redaction tool. If the source is external, the
       document will first go through the system’s security policy for importing documents, e.g.
       virus scanning. A document from an internal source was either created on the system or has
       already gone through security scans. When a document enters the redaction process, it should
-      have already been checked for malicious executable content.<br/> During the pre-release
+      have already been checked for malicious executable content.<br/> 
+      
+      During the pre-release
       process, the user or another authority in the workflow determines what to redact using the
       organization’s information policies or declassification guidelines. The authority makes a
       determination about the release of images, audio, video or other complex objects that are in
@@ -88,7 +109,9 @@
       will be examined for potential steganography attacks or a decision will be made to redact
       those portions that may contain such issues. For encrypted or password-protected files, the
       user will remove passwords and decrypt files during this phase, which assumes the host system
-      is secured to a level appropriate to contain the decrypted data.<br/> There are several
+      is secured to a level appropriate to contain the decrypted data.<br/> -->
+      
+      <!--There are several
       different types of interactive redaction tools: stand-alone, plug-in, or multi-purpose. A
       stand-alone tool is self-contained and performs only redaction-related functions. A plug-in
       performs redaction-related functions as part of another application when installed in that
@@ -96,31 +119,29 @@
       functions, such as a word processor that includes built-in redaction functionality or a
       redaction tool that also performs encryption and digital signature functions. This protection
       profile applies to the redaction functionality in all of these types of interactive tools.
-      <br/> During the redaction process, the user will manually mark visible data or select hidden
+      <br/> -->
+      
+      <!--During the redaction process, the user will manually mark visible data or select hidden
       data. The redaction tool will remove this data from the document in such a way that reverse
       engineering the document will not allow recovery of the redacted data. The organization should
       have a redaction policy that specifies which features of the redaction tool to use, such as
       whether to remove all hidden data automatically or to review and select elements individually,
       whether to replace redacted text with other text or with solid blocks of color, what color to
       use, etc. While this policy is part of the redaction process, it is separate from the
-      redaction tool.<br/> The organization will apply review and final approval policies during the
+      redaction tool.<br/> 
+      
+      The organization will apply review and final approval policies during the
       review and release process. There may also be post-processing requirements for the document
       such as inserting special metadata, adding passwords, document encryption or digital
       signature. The redaction tool may include the functionality to perform these post-processing
       requirements but they are not within the scope of the redaction functionality of the
-      tool.<br/> Once approved for release, the organization may have additional inspection and
+      tool.<br/> 
+      
+      Once approved for release, the organization may have additional inspection and
       sanitization requirements that depend on the source and destination. For example, documents on
       a classified system may have to go through additional processing before being moved to an
-      unclassified destination.<br/> Other workflows are possible. For example, decryption and
-      re-encryption of data may be performed by the redaction tool without the data ever being saved
-      as an intermediate file. Again, the host system is assumed to be secured to the level
-      necessary for the decrypted data. Software vendors have the flexibility to devise their own
-      workflow solutions for their target consumer. However, in any workflow, this protection
-      profile applies only to the part of the workflow that is performed by the redaction tool and
-      only to the redaction functionality in that tool. Other functionality in the redaction tool,
-      other tools used in the workflow, the organization's redaction policy as well as security
-      requirements and security policies that apply to other parts of the workflow is beyond the
-      scope of this protection profile. </section>
+      unclassified destination.<br/> -->
+    </section>
     <section title="Terms" id="glossary">The following sections provide both Common Criteria and
       technology terms used in this Extended Package. <subsection title="Common Criteria Terms"
         id="ccterms">
