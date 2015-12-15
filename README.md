@@ -7,7 +7,7 @@ Extended Package for Redaction
 [Application Software Extended Package for Redaction Tools](http://common-criteria.rhcloud.com/redaction/output/redaction-release.html)
 
 ## Release Version
-Application Software Extended Package for Redaction v2.0 (coming soon)<br/>
+[Application Software Extended Package for Redaction v2.0 12/14/2015](https://www.niap-ccevs.org/pp/PP_APP_RED_EP_V2.0/)<br/>
 [Protection Profile for Redaction Tools v1.0 5/14/2014](https://www.niap-ccevs.org/pp/PP_REDACTION_v1.0/)
 
 ## Change Log
