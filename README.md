@@ -1,4 +1,4 @@
-Redaction [![Build Status](https://jenkins-criteria.rhcloud.com/buildStatus/icon?job=protection-profiles/redaction)](https://jenkins-criteria.rhcloud.com/job/protection-profiles/job/redaction/)
+Redaction [![Build Status](https://travis-ci.org/commoncriteria/redaction.svg?branch=master)](https://travis-ci.org/commoncriteria/redaction)
 ===========
 
 Extended Package for Redaction
