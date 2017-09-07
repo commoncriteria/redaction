@@ -1,10 +1,11 @@
-Redaction [![Build Status](https://travis-ci.org/commoncriteria/redaction.svg?branch=master)](https://travis-ci.org/commoncriteria/redaction)
+Redaction 
 ===========
+[![Build Status](https://travis-ci.org/commoncriteria/redaction.svg?branch=master)](https://travis-ci.org/commoncriteria/redaction)
 
 Extended Package for Redaction
 
 ## Working Draft
-[Application Software Extended Package for Redaction Tools](http://common-criteria.rhcloud.com/redaction/output/redaction-release.html)
+[Application Software Extended Package for Redaction Tools](https://commoncriteria.github.io/pp/redaction/redaction-release.html)
 
 ## Release Version
 [Application Software Extended Package for Redaction v2.0 12/14/2015](https://www.niap-ccevs.org/pp/PP_APP_RED_EP_V2.0/)<br/>
