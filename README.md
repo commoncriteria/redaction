@@ -1,6 +1,6 @@
 Extended Package for Redaction
 ===========
-[![Build Status](https://travis-ci.org/commoncriteria/redaction.svg?branch=master)](https://travis-ci.org/commoncriteria/redaction)
+[![Build Status](https://travis-ci.com/commoncriteria/redaction.svg?branch=master)](https://travis-ci.com/commoncriteria/redaction)
 [![GitHub issues Open](https://img.shields.io/github/issues/commoncriteria/redaction.svg?maxAge=2592000)](https://github.com/commoncriteria/redaction/issues) 
 ![license](https://img.shields.io/badge/license-Unlicensed-blue.svg)
 
