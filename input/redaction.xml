@@ -1,59 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="..\transforms\pp2html.xsl"?>
-<PP xmlns="http://common-criteria.rhcloud.com/ns/cc" name="Redaction Tools">
-  <PPReference title="PP Reference" id="ID003">
+<?xsl-stylesheet type="text/xsl" href="../transforms/module/module2html.xsl"?>
+
+<?xml-model href="https://github.com/commoncriteria/transforms/raw/master/schemas/CCModule.rng" 
+	type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+
+<Module boilerplate="yes" 
+  target-products="Redaction Tools" 
+  name="Redaction Tools" 
+  xmlns="https://niap-ccevs.org/cc/v1" 
+  xmlns:sec="https://niap-ccevs.org/cc/v1/section"
+  xmlns:h="http://www.w3.org/1999/xhtml">
+  
+  
+  <PPReference>
     <ReferenceTable>
-      <PPTitle>Application Software Extended Package for Redaction Tools</PPTitle>
-      <PPVersion>2.0</PPVersion>
+      <PPVersion>1.0-Draft</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2015-12-11</PPPubDate>
-      <PPCertificationID>unassigned</PPCertificationID>
-      <CCVersion>Version 3.1</CCVersion>
-      <Keywords>redaction; software</Keywords>
-      <entry>
-        <name>Registration</name>
-        <description>National Information Assurance Partnership</description>
-      </entry>
+      <PPPubDate>2022-04-29</PPPubDate>
+      <Keywords>Redaction</Keywords>
     </ReferenceTable>
   </PPReference>
-  <RevisionHistory role="draft">
+  
+  <RevisionHistory>
     <entry>
-      <version>v 1.0</version>
-      <date>2014-05-14</date>
-      <subject>Final Version 1.0 Released</subject>
-    </entry>
-    <entry>
-      <version>v 1.1</version>
-      <date>2015-06-16</date>
-      <subject>Interim Draft - Update as Extended Package of the Protection Profile for Application
-        Software</subject>
+      <version>1.0-Draft</version>
+      <date>2022-04-29</date>
+      <subject>Initial publication</subject>
     </entry>
   </RevisionHistory>
-  <RevisionHistory role="release">
-    <entry>
-      <version>v 1.0</version>
-      <date>2014-05-14</date>
-      <subject>Final Version 1.0 Released</subject>
-    </entry>
-    <entry>
-      <version>v 1.1</version>
-      <date>2015-06-16</date>
-      <subject>Update as Extended Package of the Protection Profile for Application
-        Software</subject>
-    </entry>
-  </RevisionHistory>
-  <chapter title="Introduction" id="int">
-    <section title="Overview" id="ppoverview">The scope of this Extended Package (EP) is to describe
-      the security functionality of Redaction tools in terms of <cite linkend="bibCC"/>. Redaction
-      is the process of selectively removing and replacing information from a document or other
-      logical container of data for release to an audience not intended to view that information.
-      Redacted information is not limited to classified material; other examples include privacy
-      data, proprietary information, trade secrets, and legal strategy. Instances of redaction
-      include replacing classified text with a black box to release a document to an unclassified
-      environment, replacing privacy-related data such as telephone numbers with all Xs to release a
-      database to a contractor, converting a proprietary format document to Portable Document Format
-      (PDF) to release a what-you-see-is-what-you-get (WYSIWYG) document. The risk from improper or
-      incomplete redaction is the inadvertent disclosure of classified or sensitive data.<br/>
+  
+  <sec:Introduction>
+    <sec:Overview>
+      The scope of this Protection Profile Module (PP-Module) is to describe the security functionality of redaction tools
+      in terms of <xref g="CC"/> and to define functional and assurance requirements for such
+      products. This PP-Module is intended for use with the following Base-PPs:
+      
+      <h:ul>
+        <h:li>Protection Profile for Application Software, Version 1.4 (App PP or PP_APP_V1.4)</h:li>
+      </h:ul>
+      
+      This Base-PP is valid a redaction tool is a specific type of software application and can therefore be reasonably expected to implement
+      security functionality that is typical of application software. Redaction is the process of selectively removing and replacing
+      information from a document or other logical container of data for release to an audience not
+      intended to view that information. Redacted information is not limited to classified material;
+      other examples include privacy data, proprietary information, trade secrets, and legal strategy.
+      Instances of redaction include replacing classified text with a black box to release a document to
+      an unclassified environment, replacing privacy-related data such as telephone numbers with all
+      Xs to release a database to a contractor, converting a proprietary format document to Portable
+      Document Format (PDF) to release a what-you-see-is-what-you-get (WYSIWYG) document.
+      The risk from improper or incomplete redaction is the inadvertent disclosure of classified or
+      sensitive data.
+      <h:br/>
+      Redaction is not sanitization. In the sanitization process, information is removed with no
+      indication that the sanitization process took place. In the redaction process, selected visible
+      information is removed and replaced with something innocuous (e.g. black box or text) so that
+      the reader knows redaction took place. This replacement is a critical part of the process not
+      shared with sanitization.
+      
+      
+      Redaction is not sanitization. In the sanitization process, information is
+      removed with no indication that the sanitization process took place. In the redaction process,
+      selected visible information is removed and replaced with something innocuous (e.g. black box
+      or text) so that the reader knows redaction took place. This replacement is a critical part of
+      the process not shared with sanitization.<h:p/>
+      
+      <figure entity="images/workflow.jpg"
+        title="Figure 1: One possible workflow of an electronic document through the redaction process."
+        id="workflow"/> 
+      
+      Figure 1 shows the typical workflow of a document from source to destination
+      and through the redaction process. Other workflows are possible. <!--For example, decryption and
+      re-encryption of data may be performed by the redaction tool without the data ever being saved
+      as an intermediate file. Again, the host system is assumed to be secured to the level
+      necessary for the decrypted data. -->Software vendors have the flexibility to devise their own
+      workflow solutions for their target consumer. However, in any workflow, this PP-Module 
+      applies only to the part of the workflow that is performed by the redaction tool and
+      only to the redaction functionality in that tool. Other functionality in the redaction tool,
+      other tools used in the workflow, the organization's redaction policy as well as security
+      requirements and security policies that apply to other parts of the workflow are beyond the
+      scope of this PP-Module.
+      
       
       <!--Redaction has become a more complex problem due to electronic file formats, including
       documents, spreadsheets, databases or others that act as a logical container for data. These
@@ -72,28 +98,7 @@
       situations where the released document must retain the usability of the original source, or in
       situations where the object is not a document but a database table or other unprintable
       container.<br/> -->
-      
-      Redaction is not sanitization. In the sanitization process, information is
-      removed with no indication that the sanitization process took place. In the redaction process,
-      selected visible information is removed and replaced with something innocuous (e.g. black box
-      or text) so that the reader knows redaction took place. This replacement is a critical part of
-      the process not shared with sanitization.<br />
-      
-      <figure entity="images/workflow.jpg"
-        title="Figure 1: One possible workflow of an electronic document through the redaction process."
-        id="workflow"/> 
-      
-      Figure 1 shows the typical workflow of a document from source to destination
-      and through the redaction process. Other workflows are possible. <!--For example, decryption and
-      re-encryption of data may be performed by the redaction tool without the data ever being saved
-      as an intermediate file. Again, the host system is assumed to be secured to the level
-      necessary for the decrypted data. -->Software vendors have the flexibility to devise their own
-      workflow solutions for their target consumer. However, in any workflow, this protection
-      profile applies only to the part of the workflow that is performed by the redaction tool and
-      only to the redaction functionality in that tool. Other functionality in the redaction tool,
-      other tools used in the workflow, the organization's redaction policy as well as security
-      requirements and security policies that apply to other parts of the workflow are beyond the
-      scope of this protection profile. <br/>
+
       <!--The original source of the document can be either internal
       or external to the system which hosts the redaction tool. If the source is external, the
       document will first go through the system’s security policy for importing documents, e.g.
@@ -141,7 +146,8 @@
       sanitization requirements that depend on the source and destination. For example, documents on
       a classified system may have to go through additional processing before being moved to an
       unclassified destination.<br/> -->
-    </section>
+      </sec:Overview>
+        <!-- 
     <section title="Terms" id="glossary">The following sections provide both Common Criteria and
       technology terms used in this Extended Package. <subsection title="Common Criteria Terms"
         id="ccterms">
@@ -197,80 +203,52 @@
           </entry>
         </glossary>
       </subsection>
-      <subsection title="Technology Terms" id="techterms">
-        <glossary>
-          <entry>
-            <term>Visible contents</term>
-            <description>The visible contents of the file; the visual representation of text, images
-              and complex objects.</description>
-          </entry>
-          <entry>
-            <term>Obscured visible data</term>
-            <description>Content that could be visible but is obscured in some way such as content
-              that runs off an edge of the container, text in a black font on black background (or
-              any color of font on a similar color background), very small fonts, cropped or clipped
-              graphics or images, hidden layers, portions of an embedded object (e.g. Microsoft OLE)
-              that are outside the view container.</description>
-          </entry>
-          <entry>
-            <term>Static data or metadata</term>
-            <description>File properties such as author or creation date, stored form field data,
-              undo cache or any data kept to revert to a prior version of an element or the document
-              itself, incremental updates, collaboration data such as comments, tracked changes,
-              workflow data, embedded search indexes, bookmarks, document info added by 3rd-party
-              apps, accessibility data such as alternate text, etc.</description>
-          </entry>
-          <entry>
-            <term>Structural data</term>
-            <description>Data that is part of the file format structure, such as a file header or
-              fonts, and is necessary to interpret the file properly for display or
-              print.</description>
-          </entry>
-          <entry>
-            <term>Functional data</term>
-            <description>Forms, scripts, link Uniform Resource Locators (URLs), workflow data,
-              action buttons, formulas in a spreadsheet, macros or any type of executable
-              content.</description>
-          </entry>
-          <entry>
-            <term>Remnant data</term>
-            <description>Artifacts of the original application or source file format such as remnant
-              or unreferenced data from fast saves, unreferenced or unused elements, malformed
-              elements that cannot be fixed, garbage data in the file structure.</description>
-          </entry>
-          <entry>
-            <term>Images</term>
-            <description>The actual image data stored in the file as opposed to what is visible; the
-              visible image can be cropped or resized but the full image could still be retained in
-              the file format and may or may not match the visible image; some image formats can
-              have their own metadata, such as Joint Photographic Experts Group (JPG) and Tagged
-              Image File Format (TIFF).</description>
-          </entry>
-          <entry>
-            <term>Complex Objects</term>
-            <description>Objects that may have their own static or functional metadata and may
-              differ between the stored and visible form, such as images, attachments, Microsoft OLE
-              objects, Microsoft ActiveX controls, and temporal objects.</description>
-          </entry>
-          <entry>
-            <term>Temporal Objects</term>
-            <description>A particular type of complex object whose representation extends through a
-              time interval, such as video, audio, flash animation, slide shows, etc. References to
-              “complex objects” in the requirements section of this paper include temporal
-              objects.</description>
-          </entry>
-          <entry>
-            <term>Metadata of objects or embedded objects</term>
-            <description>Such as EXIF data of images; images themselves can contain other images and
-              their own metadata</description>
-          </entry>
-          <entry>
-            <term>Attachments</term>
-            <description>An electronic document or data file that is part of the main file but is
-              logically distinct and separable from the main electronic document.</description>
-          </entry>
-        </glossary>
-      </subsection>
+       -->
+    
+    <tech-terms>
+        
+      <term full="Attachments">An electronic document or data file that is part of the main file but is
+        logically distinct and separable from the main electronic document.</term>
+      <term full="Complex Objects">Objects that may have their own static or functional metadata and may
+        differ between the stored and visible form, such as images, attachments, Microsoft OLE
+        objects, Microsoft ActiveX controls, and temporal objects.</term>
+      <term abbr="EXIF" full="Exchangeable Image File Format"/>
+      <term full="Functional data">Forms, scripts, link Uniform Resource Locators (URLs), workflow data,
+        action buttons, formulas in a spreadsheet, macros or any type of executable
+        content.</term>
+      <term full="Images">The actual image data stored in the file as opposed to what is visible; the
+        visible image can be cropped or resized but the full image could still be retained in
+        the file format and may or may not match the visible image; some image formats can
+        have their own metadata, such as Joint Photographic Experts Group (JPG) and Tagged
+        Image File Format (TIFF).</term>
+      <term abbr="JPG" full="Joint Photographic Experts Group"/>
+      <term full="Metadata of objects or embedded objects">Data associated with an object to describe or identify the contents of the object such as exchangeable image file format (EXIF) data of images; images themselves can contain other images and
+        their own metadata.</term>
+      <term full="Obscured visible data">Content that could be visible but is obscured in some way such as content
+        that runs off an edge of the container, text in a black font on black background (or
+        any color of font on a similar color background), very small fonts, cropped or clipped
+        graphics or images, hidden layers, portions of an embedded object (e.g. Microsoft Object Linking and Embedding (OLE))
+        that are outside the view container.</term>
+      <term abbr="OLE" full="Object Linking and Embedding"/>
+      <term full="Remnant data">Artifacts of the original application or source file format such as remnant
+        or unreferenced data from fast saves, unreferenced or unused elements, malformed
+        elements that cannot be fixed, garbage data in the file structure.</term>
+      <term full="Static data or metadata">File properties such as author or creation date, stored form field data,
+        undo cache or any data kept to revert to a prior version of an element or the document
+        itself, incremental updates, collaboration data such as comments, tracked changes,
+        workflow data, embedded search indexes, bookmarks, document info added by 3rd-party
+        apps, accessibility data such as alternate text, etc.</term>
+      <term full="Structual data">Data that is part of the file format structure, such as a file header or fonts, and is necessary to interpret the file properly for display or print.</term>
+      <term full="Temporal Objects">A particular type of complex object whose representation extends through a
+        time interval, such as video, audio, flash animation, slide shows, etc. References to
+        “complex objects” in the requirements section of this paper include temporal
+        objects.</term>
+      <term abbr="TIFF" full="Tagged Image File Format"/>
+      <term full="Visible contents">The visible contents of the file; the visual representation of text, images
+              and complex objects.</term>
+    </tech-terms>
+    
+    <!-- 
       <subsection title="Other Terminology" id="otherterminology"> The following concepts are used
         in the assurance activities. <glossary>
           <entry>
@@ -321,161 +299,217 @@
           </entry>
         </glossary>
       </subsection>
-    </section>
+      
+      -->
+    
 
-    <section title="Compliant Targets of Evaluation" id="TOEdescription">The Target of Evaluation
-      (TOE) in this <abbr linkend="EP"/> is a redaction application running on a desktop or mobile
-      operating system. <br/>This <abbr linkend="EP"/> describes the extended security functionality
-      of a redaction tool in terms of <cite linkend="bibCC"/>. As an extension of the App PP, it is
-      expected that the content of this <abbr linkend="EP"/> will be appropriately combined with the
-      App PP to include selection-based requirements in accordance with the selections and/or
-      assignments made, and any optional and/or objective components to include: FCS_CKM.2.1,
-      FCS_COP.1.1(*), FCS_RBG_EXT.2.*, FCS_TLSC_EXT.1.*, FIA_X509_EXT.1.*, FIA_X509_EXT.2.*. <br/>An
-      ST must identify the applicable version of the App PP and this <abbr linkend="EP"/> in its
-      conformance claims. <br/>This <span title="Extended Package">EP</span> is limited to the
-      redaction of electronic documents defined in standards such as the series International
-      Organization for Standards (ISO)/International Electrotechnical Commission (IEC)-29500 (Office
-      OpeneXtensible Markup Language (XML), e.g. Microsoft Word, PowerPoint, and Excel documents)
-      and ISO/IEC-32000 (PDF), or the definitive standard for a format. Mail guards, filters, and
-      batch redaction tools are beyond the scope of this <span title="Extended Package"
-      >EP</span>.<br/> Requirements that apply to features such as administrative control over
-      particular redaction settings, multi-person review prior to release, etc., are outside the
-      scope of this <span title="Extended Package">EP</span>. The <span title="Target of Evaluation"
-        > TOE</span> may have those features but is not required to have them and their use and
-      enforcement is governed by the organization’s redaction policy.<br/> This <span
-        title="Extended Package">EP</span> covers the software functionality of the redaction
-      process; it does not include requirements for how users should decide what to redact or other
-      policy issues. Analysis of documents for covert data transfer is part of the decision-making
-      process for what to redact and so occurs prior to the redaction itself. The requirements in
-      this document are independent of requirements levied on document release by statute or the
-      judiciary.<br/> Data execution risks inherent in some file formats are beyond the scope of
-      this <span title="Extended Package">EP</span>. This <span title="Extended Package">EP</span>
+    <sec:Compliant_Targets_of_Evaluation>
+      The Target of Evaluation (TOE) described by this PP-Module is limited to the redaction of electronic documents defined in standards such as the
+      series International Organization for Standards (ISO)/International Electrotechnical Commission
+      (IEC)-29500 (Office OpeneXtensible Markup Language (XML), e.g. Microsoft Word,
+      PowerPoint, and Excel documents) and ISO/IEC-32000 (PDF), or the definitive standard for a
+      format. Mail guards, filters, and batch redaction tools are beyond the scope of this PP_module.
+      Requirements that apply to features such as administrative control over particular redaction
+      settings, multi-person review prior to release, etc., are outside the scope of this PP-Module. The TOE
+      may have those features but is not required to have them and their use and enforcement is
+      governed by the organization’s redaction policy. <h:p/>
+      
+      This PP-Moudle covers the software functionality of the redaction process; it does not include
+      requirements for how users should decide what to redact or other policy issues. Analysis of
+      documents for covert data transfer is part of the decision-making process for what to redact and 
+      so occurs prior to the redaction itself. The requirements in this document are independent of
+      requirements levied on document release by statute or the judiciary. <h:p/>
+      
+      Data execution risks inherent in some file formats are beyond the scope of this PP-Module. This PP-Module
       assumes that scanning for such risks occurs prior to the document entering the redaction
-      functionality of the <span title="Target of Evaluation">TOE</span>.<br/> Documents to be
-      redacted may contain objects that are vulnerable to steganography, such as images or video.
-      Functional data such as scripts can contain strings or images that may not be accessible to
-      the redaction tool. Analysis of such objects for attacks or covert data transfer will occur
-      outside of the redaction process. An organization’s security policy will determine whether
-      such objects are released or redacted in their entirety. </section>
+      functionality of the TOE.<h:p/>
+      
+      Documents to be redacted may contain objects that are vulnerable to steganography, such as
+      images or video. Functional data such as scripts can contain strings or images that may not be
+      accessible to the redaction tool. Analysis of such objects for attacks or covert data transfer will
+      occur outside of the redaction process. An organization’s security policy will determine whether
+      such objects are released or redacted in their entirety. 
+      
+      <sec:TOE_Boundary>
+        The physical boundary for a TOE that conforms to this PP-Module is a software application that installed on top of a general-purpose or mobile operating system. 
+        
+        The TOE’s logical boundary includes all functionality required by the claimed
+        Base-PP as well as the redaction functionality and related capabilities that are defined in this PP-Module. Any
+        functionality that is provided by the application that is not relevant to the security requirements
+        defined by this PP-Module or the Base-PP is considered to be outside the scope of the TOE.
+      </sec:TOE_Boundary>
+      
+    </sec:Compliant_Targets_of_Evaluation>
 
-    <section title="Use Cases" id="usecases">Redaction Tools perform tasks associated primarily with
-      the following use case. <usecases>
-        <usecase title="Content Redaction">
-          <description>Redaction Tools are used for the redaction of user selected content from a
+    <sec:Use_Cases>
+
+    Redaction Tools perform tasks associated primarily with
+      the following use case. 
+      <usecases>
+        <usecase id="usecase1" title="Content Redaction">
+          <description>Redaction tools are used for the redaction of user selected content from a
             document. </description>
         </usecase>
       </usecases>
-    </section>
-  </chapter>
+    </sec:Use_Cases>
+  
+  </sec:Introduction>
+  
+  <!-- 2. Conformance Claims -->
+  <section title="Conformance Claims" id="ConformanceClaims">
+    
+  <!-- 2.1 CC Conformance -->
+  <cclaims>
+    <cclaim name="Conformance Statement">
+      <description> This PP-Module inherits exact conformance as required from the specified Base-PPs and as defined
+        in the CC and CEM addenda for Exact Conformance, Selection-Based SFRs, and Optional SFRs (dated
+        May 2017).<h:br/>
+        
+      </description>
+    </cclaim>
+    <cclaim name="CC Conformance Claims">
+      <description>
+        This PP-Module is conformant to Parts 2 (extended) and 3 (extended) of Common Criteria Version
+        3.1, Revision 5 [CC].
+      </description>
+    </cclaim>
+    <cclaim name="PP Claim">
+      <description>This PP-Module does not claim conformance to any PP.</description>
+    </cclaim>
+    <cclaim name="Package Claim">
+      <description>This PP-Module does not claim conformance to any packages.</description>
+    </cclaim>
+  </cclaims>
+  </section>
 
-  <chapter title="Conformance Claims" id="conf">
-    <cclaims>
-      <cclaim id="Conformance Statement">
-        <description> The Protection Profile for Application Software (<cite linkend="bibAppPP"/>)
-          defines the baseline Security Functional Requirements (SFRs) and Security Assurance
-          Requirements (SARs) for application software products. This <abbr linkend="EP"/> serves to
-          extend the App PP baseline with additional SFRs and associated Assurance Activities
-          specific to redaction tools. Assurance Activities are the actions that the evaluator
-          performs in order to determine an email client's compliance to the SFRs.<br/> This <abbr
-            linkend="EP"/> conforms to Common Criteria <cite linkend="bibCC"/> for Information
-          Technology Security Evaluation, Version 3.1, Revision 4. It is CC Part 2 extended and CC
-          Part 3 conformant. In order to be conformant to this <abbr linkend="EP"/>, the <abbr
-            linkend="ST"/> must include all components in this <abbr linkend="EP"/> and the
-          associated App PP that are: <ul><li>unconditional (which are always required)</li>
-            <li>selection-based (which are required when certain selections are chosen in the
-              unconditional requirements)</li>
-          </ul> and may include optional and/or objective components that are desirable but not
-          required for conformance. <br/> In accordance with CC Part 1, dependencies are not
-          included when they are addressed by other SFRs. The assurance activities provide adequate
-          proof that any dependencies are also satisfied. </description>
-      </cclaim>
-    </cclaims>
-  </chapter>
+  <!-- 3 Security Problem Description -->
+  <sec:Security_Problem_Description>
+    The security problem is described in terms of the threats that the TOE is expected to address,
+    assumptions about its operational environment (OE), and any organizational security policies that the TOE is
+    expected to enforce.<h:br/>
 
-  <chapter title="Security Problem Description" id="spd"> The security problem is described in terms
-    of the threats that the redaction tool is expected to address, assumptions about the operational
-    environment, and any organizational security policies that it is expected to enforce. <br/> This
-    Extended Package does not repeat the threats, assumptions, and organizational security policies
-    identified in the <i>Protection Profile for Application Software</i> (App PP), though they all
-    apply given the conformance and hence dependence of this EP on it. Together the threats,
-    assumptions and organizational security policies of the App PP and those defined in this EP
-    describe those addressed by a redaction tool as the Target of Evaluation. <br/>
-    <section title="Threats" id="threattable">The following threats are specific to redaction tools,
-      and represent an addition to those identified in the App PP. <threats>
-        <threat id="T.CLUES_TO_ORIGINAL_DATA">
-          <description>Text or graphics placed in the redacted area by the <span title="Target 
-            of Evaluation">TOE</span> may contain clues to the nature of the original 
+    <!-- 3.1 Threats -->
+    <section title="Threats" id="threats">
+      The following threats defined in this PP-Module extend the threats defined by the Base-PP.
+      <threats>
+        <threat name="T.CLUES_TO_ORIGINAL_DATA">
+          <description>Text or graphics placed in the redacted area by the TOE may contain clues to the nature of the original 
             redacted information.</description>
+          <objective-refer ref="O.PLACEHOLDER">
+            <rationale>placeholder</rationale>
+          </objective-refer>
         </threat>
-        <threat id="T.UNREDACTED_DATA">
+        <threat name="T.UNREDACTED_DATA">
           <description>A failure of the redaction tool to remove user selected visable or 
             hidden data could reuslt in the inadvertant dissemination of information.
           </description>
+          <objective-refer ref="O.PLACEHOLDER">
+            <rationale>placeholder</rationale>
+          </objective-refer>
         </threat>
       </threats>
     </section>
-    <section title="Assumptions" id="assumptions">This section of the security problem definition
-      shows the assumptions that are made on the operational environment in order to be able to
-      provide security functionality. If the <span title="Target of Evaluation">TOE</span> is placed
-      in an operational environment that does not meet these assumptions, the <span
-        title="Target of Evaluation">TOE</span> may not be able to provide all of its security
-      functionality. <assumptions>
-        <assumption id="A.KNOWLEDGEABLE_USER">
+    
+    <!-- 3.2 Assumptions -->
+    <sec:Assumptions>
+      This PP-Module defines assumptions that extend those defined in the supported Base-PP.
+      <assumptions>
+        <assumption name="A.KNOWLEDGEABLE_USER">
           <description>The user is knowledgeable concerning document management and has appropriate
             training with the redaction tool. Part of this knowledge and training includes how to
             prepare a document for the redaction tool, e.g. resolve and turn off tracked changes
             prior to redaction, work with a copy of the document and preserve the original file,
             remove passwords and decrypt files, etc.</description>
+          
+          <consistency-rationale>placeholder</consistency-rationale>
+          <objective-refer ref="OE.PLACEHOLDER">
+          <rationale>placeholder</rationale>
+          </objective-refer>
         </assumption>
-        <assumption id="A.INFORMATION_RELEASE_POLICY">
+        
+        <assumption name="A.INFORMATION_RELEASE_POLICY">
           <description>There is a redaction or information release policy in place for the
             organization which the user follows.</description>
+          
+          <consistency-rationale>placeholder</consistency-rationale>
+          <objective-refer ref="OE.PLACEHOLDER">
+          <rationale>placeholder</rationale>
+          </objective-refer>
         </assumption>
-        <assumption id="A.PRESERVE_DOCUMENT_LAYOUT">
-          <description>The <span title="Target of Evaluation">TOE</span> will preserve the layout of
+        <assumption name="A.PRESERVE_DOCUMENT_LAYOUT">
+          <description>The TOE will preserve the layout of
             the document.</description>
+          
+          <consistency-rationale>placeholder</consistency-rationale>
+          <objective-refer ref="OE.PLACEHOLDER">
+          <rationale>placeholder</rationale>
+          </objective-refer>
         </assumption>
       </assumptions>
-    </section>
-  </chapter>
+       </sec:Assumptions>
+    </sec:Security_Problem_Description>
 
-  <chapter title="Security Objectives" id="obj"> This Extended Package adds SFRs to objectives
-    identified in the App PP and describes an additional objective specific to this <abbr
-      linkend="EP"/>. <SOs>
-      <SO id="O.INSPECTION">
-        <description>The <span title="Target of Evaluation">TOE</span> will analyze the file content
+  <!-- 4. Security Objectives --> 
+  <sec:Security_Objectives>  
+    <!--  <section title="Security Objectives" id="obj"> -->
+    
+    <!-- 4.1 Security Objectives for the TOE -->
+    <sec:Security_Objectives_for_the_TOE>
+      <SOs>
+      <SO name="O.INSPECTION">
+        <description>The TOE will analyze the file content
           for metadata and elements, to include any that are purposely hidden or not immediately
           visible to the naked eye. This metadata and elements includes, but is not limited to those
           that are obstructed from view such as shapes on top of text, hidden objects (manual direct
           formatting or programmatically hidden), and text that is positioned off the margins,
           and/or is located in header and footer sections of the file.</description>
-        <component-refer ref="RED_DIN_EXT.1"/>
-        <component-refer ref="RED_ID_EXT.1"/>
+        <addressed-by>FDP_DID_EXT.1</addressed-by>
+        <rationale>placeholder</rationale>
+        <addressed-by>FDP_DIN_EXT.1</addressed-by>
+        <rationale>placeholder</rationale>
       </SO>
-      <SO id="O.MANAGEMENT">
-        <component-refer ref="RED_RVW_EXT.1"/>
+      <SO name="O.MANAGEMENT">
+        <description>placeholder</description>
+        <addressed-by>FDP_RVW_EXT.1</addressed-by>
+        <rationale>placeholder</rationale>
       </SO>
-      <SO id="O.QUALITY">
-        <component-refer ref="VAL_REM_EXT.1"/> 
-        <component-refer ref="RED_NND_EXT.1"/>
-        <component-refer ref="FPT_FLS.1"/>
+      <SO name="O.QUALITY">
+        <description>placeholder</description>
+        <addressed-by>FDP_NND_EXT.1</addressed-by>
+        <rationale>placeholder</rationale>
+        <addressed-by>FDP_VAL_EXT.1</addressed-by>
+        <rationale>placeholder</rationale>
+        <addressed-by>FPT_FLS.1</addressed-by>
+        <rationale>placeholder</rationale>
       </SO>
-      <SO id="O.REDACTION">
-        <description>The <span title="Target of Evaluation">TOE</span> will provide the capability
+      <SO name="O.REDACTION">
+        <description>The TOE will provide the capability
           to completely remove any data selected for redaction.</description>
-        <component-refer ref="RED_SEL_EXT.1"/>
-        <component-refer ref="RED_RPL_EXT.1"/>
-        <component-refer ref="RED_REM_EXT.1"/>
-        <component-refer ref="RED_LOC_EXT.1"/>
-        <component-refer ref="RED_OBJ_EXT.1"/>
-        <component-refer ref="RED_RIP_EXT.1"/>
+        
+        <addressed-by>FDP_LOC_EXT.1</addressed-by>
+        <rationale>placeholder</rationale>
+        <addressed-by>FDP_OBJ_EXT.1</addressed-by>
+        <rationale>placeholder</rationale>
+        <addressed-by>FDP_REM_EXT.1</addressed-by>
+        <rationale>placeholder</rationale>
+        <addressed-by>FDP_RIP_EXT.1</addressed-by>
+        <rationale>placeholder</rationale>
+        <addressed-by>FDP_RPL_EXT.1</addressed-by>
+        <rationale>placeholder</rationale>
+        <addressed-by>FDP_SEL_EXT.1</addressed-by>
+        <rationale>placeholder</rationale>
+
       </SO>
-      <SO id="O.REPORT">
-        <description>The <span title="Target of Evaluation">TOE</span> will provide the capability
+      <SO name="O.REPORT">
+        <description>The TOE will provide the capability
           to produce a report of all data redacted and any errors during redaction.</description>
-        <component-refer ref="REP_GEN_EXT.1"/>
-        <component-refer ref="REP_RVW_EXT.1"/>
-        <component-refer ref="RED_ALR_EXT.1"/>
+        
+        <addressed-by>FAU_ALR_EXT.1</addressed-by>
+        <rationale>placeholder</rationale>
+        <addressed-by>FAU_REP_EXT.1</addressed-by>
+        <rationale>placeholder</rationale>
+        <addressed-by>FAU_SAR_EXT.1</addressed-by>
+        <rationale>placeholder</rationale>
       </SO>
         
       <!--
@@ -546,50 +580,852 @@
       
       -->
     </SOs>
-  </chapter>
+    </sec:Security_Objectives_for_the_TOE>
+    
+    
+    <!-- 4.2 Security Objectives for the Operational Environment -->
+    <section title="Security Objectives for the Operational Environment" id="SecurityObjectivesTOEorEnvironment">
+      This PP-Module defines environmental security objectives that extend those defined in
+      the supported Base-PP.
+      
+      <SOEs>
+        <SOE name="OE.PLACEHOLDER">
+          <description>placeholder
+          </description>
+          <consistency-rationale>placeholder</consistency-rationale>
+        </SOE>
+      </SOEs>
+    </section>
+    
+    <!-- 4.3 Security Objectives Rationale -->
+    <section title="Security Objectives Rationale" id="SOR">
+      <!-- This section should remain empty and is populated from the rationale tags in the previous sections.  -->
+    </section>
+    
+  </sec:Security_Objectives>
 
-  <chapter title="Security Requirements" id="req">This chapter describes the security requirements
-    which have to be fulfilled by the redacion tool. Those requirements comprise functional
-    components from Part 2 of <cite linkend="bibCC"/>. The following notations are used: <ul>
-      <li>
-        <b>Refinement</b> operation (denoted by <b>bold text</b>): is used to add details to a
-        requirement, and thus further restricts a requirement.</li>
-      <li>
-        <b>Selection</b> (denoted by <i>italicized text</i>): is used to select one or more options
-        provided by the [CC] in stating a requirement.</li>
-      <li>
-        <b>Assignment</b> operation (denoted by <i>italicized text</i>): is used to assign a
-        specific value to an unspecified parameter, such as the length of a password. Showing the
-        value in square brackets indicates assignment.</li>
-      <li>
-        <b>Iteration</b> operation: are identified with a number inside parentheses (e.g.
-        "(1)")</li>
-    </ul>
-    <section title="Security Functional Requirements" id="SFR">The Security Functional Requirements
-      included in this section are derived from Part 2 of the Common Criteria for Information
-      Technology Security Evaluation, Version 3.1, Revision 4, with additional extended functional
-      components. <subsection title="Report Generation and Review" id="RGR">
-        <f-component id="REP_GEN_EXT.1" name="Report Generation" status="threshold"> Hierarchical
-          to: No other components. <br/> Dependencies: None <f-element id="REP_GEN_EXT.1.1">
-            <title>The <span title="Target of Evaluation">TOE</span> must be able to generate a
-              report entry that contains metadata about each element that was redacted, including at
-              least the following: the type of the element that was removed, the location if it was
-              a visible element, and whether the element was selected by the user or removed
-              automatically. </title>
-            <note role="application">The report can be a configurable feature that is only generated
-              on user request. Location can be a page number, a cell number for a spreadsheet, or
-              some other indication that allows the user to easily locate the visible element. </note>
-            <aactivity>The evaluator shall examine the <span title="TOE Summary Specification"
-                >TSS</span> to ensure it describes the <span title="Target of Evaluation"
-              >TOE</span>’s reporting feature and the metadata that is included for each report
-              entry. The evaluator shall examine the operational guidance to ensure it contains
-              instructions for the configuration of the reporting feature in accordance with this
-              requirement. The evaluator shall create test files with specific elements to redact,
-              apply the <span title="Target of Evaluation">TOE</span> to the test files, and observe
-              that there is a report for each element expected to be redacted. This assurance
-              activity can be done in conjunction with REP_RVW_EXT.1. </aactivity>
-          </f-element>
-        </f-component>
+      <!-- 5. Security Requirements -->
+      <sec:Security_Requirements>
+        <!--  <section title="Security Requirements" id="sfrs">  -->
+        
+        The Security Functional Requirements (SFRs) included in this section are derived from Part 2 of the
+        Common Criteria for Information Technology Security Evaluation, Version 3.1, Revision 5, with
+        additional extended functional components.<h:br/>
+        The CC defines operations on Security Functional Requirements: assignments, selections, assignments
+        within selections and refinements. This document uses the following font conventions to identify the
+        operations defined by the CC:<h:br/>
+        <h:ul>
+          <h:li>Assignments are indicated with <h:i>italicized</h:i> text.</h:li>
+          <h:li>Refinements made by the PP-Module author are indicated with <h:b>bold text</h:b> for added or substituted
+            text and <h:s>strikethrough</h:s> text for removed text. Refinements are only applied to significant technical
+            changes to existing SFRs; minor presentation changes with no technical impact (such as British vs
+            American spelling differences) are not marked as refinements. Refinements are also indicated when
+            an operation is added or substituted for an existing operation (e.g. the PP-Module completes an
+            assignment in such a way that it introduces a selection into the assignment).<h:br/>
+            Note that for SFRs that are defined either in CC Part 2 or in this PP-Module’s Extended Components
+            Definition, the refinement operation is used to indicate deviations from the defined component. For
+            Base-PP SFRs that are modified by this PP-Module, the refinement operation is used to indicate
+            deviations from the Base-PP’s definition of the SFR (i.e. if the Base-PP refined an SFR and that
+            change is not affected by this PP-Module, it is not shown here as a refinement).</h:li>
+          <h:li>Selections are indicated with <h:i>italicized</h:i> text.</h:li>
+          <h:li>Iteration is indicated by appending the SFR name with a slash and unique identifier suggesting the
+            purpose of the iteration, e.g. ‘/VPN’ for an SFR relating to VPN gateway functionality.</h:li>
+          <h:li>Extended SFRs are identified by having a label “EXT” after the SFR name.</h:li>
+        </h:ul>
+        Note that selections and assignments to be completed by the ST author are preceded with “selection:”
+        and “assignment:”. If text is italicized and does not include either of these, it means that the selection or
+        assignment has already been completed in this PP-Module and the ST author must use the text as
+        written. 
+        
+            <!-- 5.1 App PP Security Functional Requirements Direction -->
+    <base-pp id="bpp-app">
+
+<!-- Note: How do we handle it when the Base-PP (in this case NDcPP) isn't on Github? -->
+    <raw-url>https://raw.githubusercontent.com/commoncriteria/application/master/input/application.xml</raw-url>
+		<url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=442&amp;id=442</url>
+
+		<sec-func-req-dir> 
+			Placeholder
+		</sec-func-req-dir> 
+      
+      <!-- 5.1.1 Modified SFRs -->      
+      <modified-sfrs/>
+               
+        
+      <!-- 5.1.2 Additional SFRs -->
+      <additional-sfrs/>
+<!--        This section lists additional SFRs that must be added to the TOE boundary in order to implement the
+        functionality in any PP-Configuration where the GPOS PP is claimed as the Base-PP.
+-->
+      
+	  <!-- 6.1.1 Consistency of TOE Type -->
+      <con-toe>When this PP-Module is used to extend the App PP, the TOE type for the overall TOE is still a software
+        application. The TOE boundary is simply extended to include redaction functionality that is provided by the
+        application.
+      </con-toe>
+		
+	  <!-- 6.1.2 Consistency of Security Problem Description -->
+      <con-sec-prob>The threats, assumptions, and organizational security policies (OSPs) defined by this PP-Module (see sections 3.1 through 3.3) supplement those
+		defined in the App PP as follows:</con-sec-prob>
+	   
+      <con-obj/>
+      <con-op-en/>
+	    
+	          
+      <con-mod ref="T.CLUES_TO_ORIGINAL_DATA">Placeholder</con-mod>
+      <con-mod ref="T.UNREDACTED_DATA">Placeholder</con-mod>
+      
+      <con-mod ref="A.KNOWLEDGEABLE_USER">Placeholder</con-mod>
+      <con-mod ref="A.INFORMATION_RELEASE_POLICY">Placeholder</con-mod>
+      <con-mod ref="A.PRESERVE_DOCUMENT_LAYOUT">Placeholder</con-mod>
+
+			
+	  <!-- 6.1.3 Consistency of Objectives -->
+      <con-mod ref="O.INSPECTION">Placeholder</con-mod>
+      <con-mod ref="O.MANAGEMENT">Placeholder</con-mod>
+      <con-mod ref="O.QUALITY">Placeholder</con-mod>
+      <con-mod ref="O.REDACTION">Placeholder</con-mod>
+      <con-mod ref="O.REPORT">Placeholder</con-mod>
+      
+	  <!-- 6.1.4 Consistency of Requirements -->
+      <!-- Covered by rationales in individual f-components -->
+    
+    </base-pp>
+
+
+        <!-- 5.2 TOE Security Functional Requirements -->
+        <man-sfrs>
+        
+          <!-- 5.2.1 Security Audit (FAU) (Previously Class REP) -->
+          <section title="Security Audit (FAU)" id="m-fau">
+            
+            <ext-comp-def fam-id="FAU_ALR_EXT" title="Redaction Failure Notification">
+              <fam-behavior>Placeholder
+              </fam-behavior>
+            </ext-comp-def>
+            
+            <!-- FAU_ALR_EXT.1 (formerly RED_ALR_EXT.1) -->
+            <f-component name="Redaction Failure Notification" cc-id="fau_alr_ext.1" id="fau-alr-ext-1">
+              <consistency-rationale>Placeholder
+              </consistency-rationale>
+              
+              <comp-lev> Placeholder</comp-lev>
+              <management>Placeholder</management>
+              <audit>Placeholder</audit>
+              <dependencies>Placeholder</dependencies>
+              
+              <f-element id="fau-alr-ext-1e1">
+                <title>
+                  The TOE must make the user aware when redaction fails for any reason. 
+                </title>
+                              
+                <aactivity>
+                  <TSS>The evaluator shall examine the TSS to ensure it describes how the TOE notifies the user when
+                    redaction fails. The evaluator shall ensure that the TSS’ description complies with the
+                    requirement that the user is notified when redaction fails for any reason.<h:p/></TSS>
+                  <Guidance>There are no guidance EAs for this component. <h:p/></Guidance>
+                  <Tests>The evaluator shall
+                    acquire or create test files that should fail the redaction, apply the TOE and verify that the TOE
+                    alerts the user that the redaction failed. </Tests>
+                </aactivity>
+              </f-element>
+            </f-component>
+            
+            
+            
+            <ext-comp-def fam-id="FAU_REP_EXT" title="Report Generation">
+              <fam-behavior>Placeholder
+              </fam-behavior>
+            </ext-comp-def>
+                        
+          <!-- FAU_REP_EXT.1 (formerly REP_GEN_EXT.1) -->
+            <f-component name="Report Generation" cc-id="fau_rep_ext.1" id="fau-rep-ext-1">
+              <consistency-rationale>Placeholder
+              </consistency-rationale>
+              
+              <comp-lev> Placeholder</comp-lev>
+              <management>Placeholder</management>
+              <audit>Placeholder</audit>
+              <dependencies>Placeholder</dependencies>
+              
+              <f-element id="fau-rep-ext-1e1">
+                <title>
+                  The TOE must be able to generate a report entry that contains metadata about each element that
+                  was redacted, including at least the following: the type of the element that was removed, the
+                  location if it was a visible element, and whether the element was selected by the user or removed
+                  automatically. 
+                </title>
+                <note role="Application">The report can be a configurable feature that is only generated on user
+                  request. Location can be a page number, a cell number for a spreadsheet, or some other
+                  indication that allows the user to easily locate the visible element. </note>
+                
+                <aactivity>
+                  <TSS>The evaluator shall examine the TSS to ensure it describes the TOE’s reporting feature and the
+                    metadata that is included for each report entry. <h:p/></TSS>
+                  <Guidance>The evaluator shall examine the operational
+                    guidance to ensure it contains instructions for the configuration of the reporting feature in
+                    accordance with this requirement. <h:p/></Guidance>
+                  <Tests>The evaluator shall create test files with specific elements to
+                    redact, apply the TOE to the test files, and observe that there is a report for each element 
+                    expected to be redacted. This assurance activity can be done in conjunction with
+                    FAU_SAR_EXT.1. </Tests>
+                </aactivity>
+              </f-element>
+            </f-component>
+        
+        
+        
+            <ext-comp-def fam-id="FAU_SAR_EXT" title="Report Review">
+              <fam-behavior>Placeholder
+              </fam-behavior>
+            </ext-comp-def>
+            
+            <!-- FAU_SAR_EXT.1 (formerly REP_RVW_EXT.1) -->
+            <f-component name="Report Review" cc-id="fau_sar_ext.1" id="fau-sar-ext-1">
+              <consistency-rationale>Placeholder
+              </consistency-rationale>
+              
+              <comp-lev> Placeholder</comp-lev>
+              <management>Placeholder</management>
+              <audit>Placeholder</audit>
+              <dependencies>Placeholder</dependencies>
+              
+              <f-element id="fau-sar-ext-1e1">
+                <title>
+                  The TOE must allow the user to access a report of the data that was redacted. 
+                </title>
+                <note role="Application">This can be satisfied with a dialog box or other simple list of items that were
+                  redacted. The report can be a configurable feature that is only generated on user request.
+                </note>
+                
+                <aactivity>
+                  <TSS>There are no TSS EAs for this component. <h:p/></TSS>
+                  <Guidance>There are no guidance EAs for this component. <h:p/></Guidance>
+                  <Tests>The evaluator shall create test files with specific elements to redact, apply the TOE to the test
+                    files, and observe that there is a report entry for each element expected to be redacted.</Tests>
+                </aactivity>
+              </f-element>
+            </f-component>
+          </section>
+          
+          <!-- 5.2.2 User Data Protection (FDP) (Previously Class VAL) -->
+          <section title="User Data Protection (FDP)" id="m-fdp">
+        
+        
+            <ext-comp-def fam-id="FDP_DID_EXT" title="Identification of Data">
+              <fam-behavior>Placeholder
+              </fam-behavior>
+            </ext-comp-def>
+            
+            <!-- FDP_DID_EXT.1 (formerly RED_ID_EXT.1) -->
+            <f-component name="Identification of Data" cc-id="fdp_did_ext.1" id="fdp-did-ext-1">
+              <consistency-rationale>Placeholder
+              </consistency-rationale>
+              
+              <comp-lev> Placeholder</comp-lev>
+              <management>Placeholder</management>
+              <audit>Placeholder</audit>
+              <dependencies>Placeholder</dependencies>
+              
+              <f-element id="fdp-did-ext-1e1">
+                <title>
+                  The TOE must identify all hidden data in the document, except remnant data and undo or
+                  tracked change buffers, and allow the user to review and select each hidden data element
+                  individually for redaction.  
+                </title>
+                <note role="Application">
+                  Remnant data and undo or tracked change buffers are removed automatically
+                  according to FDP_RIP_EXT.1. If the file or part of the file is encrypted, the TOE will have to
+                  reject the file or decrypt it so that the tool and the user can review the hidden data.
+                </note>
+                
+                <aactivity>
+                  <TSS>The evaluator shall examine the TSS to ensure it specifies the hidden data that it identifies and
+                    allows the user to select for redaction. The evaluator shall ensure that the TSS’ description
+                    complies with the requirement for the TOE to identify all hidden data and allow the user to
+                    review and select each hidden data element for redaction.
+                    <h:p/></TSS>
+                  <Guidance>There are no guidance EAs for this element. <h:p/></Guidance>
+                  <Tests>The evaluator shall create test
+                    documents with various types of hidden data apply the TOE, and verify that it identifies each
+                    expected element and allows the user to select and redact each.
+                  </Tests>
+                </aactivity>
+              </f-element>
+              <f-element id="fdp-did-ext-1e2">
+                <title>
+                  The TOE must identify all obscured data and must <selectables>
+                    <selectable>remove the obscured data automatically</selectable>
+                    <selectable>allow the user to redact the obscured data</selectable>
+                  </selectables>. 
+                </title>
+                <note role="Application">
+                  Obscured data is anything that could be visible but is obscured in some way,
+                  such as the cropped portion of an image or graphic. While the user sees only the portion of the
+                  graphic in the view container, the document contains the data in the cropped area. The tool must
+                  either remove the obscured data automatically or give the user the choice to remove or retain the
+                  obscured area.
+                </note>
+                <aactivity>
+                  <TSS>The evaluator shall examine the TSS to ensure it describes how the TOE handles all obscured
+                    data. The evaluator shall ensure that the TSS’ description complies with the requirement that all
+                    obscured data is identified and either removed automatically or redacted by the user.
+                    <h:p/></TSS>
+                  <Guidance>There are no guidance EAs for this element. <h:p/></Guidance>
+                  <Tests>The
+                    evaluator shall create test documents with various forms of obscured data, apply the TOE, and
+                    verify that the tool identifies the obscured data and either removes the obscured data
+                    automatically or gives the user the choice to remove or retain the obscured data.
+                  </Tests>
+                </aactivity>    
+              </f-element>
+              <f-element id="fdp-did-ext-1e3">
+                <title>
+                  The TOE must identify images where the visible representation is reduced in size or resolution
+                  from the representation stored in the file format and must <selectables>
+                    <selectable>automatically replace the stored data with the visible representation</selectable>
+                    <selectable>allow the user to replace the stored data with the visible representation</selectable>
+                    <selectable>allow the user to leave the image unaltered</selectable>
+                  </selectables>. 
+                </title>
+                <aactivity>
+                  <TSS>There are no TSS EAs for this element.
+                    <h:p/></TSS>
+                  <Guidance>There are no guidance EAs for this element. <h:p/></Guidance>
+                  <Tests>
+                    The evaluator shall create a test document with an image that is stored in a larger size and
+                    resolution than the visible image and apply the TOE without selecting the image for redaction.
+                    The evaluator shall verify that the TOE either <h:ul>
+                      <h:li>gives the user a choice to retain the image unaltered or replace the stored data with the
+                        visible data. For the choice to replace the image, the evaluator shall examine the output file to
+                        locate the image and verify its size and resolution, or extract the image with an appropriate tool
+                        for that format and compare the size and resolution of the extracted image to the visible image
+                        to determine if they match.</h:li>
+                      <h:li>resizes the stored image. To determine this, the evaluator shall examine the output file to
+                        locate the image and verify its size and resolution, or extract the image with an appropriate tool
+                        for that format and compare the size and resolution of the extracted image to the visible image
+                        to determine if they match.</h:li> 
+                    </h:ul>
+                  </Tests>
+                </aactivity> 
+              </f-element>
+            </f-component>
+        
+        
+            <ext-comp-def fam-id="FDP_DIN_EXT" title="Deep Inspection">
+              <fam-behavior>Placeholder
+              </fam-behavior>
+            </ext-comp-def>
+            
+            <!-- FDP_DIN_EXT.1 (formerly RED_DIN_EXT.1) -->
+            <f-component name="Deep Inspection" cc-id="fdp_din_ext.1" id="fdp-din-ext-1">
+              <consistency-rationale>Placeholder
+              </consistency-rationale>
+              
+              <comp-lev> Placeholder</comp-lev>
+              <management>Placeholder</management>
+              <audit>Placeholder</audit>
+              <dependencies>Placeholder</dependencies>
+              
+              <f-element id="fdp-din-ext-1e1">
+                <title>
+                  For each element of the file format that can contain its own metadata, other elements, or hidden
+                  data, the TOE must <selectables>
+                    <selectable>recurse through the element chain and apply the PP to each layer</selectable>
+                    <selectable>simplify the element</selectable>
+                    <selectable>redact the element</selectable>
+                  </selectables>.   
+                </title>
+                <note role="Application">For example, JPG images can contain metadata called EXIF data. Some image
+                  formats can contain the same image in another format, such as raw which can contain a complete
+                  jpg version of the image. A complex object can contain other complex objects (e.g. Microsoft
+                  OLE). The tool must apply the requirements to each layer of every element and identify
+                  hidden/metadata not just at the top layer of the document but in each element and in all layers
+                  within that element. If the TOE cannot recurse through the layers, it must simplify the element at
+                  the top level.
+                </note>
+                
+                <aactivity>
+                  <TSS>The evaluator shall examine the TSS to ensure it lists and describes the methods used to replace
+                    redacted elements that contain metadata, other elements, or hidden data. The evaluator shall
+                    ensure that the TSS’ description complies with the requirement that each element is handled by
+                    either recursing through the element chain and applying the TOE to each layer, simplifying the
+                    element, or redacting the element. <h:p/></TSS>
+                  <Guidance>There are no guidance EAs for this component. <h:p/></Guidance>
+                  <Tests>The evaluator shall create or acquire test files that contain
+                    elements that themselves contain other elements and hidden data. The evaluator shall examine
+                    the document to identify these elements in the structure, apply the TOE, and examine the output
+                    to verify that the elements were handled properly via either redaction or simplification in
+                    accordance with the requirement.</Tests>
+                </aactivity>
+              </f-element>
+            </f-component>
+        
+        
+        
+            <ext-comp-def fam-id="FDP_LOC_EXT" title="Redact Content from Every Location">
+              <fam-behavior>Placeholder
+              </fam-behavior>
+            </ext-comp-def>
+            
+            <!-- FDP_LOC_EXT.1 (formerly RED_LOC_EXT.1) -->
+            <f-component name="Redact Content from Every Location" cc-id="fdp_loc_ext.1" id="fdp-loc-ext-1">
+              <consistency-rationale>Placeholder
+              </consistency-rationale>
+              
+              <comp-lev> Placeholder</comp-lev>
+              <management>Placeholder</management>
+              <audit>Placeholder</audit>
+              <dependencies>Placeholder</dependencies>
+              
+              <f-element id="fdp-loc-ext-1e1">
+                <title>
+                  The TOE must remove redacted content from every location in the file format where it is stored. 
+                </title>
+                
+                <aactivity>
+                  <TSS>There are no TSS EAs for this component.<h:p/></TSS>
+                  <Guidance>There are no guidance EAs for this component. <h:p/></Guidance>
+                  <Tests>The evaluator shall create or acquire test files that contain content in multiple places and
+                    examine the files to locate the content. The evaluator shall apply the TOE and examine the
+                    output to verify that it has been removed from every location.
+                  </Tests>
+                </aactivity>
+              </f-element>
+            </f-component>
+        
+        
+        
+        
+            <ext-comp-def fam-id="FDP_NND_EXT" title="No New Data Introduced by TOE">
+              <fam-behavior>Placeholder
+              </fam-behavior>
+            </ext-comp-def>
+            
+            <!-- FDP_NND_EXT.1 (formerly RED_NND_EXT.1) -->
+            <f-component name="No New Data Introduced by TOE" cc-id="fdp_nnd_ext.1" id="fdp-nnd-ext-1">
+              <consistency-rationale>Placeholder
+              </consistency-rationale>
+              
+              <comp-lev> Placeholder</comp-lev>
+              <management>Placeholder</management>
+              <audit>Placeholder</audit>
+              <dependencies>Placeholder</dependencies>
+              
+              <f-element id="fdp-loc-ext-1e1">
+                <title>
+                  The TOE itself must not introduce new hidden data that was not requested by the user without
+                  warning the user of the addition. 
+                </title>
+                <note role="Application">
+                  If the redaction process changes the format of an object, such as converting a
+                  complex object to an image, the conversion must not introduce new metadata.
+                  <h:p/>
+                  The TOE can modify or add structural data, including fonts, without alerting the user if the
+                  modification is necessary for the proper display or print of the file.
+                </note>
+                
+                <aactivity>
+                  <TSS>The evaluator shall examine the TSS to ensure it describes the actions taken by the TOE when
+                    removing, simplifying, or redacting an element. If structural data is added, the TSS shall specify
+                    what structural data is added and the purpose of the structural data. If non-structural hidden
+                    data is added, the TSS shall detail the added hidden data and describe how the user is notified of
+                    the addition. The evaluator shall ensure that the TSS’ description complies with the requirement 
+                    to not introduce new hidden data, other than structural data, without warning the user.
+                    <h:p/></TSS>
+                  <Guidance>There are no guidance EAs for this component. <h:p/></Guidance>
+                  <Tests>The
+                    evaluator shall create or acquire test files with complex objects or other elements and examine
+                    the files to locate those items in the structure. The examiner shall apply the TOE and examine
+                    the output to verify that no new hidden/metadata was introduced.
+                  </Tests>
+                </aactivity>
+              </f-element>
+            </f-component>
+            
+            
+            <ext-comp-def fam-id="FDP_OBJ_EXT" title="Removal of Objects and Corresponding References">
+              <fam-behavior>Placeholder
+              </fam-behavior>
+            </ext-comp-def>
+            
+            <!-- FDP_OBJ_EXT.1 (formerly RED_OBJ_EXT.1) -->
+            <f-component name="Removal of Objects and Corresponding References" cc-id="fdp_obj_ext.1" id="fdp-obj-ext-1">
+              <consistency-rationale>Placeholder
+              </consistency-rationale>
+              
+              <comp-lev> Placeholder</comp-lev>
+              <management>Placeholder</management>
+              <audit>Placeholder</audit>
+              <dependencies>Placeholder</dependencies>
+              
+              <f-element id="fdp-obj-ext-1e1">
+                <title>
+                  The TOE must remove all references and indicators in the structural data to objects that are
+                  completely redacted by the TOE. 
+                </title>
+                <note role="Application">
+                  In some formats, there are references in the structural data to objects, such as
+                  a name dictionary in PDF. If an object in a PDF document, such as an image, is completely
+                  redacted (i.e. the user has selected the entire image to be redacted), then not only must the image
+                  data be removed, but references to it in a name dictionary as well as all structural references to
+                  the image must be removed. If only part of the object is selected for redaction, then the
+                  references necessarily remain in the file since the object remains in the file.
+                </note>
+                
+                <aactivity>
+                  <TSS>The evaluator shall examine the TSS to ensure its description of the removal of redacted objects
+                    includes the removal of all references and indicators to the redacted objects in conformance
+                    with the requirement. 
+                    <h:p/></TSS>
+                  <Guidance>There are no guidance EAs for this component. <h:p/></Guidance>
+                  <Tests>The evaluator shall create or acquire test files that contain objects and
+                    examine the files to locate these objects in the file format and all references to them in the
+                    structural data. The evaluator shall apply the TOE and select elements for complete redaction.
+                    The evaluator shall examine the output files to verify that the objects and all references to them
+                    have been redacted. 
+                  </Tests>
+                </aactivity>
+              </f-element>
+            </f-component>
+            
+            
+        
+            <ext-comp-def fam-id="FDP_REM_EXT" title="Removal of Redacted Data">
+              <fam-behavior>Placeholder
+              </fam-behavior>
+            </ext-comp-def>
+            
+            <!-- FDP_REM_EXT.1 (formerly RED_REM_EXT.1) -->
+            <f-component name="Removal of Redacted Data" cc-id="fdp_rem_ext.1" id="fdp-rem-ext-1">
+              <consistency-rationale>Placeholder
+              </consistency-rationale>
+              
+              <comp-lev> Placeholder</comp-lev>
+              <management>Placeholder</management>
+              <audit>Placeholder</audit>
+              <dependencies>Placeholder</dependencies>
+              
+              <f-element id="fdp-rem-ext-1e1">
+                <title>
+                  All data that is either selected by the user for redaction or identified by the TOE for redaction
+                  must be removed from the document.
+                </title>
+                <note role="Application">Selected content must be removed, not obscured by encryption, encoding,
+                  conversion to a proprietary format, or any other method.
+                </note>
+                
+                <aactivity>
+                  <TSS>The evaluator shall examine the TSS to ensure it describes the removal of all data selected for
+                    redaction and verify that no encryption, encoding or proprietary process is used to obscure
+                    selected data. The evaluator shall ensure that the TSS’ description complies with the
+                    requirement to remove all data selected by the user or identified by the TOE for redaction.<h:p/></TSS>
+                  <Guidance>There are no guidance EAs for this component. <h:p/></Guidance>
+                  <Tests>The
+                    evaluator shall acquire or create test files that contain text, images and other elements. The
+                    evaluator shall examine the test files to locate the content in the format. The evaluator shall
+                    apply the TOE, marking some of the content for redaction, and examine the output to verify that
+                    the marked content was removed and not obscured through encryption, encoding, or conversion
+                    to a proprietary format.
+                  </Tests>
+                </aactivity>
+              </f-element>
+            </f-component>
+            
+            
+            
+            <ext-comp-def fam-id="FDP_RIP_EXT" title="Residual Information Removal">
+              <fam-behavior>Placeholder
+              </fam-behavior>
+            </ext-comp-def>
+            
+            <!-- FDP_RIP_EXT.1 (formerly RED_RIP_EXT.1) -->
+            <f-component name="Residual Information Removal" cc-id="fdp_rip_ext.1" id="fdp-rip-ext-1">
+              <consistency-rationale>Placeholder
+              </consistency-rationale>
+              
+              <comp-lev> Placeholder</comp-lev>
+              <management>Placeholder</management>
+              <audit>Placeholder</audit>
+              <dependencies>Placeholder</dependencies>
+              
+              <f-element id="fdp-rip-ext-1e1">
+                <title>
+                  The TOE must automatically remove all remnant data, undo buffers, tracked changes buffers,
+                  multiple versions of the same object, and any buffer or cache type container of data.  
+                </title>
+                <note role="Application">
+                  The user does not have to select this data for removal.
+                </note>
+                
+                <aactivity>
+                  <TSS>The evaluator shall examine the TSS to ensure it specifies the residual data and objects (e.g.,
+                    remnant data, undo buffers, tracked changes buffers, multiple versions of the same object, and
+                    any buffer or cache type data container) that the TOE will remove from files without any user
+                    interaction. The evaluator shall ensure that the TSS’ description complies with the requirement
+                    to automatically remove all such data. 
+                    <h:p/></TSS>
+                  <Guidance>There are no guidance EAs for this component. <h:p/></Guidance>
+                  <Tests>The evaluator shall create or acquire test files that
+                    contain the types of data described in the requirement and examine the files to locate the data.
+                    The evaluator shall apply the TOE and not select anything for redaction, and examine the files
+                    to verify that this data has been removed automatically. 
+                  </Tests>
+                </aactivity>
+              </f-element>
+            </f-component>
+            
+            
+            <ext-comp-def fam-id="FDP_RPL_EXT" title="Visible Space Replace">
+              <fam-behavior>Placeholder
+              </fam-behavior>
+            </ext-comp-def>
+            
+            <!-- FDP_RPL_EXT.1 (formerly RED_RPL_EXT.1) -->
+            <f-component name="Visible Space Replace" cc-id="fdp_rpl_ext.1" id="fdp-rpl-ext-1">
+              <consistency-rationale>Placeholder
+              </consistency-rationale>
+              
+              <comp-lev> Placeholder</comp-lev>
+              <management>Placeholder</management>
+              <audit>Placeholder</audit>
+              <dependencies>Placeholder</dependencies>
+              
+              <f-element id="fdp-rpl-ext-1e1">
+                <title>
+                  The TOE must replace the visible space of redacted content in such a way that the visible space
+                  conveys no information about the previous contents. 
+                </title>
+                <note role="Application">A vendor may use several different methods to replace content, such as
+                  opaque blocks, text, whitespace or some other vendor-defined method. These methods must not
+                  convey information about the content being replaced. For example, if text is replaced with text,
+                  the replacement text must not indicate length of component words. Blocks of color used to
+                  replace parts of images must not show variations in intensity that could convey information
+                  about the image content.
+                  
+                </note>
+                
+                <aactivity>
+                  <TSS>The evaluator shall examine the TSS to ensure it lists and describes the content used to replace
+                    redacted elements. The evaluator shall ensure that the TSS’ description complies with the
+                    requirement to convey no information about the previous contents.<h:p/></TSS>
+                  <Guidance>There are no guidance EAs for this component. <h:p/></Guidance>
+                  <Tests>The evaluator shall create or
+                    acquire a test file with an image, mark part of the image for redaction and apply the TOE, and
+                    examine the image in the output to verify that the visual appearance does not provide any
+                    indication of the content that was redacted. If the TOE allows text content to be replaced with
+                    text, the evaluator shall create or acquire a test file with some text as content, apply the TOE,
+                    and verify that the replacement text does not preserve word length or other identifying
+                    information that could allow recovery of the original content.
+                  </Tests>
+                </aactivity>
+              </f-element>
+            </f-component>
+        
+        
+        
+        
+            <ext-comp-def fam-id="FDP_RVW_EXT" title="Element Review">
+              <fam-behavior>Placeholder
+              </fam-behavior>
+            </ext-comp-def>
+            
+            <!-- FDP_RVW_EXT.1 (formerly RED_RVW_EXT.1) -->
+            <f-component name="Element Review" cc-id="fdp_rvw_ext.1" id="fdp-rvw-ext-1">
+              <consistency-rationale>Placeholder
+              </consistency-rationale>
+              
+              <comp-lev> Placeholder</comp-lev>
+              <management>Placeholder</management>
+              <audit>Placeholder</audit>
+              <dependencies>Placeholder</dependencies>
+              
+              <f-element id="fdp-rvw-ext-1e1">
+                <title>
+                  The TOE must allow the user to review and select each element of visible data in whole or in
+                  part for redaction. 
+                </title>
+                <note role="Application">
+                  If the file or part of the file is encrypted, the TOE will have to reject the file
+                  or decrypt it so that the user can review the data.
+                </note>
+                
+                <aactivity>
+                  <TSS>There are no TSS EAs for this component.
+                    <h:p/></TSS>
+                  <Guidance>There are no guidance EAs for this component. <h:p/></Guidance>
+                  <Tests>The evaluator shall create test documents that contain images, text, and complex objects, apply
+                    the TOE and verify that each element is selectable for redaction in whole or in part.
+                  </Tests>
+                </aactivity>
+              </f-element>
+            </f-component>
+   
+            <ext-comp-def fam-id="FDP_SEL_EXT" title="Selected Redaction">
+              <fam-behavior>Placeholder
+              </fam-behavior>
+            </ext-comp-def>
+            
+            <!-- FDP_SEL_EXT.1 (formerly RED_SEL_EXT.1) -->
+            <f-component name="Selected Redaction" cc-id="fdp_sel_ext.1" id="fdp-sel-ext-1">
+              <consistency-rationale>Placeholder
+              </consistency-rationale>
+              
+              <comp-lev> Placeholder</comp-lev>
+              <management>Placeholder</management>
+              <audit>Placeholder</audit>
+              <dependencies>Placeholder</dependencies>
+              
+              <f-element id="fdp-sel-ext-1e1">
+                <title>
+                  The TOE must <selectables>
+                    <selectable>simplify</selectable>
+                    <selectable>remove</selectable>
+                  </selectables>
+                  any complex object, embedded object or graphic
+                  image which is selected for redaction.   
+                </title>
+                <note role="Application">The selection may be of either the whole element or only part of the element.
+                  If part of an element is selected, only that part must be simplified or removed.
+                </note>
+                
+                <aactivity>
+                  <TSS>The evaluator shall examine the TSS to ensure it describes in detail which complex objects can
+                    be simplified by the TOE and how they are simplified (e.g. whether the object or the whole page
+                    is converted to another format and what that format is). The TSS shall also list those complex
+                    objects or images that cannot be simplified and will be removed. <h:p/></TSS>
+                  <Guidance>There are no guidance EAs for this component. <h:p/></Guidance>
+                  <Tests>The evaluator shall create or
+                    acquire test documents that contain complex objects and examine the documents to identify
+                    where those objects are in the format. The evaluator shall then apply the TOE and examine the
+                    output to verify that the objects have been simplified or removed. The evaluator shall test all
+                    objects that can be simplified as well as all objects that should be removed according to the TSS.
+                    <h:p/>
+                    The evaluator shall also create or acquire test documents with complex objects that are not
+                    documented in the TSS, apply the TOE, and verify that those objects are removed from the
+                    document. </Tests>
+                </aactivity>
+              </f-element>
+            </f-component>
+        
+        
+    
+   
+            
+            
+            
+            
+            
+            
+            <ext-comp-def fam-id="FDP_VAL_EXT" title="Validation of Data">
+              <fam-behavior>Placeholder
+              </fam-behavior>
+            </ext-comp-def>
+            
+            <!-- FDP_VAL_EXT.1 (formerly VAL_REM_EXT.1) -->
+            <f-component name="Validation of Data" cc-id="fdp_val_ext.1" id="fdp-val-ext-1">
+              <consistency-rationale>Placeholder
+              </consistency-rationale>
+              
+              <comp-lev> Placeholder</comp-lev>
+              <management>Placeholder</management>
+              <audit>Placeholder</audit>
+              <dependencies>Placeholder</dependencies>
+              
+              <f-element id="fdp-val-ext-1e1">
+                <title>
+                  The TOE must remove unrecognized data, unexpected data, and extraneous structural data.  
+                </title>
+                <note role="Application">Structural data is extraneous if it is unnecessary for the printing or display of
+                  the document contents, or unnecessary for the functionality of the document.
+                  <h:p/>
+                  Example - many formats include comments, e.g. PDF allows file format comments which are
+                  preceded by %. When these comments are unnecessary, unrelated to the printing or display of
+                  the content of the document, or provide no functionality whatsoever they must be removed.
+                  <h:p/>
+                  Example – some formats expect a header structure starting at the first byte of a file, but a tool
+                  may be able to interpret a file where the header starts at a later byte by ignoring the data that
+                  precedes the header structure. In this case, the preceding data must be removed since it is
+                  unexpected.
+                </note>
+                
+                <aactivity>
+                  <TSS>There are no TSS EAs for this element. <h:p/></TSS>
+                  <Guidance>There are no guidance EAs for this element. <h:p/></Guidance>
+                  <Tests>The evaluator shall create or acquire test files that contain unrecognized data, unexpected data,
+                    and extraneous structural data. The evaluator shall examine the files prior to redaction to
+                    identify the data. The evaluator shall apply the TOE but make no visible redactions and save the
+                    output files. The evaluator shall examine the output files, comparing it to the originals, to verify
+                    that the data has been removed.</Tests>
+                </aactivity>
+              </f-element>
+              
+              <f-element id="fdp-val-ext-1e2">
+                <title>
+                  The TOE must <selectables>
+                    <selectable>simplify</selectable>
+                    <selectable>remove</selectable>
+                  </selectables> any element which it cannot completely interpret. 
+                </title>
+                <note role="Application">
+                  For example, if the tool cannot recurse through a stream with embedded OLE
+                  objects, it must convert the stream to a single layer image with no metadata or remove it. If the 
+                  redaction tool cannot interpret or process temporal objects, it must remove the temporal object
+                  and replace it with a simplified object or other placeholder. If a stream of data is compressed,
+                  encoded or encrypted and the redaction tool cannot uncompress, decode or decrypt the data, the
+                  tool must delete the stream.
+                </note>
+                
+                <aactivity>
+                  <TSS>The evaluator shall examine the TSS to ensure that it describes how the TOE handles data that it
+                    cannot completely interpret.<h:p/></TSS>
+                  <Guidance>There are no guidance EAs for this element. <h:p/></Guidance>
+                  <Tests>The evaluator shall create or acquire test files with data that the
+                    TOE should not be able to completely interpret, apply the TOE and examine the output to verify
+                    that the TOE handled the data according to the requirement.</Tests>
+                </aactivity>
+              </f-element>
+            </f-component>
+            
+          </section>
+          
+          
+          <!-- 5.2.3 Protection of the TSF (FPT) -->
+          <section title="Protection of the TSF (FPT)" id="m-fpt">
+            
+            
+            <!-- FPT_FLS.1 -->
+            <f-component name="Failure with Preservation of Secure State" cc-id="fpt_fls.1" id="fpt-fls-1">
+              <consistency-rationale>Placeholder
+              </consistency-rationale>
+                            
+              <f-element id="fpt-fls-1e1">
+                <title>
+                  The TSF shall preserve a secure state when the following types of
+                  failures occur: <assignable>list of types of failures in the TSF</assignable>. 
+                </title>
+                <note role="Application">
+                  If the redaction functionality fails for any reason, the TOE must not produce
+                  a partially redacted file.
+                </note>
+                
+                <aactivity>
+                  <TSS>The evaluator shall examine the TSS to ensure it describes what actions the TOE performs upon
+                    any failure. The evaluator shall ensure that the TSS’ description complies with the requirement
+                    to not produce a partially redacted file.
+                    <h:p/></TSS>
+                  <Guidance>There are no guidance EAs for this component. <h:p/></Guidance>
+                  <Tests>The evaluator shall create or acquire test files that
+                    cause the TOE to fail and observe that the TOE fails and does not produce partially redacted
+                    files.
+                  </Tests>
+                </aactivity>
+              </f-element>
+            </f-component>
+          </section>
+        </man-sfrs>
+          <!-- 
+        
         <f-component id="REP_RVW_EXT.1" name="Report Review" status="threshold"> Hierarchical to: No
           other components.<br/> Dependencies: REP_GEN.1 <f-element id="REP_RVW_EXT.1.1">
             <title>The <span title="Target of Evaluation">TOE</span> must allow the user to access a
@@ -962,7 +1798,14 @@
       </subsection>
     </section>
   </chapter>
-
+ -->
+        <opt-sfrs/>
+        <sel-sfrs/>
+        <obj-sfrs/>
+        <impl-dep-sfrs/>
+      </sec:Security_Requirements>
+  
+  <!-- 
   <appendix title="Optional Requirements" id="optional"> As indicated in <secref linkend="ccl"/>,
     the baseline requirements (those that must be performed by the <abbr linkend="TOE"/>) are
     contained in the body of this EP. Additionally, there are three other types of requirements
@@ -990,31 +1833,19 @@
     in commercial technology. However, these requirements may be included in the ST such that the
     TOE is still conformant to this EP, and it is expected that they be included as soon as
     possible. </appendix>
+ -->
 
-  <appendix id="biblio" title="References">
     <bibliography>
-      <entry id="bibCC">
-        <tag>CC</tag>
-        <description>Common Criteria for Information Technology Security Evaluation - <ul>
-            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R4.pdf">Part
-                1: Introduction and General Model</a>, CCMB-2012-09-001, Version 3.1 Revision 4,
-              September 2012.</li>
-            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART2V3.1R4.pdf">Part
-                2: Security Functional Components</a>, CCMB-2012-09-002, Version 3.1 Revision 4,
-              September 2012.</li>
-            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART3V3.1R4.pdf">Part
-                3: Security Assurance Components</a>, CCMB-2012-09-003, Version 3.1 Revision 4,
-              September 2012.</li>
-          </ul></description>
-      </entry>
+      <cc-entry/>
       <entry id="bibAppPP">
-        <tag>AppPP</tag>
+        <tag>App PP</tag>
         <description>
-          <a href="https://www.niap-ccevs.org/pp/PP_APP_v1.1/">Protection Profile for Application
-            Software</a>
+          <h:a href="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=462&amp;id=462/">
+            Protection Profile for Application Software</h:a>, Version 1.4, October 2021
         </description>
       </entry>
+      
     </bibliography>
-  </appendix>
   
-</PP>
+  
+</Module>
