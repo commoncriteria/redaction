@@ -15,8 +15,8 @@ PP-Module for Redaction Tools
 ## ![license](https://img.shields.io/badge/license-Unlicensed-blue.svg)
 
 This repository hosts the draft version of the PP-Module for Redaction Tools based on the 
-[Essential Security Requirements (ESR)](https://commoncriteria.github.io/pp/redaction/redaction-esr.html) for this technology class of 
-products. This repository is used to facilitate collaboration and development on the draft document. 
+## [Essential Security Requirements (ESR)](https://commoncriteria.github.io/pp/redaction/redaction-esr.html) ## for this technology class of products. 
+This repository is used to facilitate collaboration and development on the draft document. 
 See the [release](#Release-Version) section if you are looking for the officially released version for evaluations. 
 A list of products that have passed evaluation against this Protection Profile Module can be found [here](https://www.niap-ccevs.org/Profile/Info.cfm?id=390).
 
