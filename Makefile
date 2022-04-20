@@ -1,4 +1,4 @@
--include ~/commoncriteria/User.make
--include User.make
 TRANS?=transforms
-include $(TRANS)/Helper.make
+-include User.make
+-include ~/commoncriteria/User.make
+include $(TRANS)/module/Module.make

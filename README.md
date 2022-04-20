@@ -1,20 +1,28 @@
-Extended Package for Redaction
+PP-Module for Redaction Tools
 ===========
+![Master Badges](https://img.shields.io/badge/Build-master-black.svg)
 ![Build](https://github.com/commoncriteria/redaction/workflows/Build/badge.svg)
-[![GitHub issues Open](https://img.shields.io/github/issues/commoncriteria/redaction.svg?maxAge=2592000)](https://github.com/commoncriteria/redaction/issues) 
-![license](https://img.shields.io/badge/license-Unlicensed-blue.svg)
+![Validate](https://github.com/commoncriteria/redaction/workflows/Validate/badge.svg)
 
-This repository hosts the draft version of the Extended Package for Redaction based on the 
-[Essential Security Requirements (ESR)](https://commoncriteria.github.io/pp/redaction/redaction-esr.html) for this technology class of 
-products. This repository is used to facilitate collaboration and development on the draft document. 
+![Last QuickBuilt Branch](https://raw.githubusercontent.com/commoncriteria/redaction/gh-pages/build-branch-badge.svg)
+[![Validation](https://raw.githubusercontent.com/commoncriteria/redaction/gh-pages/validation.svg)](https://github.com/commoncriteria/redaction/blob/gh-pages/ValidationReport.txt)
+[![SanityChecks](https://raw.githubusercontent.com/commoncriteria/redaction/gh-pages/warnings.svg)](https://github.com/commoncriteria/redaction/blob/gh-pages/SanityChecksOutput.md)
+[![SpellCheck](https://raw.githubusercontent.com/commoncriteria/redaction/gh-pages/spell-badge.svg)](https://github.com/commoncriteria/redaction/blob/gh-pages/SpellCheckReport.txt)
+[![QuickBuild](https://github.com/commoncriteria/redaction/actions/workflows/quick_build.yml/badge.svg)](https://commoncriteria.github.io/redaction)
+
+[![GitHub issues Open](https://img.shields.io/github/issues/commoncriteria/redaction.svg?maxAge=2592000)](https://github.com/commoncriteria/redaction/issues)
+
+This repository hosts the draft version of the PP-Module for Redaction Tools based on the 
+[Essential Security Requirements (ESR)](https://commoncriteria.github.io/pp/redaction/redaction-esr.html) ## for this technology class of products. 
+This repository is used to facilitate collaboration and development on the draft document. 
 See the [release](#Release-Version) section if you are looking for the officially released version for evaluations. 
-A list of products that have passed evaluation against this Protection Profile can be found [here](https://www.niap-ccevs.org/Profile/Info.cfm?id=390).
+A list of products that have passed evaluation against this Protection Profile Module can be found [here](https://www.niap-ccevs.org/Profile/Info.cfm?id=390).
 
 
 ## Draft Version
 
-* [Extended Package for Redaction](https://commoncriteria.github.io/pp/redaction/redaction-release.html) (html)
-* [Extended Package for Redaction](https://commoncriteria.github.io/pp/redaction/redaction-release.pdf) (pdf)
+* [PP-Module for Redaction Tools](https://commoncriteria.github.io/pp/redaction/redaction-release.html) (html)
+* [PP-Module for Redaction Tools](https://commoncriteria.github.io/pp/redaction/redaction-release.pdf) (pdf)
 
 ## Release Version
 [Extended Package for Redaction](https://www.niap-ccevs.org/Profile/Info.cfm?id=390)
