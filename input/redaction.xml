@@ -39,7 +39,7 @@
         <h:li>Protection Profile for Application Software, Version 1.4 (App PP or PP_APP_V1.4)</h:li>
       </h:ul>
       
-      This Base-PP is valid because a redaction tool is a specific type of software application and can therefore be reasonably expected to implement
+      This Base-PP is valid for this technology type because a redaction tool is a specific type of software application and can therefore be reasonably expected to implement
       security functionality that is typical of application software. Redaction is the process of selectively removing and replacing
       information from a document or other logical container of data for release to an audience not
       intended to view that information. Redacted information is not limited to classified material;
@@ -56,8 +56,7 @@
       information is removed and replaced with something innocuous (e.g. black box or text) so that
       the reader knows redaction took place. This replacement is a critical part of the process not
       shared with sanitization.
-      
-      
+      <h:p/>      
       Redaction is not sanitization. In the sanitization process, information is
       removed with no indication that the sanitization process took place. In the redaction process,
       selected visible information is removed and replaced with something innocuous (e.g. black box
@@ -238,14 +237,14 @@
         itself, incremental updates, collaboration data such as comments, tracked changes,
         workflow data, embedded search indexes, bookmarks, document info added by 3rd-party
         apps, accessibility data such as alternate text, etc.</term>
-      <term full="Structual data">Data that is part of the file format structure, such as a file header or fonts, and is necessary to interpret the file properly for display or print.</term>
+      <term full="Structural data">Data that is part of the file format structure, such as a file header or fonts, and is necessary to interpret the file properly for display or print.</term>
       <term full="Temporal Objects">A particular type of complex object whose representation extends through a
         time interval, such as video, audio, flash animation, slide shows, etc. References to
         “complex objects” in the requirements section of this paper include temporal
         objects.</term>
       <term abbr="TIFF" full="Tagged Image File Format"/>
-      <term full="Visible contents">The visible contents of the file; the visual representation of text, images
-              and complex objects.</term>
+      <term full="Visible contents">The visual representation of text, images,
+              and complex objects in a file.</term>
     </tech-terms>
     
     <!-- 
@@ -306,18 +305,18 @@
     <sec:Compliant_Targets_of_Evaluation>
       The Target of Evaluation (TOE) described by this PP-Module is limited to the redaction of electronic documents defined in standards such as the
       series International Organization for Standards (ISO)/International Electrotechnical Commission
-      (IEC)-29500 (Office OpeneXtensible Markup Language (XML), e.g. Microsoft Word,
-      PowerPoint, and Excel documents) and ISO/IEC-32000 (PDF), or the definitive standard for a
-      format. Mail guards, filters, and batch redaction tools are beyond the scope of this PP_module.
+      (IEC)-29500 (Office Open eXtensible Markup Language (XML), including but not limited to Microsoft Word,
+      PowerPoint, and Excel documents), ISO/IEC-32000 (PDF), or the definitive standard for a
+      format. Mail guards, filters, and batch redaction tools are beyond the scope of this PP-Module.
       Requirements that apply to features such as administrative control over particular redaction
       settings, multi-person review prior to release, etc., are outside the scope of this PP-Module. The TOE
       may have those features but is not required to have them and their use and enforcement is
       governed by the organization’s redaction policy. <h:p/>
       
-      This PP-Moudle covers the software functionality of the redaction process; it does not include
+      This PP-Module covers the software functionality of the redaction process; it does not include
       requirements for how users should decide what to redact or other policy issues. Analysis of
-      documents for covert data transfer is part of the decision-making process for what to redact and 
-      so occurs prior to the redaction itself. The requirements in this document are independent of
+      documents for covert data transfer is part of the decision-making process for what to redact; therefore, it 
+      occurs prior to the redaction itself. The requirements in this document are independent of
       requirements levied on document release by statute or the judiciary. <h:p/>
       
       Data execution risks inherent in some file formats are beyond the scope of this PP-Module. This PP-Module
@@ -331,7 +330,7 @@
       such objects are released or redacted in their entirety. 
       
       <sec:TOE_Boundary>
-        The physical boundary for a TOE that conforms to this PP-Module is a software application that installed on top of a general-purpose or mobile operating system. 
+        The physical boundary for a TOE that conforms to this PP-Module is a software application that is installed on top of a general-purpose or mobile operating system. 
         
         The TOE’s logical boundary includes all functionality required by the claimed
         Base-PP as well as the redaction functionality and related capabilities that are defined in this PP-Module. Any
@@ -343,11 +342,11 @@
 
     <sec:Use_Cases>
 
-    Redaction Tools perform tasks associated primarily with
+    Redaction tools perform tasks associated primarily with
       the following use case. 
       <usecases>
         <usecase id="usecase1" title="Content Redaction">
-          <description>Redaction tools are used for the redaction of user selected content from a
+          <description>Redaction tools are used for the redaction of user-selected content from a
             document. </description>
         </usecase>
       </usecases>
@@ -400,8 +399,8 @@
           </objective-refer>
         </threat>
         <threat name="T.UNREDACTED_DATA">
-          <description>A failure of the redaction tool to remove user selected visable or 
-            hidden data could reuslt in the inadvertant dissemination of information.
+          <description>A failure of the redaction tool to remove user-selected visible or 
+            hidden data could result in the inadvertent dissemination of information.
           </description>
           <objective-refer ref="O.PLACEHOLDER">
             <rationale>placeholder</rationale>
@@ -415,11 +414,11 @@
       This PP-Module defines assumptions that extend those defined in the supported Base-PP.
       <assumptions>
         <assumption name="A.KNOWLEDGEABLE_USER">
-          <description>The user is knowledgeable concerning document management and has appropriate
+          <description>The user is knowledgeable about document management and has appropriate
             training with the redaction tool. Part of this knowledge and training includes how to
-            prepare a document for the redaction tool, e.g. resolve and turn off tracked changes
-            prior to redaction, work with a copy of the document and preserve the original file,
-            remove passwords and decrypt files, etc.</description>
+            prepare a document for the redaction tool such as resolving and disabling tracked changes
+            prior to redaction, working with a copy of the document to preserve the original file, and
+            removing passwords and decrypting files.</description>
           
           <consistency-rationale>placeholder</consistency-rationale>
           <objective-refer ref="OE.PLACEHOLDER">
@@ -461,8 +460,8 @@
           for metadata and elements, to include any that are purposely hidden or not immediately
           visible to the naked eye. This metadata and elements includes, but is not limited to those
           that are obstructed from view such as shapes on top of text, hidden objects (manual direct
-          formatting or programmatically hidden), and text that is positioned off the margins,
-          and/or is located in header and footer sections of the file.</description>
+          formatting or programmatically hidden), and text that is positioned off the margins
+          or is located in header and footer sections of the file.</description>
         <addressed-by>FDP_DID_EXT.1</addressed-by>
         <rationale>placeholder</rationale>
         <addressed-by>FDP_DIN_EXT.1</addressed-by>
@@ -483,7 +482,7 @@
         <rationale>placeholder</rationale>
       </SO>
       <SO name="O.REDACTION">
-        <description>The TOE will provide the capability
+        <description>The TOE will provide the ability
           to completely remove any data selected for redaction.</description>
         
         <addressed-by>FDP_LOC_EXT.1</addressed-by>
@@ -501,7 +500,7 @@
 
       </SO>
       <SO name="O.REPORT">
-        <description>The TOE will provide the capability
+        <description>The TOE will provide the ability
           to produce a report of all data redacted and any errors during redaction.</description>
         
         <addressed-by>FAU_ALR_EXT.1</addressed-by>
@@ -725,7 +724,7 @@
                     requirement that the user is notified when redaction fails for any reason.<h:p/></TSS>
                   <Guidance>There are no guidance EAs for this component. <h:p/></Guidance>
                   <Tests>The evaluator shall
-                    acquire or create test files that should fail the redaction, apply the TOE and verify that the TOE
+                    acquire or create test files that should fail the redaction, use the TOE to attempt the redaction process with the expectation of its failure, and verify that the TOE
                     alerts the user that the redaction failed. </Tests>
                 </aactivity>
               </f-element>
@@ -839,7 +838,7 @@
                   reject the file or decrypt it so that the tool and the user can review the hidden data.
                 </note>
                 
-                <aactivity>
+                <aactivity level="element">
                   <TSS>The evaluator shall examine the TSS to ensure it specifies the hidden data that it identifies and
                     allows the user to select for redaction. The evaluator shall ensure that the TSS’ description
                     complies with the requirement for the TOE to identify all hidden data and allow the user to
@@ -866,7 +865,7 @@
                   either remove the obscured data automatically or give the user the choice to remove or retain the
                   obscured area.
                 </note>
-                <aactivity>
+                <aactivity level="element">
                   <TSS>The evaluator shall examine the TSS to ensure it describes how the TOE handles all obscured
                     data. The evaluator shall ensure that the TSS’ description complies with the requirement that all
                     obscured data is identified and either removed automatically or redacted by the user.
@@ -888,20 +887,20 @@
                     <selectable>allow the user to leave the image unaltered</selectable>
                   </selectables>. 
                 </title>
-                <aactivity>
+                <aactivity level="element">
                   <TSS>There are no TSS EAs for this element.
                     <h:p/></TSS>
                   <Guidance>There are no guidance EAs for this element. <h:p/></Guidance>
                   <Tests>
                     The evaluator shall create a test document with an image that is stored in a larger size and
                     resolution than the visible image and apply the TOE without selecting the image for redaction.
-                    The evaluator shall verify that the TOE either <h:ul>
-                      <h:li>gives the user a choice to retain the image unaltered or replace the stored data with the
+                    The evaluator shall verify that the TOE either: <h:ul>
+                      <h:li>Gives the user a choice to retain the image unaltered or replace the stored data with the
                         visible data. For the choice to replace the image, the evaluator shall examine the output file to
                         locate the image and verify its size and resolution, or extract the image with an appropriate tool
                         for that format and compare the size and resolution of the extracted image to the visible image
                         to determine if they match.</h:li>
-                      <h:li>resizes the stored image. To determine this, the evaluator shall examine the output file to
+                      <h:li>Resizes the stored image. To determine this, the evaluator shall examine the output file to
                         locate the image and verify its size and resolution, or extract the image with an appropriate tool
                         for that format and compare the size and resolution of the extracted image to the visible image
                         to determine if they match.</h:li> 
@@ -937,10 +936,10 @@
                   </selectables>.   
                 </title>
                 <note role="Application">For example, JPG images can contain metadata called EXIF data. Some image
-                  formats can contain the same image in another format, such as raw which can contain a complete
-                  jpg version of the image. A complex object can contain other complex objects (e.g. Microsoft
+                  formats can contain the same image in another format, such as raw, which can contain a complete
+                  JPG version of the image. A complex object can contain other complex objects (e.g., Microsoft
                   OLE). The tool must apply the requirements to each layer of every element and identify
-                  hidden/metadata not just at the top layer of the document but in each element and in all layers
+                  hidden data or metadata, not just at the top layer of the document, but in each element and in all layers
                   within that element. If the TOE cannot recurse through the layers, it must simplify the element at
                   the top level.
                 </note>
@@ -1022,7 +1021,7 @@
                   complex object to an image, the conversion must not introduce new metadata.
                   <h:p/>
                   The TOE can modify or add structural data, including fonts, without alerting the user if the
-                  modification is necessary for the proper display or print of the file.
+                  modification is necessary for the proper display or printing of the file.
                 </note>
                 
                 <aactivity>
@@ -1036,8 +1035,8 @@
                   <Guidance>There are no guidance EAs for this component. <h:p/></Guidance>
                   <Tests>The
                     evaluator shall create or acquire test files with complex objects or other elements and examine
-                    the files to locate those items in the structure. The examiner shall apply the TOE and examine
-                    the output to verify that no new hidden/metadata was introduced.
+                    the files to locate those items in the structure. The evaluator shall use the TOE to perform the redaction operation and examine
+                    the output to verify that no new hidden data or metadata was introduced.
                   </Tests>
                 </aactivity>
               </f-element>
@@ -1117,12 +1116,12 @@
                 
                 <aactivity>
                   <TSS>The evaluator shall examine the TSS to ensure it describes the removal of all data selected for
-                    redaction and verify that no encryption, encoding or proprietary process is used to obscure
+                    redaction and verify that no encryption, encoding, or proprietary process is used to obscure
                     selected data. The evaluator shall ensure that the TSS’ description complies with the
                     requirement to remove all data selected by the user or identified by the TOE for redaction.<h:p/></TSS>
                   <Guidance>There are no guidance EAs for this component. <h:p/></Guidance>
                   <Tests>The
-                    evaluator shall acquire or create test files that contain text, images and other elements. The
+                    evaluator shall acquire or create test files that contain text, images, and other elements. The
                     evaluator shall examine the test files to locate the content in the format. The evaluator shall
                     apply the TOE, marking some of the content for redaction, and examine the output to verify that
                     the marked content was removed and not obscured through encryption, encoding, or conversion
@@ -1197,7 +1196,7 @@
                   conveys no information about the previous contents. 
                 </title>
                 <note role="Application">A vendor may use several different methods to replace content, such as
-                  opaque blocks, text, whitespace or some other vendor-defined method. These methods must not
+                  opaque blocks, text, whitespace, or some other vendor-defined method. These methods must not
                   convey information about the content being replaced. For example, if text is replaced with text,
                   the replacement text must not indicate length of component words. Blocks of color used to
                   replace parts of images must not show variations in intensity that could convey information
@@ -1254,8 +1253,8 @@
                   <TSS>There are no TSS EAs for this component.
                     <h:p/></TSS>
                   <Guidance>There are no guidance EAs for this component. <h:p/></Guidance>
-                  <Tests>The evaluator shall create test documents that contain images, text, and complex objects, apply
-                    the TOE and verify that each element is selectable for redaction in whole or in part.
+                  <Tests>The evaluator shall create test documents that contain images, text, and complex objects, use the TOE
+                    to perform the redaction operation, and verify that each element is selectable for redaction in whole or in part.
                   </Tests>
                 </aactivity>
               </f-element>
@@ -1282,8 +1281,8 @@
                     <selectable>simplify</selectable>
                     <selectable>remove</selectable>
                   </selectables>
-                  any complex object, embedded object or graphic
-                  image which is selected for redaction.   
+                  any complex object, embedded object, or graphic
+                  image that is selected for redaction.   
                 </title>
                 <note role="Application">The selection may be of either the whole element or only part of the element.
                   If part of an element is selected, only that part must be simplified or removed.
@@ -1291,7 +1290,7 @@
                 
                 <aactivity>
                   <TSS>The evaluator shall examine the TSS to ensure it describes in detail which complex objects can
-                    be simplified by the TOE and how they are simplified (e.g. whether the object or the whole page
+                    be simplified by the TOE and how they are simplified (e.g., whether the object or the whole page
                     is converted to another format and what that format is). The TSS shall also list those complex
                     objects or images that cannot be simplified and will be removed. <h:p/></TSS>
                   <Guidance>There are no guidance EAs for this component. <h:p/></Guidance>
@@ -1337,19 +1336,20 @@
                   The TOE must remove unrecognized data, unexpected data, and extraneous structural data.  
                 </title>
                 <note role="Application">Structural data is extraneous if it is unnecessary for the printing or display of
-                  the document contents, or unnecessary for the functionality of the document.
+                  the document contents or unnecessary for the functionality of the document.
                   <h:p/>
-                  Example - many formats include comments, e.g. PDF allows file format comments which are
-                  preceded by %. When these comments are unnecessary, unrelated to the printing or display of
-                  the content of the document, or provide no functionality whatsoever they must be removed.
+                  For example, many formats include comments, such as the PDF format which uses a % to precede file format comments.
                   <h:p/>
-                  Example – some formats expect a header structure starting at the first byte of a file, but a tool
+                  When these comments are unnecessary, are unrelated to the printing or display of
+                  the content of the document, or do not provide any functionality, they must be removed.
+                  <h:p/>
+                  For example, some formats expect a header structure starting at the first byte of a file, but a tool
                   may be able to interpret a file where the header starts at a later byte by ignoring the data that
                   precedes the header structure. In this case, the preceding data must be removed since it is
                   unexpected.
                 </note>
                 
-                <aactivity>
+                <aactivity level="element">
                   <TSS>There are no TSS EAs for this element. <h:p/></TSS>
                   <Guidance>There are no guidance EAs for this element. <h:p/></Guidance>
                   <Tests>The evaluator shall create or acquire test files that contain unrecognized data, unexpected data,
@@ -1372,11 +1372,11 @@
                   objects, it must convert the stream to a single layer image with no metadata or remove it. If the 
                   redaction tool cannot interpret or process temporal objects, it must remove the temporal object
                   and replace it with a simplified object or other placeholder. If a stream of data is compressed,
-                  encoded or encrypted and the redaction tool cannot uncompress, decode or decrypt the data, the
+                  encoded, or encrypted and the redaction tool cannot decompress, decode, or decrypt the data, the
                   tool must delete the stream.
                 </note>
                 
-                <aactivity>
+                <aactivity level="element">
                   <TSS>The evaluator shall examine the TSS to ensure that it describes how the TOE handles data that it
                     cannot completely interpret.<h:p/></TSS>
                   <Guidance>There are no guidance EAs for this element. <h:p/></Guidance>
