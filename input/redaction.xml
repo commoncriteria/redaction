@@ -674,7 +674,9 @@
 		<url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=442&amp;id=442</url>
 
 		<sec-func-req-dir> 
-			Placeholder
+		  In a PP-Configuration that includes the App PP, there are no App PP requirements that must be claimed in a certain manner for redaction functionality to be correctly implemented. Therefore, all SFR operations 
+		  may be performed at the ST author's discretion.
+		  <!-- Note that this may need to be updated if FCS requirements are needed to cover the (optional?) case where a redaction product must decrypt a file before being able to redact it. -->
 		</sec-func-req-dir> 
       
       <!-- 5.1.1 Modified SFRs -->      
@@ -733,7 +735,7 @@
           <section title="Security Audit (FAU)" id="m-fau">
             
             <ext-comp-def fam-id="FAU_ALR_EXT" title="Redaction Failure Notification">
-              <fam-behavior>Placeholder
+              <fam-behavior>Components in this family describe requirements for user notification in response to a specific kind of TSF failure.
               </fam-behavior>
             </ext-comp-def>
             
@@ -742,10 +744,10 @@
               <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
-              <comp-lev> Placeholder</comp-lev>
-              <management>Placeholder</management>
-              <audit>Placeholder</audit>
-              <dependencies>Placeholder</dependencies>
+              <comp-lev> requires the TSF to generate a notification in the event of a failed redaction operation.</comp-lev>
+              <management>There are no management activities foreseen.</management>
+              <audit>There are no auditable events foreseen.</audit>
+              <dependencies>FDP_REM_EXT.1 Removal of Redacted Data</dependencies>
               
               <f-element id="fau-alr-ext-1e1">
                 <title>
@@ -767,7 +769,7 @@
             
             
             <ext-comp-def fam-id="FAU_REP_EXT" title="Report Generation">
-              <fam-behavior>Placeholder
+              <fam-behavior>Components in this family define requirements for the generation of report data in response to a specific TSF action being performed.
               </fam-behavior>
             </ext-comp-def>
                         
@@ -776,10 +778,10 @@
               <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
-              <comp-lev> Placeholder</comp-lev>
-              <management>Placeholder</management>
-              <audit>Placeholder</audit>
-              <dependencies>Placeholder</dependencies>
+              <comp-lev> requires the TSF to generate a report following the completion of a redaction operation that identifies the elements that were redacted along with metadata about each redaction.</comp-lev>
+              <management>There are no management activities foreseen.</management>
+              <audit>There are no auditable events foreseen.</audit>
+              <dependencies>FDP_REM_EXT.1 Removal of Redacted Data</dependencies>
               
               <f-element id="fau-rep-ext-1e1">
                 <title>
@@ -809,7 +811,7 @@
         
         
             <ext-comp-def fam-id="FAU_SAR_EXT" title="Report Review">
-              <fam-behavior>Placeholder
+              <fam-behavior>Components in this family define requirements for user review of a specific type of TSF data. 
               </fam-behavior>
             </ext-comp-def>
             
@@ -818,10 +820,14 @@
               <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
-              <comp-lev> Placeholder</comp-lev>
-              <management>Placeholder</management>
-              <audit>Placeholder</audit>
-              <dependencies>Placeholder</dependencies>
+              <comp-lev> requires the TSF to have its generated report data be user-reviewable.</comp-lev>
+              <management>
+                The following actions could be considered for the management functions in FMT: <h:ul>
+                  <h:li>View contents of generated report</h:li>
+                </h:ul>
+              </management>
+              <audit>There are no auditable events foreseen.</audit>
+              <dependencies>FAU_REP_EXT.1 Report Generation</dependencies>
               
               <f-element id="fau-sar-ext-1e1">
                 <title>
@@ -846,7 +852,7 @@
         
         
             <ext-comp-def fam-id="FDP_DID_EXT" title="Identification of Data">
-              <fam-behavior>Placeholder
+              <fam-behavior>Components in this family define requirements for the identification of data within a document that can be considered for redaction.
               </fam-behavior>
             </ext-comp-def>
             
@@ -855,10 +861,14 @@
               <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
-              <comp-lev> Placeholder</comp-lev>
-              <management>Placeholder</management>
-              <audit>Placeholder</audit>
-              <dependencies>Placeholder</dependencies>
+              <comp-lev> requires the TSF to identify all hidden or obscured data in a document so that this data can be selectable for redaction.</comp-lev>
+              <management>
+                The following actions could be considered for the management functions in FMT: <h:ul>
+                  <h:li>Specify how redaction operation is applied to small or low-resolution image data</h:li>
+                </h:ul>
+              </management>
+              <audit>There are no auditable events foreseen.</audit>
+              <dependencies>No dependencies.</dependencies>
               
               <f-element id="fdp-did-ext-1e1">
                 <title>
@@ -946,7 +956,7 @@
         
         
             <ext-comp-def fam-id="FDP_DIN_EXT" title="Deep Inspection">
-              <fam-behavior>Placeholder
+              <fam-behavior>Components in this family define requirements for inspecting document metadata for potential redaction.
               </fam-behavior>
             </ext-comp-def>
             
@@ -955,10 +965,10 @@
               <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
-              <comp-lev> Placeholder</comp-lev>
-              <management>Placeholder</management>
-              <audit>Placeholder</audit>
-              <dependencies>Placeholder</dependencies>
+              <comp-lev> requires the TSF to handle redaction of file metadata in a specified manner.</comp-lev>
+              <management>There are no management activities foreseen.</management>
+              <audit>There are no auditable events foreseen.</audit>
+              <dependencies>FDP_REM_EXT.1 Removal of Redacted Data</dependencies>
               
               <f-element id="fdp-din-ext-1e1">
                 <title>
@@ -997,7 +1007,7 @@
         
         
             <ext-comp-def fam-id="FDP_LOC_EXT" title="Redact Content from Every Location">
-              <fam-behavior>Placeholder
+              <fam-behavior>Components in this family define requirements for the thoroughness of a data redaction process.
               </fam-behavior>
             </ext-comp-def>
             
@@ -1006,10 +1016,10 @@
               <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
-              <comp-lev> Placeholder</comp-lev>
-              <management>Placeholder</management>
-              <audit>Placeholder</audit>
-              <dependencies>Placeholder</dependencies>
+              <comp-lev> requires the TSF to have the ability to redact data from all possible locations in an input file.</comp-lev>
+              <management>There are no management activities foreseen.</management>
+              <audit>There are no auditable events foreseen.</audit>
+              <dependencies>FDP_REM_EXT.1 Removal of Redacted Data</dependencies>
               
               <f-element id="fdp-loc-ext-1e1">
                 <title>
@@ -1031,7 +1041,7 @@
         
         
             <ext-comp-def fam-id="FDP_NND_EXT" title="No New Data Introduced by TOE">
-              <fam-behavior>Placeholder
+              <fam-behavior>Components in this family apply restrictions on data that the TOE can add to a file as part of the redaction process.
               </fam-behavior>
             </ext-comp-def>
             
@@ -1040,10 +1050,14 @@
               <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
-              <comp-lev> Placeholder</comp-lev>
-              <management>Placeholder</management>
-              <audit>Placeholder</audit>
-              <dependencies>Placeholder</dependencies>
+              <comp-lev> requires the TSF to avoid the introduction of its own data to an input file unless explicitly requested by a user.</comp-lev>
+              <management>
+                The following actions could be considered for the management functions in FMT: <h:ul>
+                  <h:li>Specification or approval of introduced hidden data</h:li>
+                </h:ul>
+              </management>
+              <audit>There are no auditable events foreseen.</audit>
+              <dependencies>FDP_REM_EXT.1 Removal of Redacted Data</dependencies>
               
               <f-element id="fdp-loc-ext-1e1">
                 <title>
@@ -1078,7 +1092,7 @@
             
             
             <ext-comp-def fam-id="FDP_OBJ_EXT" title="Removal of Objects and Corresponding References">
-              <fam-behavior>Placeholder
+              <fam-behavior>Components in this family define requirements for the removal of object references as part of a data redaction process.
               </fam-behavior>
             </ext-comp-def>
             
@@ -1087,10 +1101,10 @@
               <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
-              <comp-lev> Placeholder</comp-lev>
-              <management>Placeholder</management>
-              <audit>Placeholder</audit>
-              <dependencies>Placeholder</dependencies>
+              <comp-lev> requires the TSF to remove references to redacted objects so as not to disclose information about the data that was redacted.</comp-lev>
+              <management>There are no management activities foreseen.</management>
+              <audit>There are no auditable events foreseen.</audit>
+              <dependencies>FDP_REM_EXT.1 Removal of Redacted Data</dependencies>
               
               <f-element id="fdp-obj-ext-1e1">
                 <title>
@@ -1125,7 +1139,7 @@
             
         
             <ext-comp-def fam-id="FDP_REM_EXT" title="Removal of Redacted Data">
-              <fam-behavior>Placeholder
+              <fam-behavior>Components in this family define requirements for the application of a redaction operation to selected data.
               </fam-behavior>
             </ext-comp-def>
             
@@ -1134,10 +1148,10 @@
               <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
-              <comp-lev> Placeholder</comp-lev>
-              <management>Placeholder</management>
-              <audit>Placeholder</audit>
-              <dependencies>Placeholder</dependencies>
+              <comp-lev> requires the TSF to redacted all selected data.</comp-lev>
+              <management>There are no management activities foreseen.</management>
+              <audit>There are no auditable events foreseen.</audit>
+              <dependencies>FMT_RVW_EXT.1 Element Review</dependencies>
               
               <f-element id="fdp-rem-ext-1e1">
                 <title>
@@ -1168,7 +1182,7 @@
             
             
             <ext-comp-def fam-id="FDP_RIP_EXT" title="Residual Information Removal">
-              <fam-behavior>Placeholder
+              <fam-behavior>Components in this family define requirements for the purging of residual data that could compromise the effectiveness of a redaction operation.
               </fam-behavior>
             </ext-comp-def>
             
@@ -1177,10 +1191,10 @@
               <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
-              <comp-lev> Placeholder</comp-lev>
-              <management>Placeholder</management>
-              <audit>Placeholder</audit>
-              <dependencies>Placeholder</dependencies>
+              <comp-lev> requires the TSF to delete all residual file data and that could contain unredacted information.</comp-lev>
+              <management>There are no management activities foreseen.</management>
+              <audit>There are no auditable events foreseen.</audit>
+              <dependencies>FDP_REM_EXT.1 Removal of Redacted Data</dependencies>
               
               <f-element id="fdp-rip-ext-1e1">
                 <title>
@@ -1210,7 +1224,7 @@
             
             
             <ext-comp-def fam-id="FDP_RPL_EXT" title="Visible Space Replace">
-              <fam-behavior>Placeholder
+              <fam-behavior>Components in this family define requirements for the visual presentation of redacted data.
               </fam-behavior>
             </ext-comp-def>
             
@@ -1219,10 +1233,10 @@
               <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
-              <comp-lev> Placeholder</comp-lev>
-              <management>Placeholder</management>
-              <audit>Placeholder</audit>
-              <dependencies>Placeholder</dependencies>
+              <comp-lev> requires the TSF to replace redacted data with visual data that does not give clues as to the contents of the original data.</comp-lev>
+              <management>There are no management activities foreseen.</management>
+              <audit>There are no auditable events foreseen.</audit>
+              <dependencies>FDP_REM_EXT.1 Removal of Redacted Data</dependencies>
               
               <f-element id="fdp-rpl-ext-1e1">
                 <title>
@@ -1260,7 +1274,7 @@
        
    
             <ext-comp-def fam-id="FDP_SEL_EXT" title="Selected Redaction">
-              <fam-behavior>Placeholder
+              <fam-behavior>Components in this family define requirements for the presentation of redacted data.
               </fam-behavior>
             </ext-comp-def>
             
@@ -1269,10 +1283,10 @@
               <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
-              <comp-lev> Placeholder</comp-lev>
-              <management>Placeholder</management>
-              <audit>Placeholder</audit>
-              <dependencies>Placeholder</dependencies>
+              <comp-lev> requires the TSF to redact data from complex objects in a specified manner.</comp-lev>
+              <management>There are no management activities foreseen.</management>
+              <audit>There are no auditable events foreseen.</audit>
+              <dependencies>FDP_REM_EXT.1 Removal of Redacted Data</dependencies>
               
               <f-element id="fdp-sel-ext-1e1">
                 <title>
@@ -1316,7 +1330,7 @@
             
             
             <ext-comp-def fam-id="FDP_VAL_EXT" title="Validation of Data">
-              <fam-behavior>Placeholder
+              <fam-behavior>Components in this family define requirements for validating data as part of its consideration for redaction. 
               </fam-behavior>
             </ext-comp-def>
             
@@ -1325,10 +1339,10 @@
               <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
-              <comp-lev> Placeholder</comp-lev>
-              <management>Placeholder</management>
-              <audit>Placeholder</audit>
-              <dependencies>Placeholder</dependencies>
+              <comp-lev> requires the TOE to remove unexpected or other file data that cannot be validated.</comp-lev>
+              <management>There are no management activities foreseen.</management>
+              <audit>There are no auditable events foreseen.</audit>
+              <dependencies>FDP_REM_EXT.1 Removal of Redacted Data</dependencies>
               
               <f-element id="fdp-val-ext-1e1">
                 <title>
@@ -1392,7 +1406,7 @@
           <!-- 5.2.3 Security Management (FMT) -->
           <section title="Security Management (FMT)" id="m-fmt">
           <ext-comp-def fam-id="FMT_RVW_EXT" title="Element Review">
-            <fam-behavior>Placeholder
+            <fam-behavior>Components in this family define functionality for selecting data that can be redacted from a document.
             </fam-behavior>
           </ext-comp-def>
           
@@ -1401,10 +1415,14 @@
             <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
             </consistency-rationale>
             
-            <comp-lev> Placeholder</comp-lev>
-            <management>Placeholder</management>
-            <audit>Placeholder</audit>
-            <dependencies>Placeholder</dependencies>
+            <comp-lev> requires the TSF to present a user interface that can be used to select data elements for redaction.</comp-lev>
+            <management>
+              The following actions could be considered for the management functions in FMT: <h:ul>
+                <h:li>Selection of data elements to be redacted</h:li>
+              </h:ul>
+            </management>
+            <audit>There are no auditable events foreseen.</audit>
+            <dependencies>No dependencies.</dependencies>
             
             <f-element id="fmt-rvw-ext-1e1">
               <title>
