@@ -438,29 +438,36 @@
           </objective-refer>
         </assumption>
         
-        <assumption name="A.INFORMATION_RELEASE_POLICY">
-          <description>There is a redaction or information release policy in place for the
-            organization which the user follows.</description>
-          
-          <consistency-rationale/>
-          <objective-refer ref="OE.INFORMATION_RELEASE_POLICY">
-            <rationale>The assumption is realized through achievement of an organizational objective that accomplishes the goal of the assumption.</rationale>
-          </objective-refer>
-        </assumption>
-        
         <!-- Anything that says "The TOE will..." is not an assumption by definition because it's describing TSF behavior. -->
         <!-- 
         <assumption name="A.PRESERVE_DOCUMENT_LAYOUT">
           <description>The TOE will preserve the layout of
             the document.</description>
           
-          <consistency-rationale>placeholder</consistency-rationale>
+          <consistency-rationale/>
           <objective-refer ref="OE.PLACEHOLDER">
           <rationale>placeholder</rationale>
           </objective-refer>
         </assumption> -->
       </assumptions>
        </sec:Assumptions>
+    
+    
+    <!-- 3.3 OSPs -->
+    <sec:Organizational_Security_Policies>
+      <OSPs>
+    <OSP name="P.INFORMATION_RELEASE_POLICY">
+      <description>There is a redaction or information release policy in place for the
+        organization which the user follows.</description>
+      
+      <consistency-rationale/>
+      <objective-refer ref="OE.INFORMATION_RELEASE_POLICY">
+        <rationale>The assumption is realized through achievement of an organizational objective that accomplishes the goal of the assumption.</rationale>
+      </objective-refer>
+    </OSP>
+      </OSPs>
+    </sec:Organizational_Security_Policies>
+    
     </sec:Security_Problem_Description>
 
   <!-- 4. Security Objectives --> 
@@ -694,21 +701,24 @@
       <con-op-en/>
 	    
 	          
-      <con-mod ref="T.CLUES_TO_ORIGINAL_DATA">Placeholder</con-mod>
-      <con-mod ref="T.UNREDACTED_DATA">Placeholder</con-mod>
+      <con-mod ref="T.CLUES_TO_ORIGINAL_DATA">This threat is consistent with the Base-PP because it relates to functionality that is exclusive to the PP-Module.</con-mod>
+      <con-mod ref="T.UNREDACTED_DATA">This threat is consistent with the Base-PP because it relates to functionality that is exclusive to the PP-Module.</con-mod>
       
-      <con-mod ref="A.KNOWLEDGEABLE_USER">Placeholder</con-mod>
-      <con-mod ref="A.INFORMATION_RELEASE_POLICY">Placeholder</con-mod>
-      <con-mod ref="A.PRESERVE_DOCUMENT_LAYOUT">Placeholder</con-mod>
+      <con-mod ref="A.KNOWLEDGEABLE_USER">This assumption is an extension of the A.PROPER_USER and A.PROPER_ADMIN assumptions in the Base-PP but extends them to apply specifically to the operation of redaction tools.</con-mod>
+      
+      <con-mod ref="P.INFORMATION_RELEASE_POLICY">The Base-PP does not define any organizational security policies so there are no existing policies that this could contradict.</con-mod>
+      
 
 			
 	  <!-- 6.1.3 Consistency of Objectives -->
-      <con-mod ref="O.INSPECTION">Placeholder</con-mod>
+      <con-mod ref="O.INSPECTION">This objective relates solely to redaction behavior, which is beyond the scope of the Base-PP and does not prevent any Base-PP objectives from being satisfied.</con-mod>
+      <con-mod ref="O.PROPER_OUTPUT">This objective relates solely to redaction behavior, which is beyond the scope of the Base-PP and does not prevent any Base-PP objectives from being satisfied.</con-mod>
+      <con-mod ref="O.REDACTION">This objective relates solely to redaction behavior, which is beyond the scope of the Base-PP and does not prevent any Base-PP objectives from being satisfied.</con-mod>
+      <con-mod ref="O.REPORT">This objective relates solely to redaction behavior, which is beyond the scope of the Base-PP and does not prevent any Base-PP objectives from being satisfied.</con-mod>
+      <con-mod ref="O.REVIEW">This objective relates solely to redaction behavior, which is beyond the scope of the Base-PP and does not prevent any Base-PP objectives from being satisfied.</con-mod>
       
-      <con-mod ref="O.QUALITY">Placeholder</con-mod>
-      <con-mod ref="O.REDACTION">Placeholder</con-mod>
-      <con-mod ref="O.REPORT">Placeholder</con-mod>
-      <con-mod ref="O.REVIEW">Placeholder</con-mod>
+      <con-mod ref="OE.KNOWLEDGEABLE_USER">This objective is an extension of the OE.PROPER_USER and OE.PROPER_ADMIN objectives in the Base-PP but extends them to apply specifically to the operation of redaction tools.</con-mod>
+      <con-mod ref="OE.INFORMATION_RELEASE_POLICY">This objective does not contradict the Base-PP because it describes the implementation of an organizational security policy.</con-mod>
       
 	  <!-- 6.1.4 Consistency of Requirements -->
       <!-- Covered by rationales in individual f-components -->
@@ -729,7 +739,7 @@
             
             <!-- FAU_ALR_EXT.1 (formerly RED_ALR_EXT.1) -->
             <f-component name="Redaction Failure Notification" cc-id="fau_alr_ext.1" id="fau-alr-ext-1">
-              <consistency-rationale>Placeholder
+              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> Placeholder</comp-lev>
@@ -763,7 +773,7 @@
                         
           <!-- FAU_REP_EXT.1 (formerly REP_GEN_EXT.1) -->
             <f-component name="Report Generation" cc-id="fau_rep_ext.1" id="fau-rep-ext-1">
-              <consistency-rationale>Placeholder
+              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> Placeholder</comp-lev>
@@ -805,7 +815,7 @@
             
             <!-- FAU_SAR_EXT.1 (formerly REP_RVW_EXT.1) -->
             <f-component name="Report Review" cc-id="fau_sar_ext.1" id="fau-sar-ext-1">
-              <consistency-rationale>Placeholder
+              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> Placeholder</comp-lev>
@@ -842,7 +852,7 @@
             
             <!-- FDP_DID_EXT.1 (formerly RED_ID_EXT.1) -->
             <f-component name="Identification of Data" cc-id="fdp_did_ext.1" id="fdp-did-ext-1">
-              <consistency-rationale>Placeholder
+              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> Placeholder</comp-lev>
@@ -942,7 +952,7 @@
             
             <!-- FDP_DIN_EXT.1 (formerly RED_DIN_EXT.1) -->
             <f-component name="Deep Inspection" cc-id="fdp_din_ext.1" id="fdp-din-ext-1">
-              <consistency-rationale>Placeholder
+              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> Placeholder</comp-lev>
@@ -993,7 +1003,7 @@
             
             <!-- FDP_LOC_EXT.1 (formerly RED_LOC_EXT.1) -->
             <f-component name="Redact Content from Every Location" cc-id="fdp_loc_ext.1" id="fdp-loc-ext-1">
-              <consistency-rationale>Placeholder
+              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> Placeholder</comp-lev>
@@ -1027,7 +1037,7 @@
             
             <!-- FDP_NND_EXT.1 (formerly RED_NND_EXT.1) -->
             <f-component name="No New Data Introduced by TOE" cc-id="fdp_nnd_ext.1" id="fdp-nnd-ext-1">
-              <consistency-rationale>Placeholder
+              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> Placeholder</comp-lev>
@@ -1074,7 +1084,7 @@
             
             <!-- FDP_OBJ_EXT.1 (formerly RED_OBJ_EXT.1) -->
             <f-component name="Removal of Objects and Corresponding References" cc-id="fdp_obj_ext.1" id="fdp-obj-ext-1">
-              <consistency-rationale>Placeholder
+              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> Placeholder</comp-lev>
@@ -1121,7 +1131,7 @@
             
             <!-- FDP_REM_EXT.1 (formerly RED_REM_EXT.1) -->
             <f-component name="Removal of Redacted Data" cc-id="fdp_rem_ext.1" id="fdp-rem-ext-1">
-              <consistency-rationale>Placeholder
+              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> Placeholder</comp-lev>
@@ -1164,7 +1174,7 @@
             
             <!-- FDP_RIP_EXT.1 (formerly RED_RIP_EXT.1) -->
             <f-component name="Residual Information Removal" cc-id="fdp_rip_ext.1" id="fdp-rip-ext-1">
-              <consistency-rationale>Placeholder
+              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> Placeholder</comp-lev>
@@ -1206,7 +1216,7 @@
             
             <!-- FDP_RPL_EXT.1 (formerly RED_RPL_EXT.1) -->
             <f-component name="Visible Space Replace" cc-id="fdp_rpl_ext.1" id="fdp-rpl-ext-1">
-              <consistency-rationale>Placeholder
+              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> Placeholder</comp-lev>
@@ -1256,7 +1266,7 @@
             
             <!-- FDP_SEL_EXT.1 (formerly RED_SEL_EXT.1) -->
             <f-component name="Selected Redaction" cc-id="fdp_sel_ext.1" id="fdp-sel-ext-1">
-              <consistency-rationale>Placeholder
+              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> Placeholder</comp-lev>
@@ -1312,7 +1322,7 @@
             
             <!-- FDP_VAL_EXT.1 (formerly VAL_REM_EXT.1) -->
             <f-component name="Validation of Data" cc-id="fdp_val_ext.1" id="fdp-val-ext-1">
-              <consistency-rationale>Placeholder
+              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> Placeholder</comp-lev>
@@ -1388,7 +1398,7 @@
           
           <!-- FMT_RVW_EXT.1 (formerly RED_RVW_EXT.1) -->
           <f-component name="Element Review" cc-id="fmt_rvw_ext.1" id="fmt-rvw-ext-1">
-            <consistency-rationale>Placeholder
+            <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
             </consistency-rationale>
             
             <comp-lev> Placeholder</comp-lev>
@@ -1424,7 +1434,7 @@
             
             <!-- FPT_FLS.1 -->
             <f-component name="Failure with Preservation of Secure State" cc-id="fpt_fls.1" id="fpt-fls-1">
-              <consistency-rationale>Placeholder
+              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
                             
               <f-element id="fpt-fls-1e1">
