@@ -5,7 +5,7 @@
 	type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 
 <Module boilerplate="yes" 
-  target-products="Redaction Tools" 
+  target-products="redaction tools" 
   name="Redaction Tools" 
   xmlns="https://niap-ccevs.org/cc/v1" 
   xmlns:sec="https://niap-ccevs.org/cc/v1/section"
