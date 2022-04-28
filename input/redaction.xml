@@ -47,26 +47,21 @@
       Instances of redaction include replacing classified text with a black box to release a document to
       an unclassified environment, replacing privacy-related data such as telephone numbers with all
       Xs to release a database to a contractor, converting a proprietary format document to Portable
-      Document Format (PDF) to release a what-you-see-is-what-you-get (WYSIWYG) document.
+      Document Format (PDF) to release a what-you-see-is-what-you-get document.
       The risk from improper or incomplete redaction is the inadvertent disclosure of classified or
       sensitive data.
       <h:p/>
       Redaction is not sanitization. In the sanitization process, information is removed with no
       indication that the sanitization process took place. In the redaction process, selected visible
-      information is removed and replaced with something innocuous (e.g. black box or text) so that
+      information is removed and replaced with something innocuous (e.g., black box or text) so that
       the reader knows redaction took place. This replacement is a critical part of the process not
       shared with sanitization.
       <h:p/>      
-      Redaction is not sanitization. In the sanitization process, information is
-      removed with no indication that the sanitization process took place. In the redaction process,
-      selected visible information is removed and replaced with something innocuous (e.g. black box
-      or text) so that the reader knows redaction took place. This replacement is a critical part of
-      the process not shared with sanitization.<h:p/>
       
       <figure entity="images/workflow.jpg"
-        title="One possible workflow of an electronic document through the redaction process."
+        title="Sample Redaction Workflow"
         id="workflow"/> 
-      
+      <h:p/>
       Figure 1 shows the typical workflow of a document from source to destination
       and through the redaction process. Other workflows are possible. <!--For example, decryption and
       re-encryption of data may be performed by the redaction tool without the data ever being saved
@@ -100,7 +95,7 @@
 
       <!--The original source of the document can be either internal
       or external to the system which hosts the redaction tool. If the source is external, the
-      document will first go through the system’s security policy for importing documents, e.g.
+      document will first go through the system’s security policy for importing documents, e.g.,
       virus scanning. A document from an internal source was either created on the system or has
       already gone through security scans. When a document enters the redaction process, it should
       have already been checked for malicious executable content.<br/> 
@@ -212,31 +207,33 @@
         differ between the stored and visible form, such as images, attachments, Microsoft OLE
         objects, Microsoft ActiveX controls, and temporal objects.</term>
       <term abbr="EXIF" full="Exchangeable Image File Format"/>
-      <term full="Functional data">Forms, scripts, link Uniform Resource Locators (URLs), workflow data,
-        action buttons, formulas in a spreadsheet, macros or any type of executable
+      <term full="Functional data">Forms, scripts, link URLs, workflow data,
+        action buttons, formulas in a spreadsheet, macros, or any type of executable
         content.</term>
       <term full="Images">The actual image data stored in the file as opposed to what is visible; the
         visible image can be cropped or resized but the full image could still be retained in
         the file format and may or may not match the visible image; some image formats can
         have their own metadata, such as Joint Photographic Experts Group (JPG) and Tagged
         Image File Format (TIFF).</term>
+      <term abbr="ISO/IEC" full="International Standards Organization/International Electrotechnical Commission"/>
       <term abbr="JPG" full="Joint Photographic Experts Group"/>
       <term full="Metadata of objects or embedded objects">Data associated with an object to describe or identify the contents of the object such as exchangeable image file format (EXIF) data of images; images themselves can contain other images and
         their own metadata.</term>
-      <term full="Obscured visible data">Content that could be visible but is obscured in some way such as content
+      <term full="Obscured visible data">Content that could be visible but is obscured in some way, such as content
         that runs off an edge of the container, text in a black font on black background (or
         any color of font on a similar color background), very small fonts, cropped or clipped
-        graphics or images, hidden layers, portions of an embedded object (e.g. Microsoft Object Linking and Embedding (OLE))
+        graphics or images, hidden layers, portions of an embedded object (e.g., Microsoft OLE)
         that are outside the view container.</term>
       <term abbr="OLE" full="Object Linking and Embedding"/>
-      <term full="Remnant data">Artifacts of the original application or source file format such as remnant
+      <term full="Remnant data">Artifacts of the original application or source file format, such as remnant
         or unreferenced data from fast saves, unreferenced or unused elements, malformed
         elements that cannot be fixed, garbage data in the file structure.</term>
-      <term full="Static data or metadata">File properties such as author or creation date, stored form field data,
+      <term full="Static data or metadata">File properties, such as author or creation date, stored form field data,
         undo cache or any data kept to revert to a prior version of an element or the document
         itself, incremental updates, collaboration data such as comments, tracked changes,
-        workflow data, embedded search indexes, bookmarks, document info added by 3rd-party
+        workflow data, embedded search indexes, bookmarks, document info added by third-party
         apps, accessibility data such as alternate text, etc.</term>
+      <term full="Steganography">The act of embedding covert data in an image file in such a way that the image alterations needed to embed the data are not readily visible to the naked eye.</term>
       <term full="Structural data">Data that is part of the file format structure, such as a file header or fonts, and is necessary to interpret the file properly for display or print.</term>
       <term full="Temporal Objects">A particular type of complex object whose representation extends through a
         time interval, such as video, audio, flash animation, slide shows, etc. References to
@@ -304,8 +301,8 @@
 
     <sec:Compliant_Targets_of_Evaluation>
       The Target of Evaluation (TOE) described by this PP-Module is limited to the redaction of electronic documents defined in standards such as the
-      series International Organization for Standards (ISO)/International Electrotechnical Commission
-      (IEC)-29500 (Office Open eXtensible Markup Language (XML), including but not limited to Microsoft Word,
+      series International Organization for Standards/International Electrotechnical Commission
+      (ISO/IEC)-29500 (Office Open XML, including but not limited to Microsoft Word,
       PowerPoint, and Excel documents), ISO/IEC-32000 (PDF), or the definitive standard for a
       format. Mail guards, filters, and batch redaction tools are beyond the scope of this PP-Module.
       Requirements that apply to features such as administrative control over particular redaction
@@ -498,7 +495,7 @@
         <addressed-by>FDP_VAL_EXT.1</addressed-by>
         <rationale>This requirement supports the objective by requiring the TOE to implement a mechanism that allows it to handle unrecognizable data.</rationale>
         <addressed-by>FPT_FLS.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to maintain a secure state (i.e. do not produce unvalidated and potentially unredacted output) if it encounters a failure or some other unexpected event.</rationale>
+        <rationale>This requirement supports the objective by requiring the TOE to maintain a secure state (i.e., do not produce unvalidated and potentially unredacted output) if it encounters a failure or some other unexpected event.</rationale>
       </SO>
       <SO name="O.REDACTION">
         <description>The TOE will provide the ability
@@ -649,12 +646,12 @@
             text and <h:s>strikethrough</h:s> text for removed text. Refinements are only applied to significant technical
             changes to existing SFRs; minor presentation changes with no technical impact (such as British vs
             American spelling differences) are not marked as refinements. Refinements are also indicated when
-            an operation is added or substituted for an existing operation (e.g. the PP-Module completes an
+            an operation is added or substituted for an existing operation (e.g., the PP-Module completes an
             assignment in such a way that it introduces a selection into the assignment).<h:br/>
             Note that for SFRs that are defined either in CC Part 2 or in this PP-Module’s Extended Components
             Definition, the refinement operation is used to indicate deviations from the defined component. For
             Base-PP SFRs that are modified by this PP-Module, the refinement operation is used to indicate
-            deviations from the Base-PP’s definition of the SFR (i.e. if the Base-PP refined an SFR and that
+            deviations from the Base-PP’s definition of the SFR (i.e., if the Base-PP refined an SFR and that
             change is not affected by this PP-Module, it is not shown here as a refinement).</h:li>
           <h:li>Selections are indicated with <h:i>italicized</h:i> text.</h:li>
           <h:li>Iteration is indicated by appending the SFR name with a slash and unique identifier suggesting the
@@ -741,7 +738,7 @@
             
             <!-- FAU_ALR_EXT.1 (formerly RED_ALR_EXT.1) -->
             <f-component name="Redaction Failure Notification" cc-id="fau_alr_ext.1" id="fau-alr-ext-1">
-              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
+              <consistency-rationale>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> requires the TSF to generate a notification in the event of a failed redaction operation.</comp-lev>
@@ -776,7 +773,7 @@
                         
           <!-- FAU_REP_EXT.1 (formerly REP_GEN_EXT.1) -->
             <f-component name="Report Generation" cc-id="fau_rep_ext.1" id="fau-rep-ext-1">
-              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
+              <consistency-rationale>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> requires the TSF to generate a report following the completion of a redaction operation that identifies the elements that were redacted along with metadata about each redaction.</comp-lev>
@@ -803,7 +800,7 @@
                     accordance with this requirement. <h:p/></Guidance>
                   <Tests>The evaluator shall create test files with specific elements to
                     redact, apply the TOE to the test files, and observe that there is a report for each element 
-                    expected to be redacted. This assurance activity can be done in conjunction with
+                    expected to be redacted. This evaluation activity can be done in conjunction with
                     FAU_SAR_EXT.1. </Tests>
                 </aactivity>
               </f-element>
@@ -818,7 +815,7 @@
             
             <!-- FAU_SAR_EXT.1 (formerly REP_RVW_EXT.1) -->
             <f-component name="Report Review" cc-id="fau_sar_ext.1" id="fau-sar-ext-1">
-              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
+              <consistency-rationale>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> requires the TSF to have its generated report data be user-reviewable.</comp-lev>
@@ -842,7 +839,7 @@
                   <TSS>There are no TSS EAs for this component. <h:p/></TSS>
                   <Guidance>There are no guidance EAs for this component. <h:p/></Guidance>
                   <Tests>The evaluator shall create test files with specific elements to redact, apply the TOE to the test
-                    files, and observe that there is a report entry for each element expected to be redacted.</Tests>
+                    files, and observe that there is a report entry for each element expected to be redacted. This evaluation activity can be done in conjunction with FAU_REP_EXT.1.</Tests>
                 </aactivity>
               </f-element>
             </f-component>
@@ -859,7 +856,7 @@
             
             <!-- FDP_DID_EXT.1 (formerly RED_ID_EXT.1) -->
             <f-component name="Identification of Data" cc-id="fdp_did_ext.1" id="fdp-did-ext-1">
-              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
+              <consistency-rationale>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> requires the TSF to identify all hidden or obscured data in a document so that this data can be selectable for redaction.</comp-lev>
@@ -891,8 +888,8 @@
                     <h:p/></TSS>
                   <Guidance>There are no guidance EAs for this element. <h:p/></Guidance>
                   <Tests>The evaluator shall create test
-                    documents with various types of hidden data apply the TOE, and verify that it identifies each
-                    expected element and allows the user to select and redact each.
+                    documents with various types of hidden data, use the TOE to search these documents for data elements that should be able to be redacted, and verify that it identifies each
+                    expected element and allows the user to select and redact each. 
                   </Tests>
                 </aactivity>
               </f-element>
@@ -939,17 +936,20 @@
                   <Tests>
                     The evaluator shall create a test document with an image that is stored in a larger size and
                     resolution than the visible image and apply the TOE without selecting the image for redaction.
-                    The evaluator shall verify that the TOE either: <h:ul>
-                      <h:li>Gives the user a choice to retain the image unaltered or replace the stored data with the
-                        visible data. For the choice to replace the image, the evaluator shall examine the output file to
-                        locate the image and verify its size and resolution, or extract the image with an appropriate tool
-                        for that format and compare the size and resolution of the extracted image to the visible image
-                        to determine if they match.</h:li>
-                      <h:li>Resizes the stored image. To determine this, the evaluator shall examine the output file to
-                        locate the image and verify its size and resolution, or extract the image with an appropriate tool
-                        for that format and compare the size and resolution of the extracted image to the visible image
-                        to determine if they match.</h:li> 
-                    </h:ul>
+                    <h:p/>
+                    The evaluator shall verify that the TOE either gives the user a choice to retain the image unaltered or replace the stored data with the visible data, or
+                    that it resizes the stored image. 
+                    <h:p/>
+                    In the first case, the evaluator shall examine the output file to
+                    locate the image and verify its size and resolution, or extract the image with an appropriate tool
+                    for that format and compare the size and resolution of the extracted image to the visible image
+                    to determine if they match.
+                    <h:p/>
+                    In the second case, the evaluator shall examine the output file to
+                    locate the image and verify its size and resolution, or extract the image with an appropriate tool
+                    for that format and compare the size and resolution of the extracted image to the visible image
+                    to determine if they match.
+                    
                   </Tests>
                 </aactivity> 
               </f-element>
@@ -963,7 +963,7 @@
             
             <!-- FDP_DIN_EXT.1 (formerly RED_DIN_EXT.1) -->
             <f-component name="Deep Inspection" cc-id="fdp_din_ext.1" id="fdp-din-ext-1">
-              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
+              <consistency-rationale>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> requires the TSF to handle redaction of file metadata in a specified manner.</comp-lev>
@@ -1014,7 +1014,7 @@
             
             <!-- FDP_LOC_EXT.1 (formerly RED_LOC_EXT.1) -->
             <f-component name="Redact Content from Every Location" cc-id="fdp_loc_ext.1" id="fdp-loc-ext-1">
-              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
+              <consistency-rationale>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> requires the TSF to have the ability to redact data from all possible locations in an input file.</comp-lev>
@@ -1048,7 +1048,7 @@
             
             <!-- FDP_NND_EXT.1 (formerly RED_NND_EXT.1) -->
             <f-component name="No New Data Introduced by TOE" cc-id="fdp_nnd_ext.1" id="fdp-nnd-ext-1">
-              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
+              <consistency-rationale>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> requires the TSF to avoid the introduction of its own data to an input file unless explicitly requested by a user.</comp-lev>
@@ -1099,7 +1099,7 @@
             
             <!-- FDP_OBJ_EXT.1 (formerly RED_OBJ_EXT.1) -->
             <f-component name="Removal of Objects and Corresponding References" cc-id="fdp_obj_ext.1" id="fdp-obj-ext-1">
-              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
+              <consistency-rationale>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> requires the TSF to remove references to redacted objects so as not to disclose information about the data that was redacted.</comp-lev>
@@ -1115,9 +1115,8 @@
                 <note role="Application">
                   In some formats, there are references in the structural data to objects, such as
                   a name dictionary in PDF. If an object in a PDF document, such as an image, is completely
-                  redacted (i.e. the user has selected the entire image to be redacted), then not only must the image
-                  data be removed, but references to it in a name dictionary as well as all structural references to
-                  the image must be removed. If only part of the object is selected for redaction, then the
+                  redacted (i.e., the user has selected the entire image to be redacted), any references to the image in a name
+                  dictionary or structural references to the image must also be removed. If only part of the object is selected for redaction, then the
                   references necessarily remain in the file since the object remains in the file.
                 </note>
                 
@@ -1146,10 +1145,10 @@
             
             <!-- FDP_REM_EXT.1 (formerly RED_REM_EXT.1) -->
             <f-component name="Removal of Redacted Data" cc-id="fdp_rem_ext.1" id="fdp-rem-ext-1">
-              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
+              <consistency-rationale>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
-              <comp-lev> requires the TSF to redacted all selected data.</comp-lev>
+              <comp-lev> requires the TSF to redact all selected data.</comp-lev>
               <management>There are no management activities foreseen.</management>
               <audit>There are no auditable events foreseen.</audit>
               <dependencies>FMT_RVW_EXT.1 Element Review</dependencies>
@@ -1189,10 +1188,10 @@
             
             <!-- FDP_RIP_EXT.1 (formerly RED_RIP_EXT.1) -->
             <f-component name="Residual Information Removal" cc-id="fdp_rip_ext.1" id="fdp-rip-ext-1">
-              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
+              <consistency-rationale>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
-              <comp-lev> requires the TSF to delete all residual file data and that could contain unredacted information.</comp-lev>
+              <comp-lev> requires the TSF to delete all residual file data that could contain unredacted information.</comp-lev>
               <management>There are no management activities foreseen.</management>
               <audit>There are no auditable events foreseen.</audit>
               <dependencies>FDP_REM_EXT.1 Removal of Redacted Data</dependencies>
@@ -1231,7 +1230,7 @@
             
             <!-- FDP_RPL_EXT.1 (formerly RED_RPL_EXT.1) -->
             <f-component name="Visible Space Replace" cc-id="fdp_rpl_ext.1" id="fdp-rpl-ext-1">
-              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
+              <consistency-rationale>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> requires the TSF to replace redacted data with visual data that does not give clues as to the contents of the original data.</comp-lev>
@@ -1259,7 +1258,7 @@
                     requirement to convey no information about the previous contents.<h:p/></TSS>
                   <Guidance>There are no guidance EAs for this component. <h:p/></Guidance>
                   <Tests>The evaluator shall create or
-                    acquire a test file with an image, mark part of the image for redaction and apply the TOE, and
+                    acquire a test file with an image, mark part of the image for redaction, apply the TOE's redaction function to it, and then
                     examine the image in the output to verify that the visual appearance does not provide any
                     indication of the content that was redacted. If the TOE allows text content to be replaced with
                     text, the evaluator shall create or acquire a test file with some text as content, apply the TOE,
@@ -1281,7 +1280,7 @@
             
             <!-- FDP_SEL_EXT.1 (formerly RED_SEL_EXT.1) -->
             <f-component name="Selected Redaction" cc-id="fdp_sel_ext.1" id="fdp-sel-ext-1">
-              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
+              <consistency-rationale>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> requires the TSF to redact data from complex objects in a specified manner.</comp-lev>
@@ -1337,7 +1336,7 @@
             
             <!-- FDP_VAL_EXT.1 (formerly VAL_REM_EXT.1) -->
             <f-component name="Validation of Data" cc-id="fdp_val_ext.1" id="fdp-val-ext-1">
-              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
+              <consistency-rationale>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
               </consistency-rationale>
               
               <comp-lev> requires the TOE to remove unexpected or other file data that cannot be validated.</comp-lev>
@@ -1352,7 +1351,7 @@
                 <note role="Application">Structural data is extraneous if it is unnecessary for the printing or display of
                   the document contents or unnecessary for the functionality of the document.
                   <h:p/>
-                  For example, many formats include comments, such as the PDF format which uses a % to precede file format comments.
+                  For example, many formats include comments, such as the PDF format which uses a percent sign (%) to precede file format comments.
                   <h:p/>
                   When these comments are unnecessary, are unrelated to the printing or display of
                   the content of the document, or do not provide any functionality, they must be removed.
@@ -1368,8 +1367,8 @@
                   <Guidance>There are no guidance EAs for this element. <h:p/></Guidance>
                   <Tests>The evaluator shall create or acquire test files that contain unrecognized data, unexpected data,
                     and extraneous structural data. The evaluator shall examine the files prior to redaction to
-                    identify the data. The evaluator shall apply the TOE but make no visible redactions and save the
-                    output files. The evaluator shall examine the output files, comparing it to the originals, to verify
+                    identify the data. The evaluator shall input these files to the TOE, make no visible redactions to them, and then save them as 
+                    output files. The evaluator shall examine the output files and compare them to the originals to verify
                     that the data has been removed.</Tests>
                 </aactivity>
               </f-element>
@@ -1407,13 +1406,13 @@
           <!-- 5.2.3 Security Management (FMT) -->
           <section title="Security Management (FMT)" id="m-fmt">
           <ext-comp-def fam-id="FMT_RVW_EXT" title="Element Review">
-            <fam-behavior>Components in this family define functionality for selecting data that can be redacted from a document.
+            <fam-behavior>Components in this family define functionality for selecting data elements that can be redacted from a document.
             </fam-behavior>
           </ext-comp-def>
           
           <!-- FMT_RVW_EXT.1 (formerly RED_RVW_EXT.1) -->
           <f-component name="Element Review" cc-id="fmt_rvw_ext.1" id="fmt-rvw-ext-1">
-            <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
+            <consistency-rationale>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
             </consistency-rationale>
             
             <comp-lev> requires the TSF to present a user interface that can be used to select data elements for redaction.</comp-lev>
@@ -1453,7 +1452,7 @@
             
             <!-- FPT_FLS.1 -->
             <f-component name="Failure with Preservation of Secure State" cc-id="fpt_fls.1" id="fpt-fls-1">
-              <consistency-rationale>This requirement relates to redaction functionality, which beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented.
+              <consistency-rationale>This requirement relates to the preservation of a secure state in the event of a TSF failure. This is not defined in the Base-PP but the Base-PP has no requirements that prohibit it.
               </consistency-rationale>
                             
               <f-element id="fpt-fls-1e1">
@@ -1503,7 +1502,7 @@
               unexpected data, and extraneous structural data. </title>
             <note role="application"> Structural data is extraneous if it is unnecessary for the
               printing or display of the document contents, or unnecessary for the functionality of
-              the document.<br/> Example - many formats include comments, e.g. PDF allows file
+              the document.<br/> Example - many formats include comments, e.g., PDF allows file
               format comments which are preceded by %. When these comments are unnecessary,
               unrelated to the printing or display of the content of the document, or provide no
               functionality whatsoever they must be removed.<br/> Example – some formats expect a
@@ -1554,7 +1553,7 @@
               or removed.</note>
             <aactivity>The evaluator shall examine the <span title="TOE Summary Specification"
                 >TSS</span> to ensure it describes in detail which complex objects can be simplified
-              by the <span title="Target of Evaluation">TOE</span> and how they are simplified (e.g.
+              by the <span title="Target of Evaluation">TOE</span> and how they are simplified (e.g.,
               whether the object or the whole page is converted to another format and what that
               format is). The <span title="TOE Summary Specification">TSS</span> shall also list
               those complex objects or images that cannot be simplified and will be removed. The
@@ -1583,7 +1582,7 @@
             <note role="application">For example, JPG images can contain metadata called exif data.
               Some image formats can contain the same image in another format, such as raw which can
               contain a complete jpg version of the image. A complex object can contain other
-              complex objects (e.g. Microsoft OLE). The tool must apply the requirements to each
+              complex objects (e.g., Microsoft OLE). The tool must apply the requirements to each
               layer of every element and identify hidden/metadata not just at the top layer of the
               document but in each element and in all layers within that element. If the <span
                 title="Target of Evaluation">TOE</span> cannot recurse through the layers, it must
@@ -1699,7 +1698,7 @@
                 title="Target of Evaluation">TOE</span>.</title>
             <note role="application">In some formats, there are references in the structural data to
               objects, such as a name dictionary in PDF. If an object in a PDF document, such as an
-              image, is completely redacted (i.e. the user has selected the entire image to be
+              image, is completely redacted (i.e., the user has selected the entire image to be
               redacted), then not only must the image data be removed, but references to it in a
               name dictionary as well as all structural references to the image must be removed. If
               only part of the object is selected for redaction, then the references necessarily
