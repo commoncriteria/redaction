@@ -2,6 +2,7 @@ output/redaction-esr.html: CESG
 output/redaction-release-linkable.html: ActiveX
 output/redaction-release-linkable.html: CEM
 output/redaction-release-linkable.html: Electrotechnical
+output/redaction-release-linkable.html: Steganography
 output/redaction-release-linkable.html: V1
 output/redaction-release-linkable.html: Xs
 output/redaction-release-linkable.html: recurse
@@ -17,6 +18,7 @@ output/redaction-release-linkable.html: whitespace
 output/redaction-release.html: ActiveX
 output/redaction-release.html: CEM
 output/redaction-release.html: Electrotechnical
+output/redaction-release.html: Steganography
 output/redaction-release.html: V1
 output/redaction-release.html: Xs
 output/redaction-release.html: recurse
@@ -31,12 +33,14 @@ output/redaction-release.html: whitespace
 output/redaction-sd.html: AGD
 output/redaction-sd.html: ActiveX
 output/redaction-sd.html: CEM
+output/redaction-sd.html: Steganography
 output/redaction-sd.html: recursing
 output/redaction-sd.html: redactions
 output/redaction-sd.html: unreferenced
 output/redaction.html: ActiveX
 output/redaction.html: CEM
 output/redaction.html: Electrotechnical
+output/redaction.html: Steganography
 output/redaction.html: V1
 output/redaction.html: Xs
 output/redaction.html: recurse
