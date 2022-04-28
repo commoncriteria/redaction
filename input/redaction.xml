@@ -747,7 +747,8 @@
               <comp-lev> requires the TSF to generate a notification in the event of a failed redaction operation.</comp-lev>
               <management>There are no management activities foreseen.</management>
               <audit>There are no auditable events foreseen.</audit>
-              <dependencies>FDP_REM_EXT.1 Removal of Redacted Data</dependencies>
+              <dependencies>FDP_REM_EXT.1 Removal of Redacted Data<h:p/>
+              FPT_FLS.1 Failure with Preservation of Secure State</dependencies>
               
               <f-element id="fau-alr-ext-1e1">
                 <title>
@@ -868,7 +869,7 @@
                 </h:ul>
               </management>
               <audit>There are no auditable events foreseen.</audit>
-              <dependencies>No dependencies.</dependencies>
+              <dependencies>FMT_RVW_EXT.1 Element Review</dependencies>
               
               <f-element id="fdp-did-ext-1e1">
                 <title>
