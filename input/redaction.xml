@@ -5,7 +5,7 @@
 	type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 
 <Module boilerplate="yes" 
-  target-products="redaction tools" 
+  target-product="Redaction Tool" 
   name="Redaction Tools" 
   xmlns="https://niap-ccevs.org/cc/v1" 
   xmlns:sec="https://niap-ccevs.org/cc/v1/section"
@@ -14,29 +14,34 @@
   
   <PPReference>
     <ReferenceTable>
-      <PPVersion>1.0-Draft</PPVersion>
+      <PPVersion>1.1</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2022-04-29</PPPubDate>
+      <PPPubDate>2023-08-25</PPPubDate>
       <Keywords>Redaction</Keywords>
     </ReferenceTable>
   </PPReference>
   
   <RevisionHistory>
     <entry>
-      <version>1.0-Draft</version>
+      <version>1.0</version>
       <date>2022-04-29</date>
       <subject>Initial publication</subject>
+    </entry>
+    <entry>
+      <version>1.1</version>
+      <date>2023-08-25</date>
+      <subject>Updates to conform to CC:2022</subject>
     </entry>
   </RevisionHistory>
   
   <sec:Introduction>
     <sec:Overview>
-      The scope of this Protection Profile Module (PP-Module) is to describe the security functionality of redaction tools
+      The scope of the PP-Module for Redaction Tools, Version 1.1 is to describe the security functionality of redaction tools
       in terms of <xref g="CC"/> and to define functional and assurance requirements for such
       products. This PP-Module is intended for use with the following Base-PPs:
       
-      <h:ul>
-        <h:li>Protection Profile for Application Software, Version 1.4 (App PP or PP_APP_V1.4)</h:li>
+      This PP-Module is intended for use with the following Base-PP: <h:ul>
+        <h:li><xref to="BibAppPP"/></h:li>
       </h:ul>
       
       This Base-PP is valid for this technology type because a redaction tool is a specific type of software application and can therefore be reasonably expected to implement
@@ -350,33 +355,36 @@
     </sec:Use_Cases>
   
   </sec:Introduction>
-  
-  <!-- 2. Conformance Claims -->
-  <section title="Conformance Claims" id="ConformanceClaims">
+
     
-  <!-- 2.1 CC Conformance -->
-  <cclaims>
-    <cclaim name="Conformance Statement">
-      <description> This PP-Module inherits exact conformance as required from the specified Base-PPs and as defined
-        in the CC and CEM addenda for Exact Conformance, Selection-Based SFRs, and Optional SFRs (dated
-        May 2017).<h:br/>
-        
-      </description>
-    </cclaim>
-    <cclaim name="CC Conformance Claims">
-      <description>
-        This PP-Module is conformant to Parts 2 (extended) and 3 (extended) of Common Criteria Version
-        3.1, Revision 5 [CC].
-      </description>
-    </cclaim>
-    <cclaim name="PP Claim">
-      <description>This PP-Module does not claim conformance to any PP.</description>
-    </cclaim>
-    <cclaim name="Package Claim">
-      <description>This PP-Module does not claim conformance to any packages.</description>
-    </cclaim>
-  </cclaims>
-  </section>
+    <sec:Conformance_Claims boilerplate="no">
+      <cclaims>
+        <cclaim name="Conformance Statement">
+          <description>An ST must claim exact conformance to this PP-Module.
+            <h:br/><h:br/>
+            The evaluation methods used for evaluating the TOE are a combination of the workunits defined in <xref to="bibCEM"/> as well as the
+            Evaluation Activities for ensuring that individual SFRs have sufficient level of supporting evidence in the Security Target and 
+            guidance documentation and have been sufficiently tested by the laboratory as part of completing ATE_IND.1. Any functional packages 
+            which this PP-Module claims similarly contain their own Evaluation Activities that are used in this manner.
+          </description>
+        </cclaim>
+        <cclaim name="CC Conformance Claims">
+          <description>This PP is conformant to Parts 2 (extended) and 3 (extended) of Common Criteria CC:2022, Revision 1.</description>
+        </cclaim>
+        <cclaim name="PP Claim">
+          <description>This PP-Module does not claim conformance to any other Protection Profile.<h:p/>
+            No other PPs or PP-Modules are allowed to be specified in a PP-Configuration with this PP-Module beyond its Base-PP. 
+          </description>
+        </cclaim>
+        <cclaim name="Package Claim">
+          <description><h:ul>
+            <h:li>This PP-Module does not claim conformance to any functional packages.</h:li>
+            <h:li>This PP-Module conforms to the EAL1 assurance package augmented with ALC_TSU_EXT.1, ASE_OBJ.2, ASE_REQ.2, and ASE_SPD.1.</h:li>
+          </h:ul>
+          </description>
+        </cclaim>
+      </cclaims>
+    </sec:Conformance_Claims>
 
   <!-- 3 Security Problem Description -->
   <sec:Security_Problem_Description>
@@ -386,11 +394,11 @@
 
     <!-- 3.1 Threats -->
     <section title="Threats" id="threats">
-      The following threats defined in this PP-Module extend the threats defined by the Base-PP.
+      The following threats defined in this PP-Module add to the threats defined by the Base-PP.
       <threats>
         <threat name="T.CLUES_TO_ORIGINAL_DATA">
-          <description>Text or graphics placed in the redacted area by the TOE may contain clues to the nature of the original 
-            redacted information.</description>
+          <description>A poorly-designed or poorly-implemented redaction tool can give false confidence
+            of redaction by leaving clues to the nature of the original information in the redacted area of a document.</description>
           <objective-refer ref="O.INSPECTION">
             <rationale>The TOE mitigates the threat of clues to unredacted data by ensuring that the entire document is searched for redactable information, including hidden data and metadata.</rationale>
           </objective-refer>
@@ -399,8 +407,8 @@
           </objective-refer>
         </threat>
         <threat name="T.UNREDACTED_DATA">
-          <description>A failure of the redaction tool to remove user-selected visible or 
-            hidden data could result in the inadvertent dissemination of information.
+          <description>A poorly-designed or poorly-implemented redaction tool can give false confidence of redcation by failing to remove
+            user-selected visible or hidden data in such a way that the original information is inadvertently disseminated.
           </description>
           <objective-refer ref="O.PROPER_OUTPUT">
             <rationale>The TOE mitigates the threat of unredacted data by ensuring that unexpected or corrupted inputs do not cause the TOE to fail in a way that would generate an unredacted or improperly redacted output.</rationale>
@@ -524,7 +532,7 @@
         <addressed-by>FAU_REP_EXT.1</addressed-by>
         <rationale>This requirement supports the objective by identifying the contents of any report that the TOE generates about its redaction behavior.</rationale>
         <addressed-by>FAU_SAR_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to generate a report about the data that is redacted.</rationale>
+        <rationale>This requirement supports the objective by requiring the TOE allow the user to access reports on redacted data.</rationale>
       </SO>
         <!-- formerly O.MANAGEMENT (de-duped from App PP) -->
         <SO name="O.REVIEW">
@@ -664,11 +672,13 @@
         written. 
         
             <!-- 5.1 App PP Security Functional Requirements Direction -->
-    <base-pp id="bpp-app">
-
 <!-- Note: How do we handle it when the Base-PP (in this case NDcPP) isn't on Github? -->
-    <raw-url>https://raw.githubusercontent.com/commoncriteria/application/master/input/application.xml</raw-url>
-		<url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=442&amp;id=442</url>
+      <base-pp id="AppPP">
+        <git>
+          <url>https://github.com/commoncriteria/application</url>
+          <branch>release-1.4</branch>
+        </git>
+        <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=462&amp;id=462</url>
 
 		<sec-func-req-dir> 
 		  In a PP-Configuration that includes the App PP, there are no App PP requirements that must be claimed in a certain manner for redaction functionality to be correctly implemented. Therefore, all SFR operations 
@@ -687,16 +697,25 @@
 -->
       
 	  <!-- 6.1.1 Consistency of TOE Type -->
-      <con-toe>When this PP-Module is used to extend the App PP, the TOE type for the overall TOE is still a software
-        application. The TOE boundary is simply extended to include redaction functionality that is provided by the
-        application.
+        <con-toe>If this PP-Module is used to extend the App PP, the TOE type for the overall TOE is still a software application.
+          The TOE boundary is simply extended to include the redaction tool functionality that is built into the application 
+          so that additional security functionality is claimed within the scope of the TOE.
+          <h:br/><h:br/>
+          The only asset for the TOE is the software executable and sensitive data that comprises the TOE. The entire TOE as defined by the combination of the
+          Base-PP and this PP-Module is a single asset. The only differences to the threat model are that the PP-Module introduces 
+          threats related specifically to the failure of the TOE to fully redact data, which is a use case specific to redaction tools.
       </con-toe>
 		
 	  <!-- 6.1.2 Consistency of Security Problem Description -->
-      <con-sec-prob>The threats, assumptions, and organizational security policies (OSPs) defined by this PP-Module (see sections 3.1 through 3.3) supplement those
-		defined in the App PP as follows:</con-sec-prob>
-	   
-      <con-obj/>
+        <con-sec-prob>Listed below are the threats, objectives, and OSPs defined in this PP-Module with rationale for their consistency with the App PP.
+          The PP-Module shares the
+          executable application asset with the App PP but defines additional threats because the PP-Module defines a specific type of software application
+          with potential exploits that are common to the application type.</con-sec-prob>
+      <con-obj>
+        Listed below are the security objectives defined in this PP-Module with rationale for their consistency with the App PP. The PP-Module shares the
+        executable application asset with the App PP but defines additional security objectives because the PP-Module defines a specific type of software application
+        with security functionality that is common to the application type.
+      </con-obj>
       <con-op-en/>
 	    
 	          
@@ -1886,12 +1905,19 @@
       <cc-entry/>
       <entry id="bibAppPP">
         <tag>App PP</tag>
+        <!-- todo: update with proper date -->
         <description>
-          <h:a href="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=462&amp;id=462/">
-            Protection Profile for Application Software</h:a>, Version 1.4, October 2021
+          <h:a href="https://www.niap-ccevs.org/MMO/PP/PP_APP_v2.0.pdf"
+            >Protection Profile for Application Software, Version 2.0</h:a>, TBD
         </description>
       </entry>
-      
+      <entry id="bibCEM">
+        <tag>CEM</tag>
+        <description>
+          <h:a href="https://commoncriteriaportal.org/files/ccfiles/CEM2022R1.pdf">Common
+            Methodology for Information Technology Security - Evaluation Methodology</h:a>,
+          CCMB-2022-11-006, CEM:2022, Revision 1, November 2022. </description>
+      </entry>
     </bibliography>
   
   
