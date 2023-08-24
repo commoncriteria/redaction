@@ -41,7 +41,7 @@
       products. This PP-Module is intended for use with the following Base-PPs:
       
       This PP-Module is intended for use with the following Base-PP: <h:ul>
-        <h:li><xref to="BibAppPP"/></h:li>
+        <h:li>Protection Profile for Application Software, Version 2.0</h:li>
       </h:ul>
       
       This Base-PP is valid for this technology type because a redaction tool is a specific type of software application and can therefore be reasonably expected to implement
@@ -363,9 +363,9 @@
           <description>An ST must claim exact conformance to this PP-Module.
             <h:br/><h:br/>
             The evaluation methods used for evaluating the TOE are a combination of the workunits defined in <xref to="bibCEM"/> as well as the
-            Evaluation Activities for ensuring that individual SFRs have sufficient level of supporting evidence in the Security Target and 
+            Evaluation Activities for ensuring that individual SFRs have sufficient supporting evidence in the Security Target and 
             guidance documentation and have been sufficiently tested by the laboratory as part of completing ATE_IND.1. Any functional packages 
-            which this PP-Module claims similarly contain their own Evaluation Activities that are used in this manner.
+            this PP-Module claims similarly contain their own Evaluation Activities that are used in this same manner.
           </description>
         </cclaim>
         <cclaim name="CC Conformance Claims">
@@ -772,7 +772,7 @@
                 </title>
                               
                 <aactivity>
-                  <TSS>The evaluator shall examine the TSS to ensure it describes how the TOE notifies the user when
+                  <TSS>The evaluator shall ensure that the TSS describes how the TOE notifies the user when
                     redaction fails. The evaluator shall ensure that the TSS’ description complies with the
                     requirement that the user is notified when redaction fails for any reason.<h:p/></TSS>
                   <Guidance>There are no guidance EAs for this component. <h:p/></Guidance>
@@ -812,10 +812,10 @@
                   indication that allows the user to easily locate the visible element. </note>
                 
                 <aactivity>
-                  <TSS>The evaluator shall examine the TSS to ensure it describes the TOE’s reporting feature and the
+                  <TSS>The evaluator shall ensure that the TSS describes the TOE’s reporting feature and the
                     metadata that is included for each report entry. <h:p/></TSS>
-                  <Guidance>The evaluator shall examine the operational
-                    guidance to ensure it contains instructions for the configuration of the reporting feature in
+                  <Guidance>The evaluator shall ensure that the operational
+                    contains instructions for the configuration of the reporting feature in
                     accordance with this requirement. <h:p/></Guidance>
                   <Tests>The evaluator shall create test files with specific elements to
                     redact, apply the TOE to the test files, and observe that there is a report for each element 
@@ -900,8 +900,8 @@
                 </note>
                 
                 <aactivity level="element">
-                  <TSS>The evaluator shall examine the TSS to ensure it specifies the hidden data that it identifies and
-                    allows the user to select for redaction. The evaluator shall ensure that the TSS’ description
+                  <TSS>The evaluator shall ensure that the TSS specifies the hidden data that it identifies and
+                    allows the user to select the hidden data to be redacted. The evaluator shall ensure that the TSS’ description
                     complies with the requirement for the TOE to identify all hidden data and allow the user to
                     review and select each hidden data element for redaction.
                     <h:p/></TSS>
@@ -927,7 +927,7 @@
                   obscured area.
                 </note>
                 <aactivity level="element">
-                  <TSS>The evaluator shall examine the TSS to ensure it describes how the TOE handles all obscured
+                  <TSS>The evaluator shall ensure that the TSS describes how the TOE handles all obscured
                     data. The evaluator shall ensure that the TSS’ description complies with the requirement that all
                     obscured data is identified and either removed automatically or redacted by the user.
                     <h:p/></TSS>
@@ -957,9 +957,8 @@
                     resolution than the visible image and apply the TOE without selecting the image for redaction.
                     <h:p/>
                     The evaluator shall verify that the TOE either gives the user a choice to retain the image unaltered or replace the stored data with the visible data, or
-                    that it resizes the stored image. If the stored data is replaced with visible data or if the stored image is resized, the evaluator shall examine the
-                    output file to verify that the image is either replaced or resized as expected.
-                    
+                    that it resizes the stored image. If the stored data is replaced with visible data or if the stored image is resized, 
+                    the evaluator shall verify that the image is either replaced or resized as expected in the output file.
                   </Tests>
                 </aactivity> 
               </f-element>
@@ -1000,7 +999,7 @@
                 </note>
                 
                 <aactivity>
-                  <TSS>The evaluator shall examine the TSS to ensure it lists and describes the methods used to replace
+                  <TSS>The evaluator shall ensure that the TSS lists and describes the methods used to replace
                     redacted elements that contain metadata, other elements, or hidden data. The evaluator shall
                     ensure that the TSS’ description complies with the requirement that each element is handled by
                     either recursing through the element chain and applying the TOE to each layer, simplifying the
@@ -1084,7 +1083,7 @@
                 </note>
                 
                 <aactivity>
-                  <TSS>The evaluator shall examine the TSS to ensure it describes the actions taken by the TOE when
+                  <TSS>The evaluator shall ensure that the TSS describes the actions taken by the TOE when
                     removing, simplifying, or redacting an element. If structural data is added, the TSS shall specify
                     what structural data is added and the purpose of the structural data. If non-structural hidden
                     data is added, the TSS shall detail the added hidden data and describe how the user is notified of
@@ -1131,7 +1130,7 @@
                 </note>
                 
                 <aactivity>
-                  <TSS>The evaluator shall examine the TSS to ensure its description of the removal of redacted objects
+                  <TSS>The evaluator shall ensure that the TSS' description of how redacted objects are removed
                     includes the removal of all references and indicators to the redacted objects in conformance
                     with the requirement. 
                     <h:p/></TSS>
@@ -1173,8 +1172,8 @@
                 </note>
                 
                 <aactivity>
-                  <TSS>The evaluator shall examine the TSS to ensure it describes the removal of all data selected for
-                    redaction and verify that no encryption, encoding, or proprietary process is used to obscure
+                  <TSS>The evaluator shall ensure that the TSS describes the removal of all data selected for
+                    redaction and shall verify that no encryption, encoding, or proprietary process is used to obscure
                     selected data. The evaluator shall ensure that the TSS’ description complies with the
                     requirement to remove all data selected by the user or identified by the TOE for redaction.<h:p/></TSS>
                   <Guidance>There are no guidance EAs for this component. <h:p/></Guidance>
@@ -1216,7 +1215,7 @@
                 </note>
                 
                 <aactivity>
-                  <TSS>The evaluator shall examine the TSS to ensure it specifies the residual data and objects (e.g.,
+                  <TSS>The evaluator shall ensure that the TSS specifies the residual data and objects (e.g.,
                     remnant data, undo buffers, tracked changes buffers, multiple versions of the same object, and
                     any buffer or cache type data container) that the TOE will remove from files without any user
                     interaction. The evaluator shall ensure that the TSS’ description complies with the requirement
@@ -1263,7 +1262,7 @@
                 </note>
                 
                 <aactivity>
-                  <TSS>The evaluator shall examine the TSS to ensure it lists and describes the content used to replace
+                  <TSS>The evaluator shall ensure that the TSS lists and describes the content used to replace
                     redacted elements. The evaluator shall ensure that the TSS’ description complies with the
                     requirement to convey no information about the previous contents.<h:p/></TSS>
                   <Guidance>There are no guidance EAs for this component. <h:p/></Guidance>
@@ -1312,7 +1311,7 @@
                 </note>
                 
                 <aactivity>
-                  <TSS>The evaluator shall examine the TSS to ensure it describes in detail which complex objects can
+                  <TSS>The evaluator shall ensure that the TSS describes in detail which complex objects can
                     be simplified by the TOE and how they are simplified (e.g., whether the object or the whole page
                     is converted to another format and what that format is). The TSS shall also list those complex
                     objects or images that cannot be simplified and will be removed. <h:p/></TSS>
@@ -1400,7 +1399,7 @@
                 </note>
                 
                 <aactivity level="element">
-                  <TSS>The evaluator shall examine the TSS to ensure that it describes how the TOE handles data that it
+                  <TSS>The evaluator shall ensure that the TSS describes how the TOE handles data that it
                     cannot completely interpret.<h:p/></TSS>
                   <Guidance>There are no guidance EAs for this element. <h:p/></Guidance>
                   <Tests>The evaluator shall create or acquire test files with data that the
@@ -1476,7 +1475,7 @@
                 </note>
                 
                 <aactivity>
-                  <TSS>The evaluator shall examine the TSS to ensure it describes what actions the TOE performs upon
+                  <TSS>The evaluator shall ensure that the TSS describes the actions the TOE performs upon
                     any failure. The evaluator shall ensure that the TSS’ description complies with the requirement
                     to not produce a partially redacted file.
                     <h:p/></TSS>
