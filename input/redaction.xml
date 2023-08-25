@@ -38,8 +38,7 @@
     <sec:Overview>
       The scope of the PP-Module for Redaction Tools, Version 1.1 is to describe the security functionality of redaction tools
       in terms of <xref g="CC"/> and to define functional and assurance requirements for such
-      products. This PP-Module is intended for use with the following Base-PPs:
-      
+      products. 
       This PP-Module is intended for use with the following Base-PP: <h:ul>
         <h:li>Protection Profile for Application Software, Version 2.0</h:li>
       </h:ul>
@@ -75,7 +74,7 @@
       workflow solutions for their target consumer. However, in any workflow, this PP-Module 
       applies only to the part of the workflow that is performed by the redaction tool and
       only to the redaction functionality in that tool. Other functionality in the redaction tool,
-      other tools used in the workflow, the organization's redaction policy as well as security
+      other tools used in the workflow, the organization's redaction policy, and security
       requirements and security policies that apply to other parts of the workflow are beyond the
       scope of this PP-Module.
       
@@ -364,8 +363,7 @@
             <h:br/><h:br/>
             The evaluation methods used for evaluating the TOE are a combination of the workunits defined in <xref to="bibCEM"/> as well as the
             Evaluation Activities for ensuring that individual SFRs have sufficient supporting evidence in the Security Target and 
-            guidance documentation and have been sufficiently tested by the laboratory as part of completing ATE_IND.1. Any functional packages 
-            this PP-Module claims similarly contain their own Evaluation Activities that are used in this same manner.
+            guidance documentation and have been sufficiently tested by the laboratory as part of completing ATE_IND.1.
           </description>
         </cclaim>
         <cclaim name="CC Conformance Claims">
@@ -408,7 +406,7 @@
         </threat>
         <threat name="T.UNREDACTED_DATA">
           <description>A poorly-designed or poorly-implemented redaction tool can give false confidence of redcation by failing to remove
-            user-selected visible or hidden data in such a way that the original information is inadvertently disseminated.
+            user-selected visible or hidden data in such a way that the original information is inadvertently distributed.
           </description>
           <objective-refer ref="O.PROPER_OUTPUT">
             <rationale>The TOE mitigates the threat of unredacted data by ensuring that unexpected or corrupted inputs do not cause the TOE to fail in a way that would generate an unredacted or improperly redacted output.</rationale>
@@ -485,10 +483,10 @@
       <SO name="O.INSPECTION">
         <description>The TOE will analyze the file content
           for metadata and elements, to include any that are purposely hidden or not immediately
-          visible to the naked eye. This metadata and elements includes, but is not limited to those
+          visible to the naked eye. These metadata and elements include, but are not limited to, those
           that are obstructed from view such as shapes on top of text, hidden objects (manual direct
           formatting or programmatically hidden), and text that is positioned off the margins
-          or is located in header and footer sections of the file.</description>
+          or is located in the header and footer sections of the file.</description>
         <addressed-by>FDP_DID_EXT.1</addressed-by>
         <rationale>This requirement supports the objective by requiring the TOE to implement a mechanism to inspect a document for common mechanisms used to hide unredacted data.</rationale>
         <addressed-by>FDP_DIN_EXT.1</addressed-by>
@@ -525,7 +523,7 @@
       </SO>
       <SO name="O.REPORT">
         <description>The TOE will provide the ability
-          to produce a report of all data redacted and any errors during redaction.</description>
+          to produce a report of all data that was redacted and any errors that occurred during redaction.</description>
         
         <addressed-by>FAU_ALR_EXT.1</addressed-by>
         <rationale>This requirement supports the objective by requiring the TOE to notify the user of unsuccessful redaction operations.</rationale>
@@ -536,7 +534,7 @@
       </SO>
         <!-- formerly O.MANAGEMENT (de-duped from App PP) -->
         <SO name="O.REVIEW">
-          <description>The TOE will provide the ability to a review a document to review and select where the redaction operation will be applied.</description>
+          <description>The TOE will provide the ability for a user to review a document to select the data that will be redacted in it.</description>
           <addressed-by>FMT_RVW_EXT.1</addressed-by>
           <rationale>This SFR supports the objective by defining the requirement to review and select data to be redacted.</rationale>
         </SO>
@@ -624,7 +622,7 @@
           <consistency-rationale/>
         </SOE>
         <SOE name="OE.INFORMATION_RELEASE_POLICY">
-          <description>The organization develops an information release policy that is clearly communicated to users of the TOE so that users have sufficient information to apply correct redactions.
+          <description>The organization develops an information release policy that is clearly communicated to TOE users so that users have sufficient information to apply correct redactions.
           </description>
           <consistency-rationale/>
         </SOE>
@@ -881,7 +879,7 @@
               <comp-lev> requires the TSF to identify all hidden or obscured data in a document so that this data can be selectable for redaction.</comp-lev>
               <management>
                 The following actions could be considered for the management functions in FMT: <h:ul>
-                  <h:li>Specify how redaction operation is applied to small or low-resolution image data</h:li>
+                  <h:li>Specify how the redaction operation is applied to small or low-resolution image data</h:li>
                 </h:ul>
               </management>
               <audit>There are no auditable events foreseen.</audit>
@@ -956,7 +954,7 @@
                     The evaluator shall create a test document with an image that is stored in a larger size and
                     resolution than the visible image and apply the TOE without selecting the image for redaction.
                     <h:p/>
-                    The evaluator shall verify that the TOE either gives the user a choice to retain the image unaltered or replace the stored data with the visible data, or
+                    The evaluator shall verify that the TOE either gives the user a choice to retain the image unaltered, replace the stored data with the visible data, or
                     that it resizes the stored image. If the stored data is replaced with visible data or if the stored image is resized, 
                     the evaluator shall verify that the image is either replaced or resized as expected in the output file.
                   </Tests>
@@ -1208,7 +1206,7 @@
               <f-element id="fdp-rip-ext-1e1">
                 <title>
                   The TOE must automatically remove all remnant data, undo buffers, tracked changes buffers,
-                  multiple versions of the same object, and any buffer or cache type container of data.  
+                  multiple versions of the same object, and any buffer or cache type data container.  
                 </title>
                 <note role="Application">
                   The user does not have to select this data for removal.
@@ -1225,7 +1223,7 @@
                   <Tests>The evaluator shall create or acquire test files that
                     contain the types of data described in the requirement and examine the files to locate the data.
                     The evaluator shall apply the TOE and not select anything for redaction, and examine the files
-                    to verify that this data has been removed automatically. 
+                    to verify that any residual data has been removed automatically. 
                   </Tests>
                 </aactivity>
               </f-element>
@@ -1283,7 +1281,7 @@
        
    
             <ext-comp-def fam-id="FDP_SEL_EXT" title="Selected Redaction">
-              <fam-behavior>Components in this family define requirements for the presentation of redacted data.
+              <fam-behavior>Components in this family define requirements for the selection of redacted data.
               </fam-behavior>
             </ext-comp-def>
             
