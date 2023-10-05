@@ -372,7 +372,7 @@
         <cclaim name="Package Claim">
           <description><h:ul>
             <h:li>This PP-Module does not claim conformance to any functional packages.</h:li>
-            <h:li>This PP-Module conforms to the EAL1 assurance package augmented with ALC_TSU_EXT.1, ASE_OBJ.2, ASE_REQ.2, and ASE_SPD.1.</h:li>
+            <h:li>This PP does not conform to any assurance packages.</h:li>
           </h:ul>
           </description>
         </cclaim>
