@@ -16,7 +16,7 @@
     <ReferenceTable>
       <PPVersion>1.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2023-10-06</PPPubDate>
+      <PPPubDate>2023-12-11</PPPubDate>
       <Keywords>Redaction</Keywords>
     </ReferenceTable>
   </PPReference>
@@ -24,7 +24,7 @@
   <RevisionHistory>
     <entry>
       <version>1.0</version>
-      <date>2023-10-06</date>
+      <date>2023-12-11</date>
       <subject>Initial release as CC:2022 PP-Module</subject>
     </entry>
   </RevisionHistory>
@@ -380,7 +380,7 @@
     </sec:Conformance_Claims>
 
   <!-- 3 Security Problem Description -->
-  <sec:Security_Problem_Description>
+  <sec:Security_Problem_Definition>
     The security problem is described in terms of the threats that the TOE is expected to address,
     assumptions about its operational environment (OE), and any organizational security policies that the TOE is
     expected to enforce.<h:br/>
@@ -466,7 +466,7 @@
       </OSPs>
     </sec:Organizational_Security_Policies>
     
-    </sec:Security_Problem_Description>
+    </sec:Security_Problem_Definition>
 
   <!-- 4. Security Objectives --> 
   <sec:Security_Objectives>  
