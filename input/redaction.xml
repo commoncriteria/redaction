@@ -362,7 +362,7 @@
           </description>
         </cclaim>
         <cclaim name="CC Conformance Claims">
-          <description>This PP is conformant to Parts 2 (extended) and 3 (extended) of Common Criteria CC:2022, Revision 1.</description>
+          <description>This PP-Module is conformant to Parts 2 (extended) and 3 (extended) of Common Criteria CC:2022, Revision 1.</description>
         </cclaim>
         <cclaim name="PP Claim">
           <description>This PP-Module does not claim conformance to any other Protection Profile.<h:p/>
@@ -372,7 +372,7 @@
         <cclaim name="Package Claim">
           <description><h:ul>
             <h:li>This PP-Module does not claim conformance to any functional packages.</h:li>
-            <h:li>This PP does not conform to any assurance packages.</h:li>
+            <h:li>This PP-Module does not conform to any assurance packages.</h:li>
           </h:ul>
           </description>
         </cclaim>
