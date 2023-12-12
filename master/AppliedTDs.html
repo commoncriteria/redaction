@@ -1,0 +1,1597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html><head><meta content="text/html;charset=utf-8" http-equiv="Content-Type"></meta><meta content="utf-8" http-equiv="encoding"></meta><title>PP-Module for Redaction Tools</title><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script><script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+            showMathMenu: false,
+            tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+              displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+              processEscapes: true
+            },
+            styles: {
+
+                ".MathJax_Display": {
+                "text-align": "left !important",
+                margin:       "0em 0em !important"
+            }}
+            });
+        </script><script type="text/javascript">// 
+
+// Called on page load to parse URL parameters and perform actions on them.
+function init(){
+    if(getQueryVariable("expand") == "on"){
+      expand();
+    }
+    fixAbbrs();
+}
+
+
+function fixAbbrs(){
+    var aa;
+    var brk_els = document.getElementsByClassName("dyn-abbr");
+    //
+    for(aa=0; aa!=brk_els.length; aa++){
+        var abbr = brk_els[aa].firstElementChild.getAttribute("href").substring(1);
+        var el = document.getElementById("long_"+abbr)
+        if (el==null) {
+             console.log("Could not find 'long_abbr_'"+abbr);
+             continue;
+        }
+        var abbr_def = el.textContent;
+        brk_els[aa].setAttribute("title", abbr_def);
+    }
+}
+// // 
+const AMPERSAND=String.fromCharCode(38);
+
+// Pass a URL variable to this function and it will return its value
+function getQueryVariable(variable)
+{
+    var query = window.location.search.substring(1);
+    var vars = query.split(AMPERSAND);
+    for (var i=0;i!=vars.length;i++) {
+        var pair = vars[i].split("=");
+        if(pair[0] == variable){return pair[1];}
+    }
+    return(false);
+}
+
+
+//    Expands all evaluation activities
+function expand(){
+    var ap = document.getElementsByClassName('activity_pane');
+    for (var ii = 0; ii!=ap.length; ii++) {
+        ap[ii].classList.remove('hide');
+    }
+}
+
+// Function to expand and contract a given div
+function toggle(descendent) {
+    var cl = descendent.parentNode.parentNode.classList;
+    if (cl.contains('hide')){
+      cl.remove('hide');
+    }
+    else{
+      cl.add('hide');
+    }
+}
+
+// Expands targets if they are hidden
+function showTarget(id){
+    var element = document.getElementById(id);
+    while (element != document.body.rootNode ){
+	element.classList.remove("hide");
+	element = element.parentElement;
+    }
+}
+
+
+// </script><style type="text/css">
+    #toc a{
+        display: block;
+    }
+    .td-{
+        display: block;
+    }
+    svg{
+      width: 100%;
+    }
+
+    a[id^="ajq_"]{
+        color:black;
+    }
+
+    
+    body{
+       max-width: 900px;
+       margin: auto;
+    }
+    #toc span{
+       margin-left: 20px;
+    }
+    .assignable-content{
+      font-style: italic;
+    }
+    .selectable-content{
+      font-style: italic;
+    }
+    .not-selectable-content{
+      font-style: italic;
+      text-decoration: line-through;
+    }
+    .refinement{
+      font-weight: bold;
+    }
+    div.eacategory{
+      font-style: italic;
+      font-weight: bold;
+    }
+    .activity_pane .toggler::after, .activity_pane .toggler{
+       display: inline-block;
+       height: auto;
+       content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8A\
+       AAAPCAYAAAA71pVKAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAQOFAAEDhQGl\
+       VDz+AAAAB3RJTUUH4gIXFDM7fhmr1wAAAfRJREFUKM+dkk9I02EYxz/P+25uurWR\
+       tTkzI4NGl4jQgkq71K1DhnTQIDolRAQFQYSHTtGhU4e6eujQofBSFLOg0C4RUSjh\
+       FnmqTTdKpj/mfv/eX4cUpmRYn9vz8v3w8D7PA/AWGADCbI4QcAb4AnAF8IBJEdX+\
+       N0tEda40C4AHADviW1LFvpOX6+FwtAacVzqkGiWtwxo4F21OuPu7+yvxRNoDEhpY\
+       cpzavkQyc7D76FCk+vN7j7VU6RdR4xAsikjGGP9FKrN3sPfEpajv2i2zhckR4JUG\
+       UCr0erFavLkn2ytd2WPxcFOsZb74+SIQA0YPHBqIdB8Z6tChJv1m/N4P33OGAUsD\
+       BIFxPNcOkq07jyeSbbo1tTu2q6vHEqU7D/ddSKcz2ZQJjBSmx925b9NjwEMAafha\
+       eyQa/3Dq7O0243sCIEoRGAOA59nm5dM7OHVruzH+AkDjYEp23RrLT+U8Ub+fV0UR\
+       oVyaMfVa9fqquF5GKX3ja2FCuc6yWbMipYNP755UgEdr8o2FMf5ivVYdKRfzRkRW\
+       RfJTOc+2rWdAcUN5hdGP7x8viGgAXLvGbGFCKxW6tj74J3nOqVvP89M5V6kQ86UZ\
+       f7lWvWWMt7Sp41VKb21uSfqnB++6kWi8BLTzL4ioq7H4tgC4z3/QAZSBxEaBXygN\
+       v+jeFnAPAAAAAElFTkSuQmCC');
+       max-width: 15px;
+    }
+
+    a.defined{
+      color: inherit;
+      text-decoration: inherit;
+    }
+      
+    a {
+      text-decoration: none;
+      word-wrap: break-word;
+    }
+    a.abbr:link{
+      color:black;
+      text-decoration:none;
+    }
+    a.abbr:visited{
+      color:black;
+      text-decoration:none;
+    }
+    a.abbr:hover{
+      color:blue;
+      text-decoration:none;
+    }
+    a.abbr:hover:visited{
+      color:purple;
+      text-decoration:none;
+    }
+    a.abbr:active{
+      color:red;
+      text-decoration:none;
+    }
+    .note-header{
+      font-weight: bold;
+    }
+    .note p:first-child{
+      display: inline;
+    }
+
+    .indent{ margin-left:2em; }
+
+    /* Tooltip container */
+    .tooltipped {
+       position: relative;
+       display: inline-block;
+       border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    }
+
+    /* Tooltip text */
+    .tooltiptext {
+       visibility: hidden;
+       width: 120px;
+       background-color: black;
+       color: #fff;
+       text-align: center;
+       padding: 5px 0;
+       border-radius: 6px;
+
+       /* Position the tooltip text - see examples below! */
+       position: absolute;
+       z-index: 1;
+   }
+
+   /* Show the tooltip text when you mouse over the tooltip container */
+   .tooltipped:hover .tooltiptext {
+       visibility: visible;
+   }
+   tr.major-row{
+       border-top-style: double;
+   }
+   tr.major-row td:first-child{
+       border-right-style: ridge;
+       background-color: white;
+   } 
+   table.mfs td{
+       text-align: center;
+   }
+   table.mfs td:first-child{
+       text-align: left;
+       white-space: nowrap;
+   }
+  .table-caption, caption{
+       text-align: center;
+       font-weight: bold;
+   }
+   table{
+       margin:auto;
+       margin-top:1em;
+       border-collapse:collapse; /*border: 1px solid black;*/
+   }
+   td{
+       text-align:left;
+       padding:8px 8px;
+   }
+   th{
+       padding:8px 8px;
+   }
+   thead tr td{
+       text-align: center;
+       font-style: oblique;
+       font-weight: bold;
+   }
+   tr.header{
+       border-bottom:3px solid gray;
+       padding:8px 8px;
+       text-align:left;
+       font-weight:bold; /*font-size: 90%; font-family: verdana, arial, helvetica, sans-serif; */
+   }
+   table tr:nth-child(2n+2){
+       background-color:#F4F4F4;
+   }
+
+   table.ecd_heir_dep{
+       width: 100%;
+   }
+   table.ecd_heir_dep tr{
+       background-color: inherit;
+   }
+       
+   table.ecd_heir_dep tr :first-child{
+       white-space: nowrap;
+   }
+   table.ecd_heir_dep tr :last-child{
+       width: 100%;
+   }
+
+       
+   .dependent{
+       border: 1px solid gray;
+       border-radius: 1px
+   }
+   .dependent-content{
+       margin-left: 25px;
+       font-style: italic;
+   }
+
+   .uc_table_or td, .uc_table_or tr {
+       vertical-align: middle;
+       border: 1px solid black;
+       background-color: white;
+   }
+
+   .uc_not, .uc_mf, .uc_sel, .uc_guide{
+       text-indent: 10px;
+   }
+   .uc_sel &gt; a{ 
+       font-style: italic;
+   }
+
+   .uc_not_sel, .uc_sel.uc_mf, uc_assign.uc_mf{
+       text-indent: 20px;
+   }
+
+
+   .uc_table_or tr td.or_cell{
+      white-space: nowrap;
+      border-radius: 0.6em 0 0 0.6em;
+      background-color: black;
+      color: white;
+   }
+
+   .uc_table_and, .uc_table_or {
+       width: 100%;
+       background-color: white;
+   }
+   .uc_guidance{
+       display: table;
+       background-color: gray;
+   }  
+   div.uc_inc_fcomp{
+       display: list-item;
+       list-style-type: disc;
+       list-style-position: inside;
+       }
+
+   div.validationguidelines_label{
+        padding-top: 10px;
+   }
+	
+   .evidence, .test-obj { font-style: normal; font-size: 90%;}
+   
+   
+	table.classic {
+    	width: 100%;
+    	background-color: white;
+    	border-collapse: collapse;
+    	border-width: 2px;
+  		border-color: gray;
+  		border-style: solid;
+  		color: black;
+		font-size: small;
+	}
+    table.classic th {
+  		background-color: lightgray;   
+	}
+    table.classic th:empty{
+	    background-color: white;
+		border-top: none;
+		border-left: none;
+	}
+	table.classic td, table.classic th {
+  		border-width: 2px;
+  		border-color: gray;
+  		border-style: solid;
+  		padding: 5px;
+	}
+
+   
+    .comp .description{
+        padding-bottom: 20px;
+        display: block;
+    }    
+   
+   
+          .figure{
+              font-weight:bold;
+          }
+          h1{
+              page-break-before:always;
+              text-align:left;
+              font-size:200%;
+              margin-top:2em;
+              margin-bottom:2em;
+              font-family:verdana, arial, helvetica, sans-serif;
+              margin-bottom:1.0em;
+          }
+          h1.title{
+              text-align:center;
+          }
+          h2{
+              font-size:125%;
+              border-bottom:solid 1px gray;
+              margin-bottom:1.0em;
+              margin-top:2em;
+              margin-bottom:0.75em;
+              font-family:verdana, arial, helvetica, sans-serif;
+          }
+          h3{
+              font-size:110%;
+              margin-bottom:0.25em;
+              font-family:verdana, arial, helvetica, sans-serif;
+          }
+          h4{
+              margin-left:0%;
+              font-size:100%;
+              margin-bottom:0.75em;
+              font-family:verdana, arial, helvetica, sans-serif;
+          }
+          h5,
+          h6{
+              margin-left:6%;
+              font-size:90%;
+              margin-bottom:0.5em;
+              font-family:verdana, arial, helvetica, sans-serif;
+          }
+          p{
+              margin-bottom:0.6em;
+              margin-top:0.2em;
+          }
+          pre{
+              margin-bottom:0.5em;
+              margin-top:0.25em;
+              margin-left:3%;
+              font-family:monospace;
+              font-size:90%;
+          }
+          ul{
+              margin-bottom:0.5em;
+              margin-top:0.25em;
+          }
+          td{
+              vertical-align:top;
+          }
+          dl{
+              margin-bottom:0.5em;
+              margin-top:0.25em;
+          }
+          dt{
+              margin-top:0.7em;
+              font-weight:bold;
+              font-family:verdana, arial, helvetica, sans-serif;
+          }
+
+          a.linkref{
+              font-family:verdana, arial, helvetica, sans-serif;
+              font-size:90%;
+          }
+
+          *.simpleText{
+              margin-left:10%;
+          }
+          *.propertyText{
+              margin-left:10%;
+              margin-top:0.2em;
+              margin-bottom:0.2em
+          }
+          *.toc{
+              background:#FFFFFF;
+          }
+          *.toc2{
+              background:#FFFFFF;
+          }
+	  .choicelabel{
+	    font-weight: bold;
+	  }
+          div.comp{
+              margin-left:8%;
+              margin-top:1em;
+              margin-bottom:1em;
+          }
+          div.element{
+              margin-bottom:1em;
+          }
+          div.appnote{
+              margin-left:0%;
+              margin-top:1em;
+          }
+          .comment{
+              background-color:beige;
+              color:green;
+          }
+
+          div.subaact{
+              margin-left:0%;
+              margin-top:1em;
+          }
+          .subaact-header{
+              font-weight: bold;
+          }
+
+          div.activity_pane_body{
+              font-style:italic;
+              margin-left:0%;
+              margin-top:1em;
+              margin-bottom:1em;
+              padding:1em;
+              border:2px solid #888888;
+              border-radius:3px;
+              display:block;
+              margin-left:0%;
+              margin-top:1em;
+              margin-bottom:1em;
+              box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+          }
+          div.optional-appendicies{
+              display:none;
+          }
+
+          div.statustag{
+              margin-left:0%;
+              margin-top:1em;
+              margin-bottom:1em;
+              padding: 0.6em;
+              border:2px solid #888888;
+              border-radius:3px;
+          }
+
+          div.toc{
+              margin-left:8%;
+              margin-bottom:4em;
+              padding-bottom:0.75em;
+              padding-top:1em;
+              padding-left:2em;
+              padding-right:2em;
+          }
+          span.SOlist{
+              font-size:90%;
+              font-family:verdana, arial, helvetica, sans-serif;
+          }
+          h2.toc{
+              border-bottom:none;
+              margin-left:0%;
+              margin-top:0em;
+          }
+          p.toc{
+              margin-left:2em;
+              margin-bottom:0.2em;
+              margin-top:0.5em;
+          }
+          p.toc2{
+              margin-left:5em;
+              margin-bottom:0.1em;
+              margin-top:0.1em;
+          }
+          div.center{
+              display:block;
+              margin-left:auto;
+              margin-right:auto;
+              text-align:center;
+              }
+          div.ea{
+	      padding-bottom:10px;
+          }
+	      
+          div.figure{
+              display:block;
+              margin-left:auto;
+              margin-right:auto;
+              text-align:center;
+              margin-top:1em;
+          }
+          div.activity_pane_header{
+              display:table-cell;
+              vertical-align:middle;
+              padding-top:10px;
+          }
+          span.activity_pane_label{
+              vertical-align:middle;
+              color:black;
+              text-decoration:none;
+              font-size:100%;
+              font-weight:bold; /*font-family: verdana, arial, helvetica, sans-serif; */
+          }
+          .dyn-abbr a, .dyn-abbr a:active, .dyn-abbr a:visited{
+              background-color: inherit;
+              color: inherit;
+              text-decoration: inherit;;
+          }
+
+          @media screen{
+              *.reqid{
+                  float:left;
+                  font-size:90%;
+                  font-family:verdana, arial, helvetica, sans-serif;
+                  margin-right:1em;
+              }
+              *.req{
+                  margin-left:0%;
+                  margin-top:1em;
+                  margin-bottom:1em;
+              }
+              *.reqdesc{
+                  margin-left:20%;
+              }
+
+              .activity_pane.hide .toggler::after, .activity_pane.hide .toggler{
+	          content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8A\
+		  AAAPCAYAAAA71pVKAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAQOFAAEDhQGl\
+		  VDz+AAAAB3RJTUUH4gIXFC4BR3keeQAAAfZJREFUKM+d0k1PE1EUBuB37h2nQ+30\
+		  w5YObR0FhIppqBgWuDCaSBQjiQZNTIxLfoAkBHXh2vg7xID+ABPXBl3UdAMaN1CR\
+		  j5ZijZ22DKW9d44LP1KMROvZnMU5z+KcvBzAAgADwCdV1RzXlYQ26tYhrYM6u/qX\
+		  ATwCcKodrAOYv3z9IV28OuP6/NHPAGYZ45G/QQ5AAFjNbyzdTA2NewcGx7xeI5wu\
+		  FZenQOQQuasHncN/9IJo1sn+unkpbqVFIJhgydQo13VjDKCJSnnLBJAHUPoTBoA3\
+		  uzvlfiNgDhn+KMiVCB6xYCZSoaPHz5wrba/cbuztpBWFvQLI+R2DSGZqleKNuJX2\
+		  cVVjAIExDo/uV7pPjGhSNntrleI9+n7Ox33Y549Wq/ZWTyh8rNcfjPlaZ4xzZvUM\
+		  ezrNvnJ+fXFCiL2k2rpQq2wnAqH4tYjZFyZq/Y8CKZoim51z1nIZQ4jGNIC5fZhz\
+		  7fHA4JVuj26AyIWiMDSbdTi1L/T29RO7ahdfKgqbInJLANCKZ6Kx5J24dVowztW6\
+		  Y+8WNt91FNYXc4WN988BzAL4QOT+Aj/x8GFf+MHI+UlI2cBS9kVlLZfxSFdMS9GY\
+		  V1WtKETDPShhz85emLRHx++TETBLAJ4qCov8c7ajsZMr/5PtBQB3AXSpqsbagd8A\
+		  O+HMRUtPNsQAAAAASUVORK5CYII=');
+              }
+
+              .activity_pane.hide .activity_pane_body{
+                  display:none;
+              }
+              div.statustag{
+                  box-shadow:4px 4px 3px #888888;
+              }
+          }
+
+
+          @media print{
+              *.reqid{
+                  font-size:90%;
+                  font-family:verdana, arial, helvetica, sans-serif;
+              }
+              *.req{
+                  margin-left:0%;
+                  margin-top:1em;
+                  margin-bottom:1em;
+              }
+              *.reqdesc{
+                  margin-left:20%;
+              }
+              div.activity_pane_body{
+                  padding:1em;
+                  border:2px solid #888888;
+                  border-radius:3px;
+                  display:block;
+              }
+
+	            img[src="images/collapsed.png"] { display:none;}
+
+          }
+    </style></head><body onLoad="init()"><h1 class="title" style="page-break-before:auto;">PP-Module for Redaction Tools</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
+      Version: 1.0<br/>2023-12-11<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>1.0</td><td>2023-12-11</td><td>Initial release as <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022 <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr></td></tr>
+</table><h3>TDs Applied</h3><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#Compliant_Targets_of_Evaluation" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:20px">1.3.1<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.4<span>Use Cases</span></a><a href="#Conformance_Claims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_TOE" style="text-indent:10px">4.1<span>Security Objectives for the TOE</span></a><a href="#SecurityObjectivesTOEorEnvironment" style="text-indent:10px">4.2<span>Security Objectives for the Operational Environment</span></a><a href="#SOR" style="text-indent:10px">4.3<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#secreq-AppPP" style="text-indent:10px">5.1<span>App PP
+       Security Functional Requirements Direction
+    </span></a><a href="#modsfr-AppPP" style="text-indent:20px">5.1.1<span> Modified SFRs </span></a><a href="#man-sfrs" style="text-indent:10px">5.2<span>TOE Security Functional Requirements</span></a><a href="#m-fau" style="text-indent:20px">5.2.1<span>Security Audit (FAU)</span></a><a href="#m-fdp" style="text-indent:20px">5.2.2<span>User Data Protection (FDP)</span></a><a href="#m-fmt" style="text-indent:20px">5.2.3<span>Security Management (FMT)</span></a><a href="#m-fpt" style="text-indent:20px">5.2.4<span>Protection of the TSF (FPT)</span></a><a href="#obj-req-map" style="text-indent:10px">5.3<span>TOE Security Functional Requirements Rationale</span></a><a href="#mod-conrat" style="text-indent:0px">6<span>Consistency Rationale</span></a><a href="#conrat-AppPP" style="text-indent:10px">6.1<span>
+    Protection Profile for Redaction Tools</span></a><a href="#contoe-AppPP" style="text-indent:20px">6.1.1<span>
+	Consistency of TOE Type
+      </span></a><a href="#consecprob-AppPP" style="text-indent:20px">6.1.2<span>
+	Consistency of Security Problem Definition
+      </span></a><a href="#conobj-AppPP" style="text-indent:20px">6.1.3<span>
+	Consistency of Objectives
+      </span></a><a href="#conreq-AppPP" style="text-indent:20px">6.1.4<span>
+	Consistency of Requirements
+      </span></a><a href="#opt-sfrs" style="text-indent:0px">Appendix A - <span>Optional SFRs</span></a><a href="#opt-sfrs" style="text-indent:10px">A.1<span>Strictly Optional Requirements
+    </span></a><a href="#obj-sfrs" style="text-indent:10px">A.2<span>Objective Requirements
+    </span></a><a href="#impl-dep-sfrs" style="text-indent:10px">A.3<span>Implementation-dependent Requirements
+    </span></a><a href="#sel-sfrs" style="text-indent:0px">Appendix B - <span>Selection-based Requirements
+    </span></a><a href="#ext-comp-defs" style="text-indent:0px">Appendix C - <span>Extended Component Definitions</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.1<span>Extended Components Table</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.2<span>Extended Component Definitions</span></a><a href="#ext-comp-FAU" style="text-indent:20px">C.2.1<span>Security Audit (FAU)</span></a><a href="#ext-comp-FAU_ALR_EXT" style="text-indent:30px">C.2.1.1<span>FAU_ALR_EXT Redaction Failure Notification</span></a><a href="#ext-comp-FAU_REP_EXT" style="text-indent:30px">C.2.1.2<span>FAU_REP_EXT Report Generation</span></a><a href="#ext-comp-FAU_SAR_EXT" style="text-indent:30px">C.2.1.3<span>FAU_SAR_EXT Report Review</span></a><a href="#ext-comp-FMT" style="text-indent:20px">C.2.2<span>Security Management (FMT)</span></a><a href="#ext-comp-FMT_RVW_EXT" style="text-indent:30px">C.2.2.1<span>FMT_RVW_EXT Element Review</span></a><a href="#ext-comp-FDP" style="text-indent:20px">C.2.3<span>User Data Protection (FDP)</span></a><a href="#ext-comp-FDP_DID_EXT" style="text-indent:30px">C.2.3.1<span>FDP_DID_EXT Identification of Data</span></a><a href="#ext-comp-FDP_DIN_EXT" style="text-indent:30px">C.2.3.2<span>FDP_DIN_EXT Deep Inspection</span></a><a href="#ext-comp-FDP_LOC_EXT" style="text-indent:30px">C.2.3.3<span>FDP_LOC_EXT Redact Content from Every Location</span></a><a href="#ext-comp-FDP_NND_EXT" style="text-indent:30px">C.2.3.4<span>FDP_NND_EXT No New Data Introduced by TOE</span></a><a href="#ext-comp-FDP_OBJ_EXT" style="text-indent:30px">C.2.3.5<span>FDP_OBJ_EXT Removal of Objects and Corresponding References</span></a><a href="#ext-comp-FDP_REM_EXT" style="text-indent:30px">C.2.3.6<span>FDP_REM_EXT Removal of Redacted Data</span></a><a href="#ext-comp-FDP_RIP_EXT" style="text-indent:30px">C.2.3.7<span>FDP_RIP_EXT Residual Information Removal</span></a><a href="#ext-comp-FDP_RPL_EXT" style="text-indent:30px">C.2.3.8<span>FDP_RPL_EXT Visible Space Replace</span></a><a href="#ext-comp-FDP_SEL_EXT" style="text-indent:30px">C.2.3.9<span>FDP_SEL_EXT Selected Redaction</span></a><a href="#ext-comp-FDP_VAL_EXT" style="text-indent:30px">C.2.3.10<span>FDP_VAL_EXT Validation of Data</span></a><a href="#acronyms" style="text-indent:0px">Appendix D - <span>Acronyms</span></a><a href="#appendix-bibliography" style="text-indent:0px">Appendix E - <span>Bibliography</span></a></div><h1 class="indexable" data-level="1" id="Introduction">1 Introduction</h1>
+    <h2 class="indexable" data-level="2" id="Overview">1.1 Overview</h2>
+      The scope of the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for Redaction Tools, Version 1.0 is to describe the security functionality of redaction tools
+      in terms of <a href="#bibCC">[CC]</a> and to define functional and assurance requirements for such
+      products. 
+      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is intended for use with the following <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>: <ul>
+        <li>Protection Profile for Application Software, Version 2.0</li>
+      </ul>
+      
+      This <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> is valid for this technology type because a redaction tool is a specific type of software application and can therefore be reasonably expected to implement
+      security functionality that is typical of application software. Redaction is the process of selectively removing and replacing
+      information from a document or other logical container of data for release to an audience not
+      intended to view that information. Redacted information is not limited to classified material;
+      other examples include privacy data, proprietary information, trade secrets, and legal strategy.
+      Instances of redaction include replacing classified text with a black box to release a document to
+      an unclassified environment, replacing privacy-related data such as telephone numbers with all
+      Xs to release a database to a contractor, converting a proprietary format document to Portable
+      Document Format (PDF) to release a what-you-see-is-what-you-get document.
+      The risk from improper or incomplete redaction is the inadvertent disclosure of classified or
+      sensitive data.
+      <p></p>
+      Redaction is not sanitization. In the sanitization process, information is removed with no
+      indication that the sanitization process took place. In the redaction process, selected visible
+      information is removed and replaced with something innocuous (e.g., black box or text) so that
+      the reader knows redaction took place. This replacement is a critical part of the process not
+      shared with sanitization.
+      <p></p>      
+      
+      <div class="figure" id="figure-workflow"><img id="workflow" src="images/workflow.jpg" width="" height=""></img><br/><span class="ctr" data-myid="workflow" data-counter-type="ct-figure">Figure <span class="counter">1</span></span>:
+      Sample Redaction Workflow</div> 
+      <p></p>
+      Figure 1 shows the typical workflow of a document from source to destination
+      and through the redaction process. Other workflows are possible. Software vendors have the flexibility to devise their own
+      workflow solutions for their target consumer. However, in any workflow, this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> 
+      applies only to the part of the workflow that is performed by the redaction tool and
+      only to the redaction functionality in that tool. Other functionality in the redaction tool,
+      other tools used in the workflow, the organization's redaction policy, and security
+      requirements and security policies that apply to other parts of the workflow are beyond the
+      scope of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
+      
+      
+       
+      
+      
+
+      
+      
+      
+      
+      
+      
+        
+    
+    <div class="no-link"><h2 id="glossary" class="indexable" data-level="2">1.2 Terms</h2>
+The following sections list Common Criteria and technology terms used in this document.
+    <h3 id="cc-terms" class="indexable" data-level="3">1.2.1 Common Criteria Terms</h3><table><tr><td><div id="Assurance">Assurance</div></td><td>Grounds for confidence that a TOE meets the SFRs <a href="#bibCC">[CC]</a>.</td></tr>
+<tr><td><div id="Base_Protection_Profile">Base Protection Profile (Base-PP)</div></td><td>Protection Profile used as a basis to build a PP-Configuration.</td></tr>
+<tr><td><div id="Collaborative_Protection_Profile">Collaborative Protection Profile (cPP)</div></td><td>A Protection Profile developed by
+    international technical communities and approved by multiple schemes.</td></tr>
+<tr><td><div id="Common_Criteria">Common Criteria (CC)</div></td><td>Common Criteria for Information Technology Security Evaluation (International Standard ISO/IEC 15408).</td></tr>
+<tr><td><div id="Common_Criteria_Testing_Laboratory">Common Criteria Testing Laboratory</div></td><td>
+      Within the context of the Common Criteria Evaluation and Validation Scheme (CCEVS), an IT security evaluation facility
+      accredited by the National Voluntary Laboratory Accreditation Program (NVLAP) and approved by the NIAP Validation Body to conduct Common Criteria-based evaluations.
+    </td></tr>
+<tr><td><div id="Common_Evaluation_Methodology">Common Evaluation Methodology (CEM)</div></td><td>Common Evaluation Methodology for Information Technology Security Evaluation.</td></tr>
+<tr><td><div id="Distributed_TOE">Distributed TOE</div></td><td>A TOE composed of multiple components operating as a logical whole.</td></tr>
+<tr><td><div id="Extended_Package">Extended Package (EP)</div></td><td>A deprecated document form for collecting SFRs that implement a particular protocol, technology,
+	    or functionality. See Functional Packages.</td></tr>
+<tr><td><div id="Functional_Package">Functional Package (FP)</div></td><td>A document that collects SFRs for a particular protocol, technology,
+	    or functionality.</td></tr>
+<tr><td><div id="Operational_Environment">Operational Environment (OE)</div></td><td>Hardware and software that are outside the TOE boundary that support the TOE functionality and security policy.</td></tr>
+<tr><td><div id="Protection_Profile">Protection Profile (PP)</div></td><td>An implementation-independent set of security requirements for a category of products.</td></tr>
+<tr><td><div id="Protection_Profile_Configuration">Protection Profile Configuration (PP-Configuration)</div></td><td>A comprehensive set of security requirements for a product type that consists of at least one Base-PP and at least one PP-Module.</td></tr>
+<tr><td><div id="Protection_Profile_Module">Protection Profile Module (PP-Module)</div></td><td>An implementation-independent statement of security needs for a TOE type complementary to one or more Base-PPs.</td></tr>
+<tr><td><div id="Security_Assurance_Requirement">Security Assurance Requirement (SAR)</div></td><td>A requirement to assure the security of the TOE.</td></tr>
+<tr><td><div id="Security_Functional_Requirement">Security Functional Requirement (SFR)</div></td><td>A requirement for security enforcement by the TOE.</td></tr>
+<tr><td><div id="Security_Target">Security Target (ST)</div></td><td>A set of implementation-dependent security requirements for a specific product.</td></tr>
+<tr><td><div id="Target_of_Evaluation">Target of Evaluation (TOE)</div></td><td>The product under evaluation. </td></tr>
+<tr><td><div id="TOE_Security_Functionality">TOE Security Functionality (TSF)</div></td><td>The security functionality of the product under evaluation.</td></tr>
+<tr><td><div id="TOE_Summary_Specification">TOE Summary Specification (TSS)</div></td><td>A description of how a TOE satisfies the SFRs in an ST.</td></tr>
+</table><h3 id="tech-terms" class="indexable" data-level="3">1.2.2 Technical Terms</h3><table style="width: 100%"><tr><td><div id="Attachments">Attachments</div></td><td>An electronic document or data file that is part of the main file but is
+        logically distinct and separable from the main electronic document.</td></tr>
+<tr><td><div id="Complex_Objects">Complex Objects</div></td><td>Objects that may have their own static or functional metadata and may
+        differ between the stored and visible form, such as images, attachments, Microsoft Object Linking and Embedding (OLE)
+        objects, Microsoft ActiveX controls, and temporal objects.</td></tr>
+<tr><td><div id="Functional_data">Functional data</div></td><td>Forms, scripts, link URLs, workflow data,
+        action buttons, formulas in a spreadsheet, macros, or any type of executable
+        content.</td></tr>
+<tr><td><div id="Images">Images</div></td><td>The actual image data stored in the file as opposed to what is visible; the
+        visible image can be cropped or resized but the full image could still be retained in
+        the file format and may or may not match the visible image; some image formats can
+        have their own metadata, such as Joint Photographic Experts Group (JPG) and Tagged
+        Image File Format (TIFF).</td></tr>
+<tr><td><div id="Metadata_of_objects_or_embedded_objects">Metadata of objects or embedded objects</div></td><td>Data associated with an object to describe or identify the contents of the object such as exchangeable image file format (EXIF) data of images; images themselves can contain other images and
+        their own metadata.</td></tr>
+<tr><td><div id="Obscured_visible_data">Obscured visible data</div></td><td>Content that could be visible but is obscured in some way, such as content
+        that runs off an edge of the container, text in a black font on black background (or
+        any color of font on a similar color background), very small fonts, cropped or clipped
+        graphics or images, hidden layers, or portions of an embedded object (e.g., Microsoft OLE)
+        that are outside the view container.</td></tr>
+<tr><td><div id="Remnant_data">Remnant data</div></td><td>Artifacts of the original application or source file format, such as remnant
+        or unreferenced data from fast saves, unreferenced or unused elements, malformed
+        elements that cannot be fixed, or garbage data in the file structure.</td></tr>
+<tr><td><div id="Static_data_or_metadata">Static data or metadata</div></td><td>File properties, such as author or creation date, stored form field data,
+        undo cache or any data kept to revert to a prior version of an element or the document
+        itself, incremental updates, collaboration data such as comments, tracked changes,
+        workflow data, embedded search indexes, bookmarks, document info added by third-party
+        apps, accessibility data such as alternate text, etc.</td></tr>
+<tr><td><div id="Steganography">Steganography</div></td><td>The act of embedding covert data in an image file in such a way that the image alterations needed to embed the data are not readily visible to the naked eye.</td></tr>
+<tr><td><div id="Structural_data">Structural data</div></td><td>Data that is part of the file format structure, such as a file header or fonts, and is necessary to interpret the file properly for display or print.</td></tr>
+<tr><td><div id="Temporal_Objects">Temporal Objects</div></td><td>A particular type of complex object whose representation extends through a
+        time interval, such as video, audio, flash animation, slide shows, etc. References to
+        “complex objects” in the requirements section of this paper include temporal
+        objects.</td></tr>
+<tr><td><div id="Visible_contents">Visible contents</div></td><td>The visual representation of text, images,
+              and complex objects in a file.</td></tr>
+</table></div>
+    
+    
+    
+
+    <h2 class="indexable" data-level="2" id="Compliant_Targets_of_Evaluation">1.3 Compliant Targets of Evaluation</h2>
+      The Target of Evaluation (<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>) described by this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is limited to the redaction of electronic documents defined in standards such as the
+      series International Organization for Standards/International Electrotechnical Commission
+      (<abbr class="dyn-abbr"><a href="#abbr_ISO/IEC">ISO/IEC</a></abbr>)-29500 (Office Open XML, including but not limited to Microsoft Word,
+      PowerPoint, and Excel documents), <abbr class="dyn-abbr"><a href="#abbr_ISO/IEC">ISO/IEC</a></abbr>-32000 (PDF), or the definitive standard for a
+      format. Mail guards, filters, and batch redaction tools are beyond the scope of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
+      Requirements that apply to features such as administrative control over particular redaction
+      settings, multi-person review prior to release, etc., are outside the scope of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
+      may have those features but is not required to have them and their use and enforcement is
+      governed by the organization’s redaction policy. <p></p>
+      
+      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> covers the software functionality of the redaction process; it does not include
+      requirements for how users should decide what to redact or other policy issues. Analysis of
+      documents for covert data transfer is part of the decision-making process for what to redact; therefore, it 
+      occurs prior to the redaction itself. The requirements in this document are independent of
+      requirements levied on document release by statute or the judiciary. <p></p>
+      
+      Data execution risks inherent in some file formats are beyond the scope of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>
+      assumes that scanning for such risks occurs prior to the document entering the redaction
+      functionality of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.<p></p>
+      
+      Documents to be redacted may contain objects that are vulnerable to steganography, such as
+      images or video. Functional data such as scripts can contain strings or images that may not be
+      accessible to the redaction tool. Analysis of such objects for attacks or covert data transfer will
+      occur outside of the redaction process. An organization’s security policy will determine whether
+      such objects are released or redacted in their entirety. 
+      
+      <h3 class="indexable" data-level="3" id="TOE_Boundary">1.3.1 TOE Boundary</h3>
+        The physical boundary for a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that conforms to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is a software application that is installed on top of a general-purpose or mobile operating system. 
+        
+        The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s logical boundary includes all functionality required by the claimed
+        <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> as well as the redaction functionality and related capabilities that are defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. Any
+        functionality that is provided by the application that is not relevant to the security requirements
+        defined by this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> or the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> is considered to be outside the scope of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
+      
+      
+    
+
+    <h2 class="indexable" data-level="2" id="Use_Cases">1.4 Use Cases</h2>
+
+    Redaction tools perform tasks associated primarily with
+      the following use case. 
+      <dl><dt id="usecase1"> [USE CASE 1] Content Redaction</dt><dd><span class="description">Redaction tools are used for the redaction of user-selected content from a
+            document. </span></dd></dl>
+    
+  
+  <h1 class="indexable" data-level="1" id="Conformance_Claims">2 Conformance Claims</h1>
+      <dl><dt class="cclaim defined" id="Conformance Statement">Conformance Statement</dt><dd><span class="description">An <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> must claim exact conformance to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
+            <br/><br/>
+            The evaluation methods used for evaluating the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> are a combination of the workunits defined in <a href="#bibCEM">[CEM]</a> as well as the
+            Evaluation Activities for ensuring that individual <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> have sufficient supporting evidence in the Security Target and 
+            guidance documentation and have been sufficiently tested by the laboratory as part of completing ATE_IND.1.
+          </span></dd><dt class="cclaim defined" id="CC Conformance Claims">CC Conformance Claims</dt><dd><span class="description">This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is conformant to Parts 2 (extended) and 3 (extended) of Common Criteria <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1.</span></dd><dt class="cclaim defined" id="PP Claim">PP Claim</dt><dd><span class="description">This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not claim conformance to any other Protection Profile.<p></p>
+            No other <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules are allowed to be specified in a <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> with this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> beyond its <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. 
+          </span></dd><dt class="cclaim defined" id="Package Claim">Package Claim</dt><dd><span class="description"><ul>
+            <li>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not claim conformance to any functional packages.</li>
+            <li>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> does not conform to any assurance packages.</li>
+          </ul>
+          </span></dd></dl>
+    <h1 class="indexable" data-level="1" id="Security_Problem_Definition">3 Security Problem Definition</h1>
+    The security problem is described in terms of the threats that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is expected to address,
+    assumptions about its operational environment (<abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>), and any organizational security policies that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is
+    expected to enforce.<br/>
+
+    
+    <h2 class="indexable" data-level="2" id="threats">3.1 Threats</h2>
+      The following threats defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> add to the threats defined by the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.
+      <dl><dt class="threat defined" id="T.CLUES_TO_ORIGINAL_DATA">T.CLUES_TO_ORIGINAL_DATA</dt><dd><span class="description">A poorly-designed or poorly-implemented redaction tool can give false confidence
+            of redaction by leaving clues to the nature of the original information in the redacted area of a document.</span></dd><dt class="threat defined" id="T.UNREDACTED_DATA">T.UNREDACTED_DATA</dt><dd><span class="description">A poorly-designed or poorly-implemented redaction tool can give false confidence of redcation by failing to remove
+            user-selected visible or hidden data in such a way that the original information is inadvertently distributed.
+          </span></dd></dl>
+    
+    
+    
+    <h2 class="indexable" data-level="2" id="Assumptions">3.2 Assumptions</h2>
+These assumptions are made on the Operational Environment (<abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>) in order to be able to ensure that the
+security functionality specified in the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> can be provided by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
+If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is placed in an <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> that does not meet these assumptions, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may no longer be able to
+provide all of its security functionality.
+      
+      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines assumptions that extend those defined in the supported <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.
+      <dl><dt class="assumption defined" id="A.KNOWLEDGEABLE_USER">A.KNOWLEDGEABLE_USER</dt><dd><span class="description">The user is knowledgeable about document management and has appropriate
+            training with the redaction tool. Part of this knowledge and training includes how to
+            prepare a document for the redaction tool such as resolving and disabling tracked changes
+            prior to redaction, working with a copy of the document to preserve the original file, and
+            removing passwords and decrypting files.</span></dd></dl>
+       
+    
+    
+    
+    <h2 class="indexable" data-level="2" id="Organizational_Security_Policies">3.3 Organizational Security Policies</h2><p>An organization deploying the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is
+      expected to satisfy the organizational security policy listed below in addition to all
+      organizational security policies defined by the claimed <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. </p>
+      <dl><dt class="OSP defined" id="P.INFORMATION_RELEASE_POLICY">P.INFORMATION_RELEASE_POLICY</dt><dd><span class="description">There is a redaction or information release policy in place for the
+        organization which the user follows.</span></dd></dl>
+    
+    
+    <h1 class="indexable" data-level="1" id="Security_Objectives">4 Security Objectives</h1>  
+    
+    
+    
+    <h2 class="indexable" data-level="2" id="Security_Objectives_for_the_TOE">4.1 Security Objectives for the TOE</h2>
+      <dl><dt class="SO defined" id="O.INSPECTION">O.INSPECTION</dt><dd><span class="description">The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will analyze the file content
+          for metadata and elements, to include any that are purposely hidden or not immediately
+          visible to the naked eye. These metadata and elements include, but are not limited to, those
+          that are obstructed from view such as shapes on top of text, hidden objects (manual direct
+          formatting or programmatically hidden), and text that is positioned off the margins
+          or is located in the header and footer sections of the file.</span></dd><dt class="SO defined" id="O.PROPER_OUTPUT">O.PROPER_OUTPUT</dt><dd><span class="description">The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will react to unexpected input data or behavior by ensuring that it will not produce an output document with insufficient redactions made or with its own additions made.</span></dd><dt class="SO defined" id="O.REDACTION">O.REDACTION</dt><dd><span class="description">The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will provide the ability
+          to completely remove any data selected for redaction.</span></dd><dt class="SO defined" id="O.REPORT">O.REPORT</dt><dd><span class="description">The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will provide the ability
+          to produce a report of all data that was redacted and any errors that occurred during redaction.</span></dd><dt class="SO defined" id="O.REVIEW">O.REVIEW</dt><dd><span class="description">The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will provide the ability for a user to review a document to select the data that will be redacted in it.</span></dd></dl>
+    
+    
+    
+    
+    <h2 class="indexable" data-level="2" id="SecurityObjectivesTOEorEnvironment">4.2 Security Objectives for the Operational Environment</h2>
+The <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements technical and procedural measures to assist the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in correctly providing its security functionality (which is defined by the security objectives for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>).
+The security objectives for the <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> consist of a set of statements describing the goals that the <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> should achieve.
+This section defines the security objectives that are to be addressed by the IT domain or by non-technical or procedural means.
+The assumptions identified in Section 3 are incorporated as security objectives for the environment.
+      
+      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines environmental security objectives that extend those defined in
+      the supported <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.
+      
+      <dl><dt class="SOE defined" id="OE.KNOWLEDGEABLE_USER">OE.KNOWLEDGEABLE_USER</dt><dd><span class="description">The organization takes steps to ensure that users entrusted to operate the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> have adequate training in its use and in related document management activities.
+          </span></dd><dt class="SOE defined" id="OE.INFORMATION_RELEASE_POLICY">OE.INFORMATION_RELEASE_POLICY</dt><dd><span class="description">The organization develops an information release policy that is clearly communicated to <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> users so that users have sufficient information to apply correct redactions.
+          </span></dd></dl>
+    
+    
+    
+    <h2 id="SOR" class="indexable,h2" data-level="2">4.3 Security Objectives Rationale</h2>   
+    This section describes how the assumptions, threats, and organizational 
+    security policies map to the security objectives.
+    <table><caption><span class="ctr" data-myid="t-sec-obj-rat" data-counter-type="ct-Table" id="t-sec-obj-rat">Table <span class="counter">1</span></span>: Security Objectives Rationale</caption><tr class="header"><td>Threat, Assumption, or OSP</td><td>Security Objectives</td><td>Rationale</td></tr><tr class="major-row"><td rowspan="2"><a href="#T.CLUES_TO_ORIGINAL_DATA">T.CLUES_​TO_​ORIGINAL_​DATA</a></td><td><a href="#O.INSPECTION">O.INSPECTION</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of clues to unredacted data by ensuring that the entire document is searched for redactable information, including hidden data and metadata.</td></tr><tr><td><a href="#O.REDACTION">O.REDACTION</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of clues to unredacted data by ensuring that the redaction process replaces the visible space of redacted data in a way that leaves no clues as to the original unredacted data.</td></tr><tr class="major-row"><td rowspan="4"><a href="#T.UNREDACTED_DATA">T.UNREDACTED_​DATA</a></td><td><a href="#O.PROPER_OUTPUT">O.PROPER_​OUTPUT</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of unredacted data by ensuring that unexpected or corrupted inputs do not cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to fail in a way that would generate an unredacted or improperly redacted output.</td></tr><tr><td><a href="#O.REDACTION">O.REDACTION</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of unredacted data by implementing a redaction function.</td></tr><tr><td><a href="#O.REPORT">O.REPORT</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of unredacted data by generating a report that clearly shows to the user what data was redacted.</td></tr><tr><td><a href="#O.REVIEW">O.REVIEW</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of unredacted data by allowing the user to specify the data that will be redacted from a document.</td></tr><tr class="major-row"><td rowspan="1"><a href="#A.KNOWLEDGEABLE_USER">A.KNOWLEDGEABLE_​USER</a></td><td><a href="#OE.KNOWLEDGEABLE_USER">OE.KNOWLEDGEABLE_​USER</a></td><td>The assumption is realized through achievement of an organizational objective that accomplishes the goal of the assumption.</td></tr><tr class="major-row"><td rowspan="1"><a href="#P.INFORMATION_RELEASE_POLICY">P.INFORMATION_​RELEASE_​POLICY</a></td><td><a href="#OE.INFORMATION_RELEASE_POLICY">OE.INFORMATION_​RELEASE_​POLICY</a></td><td>The assumption is realized through achievement of an organizational objective that accomplishes the goal of the assumption.</td></tr></table>
+    
+  <h1 id="Security_Requirements" class="indexable" data-level="1">5 Security Requirements</h1>
+      This chapter describes the security requirements which have to be fulfilled by the product under evaluation.
+     Those requirements comprise functional components from Part 2 and assurance components from Part 3 of 
+       <a href="#bibCC">[CC]</a>.
+       
+    The following conventions are used for the completion of operations:
+     <ul>
+       <li>
+         <b>Refinement</b> operation (denoted by <b>bold text</b> or <strike>strikethrough
+         text</strike>): Is used to add details to a requirement (including replacing an assignment
+         with a more restrictive selection) or to remove part of the requirement that is made irrelevant
+         through the completion of another operation, and thus further restricts a requirement.
+         </li>
+       <li>
+         <b>Selection</b> (denoted by <i>italicized text</i>): Is used to select one or more options
+         provided by the [<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>] in stating a requirement.</li>
+       <li>
+         <b>Assignment</b> operation (denoted by <span class="assignable-content">italicized text</span>): Is used to assign a
+         specific value to an unspecified parameter, such as the length of a password. Showing the
+         value in square brackets indicates assignment.</li>
+       <li>
+         <b>Iteration</b> operation: Is indicated by appending the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> name with a slash and unique identifier
+            suggesting the purpose of the operation, e.g. "/EXAMPLE1."
+       </li>
+     </ul>
+   <h2 id="secreq-AppPP" class="indexable" data-level="2">5.1 App PP
+       Security Functional Requirements Direction
+    </h2> 
+		  In a <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> that includes the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, there are no App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> requirements that must be claimed in a certain manner for redaction functionality to be correctly implemented. Therefore, all <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> operations 
+		  may be performed at the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author's discretion.
+		  
+		<h3 id="modsfr-AppPP" class="indexable" data-level="3">5.1.1  Modified SFRs </h3>
+      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify any <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> defined by the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.
+    <h2 id="man-sfrs" class="indexable" data-level="2">5.2 TOE Security Functional Requirements</h2>
+	The following section describes the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> that must be satisfied by any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that claims conformance to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
+	These <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> must be claimed regardless of which <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> is used to define the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
+        
+        
+          
+          <h3 id="m-fau" class="indexable" data-level="3">5.2.1 Security Audit (FAU)</h3>
+            
+            
+            
+            
+            <div class="comp" id="FAU_ALR_EXT.1"><h4>FAU_ALR_EXT.1 Redaction Failure Notification</h4>
+              
+              
+              
+              
+              
+              
+              
+              <div class="element"><div class="reqid" id="FAU_ALR_EXT.1.1"><a href="#FAU_ALR_EXT.1.1" class="abbr">FAU_ALR_EXT.1.1</a></div><div class="reqdesc">
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must make the user aware when redaction fails for any reason. 
+                </div></div>
+            </div>
+            
+            
+            
+            
+                        
+          
+            <div class="comp" id="FAU_REP_EXT.1"><h4>FAU_REP_EXT.1 Report Generation</h4>
+              
+              
+              
+              
+              
+              
+              
+              <div class="element"><div class="reqid" id="FAU_REP_EXT.1.1"><a href="#FAU_REP_EXT.1.1" class="abbr">FAU_REP_EXT.1.1</a></div><div class="reqdesc">
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must be able to generate a report entry that contains metadata about each element that
+                  was redacted, including at least the following: the type of the element that was removed, the
+                  location if it was a visible element, and whether the element was selected by the user or removed
+                  automatically. 
+                <div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">The report can be a configurable feature that is only generated on user
+                  request. Location can be a page number, a cell number for a spreadsheet, or some other
+                  indication that allows the user to easily locate the visible element. </span></div></div></div>
+            </div>
+        
+        
+        
+            
+            
+            
+            <div class="comp" id="FAU_SAR_EXT.1"><h4>FAU_SAR_EXT.1 Report Review</h4>
+              
+              
+              
+              
+              
+              
+              
+              <div class="element"><div class="reqid" id="FAU_SAR_EXT.1.1"><a href="#FAU_SAR_EXT.1.1" class="abbr">FAU_SAR_EXT.1.1</a></div><div class="reqdesc">
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must allow the user to access a report of the data that was redacted. 
+                <div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">This can be satisfied with a dialog box or other simple list of items that were
+                  redacted. The report can be a configurable feature that is only generated on user request.
+                </span></div></div></div>
+            </div>
+          
+          
+          
+          <h3 id="m-fdp" class="indexable" data-level="3">5.2.2 User Data Protection (FDP)</h3>
+        
+        
+            
+            
+            
+            <div class="comp" id="FDP_DID_EXT.1"><h4>FDP_DID_EXT.1 Identification of Data</h4>
+              
+              
+              
+              
+              
+              
+              
+              <div class="element"><div class="reqid" id="FDP_DID_EXT.1.1"><a href="#FDP_DID_EXT.1.1" class="abbr">FDP_DID_EXT.1.1</a></div><div class="reqdesc">
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must identify all hidden data in the document, except remnant data and undo or
+                  tracked change buffers, and allow the user to review and select each hidden data element
+                  individually for redaction.  
+                <div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+                  Remnant data and undo or tracked change buffers are removed automatically
+                  according to <a href="#FDP_RIP_EXT.1">FDP_RIP_EXT.1</a>. If the file or part of the file is encrypted, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will have to
+                  reject the file or decrypt it so that the tool and the user can review the hidden data.
+                </span></div></div></div>
+              <div class="element"><div class="reqid" id="FDP_DID_EXT.1.2"><a href="#FDP_DID_EXT.1.2" class="abbr">FDP_DID_EXT.1.2</a></div><div class="reqdesc">
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must identify all obscured data and must [<b>selection</b>: <span class="selectable-content" id="_s_1">remove the obscured data automatically</span>,  <span class="selectable-content" id="_s_2">allow the user to redact the obscured data</span> ]. 
+                <div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+                  Obscured data is anything that could be visible but is obscured in some way,
+                  such as the cropped portion of an image or graphic. While the user sees only the portion of the
+                  graphic in the view container, the document contains the data in the cropped area. The tool must
+                  either remove the obscured data automatically or give the user the choice to remove or retain the
+                  obscured area.
+                </span></div></div></div>
+              <div class="element"><div class="reqid" id="FDP_DID_EXT.1.3"><a href="#FDP_DID_EXT.1.3" class="abbr">FDP_DID_EXT.1.3</a></div><div class="reqdesc">
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must identify images where the visible representation is reduced in size or resolution
+                  from the representation stored in the file format and must [<b>selection</b>: <span class="selectable-content" id="_s_3">automatically replace the stored data with the visible representation</span>,  <span class="selectable-content" id="_s_4">allow the user to replace the stored data with the visible representation</span>,  <span class="selectable-content" id="_s_5">allow the user to leave the image unaltered</span> ]. 
+                </div></div>
+            </div>
+        
+        
+            
+            
+            
+            <div class="comp" id="FDP_DIN_EXT.1"><h4>FDP_DIN_EXT.1 Deep Inspection</h4>
+              
+              
+              
+              
+              
+              
+              
+              <div class="element"><div class="reqid" id="FDP_DIN_EXT.1.1"><a href="#FDP_DIN_EXT.1.1" class="abbr">FDP_DIN_EXT.1.1</a></div><div class="reqdesc">
+                  For each element of the file format that can contain its own metadata, other elements, or hidden
+                  data, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must [<b>selection</b>: <span class="selectable-content" id="_s_6">recurse through the element chain and apply the redaction operation to each layer</span>,  <span class="selectable-content" id="_s_7">simplify the element</span>,  <span class="selectable-content" id="_s_8">redact the element</span> ].   
+                <div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">For example, <abbr class="dyn-abbr"><a href="#abbr_JPG">JPG</a></abbr> images can contain metadata called <abbr class="dyn-abbr"><a href="#abbr_EXIF">EXIF</a></abbr> data. Some image
+                  formats can contain the same image in another format, such as raw, which can contain a complete
+                  <abbr class="dyn-abbr"><a href="#abbr_JPG">JPG</a></abbr> version of the image. A complex object can contain other complex objects (e.g., Microsoft
+                  <abbr class="dyn-abbr"><a href="#abbr_OLE">OLE</a></abbr>). The tool must apply the requirements to each layer of every element and identify
+                  hidden data or metadata, not just at the top layer of the document, but in each element and in all layers
+                  within that element. If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> cannot recurse through the layers, it must simplify the element at
+                  the top level.
+                </span></div></div></div>
+            </div>
+        
+        
+        
+            
+            
+            
+            <div class="comp" id="FDP_LOC_EXT.1"><h4>FDP_LOC_EXT.1 Redact Content from Every Location</h4>
+              
+              
+              
+              
+              
+              
+              
+              <div class="element"><div class="reqid" id="FDP_LOC_EXT.1.1"><a href="#FDP_LOC_EXT.1.1" class="abbr">FDP_LOC_EXT.1.1</a></div><div class="reqdesc">
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must remove redacted content from every location in the file format where it is stored. 
+                </div></div>
+            </div>
+        
+        
+        
+        
+            
+            
+            
+            <div class="comp" id="FDP_NND_EXT.1"><h4>FDP_NND_EXT.1 No New Data Introduced by TOE</h4>
+              
+              
+              
+              
+              
+              
+              
+              <div class="element"><div class="reqid" id="FDP_NND_EXT.1.1"><a href="#FDP_NND_EXT.1.1" class="abbr">FDP_NND_EXT.1.1</a></div><div class="reqdesc">
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> itself must not introduce new hidden data that was not requested by the user without
+                  warning the user of the addition. 
+                <div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+                  If the redaction process changes the format of an object, such as converting a
+                  complex object to an image, the conversion must not introduce new metadata.
+                  <p></p>
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can modify or add structural data, including fonts, without alerting the user if the
+                  modification is necessary for the proper display or printing of the file.
+                </span></div></div></div>
+            </div>
+            
+            
+            
+            
+            
+            <div class="comp" id="FDP_OBJ_EXT.1"><h4>FDP_OBJ_EXT.1 Removal of Objects and Corresponding References</h4>
+              
+              
+              
+              
+              
+              
+              
+              <div class="element"><div class="reqid" id="FDP_OBJ_EXT.1.1"><a href="#FDP_OBJ_EXT.1.1" class="abbr">FDP_OBJ_EXT.1.1</a></div><div class="reqdesc">
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must remove all references and indicators in the structural data to objects that are
+                  completely redacted by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
+                <div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+                  In some formats, there are references in the structural data to objects, such as
+                  a name dictionary in PDF. If an object in a PDF document, such as an image, is completely
+                  redacted (i.e., the user has selected the entire image to be redacted), any references to the image in a name
+                  dictionary or structural references to the image must also be removed. If only part of the object is selected for redaction, then the
+                  references necessarily remain in the file since the object remains in the file.
+                </span></div></div></div>
+            </div>
+            
+            
+        
+            
+            
+            
+            <div class="comp" id="FDP_REM_EXT.1"><h4>FDP_REM_EXT.1 Removal of Redacted Data</h4>
+              
+              
+              
+              
+              
+              
+              
+              <div class="element"><div class="reqid" id="FDP_REM_EXT.1.1"><a href="#FDP_REM_EXT.1.1" class="abbr">FDP_REM_EXT.1.1</a></div><div class="reqdesc">
+                  All data that is either selected by the user for redaction or identified by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for redaction
+                  must be removed from the document.
+                <div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">Selected content must be removed, not obscured by encryption, encoding,
+                  conversion to a proprietary format, or any other method.
+                </span></div></div></div>
+            </div>
+            
+            
+            
+            
+            
+            
+            <div class="comp" id="FDP_RIP_EXT.1"><h4>FDP_RIP_EXT.1 Residual Information Removal</h4>
+              
+              
+              
+              
+              
+              
+              
+              <div class="element"><div class="reqid" id="FDP_RIP_EXT.1.1"><a href="#FDP_RIP_EXT.1.1" class="abbr">FDP_RIP_EXT.1.1</a></div><div class="reqdesc">
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must automatically remove all remnant data, undo buffers, tracked changes buffers,
+                  multiple versions of the same object, and any buffer or cache type data container.  
+                <div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+                  The user does not have to select this data for removal.
+                </span></div></div></div>
+            </div>
+            
+            
+            
+            
+            
+            <div class="comp" id="FDP_RPL_EXT.1"><h4>FDP_RPL_EXT.1 Visible Space Replace</h4>
+              
+              
+              
+              
+              
+              
+              
+              <div class="element"><div class="reqid" id="FDP_RPL_EXT.1.1"><a href="#FDP_RPL_EXT.1.1" class="abbr">FDP_RPL_EXT.1.1</a></div><div class="reqdesc">
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must replace the visible space of redacted content in such a way that the visible space
+                  conveys no information about the previous contents. 
+                <div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">A vendor may use several different methods to replace content, such as
+                  opaque blocks, text, whitespace, or some other vendor-defined method. These methods must not
+                  convey information about the content being replaced. For example, if text is replaced with text,
+                  the replacement text must not indicate length of component words. Blocks of color used to
+                  replace parts of images must not show variations in intensity that could convey information
+                  about the image content.
+                  
+                </span></div></div></div>
+            </div>
+        
+        
+        
+       
+   
+            
+            
+            
+            <div class="comp" id="FDP_SEL_EXT.1"><h4>FDP_SEL_EXT.1 Selected Redaction</h4>
+              
+              
+              
+              
+              
+              
+              
+              <div class="element"><div class="reqid" id="FDP_SEL_EXT.1.1"><a href="#FDP_SEL_EXT.1.1" class="abbr">FDP_SEL_EXT.1.1</a></div><div class="reqdesc">
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must [<b>selection</b>: <span class="selectable-content" id="_s_9">simplify</span>,  <span class="selectable-content" id="_s_10">remove</span> ]
+                  any complex object, embedded object, or graphic
+                  image that is selected for redaction.   
+                <div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">The selection may be of either the whole element or only part of the element.
+                  If part of an element is selected, only that part must be simplified or removed.
+                </span></div></div></div>
+            </div>
+        
+        
+    
+   
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="comp" id="FDP_VAL_EXT.1"><h4>FDP_VAL_EXT.1 Validation of Data</h4>
+              
+              
+              
+              
+              
+              
+              
+              <div class="element"><div class="reqid" id="FDP_VAL_EXT.1.1"><a href="#FDP_VAL_EXT.1.1" class="abbr">FDP_VAL_EXT.1.1</a></div><div class="reqdesc">
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must remove unrecognized data, unexpected data, and extraneous structural data.  
+                <div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">Structural data is extraneous if it is unnecessary for the printing or display of
+                  the document contents or unnecessary for the functionality of the document.
+                  <p></p>
+                  For example, many formats include comments, such as the PDF format which uses a percent sign (%) to precede file format comments.
+                  <p></p>
+                  When these comments are unnecessary, are unrelated to the printing or display of
+                  the content of the document, or do not provide any functionality, they must be removed.
+                  <p></p>
+                  For example, some formats expect a header structure starting at the first byte of a file, but a tool
+                  may be able to interpret a file where the header starts at a later byte by ignoring the data that
+                  precedes the header structure. In this case, the preceding data must be removed since it is
+                  unexpected.
+                </span></div></div></div>
+              
+              <div class="element"><div class="reqid" id="FDP_VAL_EXT.1.2"><a href="#FDP_VAL_EXT.1.2" class="abbr">FDP_VAL_EXT.1.2</a></div><div class="reqdesc">
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must [<b>selection</b>: <span class="selectable-content" id="_s_11">simplify</span>,  <span class="selectable-content" id="_s_12">remove</span> ] any element which it cannot completely interpret. 
+                <div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+                  For example, if the tool cannot recurse through a stream with embedded <abbr class="dyn-abbr"><a href="#abbr_OLE">OLE</a></abbr>
+                  objects, it must convert the stream to a single layer image with no metadata or remove it. If the 
+                  redaction tool cannot interpret or process temporal objects, it must remove the temporal object
+                  and replace it with a simplified object or other placeholder. If a stream of data is compressed,
+                  encoded, or encrypted and the redaction tool cannot decompress, decode, or decrypt the data, the
+                  tool must delete the stream.
+                </span></div></div></div>
+            </div>
+            
+          
+          
+          
+          
+          <h3 id="m-fmt" class="indexable" data-level="3">5.2.3 Security Management (FMT)</h3>
+          
+          
+          
+          <div class="comp" id="FMT_RVW_EXT.1"><h4>FMT_RVW_EXT.1 Element Review</h4>
+            
+            
+            
+            
+            
+            
+            
+            <div class="element"><div class="reqid" id="FMT_RVW_EXT.1.1"><a href="#FMT_RVW_EXT.1.1" class="abbr">FMT_RVW_EXT.1.1</a></div><div class="reqdesc">
+                The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall identify the visible data elements that the user can select in whole or in part for redaction.
+              <div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+                If the file or part of the file is encrypted, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will have to reject the file
+                or decrypt it so that the user can review the data.
+              </span></div></div></div>
+          </div>
+          
+          
+          
+          
+          <h3 id="m-fpt" class="indexable" data-level="3">5.2.4 Protection of the TSF (FPT)</h3>
+            
+            
+            
+            <div class="comp" id="FPT_FLS.1"><h4>FPT_FLS.1 Failure with Preservation of Secure State</h4>
+              
+                            
+              <div class="element"><div class="reqid" id="FPT_FLS.1.1"><a href="#FPT_FLS.1.1" class="abbr">FPT_FLS.1.1</a></div><div class="reqdesc">
+                  The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall preserve a secure state when the following types of
+                  failures occur: [<b>assignment</b>: 
+     <span class="assignable-content">list of types of failures in the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>]. 
+                <div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+                  If the redaction functionality fails for any reason, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must not produce
+                  a partially redacted file.
+                </span></div></div></div>
+            </div>
+          
+        <h2 id="obj-req-map" class="indexable" data-level="2">5.3 TOE Security Functional Requirements Rationale</h2><p>The following rationale provides justification for each security objective for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, 
+    showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to meet and achieve the security objectives:<br/><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">2</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Objective</th><th>Addressed by</th><th>Rationale</th></tr><tr class="major-row"><td rowspan="2"><a href="#O.INSPECTION">O.INSPECTION</a><br/></td><td><a href="#FDP_DID_EXT.1">FDP_DID_EXT.1</a></td><td>This requirement supports the objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to implement a mechanism to inspect a document for common mechanisms used to hide unredacted data.</td></tr>
+<tr><td><a href="#FDP_DIN_EXT.1">FDP_DIN_EXT.1</a></td><td>This requirement supports the objective by defining a deep inspection mechanism by which the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can examine hidden data or metadata to find unredacted data.</td></tr>
+<tr class="major-row"><td rowspan="3"><a href="#O.PROPER_OUTPUT">O.PROPER_​OUTPUT</a><br/></td><td><a href="#FDP_NND_EXT.1">FDP_NND_EXT.1</a></td><td>This requirement supports the objective by prohibiting the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> from introducing new data to a file without the user's instruction.</td></tr>
+<tr><td><a href="#FDP_VAL_EXT.1">FDP_VAL_EXT.1</a></td><td>This requirement supports the objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to implement a mechanism that allows it to handle unrecognizable data.</td></tr>
+<tr><td><a href="#FPT_FLS.1">FPT_FLS.1</a></td><td>This requirement supports the objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to maintain a secure state (i.e., do not produce unvalidated and potentially unredacted output) if it encounters a failure or some other unexpected event.</td></tr>
+<tr class="major-row"><td rowspan="6"><a href="#O.REDACTION">O.REDACTION</a><br/></td><td><a href="#FDP_LOC_EXT.1">FDP_LOC_EXT.1</a></td><td>This requirement supports the objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to remove redacted content from every location in the source file.</td></tr>
+<tr><td><a href="#FDP_OBJ_EXT.1">FDP_OBJ_EXT.1</a></td><td>This requirement supports the objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to remove references to redacted data in the source file.</td></tr>
+<tr><td><a href="#FDP_REM_EXT.1">FDP_REM_EXT.1</a></td><td>This requirement supports the objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to redact all data that has been selected for redaction.</td></tr>
+<tr><td><a href="#FDP_RIP_EXT.1">FDP_RIP_EXT.1</a></td><td>This requirement supports the objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to purge all residual data so that unredacted data cannot be extracted from memory.</td></tr>
+<tr><td><a href="#FDP_RPL_EXT.1">FDP_RPL_EXT.1</a></td><td>This requirement supports the objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to replace the visible space of redacted documents in a manner that does not provide clues to the original unredacted data.</td></tr>
+<tr><td><a href="#FDP_SEL_EXT.1">FDP_SEL_EXT.1</a></td><td>This requirement supports the objective by defining how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> handles complex objects that are selected for redaction, whether by simplification or removal.</td></tr>
+<tr class="major-row"><td rowspan="3"><a href="#O.REPORT">O.REPORT</a><br/></td><td><a href="#FAU_ALR_EXT.1">FAU_ALR_EXT.1</a></td><td>This requirement supports the objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to notify the user of unsuccessful redaction operations.</td></tr>
+<tr><td><a href="#FAU_REP_EXT.1">FAU_REP_EXT.1</a></td><td>This requirement supports the objective by identifying the contents of any report that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> generates about its redaction behavior.</td></tr>
+<tr><td><a href="#FAU_SAR_EXT.1">FAU_SAR_EXT.1</a></td><td>This requirement supports the objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> allow the user to access reports on redacted data.</td></tr>
+<tr class="major-row"><td rowspan="1"><a href="#O.REVIEW">O.REVIEW</a><br/></td><td><a href="#FMT_RVW_EXT.1">FMT_RVW_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the requirement to review and select data to be redacted.</td></tr>
+</table></p><h1 id="mod-conrat" class="indexable" data-level="1">6 Consistency Rationale</h1><h2 id="conrat-AppPP" class="indexable" data-level="2">6.1 
+    Protection Profile for Redaction Tools</h2><h3 id="contoe-AppPP" class="indexable" data-level="3">6.1.1 
+	Consistency of TOE Type
+      </h3>If this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is used to extend the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> type for the overall <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is still a software application.
+          The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> boundary is simply extended to include the redaction tool functionality that is built into the application 
+          so that additional security functionality is claimed within the scope of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
+          <br/><br/>
+          The only asset for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is the software executable and sensitive data that comprises the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. The entire <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> as defined by the combination of the
+          <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is a single asset. The only differences to the threat model are that the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> introduces 
+          threats related specifically to the failure of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to fully redact data, which is a use case specific to redaction tools.
+      <h3 id="consecprob-AppPP" class="indexable" data-level="3">6.1.2 
+	Consistency of Security Problem Definition
+      </h3>Listed below are the threats, objectives, and OSPs defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> with rationale for their consistency with the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.
+          The <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> shares the
+          executable application asset with the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> but defines additional threats because the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines a specific type of software application
+          with potential exploits that are common to the application type.<table><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> Threat, Assumption, OSP</th><th>Consistency Rationale</th></tr><tr><td><a href="#T.CLUES_TO_ORIGINAL_DATA">T.CLUES_TO_ORIGINAL_DATA</a></td><td>This threat is consistent with the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because it relates to functionality that is exclusive to the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td></tr><tr><td><a href="#T.UNREDACTED_DATA">T.UNREDACTED_DATA</a></td><td>This threat is consistent with the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because it relates to functionality that is exclusive to the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td></tr><tr><td><a href="#A.KNOWLEDGEABLE_USER">A.KNOWLEDGEABLE_USER</a></td><td>This assumption is an extension of the A.PROPER_USER and A.PROPER_ADMIN assumptions in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> but extends them to apply specifically to the operation of redaction tools.</td></tr><tr><td><a href="#P.INFORMATION_RELEASE_POLICY">P.INFORMATION_RELEASE_POLICY</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not define any organizational security policies so there are no existing policies that this could contradict.</td></tr></table><h3 id="conobj-AppPP" class="indexable" data-level="3">6.1.3 
+	Consistency of Objectives
+      </h3><p>
+        Listed below are the security objectives defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> with rationale for their consistency with the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>. The <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> shares the
+        executable application asset with the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> but defines additional security objectives because the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines a specific type of software application
+        with security functionality that is common to the application type.
+      
+	  The objectives for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> are consistent with the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> based on the following rationale:
+      <table><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Objective</th><th>Consistency Rationale</th></tr><tr><td><a href="#O.INSPECTION">O.INSPECTION</a></td><td>This objective relates solely to redaction behavior, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> objectives from being satisfied.</td></tr><tr><td><a href="#O.PROPER_OUTPUT">O.PROPER_OUTPUT</a></td><td>This objective relates solely to redaction behavior, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> objectives from being satisfied.</td></tr><tr><td><a href="#O.REDACTION">O.REDACTION</a></td><td>This objective relates solely to redaction behavior, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> objectives from being satisfied.</td></tr><tr><td><a href="#O.REPORT">O.REPORT</a></td><td>This objective relates solely to redaction behavior, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> objectives from being satisfied.</td></tr><tr><td><a href="#O.REVIEW">O.REVIEW</a></td><td>This objective relates solely to redaction behavior, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> objectives from being satisfied.</td></tr></table></p><p>
+	  The objectives for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> are consistent with the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> based on the following rationale:
+      <table><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> Objective</th><th>Consistency Rationale</th></tr><tr><td><a href="#OE.KNOWLEDGEABLE_USER">OE.KNOWLEDGEABLE_USER</a></td><td>This objective is an extension of the <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>.PROPER_USER and <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>.PROPER_ADMIN objectives in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> but extends them to apply specifically to the operation of redaction tools.</td></tr><tr><td><a href="#OE.INFORMATION_RELEASE_POLICY">OE.INFORMATION_RELEASE_POLICY</a></td><td>This objective does not contradict the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because it describes the implementation of an organizational security policy.</td></tr></table></p><h3 id="conreq-AppPP" class="indexable" data-level="3">6.1.4 
+	Consistency of Requirements
+      </h3>
+      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> identifies several <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> from the
+      App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> that are needed to support
+      Redaction Tool functionality.
+      This is considered to be consistent because the functionality provided by the
+      App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is being used for its intended purpose.
+      
+          The rationale for why this does not conflict with the claims
+      defined by the
+      App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> are as follows:
+      <table><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> Requirement</th><th>Consistency Rationale</th></tr><tr><th colspan="2"> Modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th></tr><tr><td colspan="2" style="text-align:center">
+	    This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify any requirements when the
+	    App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is the base.
+	  </td></tr><tr><th colspan="2"> Additional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th></tr><tr><td colspan="2" style="text-align:center">
+	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not add any requirements when the
+	      App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is the base.
+	    </td></tr><tr><th colspan="2"> Mandatory <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FAU_ALR_EXT.1">FAU_ALR_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented.
+              </td></tr><tr><td><a href="#FAU_REP_EXT.1">FAU_REP_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented.
+              </td></tr><tr><td><a href="#FAU_SAR_EXT.1">FAU_SAR_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented.
+              </td></tr><tr><td><a href="#FDP_DID_EXT.1">FDP_DID_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented.
+              </td></tr><tr><td><a href="#FDP_DIN_EXT.1">FDP_DIN_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented.
+              </td></tr><tr><td><a href="#FDP_LOC_EXT.1">FDP_LOC_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented.
+              </td></tr><tr><td><a href="#FDP_NND_EXT.1">FDP_NND_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented.
+              </td></tr><tr><td><a href="#FDP_OBJ_EXT.1">FDP_OBJ_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented.
+              </td></tr><tr><td><a href="#FDP_REM_EXT.1">FDP_REM_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented.
+              </td></tr><tr><td><a href="#FDP_RIP_EXT.1">FDP_RIP_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented.
+              </td></tr><tr><td><a href="#FDP_RPL_EXT.1">FDP_RPL_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented.
+              </td></tr><tr><td><a href="#FDP_SEL_EXT.1">FDP_SEL_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented.
+              </td></tr><tr><td><a href="#FDP_VAL_EXT.1">FDP_VAL_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented.
+              </td></tr><tr><td><a href="#FMT_RVW_EXT.1">FMT_RVW_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented.
+            </td></tr><tr><td><a href="#FPT_FLS.1">FPT_FLS.1</a></td><td>This requirement relates to the preservation of a secure state in the event of a <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> failure. This is not defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> but the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> has no requirements that prohibit it.
+              </td></tr></tr><tr><th colspan="2"> Optional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td colspan="2" style="text-align:center">
+	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Optional requirements.
+	    </td></tr></tr><tr><th colspan="2"> Objective <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td colspan="2" style="text-align:center">
+	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Objective requirements.
+	    </td></tr></tr><tr><th colspan="2"> Implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td colspan="2" style="text-align:center">
+	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Implementation-dependent requirements.
+	    </td></tr></tr><tr><th colspan="2"> Selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td colspan="2" style="text-align:center">
+	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Selection-based requirements.
+	    </td></tr></tr></table><h1 id="opt-sfrs" class="indexable" data-level="A">Appendix A -  Optional SFRs</h1><h2 id="opt-sfrs" class="indexable" data-level="2">A.1 Strictly Optional Requirements
+    </h2><p>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any 
+       Strictly Optional       <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>.</p><h2 id="obj-sfrs" class="indexable" data-level="2">A.2 Objective Requirements
+    </h2><p>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any 
+       Objective       <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>.</p><h2 id="impl-dep-sfrs" class="indexable" data-level="2">A.3 Implementation-dependent Requirements
+    </h2><p>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any 
+       Implementation-dependent       <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>.</p><h1 id="sel-sfrs" class="indexable" data-level="1">Appendix B -  Selection-based Requirements
+    </h1><p>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any 
+       Selection-based       <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>.</p><h1 id="ext-comp-defs" class="indexable" data-level="A">Appendix C -  Extended Component Definitions</h1>
+	This appendix contains the definitions for all extended requirements specified in the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
+
+    <h2 id="ext-comp-defs-bg" class="indexable" data-level="2">C.1 Extended Components Table</h2>
+
+	All extended components specified in the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> are listed in this table:
+
+<table class="sort_kids_"><caption data-sortkey="#0"><b><span class="ctr" data-myid="" data-counter-type="ct-Table" id="">Table <span class="counter">3</span></span>: Extended Component Definitions</b></caption><tr data-sortkey="#1"><th>Functional Class</th><th>Functional Components</th></tr><tr data-sortkey="Security Audit (FAU)"><td>Security Audit (FAU)</td><td>FAU_ALR_EXT Redaction Failure Notification<br/>FAU_REP_EXT Report Generation<br/>FAU_SAR_EXT Report Review<br/></td></tr><tr data-sortkey="Security Management (FMT)"><td>Security Management (FMT)</td><td>FMT_RVW_EXT Element Review<br/></td></tr><tr data-sortkey="User Data Protection (FDP)"><td>User Data Protection (FDP)</td><td>FDP_DID_EXT Identification of Data<br/>FDP_DIN_EXT Deep Inspection<br/>FDP_LOC_EXT Redact Content from Every Location<br/>FDP_NND_EXT No New Data Introduced by <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr><br/>FDP_OBJ_EXT Removal of Objects and Corresponding References<br/>FDP_REM_EXT Removal of Redacted Data<br/>FDP_RIP_EXT Residual Information Removal<br/>FDP_RPL_EXT Visible Space Replace<br/>FDP_SEL_EXT Selected Redaction<br/>FDP_VAL_EXT Validation of Data<br/></td></tr></table><h2 id="ext-comp-defs-bg" class="indexable" data-level="2">C.2 Extended Component Definitions</h2><span class="sort_kids_"><span data-sortkey="Security Audit (FAU)"><h3 id="ext-comp-FAU" class="indexable" data-level="3">C.2.1 Security Audit (FAU)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines the following extended components as part of the
+	 FAU class originally defined by <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2:
+	<h3 id="ext-comp-FAU_ALR_EXT" class="indexable" data-level="4">C.2.1.1 FAU_ALR_EXT Redaction Failure Notification</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family describe requirements for user notification in response to a specific kind of <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> failure.
+              </div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FAU_ALR_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FAU_ALR_EXT.1">FAU_ALR_EXT.1</a>,
+             Redaction Failure Notification,
+              requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to generate a notification in the event of a failed redaction operation.</p><h4>Management: FAU_ALR_EXT.1</h4><p>There are no management activities foreseen.</p><h4>Audit: FAU_ALR_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FAU_ALR_EXT.1 Redaction Failure Notification</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FDP_REM_EXT.1">FDP_REM_EXT.1</a> Removal of Redacted Data<p></p>
+              <a href="#FPT_FLS.1">FPT_FLS.1</a> Failure with Preservation of Secure State</td></tr></table><h4 id="ext-comp-FAU_ALR_EXT.1.1">FAU_ALR_EXT.1.1</h4>
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must make the user aware when redaction fails for any reason. 
+                </div></div><h3 id="ext-comp-FAU_REP_EXT" class="indexable" data-level="4">C.2.1.2 FAU_REP_EXT Report Generation</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for the generation of report data in response to a specific <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> action being performed.
+              </div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FAU_REP_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FAU_REP_EXT.1">FAU_REP_EXT.1</a>,
+             Report Generation,
+              requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to generate a report following the completion of a redaction operation that identifies the elements that were redacted along with metadata about each redaction.</p><h4>Management: FAU_REP_EXT.1</h4><p>There are no management activities foreseen.</p><h4>Audit: FAU_REP_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FAU_REP_EXT.1 Report Generation</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FDP_REM_EXT.1">FDP_REM_EXT.1</a> Removal of Redacted Data</td></tr></table><h4 id="ext-comp-FAU_REP_EXT.1.1">FAU_REP_EXT.1.1</h4>
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must be able to generate a report entry that contains metadata about each element that
+                  was redacted, including at least the following: the type of the element that was removed, the
+                  location if it was a visible element, and whether the element was selected by the user or removed
+                  automatically. 
+                </div></div><h3 id="ext-comp-FAU_SAR_EXT" class="indexable" data-level="4">C.2.1.3 FAU_SAR_EXT Report Review</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for user review of a specific type of <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> data. 
+              </div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FAU_SAR_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FAU_SAR_EXT.1">FAU_SAR_EXT.1</a>,
+             Report Review,
+              requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to have its generated report data be user-reviewable.</p><h4>Management: FAU_SAR_EXT.1</h4><p>
+                The following actions could be considered for the management functions in FMT: <ul>
+                  <li>View contents of generated report</li>
+                </ul>
+              </p><h4>Audit: FAU_SAR_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FAU_SAR_EXT.1 Report Review</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FAU_REP_EXT.1">FAU_REP_EXT.1</a> Report Generation</td></tr></table><h4 id="ext-comp-FAU_SAR_EXT.1.1">FAU_SAR_EXT.1.1</h4>
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must allow the user to access a report of the data that was redacted. 
+                </div></div></span><span data-sortkey="Security Management (FMT)"><h3 id="ext-comp-FMT" class="indexable" data-level="3">C.2.2 Security Management (FMT)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines the following extended components as part of the
+	 FMT class originally defined by <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2:
+	<h3 id="ext-comp-FMT_RVW_EXT" class="indexable" data-level="4">C.2.2.1 FMT_RVW_EXT Element Review</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define functionality for selecting data elements that can be redacted from a document.
+            </div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FMT_RVW_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FMT_RVW_EXT.1">FMT_RVW_EXT.1</a>,
+             Element Review,
+              requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to present a user interface that can be used to select data elements for redaction.</p><h4>Management: FMT_RVW_EXT.1</h4><p>
+              The following actions could be considered for the management functions in FMT: <ul>
+                <li>Selection of data elements to be redacted</li>
+              </ul>
+            </p><h4>Audit: FMT_RVW_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FMT_RVW_EXT.1 Element Review</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>No dependencies.</td></tr></table><h4 id="ext-comp-FMT_RVW_EXT.1.1">FMT_RVW_EXT.1.1</h4>
+                The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall identify the visible data elements that the user can select in whole or in part for redaction.
+              </div></div></span><span data-sortkey="User Data Protection (FDP)"><h3 id="ext-comp-FDP" class="indexable" data-level="3">C.2.3 User Data Protection (FDP)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines the following extended components as part of the
+	 FDP class originally defined by <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2:
+	<h3 id="ext-comp-FDP_DID_EXT" class="indexable" data-level="4">C.2.3.1 FDP_DID_EXT Identification of Data</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for the identification of data within a document that can be considered for redaction.
+              </div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FDP_DID_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FDP_DID_EXT.1">FDP_DID_EXT.1</a>,
+             Identification of Data,
+              requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to identify all hidden or obscured data in a document so that this data can be selectable for redaction.</p><h4>Management: FDP_DID_EXT.1</h4><p>
+                The following actions could be considered for the management functions in FMT: <ul>
+                  <li>Specify how the redaction operation is applied to small or low-resolution image data</li>
+                </ul>
+              </p><h4>Audit: FDP_DID_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FDP_DID_EXT.1 Identification of Data</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FMT_RVW_EXT.1">FMT_RVW_EXT.1</a> Element Review</td></tr></table><h4 id="ext-comp-FDP_DID_EXT.1.1">FDP_DID_EXT.1.1</h4>
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must identify all hidden data in the document, except remnant data and undo or
+                  tracked change buffers, and allow the user to review and select each hidden data element
+                  individually for redaction.  
+                <h4 id="ext-comp-FDP_DID_EXT.1.2">FDP_DID_EXT.1.2</h4>
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must identify all obscured data and must [<b>selection</b>: <span class="selectable-content" id="_s_1">remove the obscured data automatically</span>,  <span class="selectable-content" id="_s_2">allow the user to redact the obscured data</span> ]. 
+                <h4 id="ext-comp-FDP_DID_EXT.1.3">FDP_DID_EXT.1.3</h4>
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must identify images where the visible representation is reduced in size or resolution
+                  from the representation stored in the file format and must [<b>selection</b>: <span class="selectable-content" id="_s_3">automatically replace the stored data with the visible representation</span>,  <span class="selectable-content" id="_s_4">allow the user to replace the stored data with the visible representation</span>,  <span class="selectable-content" id="_s_5">allow the user to leave the image unaltered</span> ]. 
+                </div></div><h3 id="ext-comp-FDP_DIN_EXT" class="indexable" data-level="4">C.2.3.2 FDP_DIN_EXT Deep Inspection</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for inspecting document metadata for potential redaction.
+              </div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FDP_DIN_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FDP_DIN_EXT.1">FDP_DIN_EXT.1</a>,
+             Deep Inspection,
+              requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to handle redaction of file metadata in a specified manner.</p><h4>Management: FDP_DIN_EXT.1</h4><p>There are no management activities foreseen.</p><h4>Audit: FDP_DIN_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FDP_DIN_EXT.1 Deep Inspection</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FDP_REM_EXT.1">FDP_REM_EXT.1</a> Removal of Redacted Data</td></tr></table><h4 id="ext-comp-FDP_DIN_EXT.1.1">FDP_DIN_EXT.1.1</h4>
+                  For each element of the file format that can contain its own metadata, other elements, or hidden
+                  data, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must [<b>selection</b>: <span class="selectable-content" id="_s_6">recurse through the element chain and apply the redaction operation to each layer</span>,  <span class="selectable-content" id="_s_7">simplify the element</span>,  <span class="selectable-content" id="_s_8">redact the element</span> ].   
+                </div></div><h3 id="ext-comp-FDP_LOC_EXT" class="indexable" data-level="4">C.2.3.3 FDP_LOC_EXT Redact Content from Every Location</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for the thoroughness of a data redaction process.
+              </div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FDP_LOC_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FDP_LOC_EXT.1">FDP_LOC_EXT.1</a>,
+             Redact Content from Every Location,
+              requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to have the ability to redact data from all possible locations in an input file.</p><h4>Management: FDP_LOC_EXT.1</h4><p>There are no management activities foreseen.</p><h4>Audit: FDP_LOC_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FDP_LOC_EXT.1 Redact Content from Every Location</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FDP_REM_EXT.1">FDP_REM_EXT.1</a> Removal of Redacted Data</td></tr></table><h4 id="ext-comp-FDP_LOC_EXT.1.1">FDP_LOC_EXT.1.1</h4>
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must remove redacted content from every location in the file format where it is stored. 
+                </div></div><h3 id="ext-comp-FDP_NND_EXT" class="indexable" data-level="4">C.2.3.4 FDP_NND_EXT No New Data Introduced by TOE</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family apply restrictions on data that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can add to a file as part of the redaction process.
+              </div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FDP_NND_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FDP_NND_EXT.1">FDP_NND_EXT.1</a>,
+             No New Data Introduced by <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>,
+              requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to avoid the introduction of its own data to an input file unless explicitly requested by a user.</p><h4>Management: FDP_NND_EXT.1</h4><p>
+                The following actions could be considered for the management functions in FMT: <ul>
+                  <li>Specification or approval of introduced hidden data</li>
+                </ul>
+              </p><h4>Audit: FDP_NND_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FDP_NND_EXT.1 No New Data Introduced by TOE</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FDP_REM_EXT.1">FDP_REM_EXT.1</a> Removal of Redacted Data</td></tr></table><h4 id="ext-comp-FDP_NND_EXT.1.1">FDP_NND_EXT.1.1</h4>
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> itself must not introduce new hidden data that was not requested by the user without
+                  warning the user of the addition. 
+                </div></div><h3 id="ext-comp-FDP_OBJ_EXT" class="indexable" data-level="4">C.2.3.5 FDP_OBJ_EXT Removal of Objects and Corresponding References</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for the removal of object references as part of a data redaction process.
+              </div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FDP_OBJ_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FDP_OBJ_EXT.1">FDP_OBJ_EXT.1</a>,
+             Removal of Objects and Corresponding References,
+              requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to remove references to redacted objects so as not to disclose information about the data that was redacted.</p><h4>Management: FDP_OBJ_EXT.1</h4><p>There are no management activities foreseen.</p><h4>Audit: FDP_OBJ_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FDP_OBJ_EXT.1 Removal of Objects and Corresponding References</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FDP_REM_EXT.1">FDP_REM_EXT.1</a> Removal of Redacted Data</td></tr></table><h4 id="ext-comp-FDP_OBJ_EXT.1.1">FDP_OBJ_EXT.1.1</h4>
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must remove all references and indicators in the structural data to objects that are
+                  completely redacted by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
+                </div></div><h3 id="ext-comp-FDP_REM_EXT" class="indexable" data-level="4">C.2.3.6 FDP_REM_EXT Removal of Redacted Data</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for the application of a redaction operation to selected data.
+              </div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FDP_REM_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FDP_REM_EXT.1">FDP_REM_EXT.1</a>,
+             Removal of Redacted Data,
+              requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to redact all selected data.</p><h4>Management: FDP_REM_EXT.1</h4><p>There are no management activities foreseen.</p><h4>Audit: FDP_REM_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FDP_REM_EXT.1 Removal of Redacted Data</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FMT_RVW_EXT.1">FMT_RVW_EXT.1</a> Element Review</td></tr></table><h4 id="ext-comp-FDP_REM_EXT.1.1">FDP_REM_EXT.1.1</h4>
+                  All data that is either selected by the user for redaction or identified by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for redaction
+                  must be removed from the document.
+                </div></div><h3 id="ext-comp-FDP_RIP_EXT" class="indexable" data-level="4">C.2.3.7 FDP_RIP_EXT Residual Information Removal</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for the purging of residual data that could compromise the effectiveness of a redaction operation.
+              </div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FDP_RIP_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FDP_RIP_EXT.1">FDP_RIP_EXT.1</a>,
+             Residual Information Removal,
+              requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to delete all residual file data that could contain unredacted information.</p><h4>Management: FDP_RIP_EXT.1</h4><p>There are no management activities foreseen.</p><h4>Audit: FDP_RIP_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FDP_RIP_EXT.1 Residual Information Removal</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FDP_REM_EXT.1">FDP_REM_EXT.1</a> Removal of Redacted Data</td></tr></table><h4 id="ext-comp-FDP_RIP_EXT.1.1">FDP_RIP_EXT.1.1</h4>
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must automatically remove all remnant data, undo buffers, tracked changes buffers,
+                  multiple versions of the same object, and any buffer or cache type data container.  
+                </div></div><h3 id="ext-comp-FDP_RPL_EXT" class="indexable" data-level="4">C.2.3.8 FDP_RPL_EXT Visible Space Replace</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for the visual presentation of redacted data.
+              </div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FDP_RPL_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FDP_RPL_EXT.1">FDP_RPL_EXT.1</a>,
+             Visible Space Replace,
+              requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to replace redacted data with visual data that does not give clues as to the contents of the original data.</p><h4>Management: FDP_RPL_EXT.1</h4><p>There are no management activities foreseen.</p><h4>Audit: FDP_RPL_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FDP_RPL_EXT.1 Visible Space Replace</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FDP_REM_EXT.1">FDP_REM_EXT.1</a> Removal of Redacted Data</td></tr></table><h4 id="ext-comp-FDP_RPL_EXT.1.1">FDP_RPL_EXT.1.1</h4>
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must replace the visible space of redacted content in such a way that the visible space
+                  conveys no information about the previous contents. 
+                </div></div><h3 id="ext-comp-FDP_SEL_EXT" class="indexable" data-level="4">C.2.3.9 FDP_SEL_EXT Selected Redaction</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for the selection of redacted data.
+              </div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FDP_SEL_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FDP_SEL_EXT.1">FDP_SEL_EXT.1</a>,
+             Selected Redaction,
+              requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to redact data from complex objects in a specified manner.</p><h4>Management: FDP_SEL_EXT.1</h4><p>There are no management activities foreseen.</p><h4>Audit: FDP_SEL_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FDP_SEL_EXT.1 Selected Redaction</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FDP_REM_EXT.1">FDP_REM_EXT.1</a> Removal of Redacted Data</td></tr></table><h4 id="ext-comp-FDP_SEL_EXT.1.1">FDP_SEL_EXT.1.1</h4>
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must [<b>selection</b>: <span class="selectable-content" id="_s_9">simplify</span>,  <span class="selectable-content" id="_s_10">remove</span> ]
+                  any complex object, embedded object, or graphic
+                  image that is selected for redaction.   
+                </div></div><h3 id="ext-comp-FDP_VAL_EXT" class="indexable" data-level="4">C.2.3.10 FDP_VAL_EXT Validation of Data</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for validating data as part of its consideration for redaction. 
+              </div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FDP_VAL_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FDP_VAL_EXT.1">FDP_VAL_EXT.1</a>,
+             Validation of Data,
+              requires the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to remove unexpected or other file data that cannot be validated.</p><h4>Management: FDP_VAL_EXT.1</h4><p>There are no management activities foreseen.</p><h4>Audit: FDP_VAL_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FDP_VAL_EXT.1 Validation of Data</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FDP_REM_EXT.1">FDP_REM_EXT.1</a> Removal of Redacted Data</td></tr></table><h4 id="ext-comp-FDP_VAL_EXT.1.1">FDP_VAL_EXT.1.1</h4>
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must remove unrecognized data, unexpected data, and extraneous structural data.  
+                <h4 id="ext-comp-FDP_VAL_EXT.1.2">FDP_VAL_EXT.1.2</h4>
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must [<b>selection</b>: <span class="selectable-content" id="_s_11">simplify</span>,  <span class="selectable-content" id="_s_12">remove</span> ] any element which it cannot completely interpret. 
+                </div></div></span></span><h1 id="acronyms" class="indexable" data-level="A">Appendix D -  Acronyms</h1><table><tr class="header"><th>Acronym</th><th>Meaning</th></tr><tr><td><span class="term" id="abbr_Base-PP" data-plural="Base-PPs"><abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></span></td><td><span id="long_abbr_Base-PP">Base Protection Profile</span></td></tr>
+<tr><td><span class="term" id="abbr_CC"><abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr></span></td><td><span id="long_abbr_CC">Common Criteria</span></td></tr>
+<tr><td><span class="term" id="abbr_CEM"><abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr></span></td><td><span id="long_abbr_CEM">Common Evaluation Methodology</span></td></tr>
+<tr><td><span class="term" id="abbr_cPP" data-plural="cPPs"><abbr class="dyn-abbr"><a href="#abbr_cPP">cPP</a></abbr></span></td><td><span id="long_abbr_cPP">Collaborative Protection Profile</span></td></tr>
+<tr><td><span class="term" id="abbr_EP"><abbr class="dyn-abbr"><a href="#abbr_EP">EP</a></abbr></span></td><td><span id="long_abbr_EP">Extended Package</span></td></tr>
+<tr><td><span class="term" id="abbr_EXIF"><abbr class="dyn-abbr"><a href="#abbr_EXIF">EXIF</a></abbr></span></td><td><span id="long_abbr_EXIF">Exchangeable Image File Format</span></td></tr>
+<tr><td><span class="term" id="abbr_FP"><abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr></span></td><td><span id="long_abbr_FP">Functional Package</span></td></tr>
+<tr><td><span class="term" id="abbr_ISO/IEC"><abbr class="dyn-abbr"><a href="#abbr_ISO/IEC">ISO/IEC</a></abbr></span></td><td><span id="long_abbr_ISO/IEC">International Standards Organization/International Electrotechnical Commission</span></td></tr>
+<tr><td><span class="term" id="abbr_JPG"><abbr class="dyn-abbr"><a href="#abbr_JPG">JPG</a></abbr></span></td><td><span id="long_abbr_JPG">Joint Photographic Experts Group</span></td></tr>
+<tr><td><span class="term" id="abbr_OE"><abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr></span></td><td><span id="long_abbr_OE">Operational Environment</span></td></tr>
+<tr><td><span class="term" id="abbr_OLE"><abbr class="dyn-abbr"><a href="#abbr_OLE">OLE</a></abbr></span></td><td><span id="long_abbr_OLE">Object Linking and Embedding</span></td></tr>
+<tr><td><span class="term" id="abbr_PP" data-plural="PPs"><abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr></span></td><td><span id="long_abbr_PP">Protection Profile</span></td></tr>
+<tr><td><span class="term" id="abbr_PP-Configuration"><abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr></span></td><td><span id="long_abbr_PP-Configuration">Protection Profile Configuration</span></td></tr>
+<tr><td><span class="term" id="abbr_PP-Module"><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr></span></td><td><span id="long_abbr_PP-Module">Protection Profile Module</span></td></tr>
+<tr><td><span class="term" id="abbr_SAR" data-plural="SARs"><abbr class="dyn-abbr"><a href="#abbr_SAR">SAR</a></abbr></span></td><td><span id="long_abbr_SAR">Security Assurance Requirement</span></td></tr>
+<tr><td><span class="term" id="abbr_SFR" data-plural="SFRs"><abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr></span></td><td><span id="long_abbr_SFR">Security Functional Requirement</span></td></tr>
+<tr><td><span class="term" id="abbr_ST" data-plural="STs"><abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr></span></td><td><span id="long_abbr_ST">Security Target</span></td></tr>
+<tr><td><span class="term" id="abbr_TIFF"><abbr class="dyn-abbr"><a href="#abbr_TIFF">TIFF</a></abbr></span></td><td><span id="long_abbr_TIFF">Tagged Image File Format</span></td></tr>
+<tr><td><span class="term" id="abbr_TOE" data-plural="TOEs"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span></td><td><span id="long_abbr_TOE">Target of Evaluation</span></td></tr>
+<tr><td><span class="term" id="abbr_TSF"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span></td><td><span id="long_abbr_TSF"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Security Functionality</span></td></tr>
+<tr><td><span class="term" id="abbr_TSFI" data-plural="TSFIs"><abbr class="dyn-abbr"><a href="#abbr_TSFI">TSFI</a></abbr></span></td><td><span id="long_abbr_TSFI"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> Interface</span></td></tr>
+<tr><td><span class="term" id="abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></span></td><td><span id="long_abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Summary Specification</span></td></tr>
+</table><h1 id="appendix-bibliography" class="indexable" data-level="A">Appendix E -  Bibliography</h1><table><tr class="header"><th>Identifier</th><th>Title</th></tr><tr><td><span id="bibAppPP">[App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>]</span></td><td><span class="description">
+          <a href="https://www.niap-ccevs.org/MMO/PP/PP_APP_v2.0.pdf">Protection Profile for Application Software, Version 2.0</a>, TBD
+        </span></td></tr><tr><td><span id="bibCC">[<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>]</span></td><td><span class="description">Common Criteria for Information Technology Security Evaluation - <ul>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R5.pdf">Part
+                1: Introduction and General Model</a>, CCMB-2017-04-001, Version 3.1 Revision 5,
+              April 2017.</li>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART2V3.1R5.pdf">Part
+                2: Security Functional Components</a>, CCMB-2017-04-002, Version 3.1 Revision 5,
+              April 2017.</li>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART3V3.1R5.pdf">Part
+                3: Security Assurance Components</a>, CCMB-2017-04-003, Version 3.1 Revision 5,
+              April 2017.</li>
+          </ul></span></td></tr><tr><td><span id="bibCEM">[<abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr>]</span></td><td><span class="description">
+          <a href="https://commoncriteriaportal.org/files/ccfiles/CEM2022R1.pdf">Common
+            Methodology for Information Technology Security - Evaluation Methodology</a>,
+          CCMB-2022-11-006, <abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr>:2022, Revision 1, November 2022. </span></td></tr></table></body></html>
