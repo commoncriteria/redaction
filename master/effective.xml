@@ -18,7 +18,11 @@
     </entry>
   </RevisionHistory>
   
-  <release-notes><h:h3>TDs Applied</h:h3></release-notes><sec:Introduction>
+  <release-notes><h:h3>TDs Applied</h:h3></release-notes><pp-preferences>
+    <using-cc2022/>
+  </pp-preferences>
+  
+  <sec:Introduction>
     <sec:Overview>
       The scope of the PP-Module for Redaction Tools, Version 1.0 is to describe the security functionality of redaction tools
       in terms of <xref g="CC"/> and to define functional and assurance requirements for such
