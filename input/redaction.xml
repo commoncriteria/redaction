@@ -33,7 +33,6 @@
   <pp-preferences>
     <using-cc2022/>
   </pp-preferences>
-  
   <sec:Introduction>
     <sec:Overview>
       The scope of the PP-Module for Redaction Tools, Version 1.0 is to describe the security functionality of redaction tools
