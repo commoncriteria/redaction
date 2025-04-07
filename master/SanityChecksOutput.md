@@ -1,12 +1,26 @@
 * Error: Detected multiple elements with an id of 'fdp-loc-ext-1e1'.
 * Error: Detected multiple elements with an id of 'fdp-loc-ext-1e1'.
+* Error: Detected dangling ref to 'O.INSPECTION'
+        for a ref.
+	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[5]"This obje"/ref[1]""
+* Error: Detected dangling ref to 'O.PROPER_OUTPUT'
+        for a ref.
+	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[6]"This obje"/ref[1]""
+* Error: Detected dangling ref to 'O.REDACTION'
+        for a ref.
+	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[7]"This obje"/ref[1]""
+* Error: Detected dangling ref to 'O.REPORT'
+        for a ref.
+	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[8]"This obje"/ref[1]""
+* Error: Detected dangling ref to 'O.REVIEW'
+        for a ref.
+	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[9]"This obje"/ref[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:Overview[1]"The scope"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:Overview[1]"The scope"/h:p[2]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:Overview[1]"The scope"/h:p[3]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:Compliant_Targets_of_Evaluation[1]"The Targe"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:Compliant_Targets_of_Evaluation[1]"The Targe"/h:p[2]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:Compliant_Targets_of_Evaluation[1]"The Targe"/h:p[3]""
-* Warning: Detected an empty _p_ element./Module[1]""/sec:Conformance_Claims[1]""/cclaims[1]""/cclaim[3]""/description[1]"This PP-M"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/section[1]""/f-component[1]""/dependencies[1]"FDP_REM_E"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/section[1]""/f-component[1]""/f-element[1]""/aactivity[1]""/TSS[1]"The evalu"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/section[1]""/f-component[1]""/f-element[1]""/aactivity[1]""/Guidance[1]"There are"/h:p[1]""
@@ -50,4 +64,3 @@
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/section[3]""/f-component[1]""/f-element[1]""/aactivity[1]""/Guidance[1]"There are"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/section[4]""/f-component[1]""/f-element[1]""/aactivity[1]""/TSS[1]"The evalu"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/section[4]""/f-component[1]""/f-element[1]""/aactivity[1]""/Guidance[1]"There are"/h:p[1]""
- Failed to find a reference to bibCEM.

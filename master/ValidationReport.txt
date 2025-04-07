@@ -1,4 +1,2 @@
 /home/runner/work/redaction/redaction/input/redaction.xml:34:20: error: element "using-cc2022" not allowed here; expected the element end-tag or element "audit-events-in-sfrs" or "display-audit-with-sfrs"
-/home/runner/work/redaction/redaction/input/redaction.xml:359:16: error: element "cclaims" not allowed here; expected text, element "CClaimsInfo", "_", "assignable", "choice", "comment", "ctr", "depends", "endnote", "equation", "figure", "implements", "no-link", "provides", "refinement", "replace", "requires", "rule", "selectables", "snip", "testlist" or "xref" or an element from another namespace
-/home/runner/work/redaction/redaction/input/redaction.xml:384:30: error: element "sec:Conformance_Claims" incomplete; missing required element "CClaimsInfo"
-/home/runner/work/redaction/redaction/input/redaction.xml:673:27: error: element "base-pp" missing required attributes "name", "product", "short" and "version"
+/home/runner/work/redaction/redaction/input/redaction.xml:637:27: error: element "base-pp" missing required attributes "name", "product", "short" and "version"
