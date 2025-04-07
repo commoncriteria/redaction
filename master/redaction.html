@@ -640,8 +640,8 @@ function showTarget(id){
       </span></a><a href="#consecprob-AppPP" style="text-indent:20px">6.1.2<span>
 	Consistency of Security Problem Definition
       </span></a><a href="#conobj-AppPP" style="text-indent:20px">6.1.3<span>
-	Consistency of Objectives
-      </span></a><a href="#conreq-AppPP" style="text-indent:20px">6.1.4<span>
+			Consistency of Objectives
+		</span></a><a href="#conreq-AppPP" style="text-indent:20px">6.1.4<span>
 	Consistency of Requirements
       </span></a><a href="#opt-sfrs" style="text-indent:0px">Appendix A - <span>Optional SFRs</span></a><a href="#opt-sfrs" style="text-indent:10px">A.1<span>Strictly Optional Requirements
     </span></a><a href="#obj-sfrs" style="text-indent:10px">A.2<span>Objective Requirements
@@ -815,18 +815,31 @@ The following sections list Common Criteria and technology terms used in this do
     
   
   <h1 class="indexable" data-level="1" id="Conformance_Claims">2 Conformance Claims</h1>
-      <dl><dt class="cclaim defined" id="Conformance Statement">Conformance Statement</dt><dd><span class="description">An <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> must claim exact conformance to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
+      
+        
+          <span class="description">An <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> must claim exact conformance to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
             <br/><br/>
-            The evaluation methods used for evaluating the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> are a combination of the workunits defined in <a href="#bibCEM" class="dynref" data-format="">[CEM]</a> as well as the
+            The evaluation methods used for evaluating the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> are a combination of the workunits defined in <a href="#bibCEM" class="dynref" data-format=""></a> as well as the
             Evaluation Activities for ensuring that individual <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> have sufficient supporting evidence in the Security Target and 
             guidance documentation and have been sufficiently tested by the laboratory as part of completing ATE_IND.1.
-          </span></dd><dt class="cclaim defined" id="CC Conformance Claims">CC Conformance Claims</dt><dd><span class="description">This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is conformant to Parts 2 (extended) and 3 (extended) of Common Criteria <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1.</span></dd><dt class="cclaim defined" id="PP Claim">PP Claim</dt><dd><span class="description">This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not claim conformance to any other Protection Profile.<p></p>
+          </span>
+        
+        
+          <span class="description">This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is conformant to Parts 2 (extended) and 3 (extended) of Common Criteria <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1.</span>
+        
+        
+          <span class="description">This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not claim conformance to any other Protection Profile.<p></p>
             No other <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules are allowed to be specified in a <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> with this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> beyond its <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. 
-          </span></dd><dt class="cclaim defined" id="Package Claim">Package Claim</dt><dd><span class="description"><ul>
+          </span>
+        
+        
+          <span class="description"><ul>
             <li>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not claim conformance to any functional packages.</li>
             <li>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not conform to any assurance packages.</li>
           </ul>
-          </span></dd></dl>
+          </span>
+        
+      
     <h1 class="indexable" data-level="1" id="Security_Problem_Definition">3 Security Problem Definition</h1>
     The security problem is described in terms of the threats that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is expected to address,
     assumptions about its operational environment (<abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>), and any organizational security policies that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is
@@ -898,9 +911,9 @@ The assumptions identified in Section 3 are incorporated as security objectives 
     
     
     <h2 id="SOR" class="indexable,h2" data-level="2">4.3 Security Objectives Rationale</h2>   
-    This section describes how the assumptions, threats, and organizational 
-    security policies map to the security objectives.
-    <table><caption><span class="ctr" data-myid="t-sec-obj-rat" data-counter-type="ct-Table" id="t-sec-obj-rat">Table <span class="counter">1</span></span>: Security Objectives Rationale</caption><tr class="header"><td>Threat, Assumption, or OSP</td><td>Security Objectives</td><td>Rationale</td></tr><tr class="major-row"><td rowspan="2"><a href="#T.CLUES_TO_ORIGINAL_DATA">T.CLUES_​TO_​ORIGINAL_​DATA</a></td><td><a href="#O.INSPECTION">O.INSPECTION</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of clues to unredacted data by ensuring that the entire document is searched for redactable information, including hidden data and metadata.</td></tr><tr><td><a href="#O.REDACTION">O.REDACTION</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of clues to unredacted data by ensuring that the redaction process replaces the visible space of redacted data in a way that leaves no clues as to the original unredacted data.</td></tr><tr class="major-row"><td rowspan="4"><a href="#T.UNREDACTED_DATA">T.UNREDACTED_​DATA</a></td><td><a href="#O.PROPER_OUTPUT">O.PROPER_​OUTPUT</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of unredacted data by ensuring that unexpected or corrupted inputs do not cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to fail in a way that would generate an unredacted or improperly redacted output.</td></tr><tr><td><a href="#O.REDACTION">O.REDACTION</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of unredacted data by implementing a redaction function.</td></tr><tr><td><a href="#O.REPORT">O.REPORT</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of unredacted data by generating a report that clearly shows to the user what data was redacted.</td></tr><tr><td><a href="#O.REVIEW">O.REVIEW</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of unredacted data by allowing the user to specify the data that will be redacted from a document.</td></tr><tr class="major-row"><td rowspan="1"><a href="#A.KNOWLEDGEABLE_USER">A.KNOWLEDGEABLE_​USER</a></td><td><a href="#OE.KNOWLEDGEABLE_USER">OE.KNOWLEDGEABLE_​USER</a></td><td>The assumption is realized through achievement of an organizational objective that accomplishes the goal of the assumption.</td></tr><tr class="major-row"><td rowspan="1"><a href="#P.INFORMATION_RELEASE_POLICY">P.INFORMATION_​RELEASE_​POLICY</a></td><td><a href="#OE.INFORMATION_RELEASE_POLICY">OE.INFORMATION_​RELEASE_​POLICY</a></td><td>The assumption is realized through achievement of an organizational objective that accomplishes the goal of the assumption.</td></tr></table>
+		This section describes how the assumptions, threats, and organizational 
+		security policies map to the security objectives.
+	<table><caption><span class="ctr" data-myid="t-sec-obj-rat" data-counter-type="ct-Table" id="t-sec-obj-rat">Table <span class="counter">1</span></span>: Security Objectives Rationale</caption><tr class="header"><td>Threat, Assumption, or OSP</td><td>Security Objectives</td><td>Rationale</td></tr><tr class="major-row"><td rowspan="2"><a href="#T.CLUES_TO_ORIGINAL_DATA">T.CLUES_​TO_​ORIGINAL_​DATA</a></td><td><a href="#O.INSPECTION">O.INSPECTION</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of clues to unredacted data by ensuring that the entire document is searched for redactable information, including hidden data and metadata.</td></tr><tr><td><a href="#O.REDACTION">O.REDACTION</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of clues to unredacted data by ensuring that the redaction process replaces the visible space of redacted data in a way that leaves no clues as to the original unredacted data.</td></tr><tr class="major-row"><td rowspan="4"><a href="#T.UNREDACTED_DATA">T.UNREDACTED_​DATA</a></td><td><a href="#O.PROPER_OUTPUT">O.PROPER_​OUTPUT</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of unredacted data by ensuring that unexpected or corrupted inputs do not cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to fail in a way that would generate an unredacted or improperly redacted output.</td></tr><tr><td><a href="#O.REDACTION">O.REDACTION</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of unredacted data by implementing a redaction function.</td></tr><tr><td><a href="#O.REPORT">O.REPORT</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of unredacted data by generating a report that clearly shows to the user what data was redacted.</td></tr><tr><td><a href="#O.REVIEW">O.REVIEW</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of unredacted data by allowing the user to specify the data that will be redacted from a document.</td></tr><tr class="major-row"><td rowspan="1"><a href="#A.KNOWLEDGEABLE_USER">A.KNOWLEDGEABLE_​USER</a></td><td><a href="#OE.KNOWLEDGEABLE_USER">OE.KNOWLEDGEABLE_​USER</a></td><td>The assumption is realized through achievement of an organizational objective that accomplishes the goal of the assumption.</td></tr><tr class="major-row"><td rowspan="1"><a href="#P.INFORMATION_RELEASE_POLICY">P.INFORMATION_​RELEASE_​POLICY</a></td><td><a href="#OE.INFORMATION_RELEASE_POLICY">OE.INFORMATION_​RELEASE_​POLICY</a></td><td>The assumption is realized through achievement of an organizational objective that accomplishes the goal of the assumption.</td></tr></table>
     
   <h1 id="Security_Requirements" class="indexable" data-level="1">5 Security Requirements</h1>
       This chapter describes the security requirements which have to be fulfilled by the product under evaluation.
@@ -961,11 +974,11 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   
                   
                   
-                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> notifies the user when
+                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> notifies the user when
                     redaction fails. The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>’ description complies with the
-                    requirement that the user is notified when redaction fails for any reason.<p></p></div><div class="eacategory">Guidance</div><div class="ea">There are no guidance EAs for this component. <p></p></div><div class="eacategory">Tests</div><div class="ea">The evaluator shall
+                    requirement that the user is notified when redaction fails for any reason.<p></p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">There are no guidance EAs for this component. <p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall
                     acquire or create test files that should fail the redaction, use the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to attempt the redaction process with the expectation of its failure, and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
-                    alerts the user that the redaction failed. </div></div></div></div>
+                    alerts the user that the redaction failed. </div></div></div></div></div>
             
             
             
@@ -994,13 +1007,13 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   
                   
                   
-                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s reporting feature and the
-                    metadata that is included for each report entry. <p></p></div><div class="eacategory">Guidance</div><div class="ea">The evaluator shall ensure that the operational
+                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s reporting feature and the
+                    metadata that is included for each report entry. <p></p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall ensure that the operational
                     contains instructions for the configuration of the reporting feature in
-                    accordance with this requirement. <p></p></div><div class="eacategory">Tests</div><div class="ea">The evaluator shall create test files with specific elements to
+                    accordance with this requirement. <p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall create test files with specific elements to
                     redact, apply the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to the test files, and observe that there is a report for each element 
                     expected to be redacted. This evaluation activity can be done in conjunction with
-                    <a href="#FAU_SAR_EXT.1">FAU_SAR_EXT.1</a>. </div></div></div></div>
+                    <a href="#FAU_SAR_EXT.1">FAU_SAR_EXT.1</a>. </div></div></div></div></div>
         
         
         
@@ -1026,8 +1039,8 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   
                   
                   
-                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">There are no <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> EAs for this component. <p></p></div><div class="eacategory">Guidance</div><div class="ea">There are no guidance EAs for this component. <p></p></div><div class="eacategory">Tests</div><div class="ea">The evaluator shall create test files with specific elements to redact, apply the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to the test
-                    files, and observe that there is a report entry for each element expected to be redacted. This evaluation activity can be done in conjunction with <a href="#FAU_REP_EXT.1">FAU_REP_EXT.1</a>.</div></div></div></div>
+                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">There are no <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> EAs for this component. <p></p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">There are no guidance EAs for this component. <p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall create test files with specific elements to redact, apply the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to the test
+                    files, and observe that there is a report entry for each element expected to be redacted. This evaluation activity can be done in conjunction with <a href="#FAU_REP_EXT.1">FAU_REP_EXT.1</a>.</div></div></div></div></div>
           
           
           
@@ -1057,7 +1070,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   reject the file or decrypt it so that the tool and the user can review the hidden data.
                 </span></div></div></div>
               <div class="element"><div class="reqid" id="FDP_DID_EXT.1.2"><a href="#FDP_DID_EXT.1.2" class="abbr">FDP_DID_EXT.1.2</a></div><div class="reqdesc">
-                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must identify all obscured data and must [<b>selection</b>: <span class="selectable-content" id="_s_1">remove the obscured data automatically</span>,  <span class="selectable-content" id="_s_2">allow the user to redact the obscured data</span> ]. 
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must identify all obscured data and must [<b>selection</b>: <span class="selectable-content" id="_s_1">remove the obscured data automatically</span>, <span class="selectable-content" id="_s_2">allow the user to redact the obscured data</span>]. 
                 <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -1069,7 +1082,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                 </span></div></div></div>
               <div class="element"><div class="reqid" id="FDP_DID_EXT.1.3"><a href="#FDP_DID_EXT.1.3" class="abbr">FDP_DID_EXT.1.3</a></div><div class="reqdesc">
                   The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must identify images where the visible representation is reduced in size or resolution
-                  from the representation stored in the file format and must [<b>selection</b>: <span class="selectable-content" id="_s_3">automatically replace the stored data with the visible representation</span>,  <span class="selectable-content" id="_s_4">allow the user to replace the stored data with the visible representation</span>,  <span class="selectable-content" id="_s_5">allow the user to leave the image unaltered</span> ]. 
+                  from the representation stored in the file format and must [<b>selection</b>: <span class="selectable-content" id="_s_3">automatically replace the stored data with the visible representation</span>, <span class="selectable-content" id="_s_4">allow the user to replace the stored data with the visible representation</span>, <span class="selectable-content" id="_s_5">allow the user to leave the image unaltered</span>]. 
                 </div></div>
             <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="element-activity-header"><a href="#FDP_DID_EXT.1.1">FDP_DID_EXT.1.1</a></div>
                   <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> specifies the hidden data that it identifies and
@@ -1121,7 +1134,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               
               <div class="element"><div class="reqid" id="FDP_DIN_EXT.1.1"><a href="#FDP_DIN_EXT.1.1" class="abbr">FDP_DIN_EXT.1.1</a></div><div class="reqdesc">
                   For each element of the file format that can contain its own metadata, other elements, or hidden
-                  data, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must [<b>selection</b>: <span class="selectable-content" id="_s_6">recurse through the element chain and apply the redaction operation to each layer</span>,  <span class="selectable-content" id="_s_7">simplify the element</span>,  <span class="selectable-content" id="_s_8">redact the element</span> ].   
+                  data, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must [<b>selection</b>: <span class="selectable-content" id="_s_6">recurse through the element chain and apply the redaction operation to each layer</span>, <span class="selectable-content" id="_s_7">simplify the element</span>, <span class="selectable-content" id="_s_8">redact the element</span>].   
                 <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">For example, <abbr class="dyn-abbr"><a href="#abbr_JPG">JPG</a></abbr> images can contain metadata called <abbr class="dyn-abbr"><a href="#abbr_EXIF">EXIF</a></abbr> data. Some image
@@ -1136,15 +1149,15 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   
                   
                   
-                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> lists and describes the methods used to replace
+                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> lists and describes the methods used to replace
                     redacted elements that contain metadata, other elements, or hidden data. The evaluator shall
                     ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>’ description complies with the requirement that each element is handled by
                     either recursing through the element chain and applying the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to each layer, simplifying the
-                    element, or redacting the element. <p></p></div><div class="eacategory">Guidance</div><div class="ea">There are no guidance EAs for this component. <p></p></div><div class="eacategory">Tests</div><div class="ea">The evaluator shall create or acquire test files that contain
+                    element, or redacting the element. <p></p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">There are no guidance EAs for this component. <p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall create or acquire test files that contain
                     elements that themselves contain other elements and hidden data. The evaluator shall examine
                     the document to identify these elements in the structure, apply the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, and examine the output
                     to verify that the elements were handled properly via either redaction or simplification in
-                    accordance with the requirement.</div></div></div></div>
+                    accordance with the requirement.</div></div></div></div></div>
         
         
         
@@ -1166,10 +1179,10 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   
                   
                   
-                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">There are no <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> EAs for this component.<p></p></div><div class="eacategory">Guidance</div><div class="ea">There are no guidance EAs for this component. <p></p></div><div class="eacategory">Tests</div><div class="ea">The evaluator shall create or acquire test files that contain content in multiple places and
+                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">There are no <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> EAs for this component.<p></p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">There are no guidance EAs for this component. <p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall create or acquire test files that contain content in multiple places and
                     examine the files to locate the content. The evaluator shall apply the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and examine the
                     output to verify that it has been removed from every location.
-                  </div></div></div></div>
+                  </div></div></div></div></div>
         
         
         
@@ -1201,17 +1214,17 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   
                   
                   
-                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes the actions taken by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> when
+                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes the actions taken by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> when
                     removing, simplifying, or redacting an element. If structural data is added, the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> shall specify
                     what structural data is added and the purpose of the structural data. If non-structural hidden
                     data is added, the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> shall detail the added hidden data and describe how the user is notified of
                     the addition. The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>’ description complies with the requirement 
                     to not introduce new hidden data, other than structural data, without warning the user.
-                    <p></p></div><div class="eacategory">Guidance</div><div class="ea">There are no guidance EAs for this component. <p></p></div><div class="eacategory">Tests</div><div class="ea">The
+                    <p></p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">There are no guidance EAs for this component. <p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The
                     evaluator shall create or acquire test files with complex objects or other elements and examine
                     the files to locate those items in the structure. The evaluator shall use the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to perform the redaction operation and examine
                     the output to verify that no new hidden data or metadata was introduced.
-                  </div></div></div></div>
+                  </div></div></div></div></div>
             
             
             
@@ -1241,15 +1254,15 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   
                   
                   
-                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>' description of how redacted objects are removed
+                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>' description of how redacted objects are removed
                     includes the removal of all references and indicators to the redacted objects in conformance
                     with the requirement. 
-                    <p></p></div><div class="eacategory">Guidance</div><div class="ea">There are no guidance EAs for this component. <p></p></div><div class="eacategory">Tests</div><div class="ea">The evaluator shall create or acquire test files that contain objects and
+                    <p></p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">There are no guidance EAs for this component. <p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall create or acquire test files that contain objects and
                     examine the files to locate these objects in the file format and all references to them in the
                     structural data. The evaluator shall apply the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and select elements for complete redaction.
                     The evaluator shall examine the output files to verify that the objects and all references to them
                     have been redacted. 
-                  </div></div></div></div>
+                  </div></div></div></div></div>
             
             
         
@@ -1276,16 +1289,16 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   
                   
                   
-                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes the removal of all data selected for
+                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes the removal of all data selected for
                     redaction and shall verify that no encryption, encoding, or proprietary process is used to obscure
                     selected data. The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>’ description complies with the
-                    requirement to remove all data selected by the user or identified by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for redaction.<p></p></div><div class="eacategory">Guidance</div><div class="ea">There are no guidance EAs for this component. <p></p></div><div class="eacategory">Tests</div><div class="ea">The
+                    requirement to remove all data selected by the user or identified by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for redaction.<p></p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">There are no guidance EAs for this component. <p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The
                     evaluator shall acquire or create test files that contain text, images, and other elements. The
                     evaluator shall examine the test files to locate the content in the format. The evaluator shall
                     apply the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, marking some of the content for redaction, and examine the output to verify that
                     the marked content was removed and not obscured through encryption, encoding, or conversion
                     to a proprietary format.
-                  </div></div></div></div>
+                  </div></div></div></div></div>
             
             
             
@@ -1312,16 +1325,16 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   
                   
                   
-                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> specifies the residual data and objects (e.g.,
+                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> specifies the residual data and objects (e.g.,
                     remnant data, undo buffers, tracked changes buffers, multiple versions of the same object, and
                     any buffer or cache type data container) that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will remove from files without any user
                     interaction. The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>’ description complies with the requirement
                     to automatically remove all such data. 
-                    <p></p></div><div class="eacategory">Guidance</div><div class="ea">There are no guidance EAs for this component. <p></p></div><div class="eacategory">Tests</div><div class="ea">The evaluator shall create or acquire test files that
+                    <p></p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">There are no guidance EAs for this component. <p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall create or acquire test files that
                     contain the types of data described in the requirement and examine the files to locate the data.
                     The evaluator shall apply the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and not select anything for redaction, and examine the files
                     to verify that any residual data has been removed automatically. 
-                  </div></div></div></div>
+                  </div></div></div></div></div>
             
             
             
@@ -1352,16 +1365,16 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   
                   
                   
-                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> lists and describes the content used to replace
+                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> lists and describes the content used to replace
                     redacted elements. The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>’ description complies with the
-                    requirement to convey no information about the previous contents.<p></p></div><div class="eacategory">Guidance</div><div class="ea">There are no guidance EAs for this component. <p></p></div><div class="eacategory">Tests</div><div class="ea">The evaluator shall create or
+                    requirement to convey no information about the previous contents.<p></p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">There are no guidance EAs for this component. <p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall create or
                     acquire a test file with an image, mark part of the image for redaction, apply the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s redaction function to it, and then
                     examine the image in the output to verify that the visual appearance does not provide any
                     indication of the content that was redacted. If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> allows text content to be replaced with
                     text, the evaluator shall create or acquire a test file with some text as content, apply the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>,
                     and verify that the replacement text does not preserve word length or other identifying
                     information that could allow recovery of the original content.
-                  </div></div></div></div>
+                  </div></div></div></div></div>
         
         
         
@@ -1379,7 +1392,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               
               
               <div class="element"><div class="reqid" id="FDP_SEL_EXT.1.1"><a href="#FDP_SEL_EXT.1.1" class="abbr">FDP_SEL_EXT.1.1</a></div><div class="reqdesc">
-                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must [<b>selection</b>: <span class="selectable-content" id="_s_9">simplify</span>,  <span class="selectable-content" id="_s_10">remove</span> ]
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must [<b>selection</b>: <span class="selectable-content" id="_s_9">simplify</span>, <span class="selectable-content" id="_s_10">remove</span>]
                   any complex object, embedded object, or graphic
                   image that is selected for redaction.   
                 <div class="appnote"><span class="note-header">Application
@@ -1391,10 +1404,10 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   
                   
                   
-                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes in detail which complex objects can
+                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes in detail which complex objects can
                     be simplified by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and how they are simplified (e.g., whether the object or the whole page
                     is converted to another format and what that format is). The <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> shall also list those complex
-                    objects or images that cannot be simplified and will be removed. <p></p></div><div class="eacategory">Guidance</div><div class="ea">There are no guidance EAs for this component. <p></p></div><div class="eacategory">Tests</div><div class="ea">The evaluator shall create or
+                    objects or images that cannot be simplified and will be removed. <p></p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">There are no guidance EAs for this component. <p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall create or
                     acquire test documents that contain complex objects and examine the documents to identify
                     where those objects are in the format. The evaluator shall then apply the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and examine the
                     output to verify that the objects have been simplified or removed. The evaluator shall test all
@@ -1402,7 +1415,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                     <p></p>
                     The evaluator shall also create or acquire test documents with complex objects that are not
                     documented in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>, apply the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, and verify that those objects are removed from the
-                    document. </div></div></div></div>
+                    document. </div></div></div></div></div>
         
         
     
@@ -1443,7 +1456,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                 </span></div></div></div>
               
               <div class="element"><div class="reqid" id="FDP_VAL_EXT.1.2"><a href="#FDP_VAL_EXT.1.2" class="abbr">FDP_VAL_EXT.1.2</a></div><div class="reqdesc">
-                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must [<b>selection</b>: <span class="selectable-content" id="_s_11">simplify</span>,  <span class="selectable-content" id="_s_12">remove</span> ] any element which it cannot completely interpret. 
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must [<b>selection</b>: <span class="selectable-content" id="_s_11">simplify</span>, <span class="selectable-content" id="_s_12">remove</span>] any element which it cannot completely interpret. 
                 <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -1499,10 +1512,10 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                 
                 
                 
-              <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">There are no <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> EAs for this component.
-                  <p></p></div><div class="eacategory">Guidance</div><div class="ea">There are no guidance EAs for this component. <p></p></div><div class="eacategory">Tests</div><div class="ea">The evaluator shall create test documents that contain images, text, and complex objects, use the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
+              <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">There are no <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> EAs for this component.
+                  <p></p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">There are no guidance EAs for this component. <p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall create test documents that contain images, text, and complex objects, use the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
                   to perform the redaction operation, and verify that each element is selectable for redaction in whole or in part.
-                </div></div></div></div>
+                </div></div></div></div></div>
           
           
           
@@ -1528,13 +1541,13 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   
                   
                   
-                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes the actions the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> performs upon
+                <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes the actions the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> performs upon
                     any failure. The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>’ description complies with the requirement
                     to not produce a partially redacted file.
-                    <p></p></div><div class="eacategory">Guidance</div><div class="ea">There are no guidance EAs for this component. <p></p></div><div class="eacategory">Tests</div><div class="ea">The evaluator shall create or acquire test files that
+                    <p></p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">There are no guidance EAs for this component. <p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall create or acquire test files that
                     cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to fail and observe that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> fails and does not produce partially redacted
                     files.
-                  </div></div></div></div>
+                  </div></div></div></div></div>
           
         <h2 id="obj-req-map" class="indexable" data-level="2">5.3 TOE Security Functional Requirements Rationale</h2><p>The following rationale provides justification for each security objective for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, 
     showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to meet and achieve the security objectives:<br/><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">2</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Objective</th><th>Addressed by</th><th>Rationale</th></tr><tr class="major-row"><td rowspan="2"><a href="#O.INSPECTION">O.INSPECTION</a><br/></td><td><a href="#FDP_DID_EXT.1">FDP_DID_EXT.1</a></td><td>This requirement supports the objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to implement a mechanism to inspect a document for common mechanisms used to hide unredacted data.</td></tr>
@@ -1569,17 +1582,13 @@ The assumptions identified in Section 3 are incorporated as security objectives 
           executable application asset with the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> but defines additional threats because the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines a specific type of software application
           with potential exploits that are common to the application type.<table><caption><span class="ctr" data-myid="t-con-sec-prob-def" data-counter-type="ct-Table" id="t-con-sec-prob-def">Table <span class="counter">3</span></span>: Consistency of Security Problem Definition (App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> base)
 		</caption><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> Threat, Assumption, OSP</th><th>Consistency Rationale</th></tr><tr><td><a href="#T.CLUES_TO_ORIGINAL_DATA">T.CLUES_TO_ORIGINAL_DATA</a></td><td>This threat is consistent with the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because it relates to functionality that is exclusive to the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td></tr><tr><td><a href="#T.UNREDACTED_DATA">T.UNREDACTED_DATA</a></td><td>This threat is consistent with the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because it relates to functionality that is exclusive to the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td></tr><tr><td><a href="#A.KNOWLEDGEABLE_USER">A.KNOWLEDGEABLE_USER</a></td><td>This assumption is an extension of the A.PROPER_USER and A.PROPER_ADMIN assumptions in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> but extends them to apply specifically to the operation of redaction tools.</td></tr><tr><td><a href="#P.INFORMATION_RELEASE_POLICY">P.INFORMATION_RELEASE_POLICY</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not define any organizational security policies so there are no existing policies that this could contradict.</td></tr></table><h3 id="conobj-AppPP" class="indexable" data-level="3">6.1.3 
-	Consistency of Objectives
-      </h3><p>
+			Consistency of Objectives
+		</h3><p>
         Listed below are the security objectives defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> with rationale for their consistency with the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>. The <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> shares the
         executable application asset with the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> but defines additional security objectives because the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines a specific type of software application
         with security functionality that is common to the application type.
-      
-	  The objectives for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> are consistent with the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> based on the following rationale:
       <table><caption><span class="ctr" data-myid="t-con-objs" data-counter-type="ct-Table" id="t-con-objs">Table <span class="counter">4</span></span>: Consistency of Objectives (App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> base)
-		</caption><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Objective</th><th>Consistency Rationale</th></tr><tr><td><a href="#O.INSPECTION">O.INSPECTION</a></td><td>This objective relates solely to redaction behavior, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> objectives from being satisfied.</td></tr><tr><td><a href="#O.PROPER_OUTPUT">O.PROPER_OUTPUT</a></td><td>This objective relates solely to redaction behavior, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> objectives from being satisfied.</td></tr><tr><td><a href="#O.REDACTION">O.REDACTION</a></td><td>This objective relates solely to redaction behavior, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> objectives from being satisfied.</td></tr><tr><td><a href="#O.REPORT">O.REPORT</a></td><td>This objective relates solely to redaction behavior, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> objectives from being satisfied.</td></tr><tr><td><a href="#O.REVIEW">O.REVIEW</a></td><td>This objective relates solely to redaction behavior, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> objectives from being satisfied.</td></tr></table></p><p>
-	  The objectives for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> are consistent with the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> based on the following rationale:
-      <table><caption><span class="ctr" data-myid="t-con-oe-objs" data-counter-type="ct-Table" id="t-con-oe-objs">Table <span class="counter">5</span></span>: Consistency of <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> Objectives (App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> base)
+				</caption><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Objective</th><th>Consistency Rationale</th></tr><tr><td><a href="#O.INSPECTION">O.INSPECTION</a></td><td>This objective relates solely to redaction behavior, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> objectives from being satisfied.</td></tr><tr><td><a href="#O.PROPER_OUTPUT">O.PROPER_OUTPUT</a></td><td>This objective relates solely to redaction behavior, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> objectives from being satisfied.</td></tr><tr><td><a href="#O.REDACTION">O.REDACTION</a></td><td>This objective relates solely to redaction behavior, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> objectives from being satisfied.</td></tr><tr><td><a href="#O.REPORT">O.REPORT</a></td><td>This objective relates solely to redaction behavior, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> objectives from being satisfied.</td></tr><tr><td><a href="#O.REVIEW">O.REVIEW</a></td><td>This objective relates solely to redaction behavior, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> objectives from being satisfied.</td></tr></table></p><p><table><caption><span class="ctr" data-myid="t-con-oe-objs" data-counter-type="ct-Table" id="t-con-oe-objs">Table <span class="counter">5</span></span>: Consistency of <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> Objectives (App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> base)
 		</caption><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> Objective</th><th>Consistency Rationale</th></tr><tr><td><a href="#OE.KNOWLEDGEABLE_USER">OE.KNOWLEDGEABLE_USER</a></td><td>This objective is an extension of the <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>.PROPER_USER and <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>.PROPER_ADMIN objectives in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> but extends them to apply specifically to the operation of redaction tools.</td></tr><tr><td><a href="#OE.INFORMATION_RELEASE_POLICY">OE.INFORMATION_RELEASE_POLICY</a></td><td>This objective does not contradict the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because it describes the implementation of an organizational security policy.</td></tr></table></p><h3 id="conreq-AppPP" class="indexable" data-level="3">6.1.4 
 	Consistency of Requirements
       </h3>
@@ -1594,9 +1603,9 @@ The assumptions identified in Section 3 are incorporated as security objectives 
       App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> are as follows:
       <table><caption><span class="ctr" data-myid="t-con-reqs" data-counter-type="ct-Table" id="t-con-reqs">Table <span class="counter">6</span></span>: Consistency of Requirements (App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> base)
 		</caption><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> Requirement</th><th>Consistency Rationale</th></tr><tr><th colspan="2"> Modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th></tr><tr><td colspan="2" style="text-align:center">
-	    This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify any requirements when the
-	    App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is the base.
-	  </td></tr><tr><th colspan="2"> Additional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th></tr><tr><td colspan="2" style="text-align:center">
+			This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify any requirements when the
+			App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is the base.
+		  </td></tr><tr><th colspan="2"> Additional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th></tr><tr><td colspan="2" style="text-align:center">
 	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not add any requirements when the
 	      App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is the base.
 	    </td></tr><tr><th colspan="2"> Mandatory <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FAU_ALR_EXT.1">FAU_ALR_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented.
@@ -1624,7 +1633,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Selection-based requirements.
 	    </td></tr></tr></table><h1 id="opt-sfrs" class="indexable" data-level="A">Appendix A -  Optional SFRs</h1><h2 id="opt-sfrs" class="indexable" data-level="2">A.1 Strictly Optional Requirements
     </h2><p>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any 
-       Strictly Optional       <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>.</p><h2 id="obj-sfrs" class="indexable" data-level="2">A.2 Objective Requirements
+       Strictly Optional        <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_SAR">SARs</a></abbr>.</p><h2 id="obj-sfrs" class="indexable" data-level="2">A.2 Objective Requirements
     </h2><p>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any 
        Objective       <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>.</p><h2 id="impl-dep-sfrs" class="indexable" data-level="2">A.3 Implementation-dependent Requirements
     </h2><p>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any 
@@ -1687,16 +1696,16 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   tracked change buffers, and allow the user to review and select each hidden data element
                   individually for redaction.  
                 <h4 id="ext-comp-FDP_DID_EXT.1.2">FDP_DID_EXT.1.2</h4>
-                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must identify all obscured data and must [<b>selection</b>: <span class="selectable-content" id="_s_1">remove the obscured data automatically</span>,  <span class="selectable-content" id="_s_2">allow the user to redact the obscured data</span> ]. 
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must identify all obscured data and must [<b>selection</b>: <span class="selectable-content" id="_s_1">remove the obscured data automatically</span>, <span class="selectable-content" id="_s_2">allow the user to redact the obscured data</span>]. 
                 <h4 id="ext-comp-FDP_DID_EXT.1.3">FDP_DID_EXT.1.3</h4>
                   The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must identify images where the visible representation is reduced in size or resolution
-                  from the representation stored in the file format and must [<b>selection</b>: <span class="selectable-content" id="_s_3">automatically replace the stored data with the visible representation</span>,  <span class="selectable-content" id="_s_4">allow the user to replace the stored data with the visible representation</span>,  <span class="selectable-content" id="_s_5">allow the user to leave the image unaltered</span> ]. 
+                  from the representation stored in the file format and must [<b>selection</b>: <span class="selectable-content" id="_s_3">automatically replace the stored data with the visible representation</span>, <span class="selectable-content" id="_s_4">allow the user to replace the stored data with the visible representation</span>, <span class="selectable-content" id="_s_5">allow the user to leave the image unaltered</span>]. 
                 </div></div><h3 id="ext-comp-FDP_DIN_EXT" class="indexable" data-level="4">C.2.3.2 FDP_DIN_EXT Deep Inspection</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for inspecting document metadata for potential redaction.
               </div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FDP_DIN_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FDP_DIN_EXT.1">FDP_DIN_EXT.1</a>,
              Deep Inspection,
               requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to handle redaction of file metadata in a specified manner.</p><h4>Management: FDP_DIN_EXT.1</h4><p>There are no management activities foreseen.</p><h4>Audit: FDP_DIN_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FDP_DIN_EXT.1 Deep Inspection</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FDP_REM_EXT.1">FDP_REM_EXT.1</a> Removal of Redacted Data</td></tr></table><h4 id="ext-comp-FDP_DIN_EXT.1.1">FDP_DIN_EXT.1.1</h4>
                   For each element of the file format that can contain its own metadata, other elements, or hidden
-                  data, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must [<b>selection</b>: <span class="selectable-content" id="_s_6">recurse through the element chain and apply the redaction operation to each layer</span>,  <span class="selectable-content" id="_s_7">simplify the element</span>,  <span class="selectable-content" id="_s_8">redact the element</span> ].   
+                  data, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must [<b>selection</b>: <span class="selectable-content" id="_s_6">recurse through the element chain and apply the redaction operation to each layer</span>, <span class="selectable-content" id="_s_7">simplify the element</span>, <span class="selectable-content" id="_s_8">redact the element</span>].   
                 </div></div><h3 id="ext-comp-FDP_LOC_EXT" class="indexable" data-level="4">C.2.3.3 FDP_LOC_EXT Redact Content from Every Location</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for the thoroughness of a data redaction process.
               </div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FDP_LOC_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FDP_LOC_EXT.1">FDP_LOC_EXT.1</a>,
              Redact Content from Every Location,
@@ -1740,7 +1749,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               </div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FDP_SEL_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FDP_SEL_EXT.1">FDP_SEL_EXT.1</a>,
              Selected Redaction,
               requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to redact data from complex objects in a specified manner.</p><h4>Management: FDP_SEL_EXT.1</h4><p>There are no management activities foreseen.</p><h4>Audit: FDP_SEL_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FDP_SEL_EXT.1 Selected Redaction</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FDP_REM_EXT.1">FDP_REM_EXT.1</a> Removal of Redacted Data</td></tr></table><h4 id="ext-comp-FDP_SEL_EXT.1.1">FDP_SEL_EXT.1.1</h4>
-                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must [<b>selection</b>: <span class="selectable-content" id="_s_9">simplify</span>,  <span class="selectable-content" id="_s_10">remove</span> ]
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must [<b>selection</b>: <span class="selectable-content" id="_s_9">simplify</span>, <span class="selectable-content" id="_s_10">remove</span>]
                   any complex object, embedded object, or graphic
                   image that is selected for redaction.   
                 </div></div><h3 id="ext-comp-FDP_VAL_EXT" class="indexable" data-level="4">C.2.3.10 FDP_VAL_EXT Validation of Data</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for validating data as part of its consideration for redaction. 
@@ -1749,7 +1758,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               requires the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to remove unexpected or other file data that cannot be validated.</p><h4>Management: FDP_VAL_EXT.1</h4><p>There are no management activities foreseen.</p><h4>Audit: FDP_VAL_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FDP_VAL_EXT.1 Validation of Data</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FDP_REM_EXT.1">FDP_REM_EXT.1</a> Removal of Redacted Data</td></tr></table><h4 id="ext-comp-FDP_VAL_EXT.1.1">FDP_VAL_EXT.1.1</h4>
                   The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must remove unrecognized data, unexpected data, and extraneous structural data.  
                 <h4 id="ext-comp-FDP_VAL_EXT.1.2">FDP_VAL_EXT.1.2</h4>
-                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must [<b>selection</b>: <span class="selectable-content" id="_s_11">simplify</span>,  <span class="selectable-content" id="_s_12">remove</span> ] any element which it cannot completely interpret. 
+                  The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must [<b>selection</b>: <span class="selectable-content" id="_s_11">simplify</span>, <span class="selectable-content" id="_s_12">remove</span>] any element which it cannot completely interpret. 
                 </div></div></span></span><h1 id="acronyms" class="indexable" data-level="A">Appendix D -  Acronyms</h1><table><caption><span class="ctr" data-myid="t-acronyms" data-counter-type="ct-Table" id="t-acronyms">Table <span class="counter">8</span></span>: Acronyms
 		</caption><tr class="header"><th>Acronym</th><th>Meaning</th></tr><tr><td><span class="term" id="abbr_Base-PP" data-plural="Base-PPs"><abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></span></td><td><span id="long_abbr_Base-PP">Base Protection Profile</span></td></tr>
 <tr><td><span class="term" id="abbr_CC"><abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr></span></td><td><span id="long_abbr_CC">Common Criteria</span></td></tr>
@@ -1773,20 +1782,16 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 <tr><td><span class="term" id="abbr_TSF"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span></td><td><span id="long_abbr_TSF"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Security Functionality</span></td></tr>
 <tr><td><span class="term" id="abbr_TSFI" data-plural="TSFIs"><abbr class="dyn-abbr"><a href="#abbr_TSFI">TSFI</a></abbr></span></td><td><span id="long_abbr_TSFI"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> Interface</span></td></tr>
 <tr><td><span class="term" id="abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></span></td><td><span id="long_abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Summary Specification</span></td></tr>
-</table><h1 id="appendix-bibliography" class="indexable" data-level="A">Appendix E -  Bibliography</h1><table><tr class="header"><th>Identifier</th><th>Title</th></tr><tr><td><span id="bibAppPP">[App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>]</span></td><td><span class="description">
+</table><h1 id="appendix-bibliography" class="indexable" data-level="A">Appendix E -  Bibliography</h1><table><caption><span class="ctr" data-myid="t-biblio" data-counter-type="ct-Table" id="t-biblio">Table <span class="counter">9</span></span>: Bibliography</caption><tr class="header"><th>Identifier</th><th>Title</th></tr><tr><td><span id="bibAppPP">[App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>]</span></td><td><span class="description">
           <a href="https://www.niap-ccevs.org/MMO/PP/PP_APP_v2.0.pdf">Protection Profile for Application Software, Version 2.0</a>, TBD
         </span></td></tr><tr><td><span id="bibCC">[<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>]</span></td><td><span class="description">Common Criteria for Information Technology Security Evaluation - <ul>
-            <li><a href="https://www.commoncriteriaportal.org/files/ccfiles/CC2022PART1R1.pdf">Part 1: 
-				Introduction and general model</a>, CCMB-2022-11-001, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
-            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CC2022PART2R1.pdf">Part 2: 
-				Security functional requirements</a>, CCMB-2022-11-002, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
-            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CC2022PART3R1.pdf">Part 3: 
-                Security assurance requirements</a>, CCMB-2022-11-003, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
-            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CC2022PART4R1.pdf">Part 4: 
-                Framework for the specification of evaluation methods and activities</a>, CCMB-2022-11-004, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
-            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CC2022PART5R1.pdf">Part 5: 
-                 Pre-defined packages of security requirements</a>, CCMB-2022-11-005, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
-          </ul></span></td></tr><tr><td><span id="bibCEM">[<abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr>]</span></td><td><span class="description">Common Methodology for Information Technology Security Evaluation - <ul>
-            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CEM2022R1.pdf">
-                 Evaluation methodology</a>, CCMB-2022-11-006, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R5.pdf">Part
+                1: Introduction and General Model</a>, CCMB-2017-04-001, Version 3.1 Revision 5,
+              April 2017.</li>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART2V3.1R5.pdf">Part
+                2: Security Functional Components</a>, CCMB-2017-04-002, Version 3.1 Revision 5,
+              April 2017.</li>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART3V3.1R5.pdf">Part
+                3: Security Assurance Components</a>, CCMB-2017-04-003, Version 3.1 Revision 5,
+              April 2017.</li>
           </ul></span></td></tr></table></body></html>

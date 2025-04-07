@@ -1,5 +1,6 @@
 <Module xmlns="https://niap-ccevs.org/cc/v1" xmlns:sec="https://niap-ccevs.org/cc/v1/section" xmlns:h="http://www.w3.org/1999/xhtml" boilerplate="yes" target-product="Redaction Tool" name="Redaction Tools">
   
+
   
   <PPReference>
     <ReferenceTable>
@@ -9,7 +10,7 @@
       <Keywords>Redaction</Keywords>
     </ReferenceTable>
   </PPReference>
-  
+
   <RevisionHistory>
     <entry>
       <version>1.0</version>
@@ -21,7 +22,6 @@
   <release-notes><h:h3>TDs Applied</h:h3></release-notes><pp-preferences>
     <using-cc2022/>
   </pp-preferences>
-  
   <sec:Introduction>
     <sec:Overview>
       The scope of the PP-Module for Redaction Tools, Version 1.0 is to describe the security functionality of redaction tools
