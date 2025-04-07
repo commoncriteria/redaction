@@ -355,33 +355,19 @@
   </sec:Introduction>
 
     
-    <sec:Conformance_Claims boilerplate="no">
-      <cclaims>
-        <cclaim name="Conformance Statement">
-          <description>An ST must claim exact conformance to this PP-Module.
-            <h:br/><h:br/>
-            The evaluation methods used for evaluating the TOE are a combination of the workunits defined in <xref to="bibCEM"/> as well as the
-            Evaluation Activities for ensuring that individual SFRs have sufficient supporting evidence in the Security Target and 
-            guidance documentation and have been sufficiently tested by the laboratory as part of completing ATE_IND.1.
-          </description>
-        </cclaim>
-        <cclaim name="CC Conformance Claims">
-          <description>This PP-Module is conformant to Parts 2 (extended) and 3 (extended) of Common Criteria CC:2022, Revision 1.</description>
-        </cclaim>
-        <cclaim name="PP Claim">
-          <description>This PP-Module does not claim conformance to any other Protection Profile.<h:p/>
-            No other PPs or PP-Modules are allowed to be specified in a PP-Configuration with this PP-Module beyond its Base-PP. 
-          </description>
-        </cclaim>
-        <cclaim name="Package Claim">
-          <description><h:ul>
-            <h:li>This PP-Module does not claim conformance to any functional packages.</h:li>
-            <h:li>This PP-Module does not conform to any assurance packages.</h:li>
-          </h:ul>
-          </description>
-        </cclaim>
-      </cclaims>
-    </sec:Conformance_Claims>
+<section title="Conformance Claims" id="ConformanceClaims">
+    
+    <!-- 2.1 CC Conformance -->
+    <CClaimsInfo cc-version="cc-2022r1" cc-approach="direct-rationale">
+      <cc-st-conf>exact</cc-st-conf>
+      <cc-pt2-conf>extended</cc-pt2-conf>
+      <cc-pt3-conf>extended</cc-pt3-conf>
+      <cc-pp-conf/>
+      <cc-pp-config-with/>
+      <cc-pkg-claim/>
+    </CClaimsInfo>
+  </section>
+    
 
   <!-- 3 Security Problem Description -->
   <sec:Security_Problem_Definition>
@@ -396,29 +382,59 @@
         <threat name="T.CLUES_TO_ORIGINAL_DATA">
           <description>A poorly-designed or poorly-implemented redaction tool can give false confidence
             of redaction by leaving clues to the nature of the original information in the redacted area of a document.</description>
-          <objective-refer ref="O.INSPECTION">
-            <rationale>The TOE mitigates the threat of clues to unredacted data by ensuring that the entire document is searched for redactable information, including hidden data and metadata.</rationale>
-          </objective-refer>
-          <objective-refer ref="O.REDACTION">
-            <rationale>The TOE mitigates the threat of clues to unredacted data by ensuring that the redaction process replaces the visible space of redacted data in a way that leaves no clues as to the original unredacted data.</rationale>
-          </objective-refer>
+          <addressed-by>FDP_DID_EXT.1</addressed-by>
+        <rationale>This requirement supports the objective by requiring the TOE to implement a mechanism to inspect a document for common mechanisms used to hide unredacted data.</rationale>
+        <addressed-by>FDP_DIN_EXT.1</addressed-by>
+        <rationale>This requirement supports the objective by defining a deep inspection mechanism by which the TOE can examine hidden data or metadata to find unredacted data.</rationale>
+
+          <addressed-by>FDP_LOC_EXT.1</addressed-by>
+        <rationale>This requirement supports the objective by requiring the TOE to remove redacted content from every location in the source file.</rationale>
+        <addressed-by>FDP_OBJ_EXT.1</addressed-by>
+        <rationale>This requirement supports the objective by requiring the TOE to remove references to redacted data in the source file.</rationale>
+        <addressed-by>FDP_REM_EXT.1</addressed-by>
+        <rationale>This requirement supports the objective by requiring the TOE to redact all data that has been selected for redaction.</rationale>
+        <addressed-by>FDP_RIP_EXT.1</addressed-by>
+        <rationale>This requirement supports the objective by requiring the TOE to purge all residual data so that unredacted data cannot be extracted from memory.</rationale>
+        <addressed-by>FDP_RPL_EXT.1</addressed-by>
+        <rationale>This requirement supports the objective by requiring the TOE to replace the visible space of redacted documents in a manner that does not provide clues to the original unredacted data.</rationale>
+        <addressed-by>FDP_SEL_EXT.1</addressed-by>
+        <rationale>This requirement supports the objective by defining how the TOE handles complex objects that are selected for redaction, whether by simplification or removal.</rationale>
+
         </threat>
         <threat name="T.UNREDACTED_DATA">
           <description>A poorly-designed or poorly-implemented redaction tool can give false confidence of redcation by failing to remove
             user-selected visible or hidden data in such a way that the original information is inadvertently distributed.
           </description>
-          <objective-refer ref="O.PROPER_OUTPUT">
-            <rationale>The TOE mitigates the threat of unredacted data by ensuring that unexpected or corrupted inputs do not cause the TOE to fail in a way that would generate an unredacted or improperly redacted output.</rationale>
-          </objective-refer>
-          <objective-refer ref="O.REDACTION">
-            <rationale>The TOE mitigates the threat of unredacted data by implementing a redaction function.</rationale>
-          </objective-refer>
-          <objective-refer ref="O.REPORT">
-            <rationale>The TOE mitigates the threat of unredacted data by generating a report that clearly shows to the user what data was redacted.</rationale>
-          </objective-refer>
-          <objective-refer ref="O.REVIEW">
-            <rationale>The TOE mitigates the threat of unredacted data by allowing the user to specify the data that will be redacted from a document.</rationale>
-          </objective-refer>
+          <addressed-by>FDP_NND_EXT.1</addressed-by>
+        <rationale>This requirement supports the objective by prohibiting the TOE from introducing new data to a file without the user's instruction.</rationale>
+        <addressed-by>FDP_VAL_EXT.1</addressed-by>
+        <rationale>This requirement supports the objective by requiring the TOE to implement a mechanism that allows it to handle unrecognizable data.</rationale>
+        <addressed-by>FPT_FLS.1</addressed-by>
+        <rationale>This requirement supports the objective by requiring the TOE to maintain a secure state (i.e., do not produce unvalidated and potentially unredacted output) if it encounters a failure or some other unexpected event.</rationale>
+ 
+          <addressed-by>FDP_LOC_EXT.1</addressed-by>
+        <rationale>This requirement supports the objective by requiring the TOE to remove redacted content from every location in the source file.</rationale>
+        <addressed-by>FDP_OBJ_EXT.1</addressed-by>
+        <rationale>This requirement supports the objective by requiring the TOE to remove references to redacted data in the source file.</rationale>
+        <addressed-by>FDP_REM_EXT.1</addressed-by>
+        <rationale>This requirement supports the objective by requiring the TOE to redact all data that has been selected for redaction.</rationale>
+        <addressed-by>FDP_RIP_EXT.1</addressed-by>
+        <rationale>This requirement supports the objective by requiring the TOE to purge all residual data so that unredacted data cannot be extracted from memory.</rationale>
+        <addressed-by>FDP_RPL_EXT.1</addressed-by>
+        <rationale>This requirement supports the objective by requiring the TOE to replace the visible space of redacted documents in a manner that does not provide clues to the original unredacted data.</rationale>
+        <addressed-by>FDP_SEL_EXT.1</addressed-by>
+        <rationale>This requirement supports the objective by defining how the TOE handles complex objects that are selected for redaction, whether by simplification or removal.</rationale>
+
+         <addressed-by>FAU_ALR_EXT.1</addressed-by>
+        <rationale>This requirement supports the objective by requiring the TOE to notify the user of unsuccessful redaction operations.</rationale>
+        <addressed-by>FAU_REP_EXT.1</addressed-by>
+        <rationale>This requirement supports the objective by identifying the contents of any report that the TOE generates about its redaction behavior.</rationale>
+        <addressed-by>FAU_SAR_EXT.1</addressed-by>
+        <rationale>This requirement supports the objective by requiring the TOE allow the user to access reports on redacted data.</rationale>
+ 
+          <addressed-by>FMT_RVW_EXT.1</addressed-by>
+          <rationale>This SFR supports the objective by defining the requirement to review and select data to be redacted.</rationale>
+        
         </threat>
       </threats>
     </section>
@@ -479,64 +495,12 @@
     <!-- 4.1 Security Objectives for the TOE -->
     <sec:Security_Objectives_for_the_TOE>
       <SOs>
-      <SO name="O.INSPECTION">
-        <description>The TOE will analyze the file content
-          for metadata and elements, to include any that are purposely hidden or not immediately
-          visible to the naked eye. These metadata and elements include, but are not limited to, those
-          that are obstructed from view such as shapes on top of text, hidden objects (manual direct
-          formatting or programmatically hidden), and text that is positioned off the margins
-          or is located in the header and footer sections of the file.</description>
-        <addressed-by>FDP_DID_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to implement a mechanism to inspect a document for common mechanisms used to hide unredacted data.</rationale>
-        <addressed-by>FDP_DIN_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by defining a deep inspection mechanism by which the TOE can examine hidden data or metadata to find unredacted data.</rationale>
-      </SO>
+
 
       <!-- formerly O.QUALITY (de-duped from App PP) -->
-      <SO name="O.PROPER_OUTPUT">
-        <description>The TOE will react to unexpected input data or behavior by ensuring that it will not produce an output document with insufficient redactions made or with its own additions made.</description>
-        <addressed-by>FDP_NND_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by prohibiting the TOE from introducing new data to a file without the user's instruction.</rationale>
-        <addressed-by>FDP_VAL_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to implement a mechanism that allows it to handle unrecognizable data.</rationale>
-        <addressed-by>FPT_FLS.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to maintain a secure state (i.e., do not produce unvalidated and potentially unredacted output) if it encounters a failure or some other unexpected event.</rationale>
-      </SO>
-      <SO name="O.REDACTION">
-        <description>The TOE will provide the ability
-          to completely remove any data selected for redaction.</description>
-        
-        <addressed-by>FDP_LOC_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to remove redacted content from every location in the source file.</rationale>
-        <addressed-by>FDP_OBJ_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to remove references to redacted data in the source file.</rationale>
-        <addressed-by>FDP_REM_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to redact all data that has been selected for redaction.</rationale>
-        <addressed-by>FDP_RIP_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to purge all residual data so that unredacted data cannot be extracted from memory.</rationale>
-        <addressed-by>FDP_RPL_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to replace the visible space of redacted documents in a manner that does not provide clues to the original unredacted data.</rationale>
-        <addressed-by>FDP_SEL_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by defining how the TOE handles complex objects that are selected for redaction, whether by simplification or removal.</rationale>
 
-      </SO>
-      <SO name="O.REPORT">
-        <description>The TOE will provide the ability
-          to produce a report of all data that was redacted and any errors that occurred during redaction.</description>
-        
-        <addressed-by>FAU_ALR_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to notify the user of unsuccessful redaction operations.</rationale>
-        <addressed-by>FAU_REP_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by identifying the contents of any report that the TOE generates about its redaction behavior.</rationale>
-        <addressed-by>FAU_SAR_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE allow the user to access reports on redacted data.</rationale>
-      </SO>
-        <!-- formerly O.MANAGEMENT (de-duped from App PP) -->
-        <SO name="O.REVIEW">
-          <description>The TOE will provide the ability for a user to review a document to select the data that will be redacted in it.</description>
-          <addressed-by>FMT_RVW_EXT.1</addressed-by>
-          <rationale>This SFR supports the objective by defining the requirement to review and select data to be redacted.</rationale>
-        </SO>
+
+
         
       <!--
         
