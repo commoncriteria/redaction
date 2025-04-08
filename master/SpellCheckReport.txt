@@ -7,7 +7,6 @@ output/redaction-release-linkable.html: Xs
 output/redaction-release-linkable.html: recurse
 output/redaction-release-linkable.html: recursing
 output/redaction-release-linkable.html: redactions
-output/redaction-release-linkable.html: redcation
 output/redaction-release-linkable.html: sanitization
 output/redaction-release-linkable.html: steganography
 output/redaction-release-linkable.html: unredacted
@@ -20,7 +19,6 @@ output/redaction-release.html: TBD
 output/redaction-release.html: Xs
 output/redaction-release.html: recurse
 output/redaction-release.html: redactions
-output/redaction-release.html: redcation
 output/redaction-release.html: sanitization
 output/redaction-release.html: steganography
 output/redaction-release.html: unredacted
@@ -46,7 +44,6 @@ output/redaction.html: Xs
 output/redaction.html: recurse
 output/redaction.html: recursing
 output/redaction.html: redactions
-output/redaction.html: redcation
 output/redaction.html: sanitization
 output/redaction.html: steganography
 output/redaction.html: unredacted
