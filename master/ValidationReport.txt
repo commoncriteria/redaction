@@ -1,2 +1,4 @@
+/home/runner/work/redaction/redaction/input/redaction.xml:20:38: error: character content of element "PPPubDate" invalid; must be an ISO date
 /home/runner/work/redaction/redaction/input/redaction.xml:34:20: error: element "using-cc2022" not allowed here; expected the element end-tag or element "audit-events-in-sfrs" or "display-audit-with-sfrs"
 /home/runner/work/redaction/redaction/input/redaction.xml:560:27: error: element "base-pp" missing required attributes "name", "product", "short" and "version"
+/home/runner/work/redaction/redaction/input/redaction.xml:565:87: error: element "comment" not allowed here; expected the element end-tag or text

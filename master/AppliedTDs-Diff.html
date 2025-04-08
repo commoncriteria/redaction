@@ -17,6 +17,12 @@
                 </tr>
             </table>
         </div>
+        <div id="commmentbox-">
+            <a href="#Comment-1-">Comment: Comment-1-</a>
+            <br>
+            <a href="#Comment-2-">Comment: Comment-2-</a>
+            <br>
+        </div>
         <h1 class="title" style="page-break-before:auto;">PP-Module for Redaction Tools</h1>
         <h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1>
         <div class="center">
@@ -24,7 +30,7 @@
             <br>
              Version: 1.0
             <br>
-            2023-12-11
+            2025-4-8
             <br>
             <b>National Information Assurance Partnership</b>
             <br>
@@ -600,11 +606,11 @@
             </div>
         </div>
         <h3 id="m-fpt" class="indexable" data-level="3">5.2.4 Protection of the TSF (FPT)</h3>
-        <div class="comp" id="FPT_FLS.1">
-            <h4>FPT_FLS.1 Failure with Preservation of Secure State</h4>
+        <div class="comp" id="FPT_FLS.1/Redaction">
+            <h4>FPT_FLS.1/Redaction Failure with Preservation of Secure State</h4>
             <div class="element">
-                <div class="reqid" id="FPT_FLS.1.1">
-                    <a href="#FPT_FLS.1.1" class="abbr">FPT_FLS.1.1</a>
+                <div class="reqid" id="FPT_FLS.1.1/Redaction">
+                    <a href="#FPT_FLS.1.1/Redaction" class="abbr">FPT_FLS.1.1/Redaction</a>
                 </div>
                 <div class="reqdesc">
                      The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall preserve a secure state when the following types of failures occur: [<b>assignment</b>: <span class="assignable-content">list of types of failures in the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>]. 
@@ -656,7 +662,7 @@
                     <td><a href="#FDP_VAL_EXT.1">FDP_VAL_EXT.1</a></td><td>This requirement supports the objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to implement a mechanism that allows it to handle unrecognizable data.</td>
                 </tr>
                 <tr>
-                    <td><a href="#FPT_FLS.1">FPT_FLS.1</a></td><td>This requirement supports the objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to maintain a secure state (i.e., do not produce unvalidated and potentially unredacted output) if it encounters a failure or some other unexpected event.</td>
+                    <td><a href="#FPT_FLS.1/Redaction">FPT_FLS.1/Redaction</a></td><td>This requirement supports the objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to maintain a secure state (i.e., do not produce unvalidated and potentially unredacted output) if it encounters a failure or some other unexpected event.</td>
                 </tr>
                 <tr>
                     <td><a href="#FDP_LOC_EXT.1">FDP_LOC_EXT.1</a></td><td>This requirement supports the objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to remove redacted content from every location in the source file.</td>
@@ -803,7 +809,7 @@
                 <td><a href="#FMT_RVW_EXT.1">FMT_RVW_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented. </td>
             </tr>
             <tr>
-                <td><a href="#FPT_FLS.1">FPT_FLS.1</a></td><td>This requirement relates to the preservation of a secure state in the event of a <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> failure. This is not defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> but the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> has no requirements that prohibit it. </td>
+                <td><a href="#FPT_FLS.1/Redaction">FPT_FLS.1/Redaction</a></td><td>This requirement relates to the preservation of a secure state in the event of a <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> failure. This is not defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> but the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> has no requirements that prohibit it. </td>
             </tr>
             <tr>
                 <th colspan="2"> Optional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th>
@@ -930,7 +936,7 @@
                             <tr style="background-color: inherit">
                                 <td>Dependencies to:</td><td><a href="#FDP_REM_EXT.1">FDP_REM_EXT.1</a> Removal of Redacted Data
                                     <p></p>
-                                     <a href="#FPT_FLS.1">FPT_FLS.1</a> Failure with Preservation of Secure State</td>
+                                     <a href="#FPT_FLS.1/Redaction">FPT_FLS.1/Redaction</a> Failure with Preservation of Secure State</td>
                             </tr>
                         </table>
                         <h4 id="ext-comp-FAU_ALR_EXT.1.1">FAU_ALR_EXT.1.1</h4>
@@ -1489,7 +1495,7 @@
                 <th>Identifier</th><th>Title</th>
             </tr>
             <tr>
-                <td><span id="bibAppPP">[App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>]</span></td><td><span class="description"> <a href="https://www.niap-ccevs.org/MMO/PP/PP_APP_v2.0.pdf">Protection Profile for Application Software, Version 2.0</a>, TBD </span></td>
+                <td><span id="bibAppPP">[App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>]</span></td><td><span class="description"> <a href="https://www.niap-ccevs.org/MMO/PP/PP_APP_v2.0.pdf">Protection Profile for Application Software, Version 2.0 <span style="" class="comment " id="Comment-2-">404 link</span></a>, TBD </span></td>
             </tr>
             <tr>
                 <td><span id="bibCC">[<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>]</span></td><td><span class="description">Common Criteria for Information Technology Security Evaluation - 
