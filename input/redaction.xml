@@ -402,7 +402,7 @@
 
         </threat>
         <threat name="T.UNREDACTED_DATA">
-          <description>A poorly-designed or poorly-implemented redaction tool can give false confidence of redcation by failing to remove
+          <description>A poorly-designed or poorly-implemented redaction tool can give false confidence of redaction by failing to remove
             user-selected visible or hidden data in such a way that the original information is inadvertently distributed.
           </description>
           <addressed-by>FDP_NND_EXT.1</addressed-by>
