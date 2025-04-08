@@ -383,22 +383,22 @@
           <description>A poorly-designed or poorly-implemented redaction tool can give false confidence
             of redaction by leaving clues to the nature of the original information in the redacted area of a document.</description>
           <addressed-by>FDP_DID_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to implement a mechanism to inspect a document for common mechanisms used to hide unredacted data.</rationale>
+        <rationale>This SFR mitigates the threat by requiring the TOE to implement a mechanism to inspect a document for common mechanisms used to hide unredacted data.</rationale>
         <addressed-by>FDP_DIN_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by defining a deep inspection mechanism by which the TOE can examine hidden data or metadata to find unredacted data.</rationale>
+        <rationale>This SFR mitigates the threat by defining a deep inspection mechanism by which the TOE can examine hidden data or metadata to find unredacted data.</rationale>
 
           <addressed-by>FDP_LOC_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to remove redacted content from every location in the source file.</rationale>
+        <rationale>This SFR mitigates the threat by requiring the TOE to remove redacted content from every location in the source file.</rationale>
         <addressed-by>FDP_OBJ_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to remove references to redacted data in the source file.</rationale>
+        <rationale>This SFR mitigates the threat by requiring the TOE to remove references to redacted data in the source file.</rationale>
         <addressed-by>FDP_REM_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to redact all data that has been selected for redaction.</rationale>
+        <rationale>This SFR mitigates the threat by requiring the TOE to redact all data that has been selected for redaction.</rationale>
         <addressed-by>FDP_RIP_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to purge all residual data so that unredacted data cannot be extracted from memory.</rationale>
+        <rationale>This SFR mitigates the threat by requiring the TOE to purge all residual data so that unredacted data cannot be extracted from memory.</rationale>
         <addressed-by>FDP_RPL_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to replace the visible space of redacted documents in a manner that does not provide clues to the original unredacted data.</rationale>
+        <rationale>This SFR mitigates the threat by requiring the TOE to replace the visible space of redacted documents in a manner that does not provide clues to the original unredacted data.</rationale>
         <addressed-by>FDP_SEL_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by defining how the TOE handles complex objects that are selected for redaction, whether by simplification or removal.</rationale>
+        <rationale>This SFR mitigates the threat by defining how the TOE handles complex objects that are selected for redaction, whether by simplification or removal.</rationale>
 
         </threat>
         <threat name="T.UNREDACTED_DATA">
@@ -406,34 +406,34 @@
             user-selected visible or hidden data in such a way that the original information is inadvertently distributed.
           </description>
           <addressed-by>FDP_NND_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by prohibiting the TOE from introducing new data to a file without the user's instruction.</rationale>
+        <rationale>This SFR mitigates the threat by prohibiting the TOE from introducing new data to a file without the user's instruction.</rationale>
         <addressed-by>FDP_VAL_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to implement a mechanism that allows it to handle unrecognizable data.</rationale>
+        <rationale>This SFR mitigates the threat by requiring the TOE to implement a mechanism that allows it to handle unrecognizable data.</rationale>
         <addressed-by>FPT_FLS.1/Redaction</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to maintain a secure state (i.e., do not produce unvalidated and potentially unredacted output) if it encounters a failure or some other unexpected event.</rationale>
+        <rationale>This SFR mitigates the threat by requiring the TOE to maintain a secure state (i.e., do not produce unvalidated and potentially unredacted output) if it encounters a failure or some other unexpected event.</rationale>
  
           <addressed-by>FDP_LOC_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to remove redacted content from every location in the source file.</rationale>
+        <rationale>This SFR mitigates the threat by requiring the TOE to remove redacted content from every location in the source file.</rationale>
         <addressed-by>FDP_OBJ_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to remove references to redacted data in the source file.</rationale>
+        <rationale>This SFR mitigates the threat by requiring the TOE to remove references to redacted data in the source file.</rationale>
         <addressed-by>FDP_REM_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to redact all data that has been selected for redaction.</rationale>
+        <rationale>This SFR mitigates the threat by requiring the TOE to redact all data that has been selected for redaction.</rationale>
         <addressed-by>FDP_RIP_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to purge all residual data so that unredacted data cannot be extracted from memory.</rationale>
+        <rationale>This SFR mitigates the threat by requiring the TOE to purge all residual data so that unredacted data cannot be extracted from memory.</rationale>
         <addressed-by>FDP_RPL_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to replace the visible space of redacted documents in a manner that does not provide clues to the original unredacted data.</rationale>
+        <rationale>This SFR mitigates the threat by requiring the TOE to replace the visible space of redacted documents in a manner that does not provide clues to the original unredacted data.</rationale>
         <addressed-by>FDP_SEL_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by defining how the TOE handles complex objects that are selected for redaction, whether by simplification or removal.</rationale>
+        <rationale>This SFR mitigates the threat by defining how the TOE handles complex objects that are selected for redaction, whether by simplification or removal.</rationale>
 
          <addressed-by>FAU_ALR_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE to notify the user of unsuccessful redaction operations.</rationale>
+        <rationale>This SFR mitigates the threat by requiring the TOE to notify the user of unsuccessful redaction operations.</rationale>
         <addressed-by>FAU_REP_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by identifying the contents of any report that the TOE generates about its redaction behavior.</rationale>
+        <rationale>This SFR mitigates the threat by identifying the contents of any report that the TOE generates about its redaction behavior.</rationale>
         <addressed-by>FAU_SAR_EXT.1</addressed-by>
-        <rationale>This requirement supports the objective by requiring the TOE allow the user to access reports on redacted data.</rationale>
+        <rationale>This SFR mitigates the threat by requiring the TOE allow the user to access reports on redacted data.</rationale>
  
           <addressed-by>FMT_RVW_EXT.1</addressed-by>
-          <rationale>This SFR supports the objective by defining the requirement to review and select data to be redacted.</rationale>
+          <rationale>This SFR mitigates the threat by defining the requirement to review and select data to be redacted.</rationale>
         
         </threat>
       </threats>
@@ -665,6 +665,7 @@
                     alerts the user that the redaction failed. </Tests>
                 </aactivity>
               </f-element>
+              <audit-event/>
             </f-component>
             
             
@@ -707,6 +708,7 @@
                     FAU_SAR_EXT.1. </Tests>
                 </aactivity>
               </f-element>
+              <audit-event/>
             </f-component>
         
         
@@ -746,6 +748,7 @@
                 </aactivity>
               </f-element>
             </f-component>
+            <audit-event/>
           </section>
           
           <!-- 5.2.2 User Data Protection (FDP) (Previously Class VAL) -->
@@ -846,6 +849,7 @@
                   </Tests>
                 </aactivity> 
               </f-element>
+              <audit-event/>
             </f-component>
         
         
@@ -896,6 +900,7 @@
                     accordance with the requirement.</Tests>
                 </aactivity>
               </f-element>
+              <audit-event/>
             </f-component>
         
         
@@ -929,6 +934,7 @@
                   </Tests>
                 </aactivity>
               </f-element>
+              <audit-event/>
             </f-component>
         
         
@@ -982,6 +988,7 @@
                   </Tests>
                 </aactivity>
               </f-element>
+              <audit-event/>
             </f-component>
             
             
@@ -1027,6 +1034,7 @@
                   </Tests>
                 </aactivity>
               </f-element>
+              <audit-event/>
             </f-component>
             
             
@@ -1070,6 +1078,7 @@
                   </Tests>
                 </aactivity>
               </f-element>
+              <audit-event/>
             </f-component>
             
             
@@ -1113,6 +1122,7 @@
                   </Tests>
                 </aactivity>
               </f-element>
+              <audit-event/>
             </f-component>
             
             
@@ -1160,6 +1170,7 @@
                   </Tests>
                 </aactivity>
               </f-element>
+              <audit-event/>
             </f-component>
         
         
@@ -1211,6 +1222,7 @@
                     document. </Tests>
                 </aactivity>
               </f-element>
+              <audit-event/>
             </f-component>
         
         
@@ -1291,6 +1303,7 @@
                     that the TOE handled the data according to the requirement.</Tests>
                 </aactivity>
               </f-element>
+              <audit-event/>
             </f-component>
             
           </section>
@@ -1335,6 +1348,7 @@
                 </Tests>
               </aactivity>
             </f-element>
+            <audit-event/>
           </f-component>
           </section>
           
@@ -1370,6 +1384,7 @@
                   </Tests>
                 </aactivity>
               </f-element>
+              <audit-event/>
             </f-component>
           </section>
         </man-sfrs>
