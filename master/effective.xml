@@ -6,7 +6,7 @@
     <ReferenceTable>
       <PPVersion>1.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2025-4-8</PPPubDate>
+      <PPPubDate>2025-04-08</PPPubDate>
       <Keywords>Redaction</Keywords>
     </ReferenceTable>
   </PPReference>
@@ -20,7 +20,6 @@
   </RevisionHistory>
   
   <release-notes><h:h3>TDs Applied</h:h3></release-notes><pp-preferences>
-    <using-cc2022/>
   </pp-preferences>
   <sec:Introduction>
     <sec:Overview>
@@ -544,12 +543,12 @@
         
             <!-- 5.1 App PP Security Functional Requirements Direction -->
 <!-- Note: How do we handle it when the Base-PP (in this case NDcPP) isn't on Github? -->
-      <base-pp id="AppPP">
+      <base-pp id="AppPP" name="Application Software" product="Application" short="App" version="2.0">
         <git>
           <url>https://github.com/commoncriteria/application</url>
           <branch>release-1.4</branch>
         </git>
-        <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=462&amp;id=462 <comment>404 link</comment></url>
+        <url>https://commoncriteria.github.io/application/release-1.4/application-release.html</url>
 
 		<sec-func-req-dir> 
 		  In a PP-Configuration that includes the App PP, there are no App PP requirements that must be claimed in a certain manner for redaction functionality to be correctly implemented. Therefore, all SFR operations 
@@ -734,8 +733,9 @@
                     files, and observe that there is a report entry for each element expected to be redacted. This evaluation activity can be done in conjunction with FAU_REP_EXT.1.</Tests>
                 </aactivity>
               </f-element>
+               <audit-event/>
             </f-component>
-            <audit-event/>
+           
           </section>
           
           <!-- 5.2.2 User Data Protection (FDP) (Previously Class VAL) -->

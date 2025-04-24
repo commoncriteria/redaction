@@ -629,13 +629,13 @@ function showTarget(id){
 	            img[src="images/collapsed.png"] { display:none;}
 
           }
-    </style></head><body onLoad="init()"><div id="commmentbox-"><a href="#Comment-1-">Comment: Comment-1-</a><br/><a href="#Comment-2-">Comment: Comment-2-</a><br/></div><h1 class="title" style="page-break-before:auto;">PP-Module for Redaction Tools</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
-      Version: 1.0<br/>2025-4-8<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>1.0</td><td>2023-12-11</td><td>Initial release as <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022 <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr></td></tr>
+    </style></head><body onLoad="init()"><div id="commmentbox-"><a href="#Comment-1-">Comment: Comment-1-</a><br/></div><h1 class="title" style="page-break-before:auto;">PP-Module for Redaction Tools</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
+      Version: 1.0<br/>2025-04-08<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>1.0</td><td>2023-12-11</td><td>Initial release as <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022 <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr></td></tr>
 </table><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#Compliant_Targets_of_Evaluation" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:20px">1.3.1<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.4<span>Use Cases</span></a><a href="#ConformanceClaims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#SecurityObjectivesTOEorEnvironment" style="text-indent:10px">4.1<span>Security Objectives for the Operational Environment</span></a><a href="#SOR" style="text-indent:10px">4.2<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#secreq-AppPP" style="text-indent:10px">5.1<span>
-    Protection Profile for Redaction Tools
+    Protection Profile for Application Software
        Security Functional Requirements Direction
     </span></a><a href="#modsfr-AppPP" style="text-indent:20px">5.1.1<span> Modified SFRs </span></a><a href="#man-sfrs" style="text-indent:10px">5.2<span>TOE Security Functional Requirements</span></a><a href="#m-fau" style="text-indent:20px">5.2.1<span>Security Audit (FAU)</span></a><a href="#m-fdp" style="text-indent:20px">5.2.2<span>User Data Protection (FDP)</span></a><a href="#m-fmt" style="text-indent:20px">5.2.3<span>Security Management (FMT)</span></a><a href="#m-fpt" style="text-indent:20px">5.2.4<span>Protection of the TSF (FPT)</span></a><a href="#obj-req-map" style="text-indent:10px">5.3<span>TOE Security Functional Requirements Rationale</span></a><a href="#mod-conrat" style="text-indent:0px">6<span>Consistency Rationale</span></a><a href="#conrat-AppPP" style="text-indent:10px">6.1<span>
-    Protection Profile for Redaction Tools</span></a><a href="#contoe-AppPP" style="text-indent:20px">6.1.1<span>
+    Protection Profile for Application Software</span></a><a href="#contoe-AppPP" style="text-indent:20px">6.1.1<span>
 	Consistency of TOE Type
       </span></a><a href="#consecprob-AppPP" style="text-indent:20px">6.1.2<span>
 	Consistency of Security Problem Definition
@@ -928,7 +928,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
        </li>
      </ul>
    <h2 id="secreq-AppPP" class="indexable" data-level="2">5.1 
-    Protection Profile for Redaction Tools
+    Protection Profile for Application Software
        Security Functional Requirements Direction
     </h2> 
 		  In a <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> that includes the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, there are no App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> requirements that must be claimed in a certain manner for redaction functionality to be correctly implemented. Therefore, all <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> operations 
@@ -1007,8 +1007,9 @@ The assumptions identified in Section 3 are incorporated as security objectives 
     </span><span class="note">This can be satisfied with a dialog box or other simple list of items that were
                   redacted. The report can be a configurable feature that is only generated on user request.
                 </span></div></div></div>
+               
             </div>
-            
+           
           
           
           
@@ -1387,7 +1388,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 <tr><td><a href="#FAU_SAR_EXT.1">FAU_SAR_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> mitigates the threat by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> allow the user to access reports on redacted data.</td></tr>
 <tr><td><a href="#FMT_RVW_EXT.1">FMT_RVW_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> mitigates the threat by defining the requirement to review and select data to be redacted.</td></tr>
 </table></p><h1 id="mod-conrat" class="indexable" data-level="1">6 Consistency Rationale</h1><h2 id="conrat-AppPP" class="indexable" data-level="2">6.1 
-    Protection Profile for Redaction Tools</h2><h3 id="contoe-AppPP" class="indexable" data-level="3">6.1.1 
+    Protection Profile for Application Software</h2><h3 id="contoe-AppPP" class="indexable" data-level="3">6.1.1 
 	Consistency of TOE Type
       </h3>If this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is used to extend the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> type for the overall <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is still a software application.
           The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> boundary is simply extended to include the redaction tool functionality that is built into the application 
@@ -1599,7 +1600,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 <tr><td><span class="term" id="abbr_TSFI" data-plural="TSFIs"><abbr class="dyn-abbr"><a href="#abbr_TSFI">TSFI</a></abbr></span></td><td><span id="long_abbr_TSFI"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> Interface</span></td></tr>
 <tr><td><span class="term" id="abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></span></td><td><span id="long_abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Summary Specification</span></td></tr>
 </table><h1 id="appendix-bibliography" class="indexable" data-level="A">Appendix E -  Bibliography</h1><table><caption><span class="ctr" data-myid="t-biblio" data-counter-type="ct-Table" id="t-biblio">Table <span class="counter">8</span></span>: Bibliography</caption><tr class="header"><th>Identifier</th><th>Title</th></tr><tr><td><span id="bibAppPP">[App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>]</span></td><td><span class="description">
-          <a href="https://www.niap-ccevs.org/MMO/PP/PP_APP_v2.0.pdf">Protection Profile for Application Software, Version 2.0 <span style="" class="comment " id="Comment-2-">404 link</span></a>, TBD
+          <a href="https://www.niap-ccevs.org/MMO/PP/PP_APP_v2.0.pdf">Protection Profile for Application Software, Version 2.0 <span style="" class="comment " id="Comment-1-">404 link</span></a>, TBD
         </span></td></tr><tr><td><span id="bibCC">[<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>]</span></td><td><span class="description">Common Criteria for Information Technology Security Evaluation - <ul>
             <li><a href="https://www.commoncriteriaportal.org/files/ccfiles/CC2022PART1R1.pdf">Part 1: 
 				Introduction and general model</a>, CCMB-2022-11-001, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
