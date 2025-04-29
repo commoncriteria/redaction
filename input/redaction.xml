@@ -611,11 +611,7 @@
 
 			
 	  <!-- 6.1.3 Consistency of Objectives -->
-      <con-mod ref="O.INSPECTION">This objective relates solely to redaction behavior, which is beyond the scope of the Base-PP and does not prevent any Base-PP objectives from being satisfied.</con-mod>
-      <con-mod ref="O.PROPER_OUTPUT">This objective relates solely to redaction behavior, which is beyond the scope of the Base-PP and does not prevent any Base-PP objectives from being satisfied.</con-mod>
-      <con-mod ref="O.REDACTION">This objective relates solely to redaction behavior, which is beyond the scope of the Base-PP and does not prevent any Base-PP objectives from being satisfied.</con-mod>
-      <con-mod ref="O.REPORT">This objective relates solely to redaction behavior, which is beyond the scope of the Base-PP and does not prevent any Base-PP objectives from being satisfied.</con-mod>
-      <con-mod ref="O.REVIEW">This objective relates solely to redaction behavior, which is beyond the scope of the Base-PP and does not prevent any Base-PP objectives from being satisfied.</con-mod>
+
       
       <con-mod ref="OE.KNOWLEDGEABLE_USER">This objective is an extension of the OE.PROPER_USER and OE.PROPER_ADMIN objectives in the Base-PP but extends them to apply specifically to the operation of redaction tools.</con-mod>
       <con-mod ref="OE.INFORMATION_RELEASE_POLICY">This objective does not contradict the Base-PP because it describes the implementation of an organizational security policy.</con-mod>
