@@ -391,35 +391,34 @@
           <description>A poorly-designed or poorly-implemented redaction tool can give false confidence of redaction by failing to remove
             user-selected visible or hidden data in such a way that the original information is inadvertently distributed.
           </description>
-          <addressed-by>FDP_NND_EXT.1</addressed-by>
-        <rationale>This SFR mitigates the threat by prohibiting the TOE from introducing new data to a file without the user's instruction.</rationale>
-        <addressed-by>FDP_VAL_EXT.1</addressed-by>
-        <rationale>This SFR mitigates the threat by requiring the TOE to implement a mechanism that allows it to handle unrecognizable data.</rationale>
-        <addressed-by>FPT_FLS.1/Redaction</addressed-by>
-        <rationale>This SFR mitigates the threat by requiring the TOE to maintain a secure state (i.e., do not produce unvalidated and potentially unredacted output) if it encounters a failure or some other unexpected event.</rationale>
- 
+          <addressed-by>FAU_ALR_EXT.1</addressed-by>
+          <rationale>This SFR mitigates the threat by requiring the TOE to notify the user of unsuccessful redaction operations.</rationale>
+          <addressed-by>FAU_REP_EXT.1</addressed-by>
+          <rationale>This SFR mitigates the threat by identifying the contents of any report that the TOE generates about its redaction behavior.</rationale>
+          <addressed-by>FAU_SAR_EXT.1</addressed-by>
+          <rationale>This SFR mitigates the threat by requiring the TOE allow the user to access reports on redacted data.</rationale>
           <addressed-by>FDP_LOC_EXT.1</addressed-by>
-        <rationale>This SFR mitigates the threat by requiring the TOE to remove redacted content from every location in the source file.</rationale>
-        <addressed-by>FDP_OBJ_EXT.1</addressed-by>
-        <rationale>This SFR mitigates the threat by requiring the TOE to remove references to redacted data in the source file.</rationale>
-        <addressed-by>FDP_REM_EXT.1</addressed-by>
-        <rationale>This SFR mitigates the threat by requiring the TOE to redact all data that has been selected for redaction.</rationale>
-        <addressed-by>FDP_RIP_EXT.1</addressed-by>
-        <rationale>This SFR mitigates the threat by requiring the TOE to purge all residual data so that unredacted data cannot be extracted from memory.</rationale>
-        <addressed-by>FDP_RPL_EXT.1</addressed-by>
-        <rationale>This SFR mitigates the threat by requiring the TOE to replace the visible space of redacted documents in a manner that does not provide clues to the original unredacted data.</rationale>
-        <addressed-by>FDP_SEL_EXT.1</addressed-by>
-        <rationale>This SFR mitigates the threat by defining how the TOE handles complex objects that are selected for redaction, whether by simplification or removal.</rationale>
-
-         <addressed-by>FAU_ALR_EXT.1</addressed-by>
-        <rationale>This SFR mitigates the threat by requiring the TOE to notify the user of unsuccessful redaction operations.</rationale>
-        <addressed-by>FAU_REP_EXT.1</addressed-by>
-        <rationale>This SFR mitigates the threat by identifying the contents of any report that the TOE generates about its redaction behavior.</rationale>
-        <addressed-by>FAU_SAR_EXT.1</addressed-by>
-        <rationale>This SFR mitigates the threat by requiring the TOE allow the user to access reports on redacted data.</rationale>
- 
+          <rationale>This SFR mitigates the threat by requiring the TOE to remove redacted content from every location in the source file.</rationale>
+          <addressed-by>FDP_NND_EXT.1</addressed-by>
+          <rationale>This SFR mitigates the threat by prohibiting the TOE from introducing new data to a file without the user's instruction.</rationale>
+          <addressed-by>FDP_OBJ_EXT.1</addressed-by>
+          <rationale>This SFR mitigates the threat by requiring the TOE to remove references to redacted data in the source file.</rationale>
+          <addressed-by>FDP_REM_EXT.1</addressed-by>
+          <rationale>This SFR mitigates the threat by requiring the TOE to redact all data that has been selected for redaction.</rationale>
+          <addressed-by>FDP_RIP_EXT.1</addressed-by>
+          <rationale>This SFR mitigates the threat by requiring the TOE to purge all residual data so that unredacted data cannot be extracted from memory.</rationale>
+          <addressed-by>FDP_RPL_EXT.1</addressed-by>
+          <rationale>This SFR mitigates the threat by requiring the TOE to replace the visible space of redacted documents in a manner that does not provide clues to the original unredacted data.</rationale>
+          <addressed-by>FDP_SEL_EXT.1</addressed-by>
+          <rationale>This SFR mitigates the threat by defining how the TOE handles complex objects that are selected for redaction, whether by simplification or removal.</rationale>
+          <addressed-by>FDP_VAL_EXT.1</addressed-by>
+          <rationale>This SFR mitigates the threat by requiring the TOE to implement a mechanism that allows it to handle unrecognizable data.</rationale>
           <addressed-by>FMT_RVW_EXT.1</addressed-by>
           <rationale>This SFR mitigates the threat by defining the requirement to review and select data to be redacted.</rationale>
+          <addressed-by>FPT_FLS.1/Redaction</addressed-by>
+          <rationale>This SFR mitigates the threat by requiring the TOE to maintain a secure state (i.e., do not produce unvalidated and potentially unredacted output) if it encounters a failure or some other unexpected event.</rationale>
+
+
         
         </threat>
       </threats>
