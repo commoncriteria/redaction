@@ -1,21 +1,6 @@
 * Warning: This document still has at least one comment.
 * Error: Detected multiple elements with an id of 'fdp-loc-ext-1e1'.
 * Error: Detected multiple elements with an id of 'fdp-loc-ext-1e1'.
-* Error: Detected dangling ref to 'O.INSPECTION'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[5]"This obje"/ref[1]""
-* Error: Detected dangling ref to 'O.PROPER_OUTPUT'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[6]"This obje"/ref[1]""
-* Error: Detected dangling ref to 'O.REDACTION'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[7]"This obje"/ref[1]""
-* Error: Detected dangling ref to 'O.REPORT'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[8]"This obje"/ref[1]""
-* Error: Detected dangling ref to 'O.REVIEW'
-        for a ref.
-	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[9]"This obje"/ref[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:Overview[1]"The scope"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:Overview[1]"The scope"/h:p[2]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:Overview[1]"The scope"/h:p[3]""
