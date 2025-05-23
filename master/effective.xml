@@ -349,7 +349,8 @@
       <cc-pt2-conf>extended</cc-pt2-conf>
       <cc-pt3-conf>extended</cc-pt3-conf>
       <cc-pp-conf/>
-      <cc-pp-config-with/>
+      <cc-pp-config-with><PP-cc-ref>Protection Profile for Application Software, Version 2.0</PP-cc-ref></cc-pp-config-with>
+
       <cc-pkg-claim/>
     </CClaimsInfo>
   </section>
