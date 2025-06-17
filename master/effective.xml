@@ -548,7 +548,7 @@
           <url>https://github.com/commoncriteria/application</url>
           <branch>release-1.4</branch>
         </git>
-        <url>https://commoncriteria.github.io/application/release-1.4/application-release.html</url>
+        <url>https://www.niap-ccevs.org/protectionprofiles/516</url>
 
 		<sec-func-req-dir> 
 		  In a PP-Configuration that includes the App PP, there are no App PP requirements that must be claimed in a certain manner for redaction functionality to be correctly implemented. Therefore, all SFR operations 
@@ -1788,7 +1788,7 @@
         <tag>App PP</tag>
         <!-- todo: update with proper date -->
         <description>
-          <h:a href="https://www.niap-ccevs.org/MMO/PP/PP_APP_v2.0.pdf">Protection Profile for Application Software, Version 2.0 <comment>404 link</comment></h:a>, TBD
+          <h:a href="https://www.niap-ccevs.org/protectionprofiles/516">Protection Profile for Application Software, Version 2.0, June 16, 2025</h:a>
         </description>
       </entry>
     </bibliography>
