@@ -614,7 +614,7 @@
         <man-sfrs>
         
           <!-- 5.2.1 Security Audit (FAU) (Previously Class REP) -->
-          <section title="Security Audit (FAU)" id="m-fau">
+          <section title="Class FAU: Security Audit" id="m-fau">
             
             <ext-comp-def fam-id="FAU_ALR_EXT" title="Redaction Failure Notification">
               <fam-behavior>Components in this family describe requirements for user notification in response to a specific kind of TSF failure.
@@ -735,7 +735,7 @@
           </section>
           
           <!-- 5.2.2 User Data Protection (FDP) (Previously Class VAL) -->
-          <section title="User Data Protection (FDP)" id="m-fdp">
+          <section title="Class FDP: User Data Protection" id="m-fdp">
         
         
             <ext-comp-def fam-id="FDP_DID_EXT" title="Identification of Data">
@@ -1293,7 +1293,7 @@
           
           
           <!-- 5.2.3 Security Management (FMT) -->
-          <section title="Security Management (FMT)" id="m-fmt">
+          <section title="Class FMT: Security Management" id="m-fmt">
           <ext-comp-def fam-id="FMT_RVW_EXT" title="Element Review">
             <fam-behavior>Components in this family define functionality for selecting data elements that can be redacted from a document.
             </fam-behavior>
@@ -1337,7 +1337,7 @@
           
           
           <!-- 5.2.4 Protection of the TSF (FPT) -->
-          <section title="Protection of the TSF (FPT)" id="m-fpt">
+          <section title="Class FPT: Protection of the TSF" id="m-fpt">
             
             
             <!-- FPT_FLS.1 -->
