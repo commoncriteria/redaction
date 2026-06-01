@@ -1,6 +1,7 @@
 output/redaction-release-linkable.html: ActiveX
 output/redaction-release-linkable.html: CEM
 output/redaction-release-linkable.html: Electrotechnical
+output/redaction-release-linkable.html: SPD
 output/redaction-release-linkable.html: Steganography
 output/redaction-release-linkable.html: Xs
 output/redaction-release-linkable.html: recurse
@@ -13,6 +14,7 @@ output/redaction-release-linkable.html: unreferenced
 output/redaction-release.html: ActiveX
 output/redaction-release.html: CEM
 output/redaction-release.html: Electrotechnical
+output/redaction-release.html: SPD
 output/redaction-release.html: Steganography
 output/redaction-release.html: Xs
 output/redaction-release.html: recurse
@@ -24,6 +26,7 @@ output/redaction-release.html: unreferenced
 output/redaction-sd.html: AGD
 output/redaction-sd.html: ActiveX
 output/redaction-sd.html: CEM
+output/redaction-sd.html: SPD
 output/redaction-sd.html: Steganography
 output/redaction-sd.html: TSS’
 output/redaction-sd.html: evaluator’s
@@ -35,6 +38,7 @@ output/redaction-sd.html: unreferenced
 output/redaction.html: ActiveX
 output/redaction.html: CEM
 output/redaction.html: Electrotechnical
+output/redaction.html: SPD
 output/redaction.html: Steganography
 output/redaction.html: Xs
 output/redaction.html: recurse
