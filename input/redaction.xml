@@ -32,6 +32,7 @@
   </RevisionHistory> 
   
   <pp-preferences>
+     	  <audit-events-in-sfrs/>
   </pp-preferences>
   <sec:Introduction>
     <sec:Overview>
