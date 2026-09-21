@@ -43,15 +43,15 @@
         </h3>
         <h2>Contents</h2>
         <div class="toc" id="toc">
-            <a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#Compliant_Targets_of_Evaluation" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:20px">1.3.1<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.4<span>Use Cases</span></a><a href="#ConformanceClaims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#SecurityObjectivesTOEorEnvironment" style="text-indent:10px">4.1<span>Security Objectives for the Operational Environment</span></a><a href="#SOR" style="text-indent:10px">4.2<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#secreq-AppPP" style="text-indent:10px">5.1<span> Protection Profile for Application Software Security Functional Requirements Direction </span></a><a href="#modsfr-AppPP" style="text-indent:20px">5.1.1<span> Modified SFRs </span></a><a href="#man-sfrs" style="text-indent:10px">5.2<span>TOE Security Functional Requirements</span></a><a href="#m-fau" style="text-indent:20px">5.2.1<span>Class FAU: Security Audit</span></a><a href="#m-fdp" style="text-indent:20px">5.2.2<span>Class FDP: User Data Protection</span></a><a href="#m-fmt" style="text-indent:20px">5.2.3<span>Class FMT: Security Management</span></a><a href="#m-fpt" style="text-indent:20px">5.2.4<span>Class FPT: Protection of the TSF</span></a><a href="#obj-req-map" style="text-indent:10px">5.3<span>TOE Security Functional Requirements Rationale</span></a><a href="#mod-conrat" style="text-indent:0px">6<span>Consistency Rationale</span></a><a href="#conrat-AppPP" style="text-indent:10px">6.1<span> Protection Profile for Application Software</span></a><a href="#contoe-AppPP" style="text-indent:20px">6.1.1<span> Consistency of TOE Type </span></a><a href="#consecprob-AppPP" style="text-indent:20px">6.1.2<span> Consistency of Security Problem Definition </span></a><a href="#conobj-AppPP" style="text-indent:20px">6.1.3<span> Consistency of OE Objectives </span></a><a href="#conreq-AppPP" style="text-indent:20px">6.1.4<span> Consistency of Requirements </span></a><a href="#opt-sfrs" style="text-indent:0px">Appendix A - <span>Optional SFRs</span></a><a href="#opt-sfrs" style="text-indent:10px">A.1<span>Strictly Optional Requirements </span></a><a href="#obj-sfrs" style="text-indent:10px">A.2<span>Objective Requirements </span></a><a href="#impl-dep-sfrs" style="text-indent:10px">A.3<span>Implementation-dependent Requirements </span></a><a href="#sel-sfrs" style="text-indent:0px">Appendix B - <span>Selection-based Requirements </span></a><a href="#ext-comp-defs" style="text-indent:0px">Appendix C - <span>Extended Component Definitions</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.1<span>Extended Components Table</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.2<span>Extended Component Definitions</span></a><a href="#ext-comp-" style="text-indent:20px">C.2.1<span>Class FAU: Security Audit</span></a><a href="#ext-comp-FAU_ALR_EXT" style="text-indent:30px">C.2.1.1<span>FAU_ALR_EXT Redaction Failure Notification</span></a><a href="#ext-comp-FAU_REP_EXT" style="text-indent:30px">C.2.1.2<span>FAU_REP_EXT Report Generation</span></a><a href="#ext-comp-FAU_SAR_EXT" style="text-indent:30px">C.2.1.3<span>FAU_SAR_EXT Report Review</span></a><a href="#ext-comp-" style="text-indent:20px">C.2.2<span>Class FDP: User Data Protection</span></a><a href="#ext-comp-FDP_DID_EXT" style="text-indent:30px">C.2.2.1<span>FDP_DID_EXT Identification of Data</span></a><a href="#ext-comp-FDP_DIN_EXT" style="text-indent:30px">C.2.2.2<span>FDP_DIN_EXT Deep Inspection</span></a><a href="#ext-comp-FDP_LOC_EXT" style="text-indent:30px">C.2.2.3<span>FDP_LOC_EXT Redact Content from Every Location</span></a><a href="#ext-comp-FDP_NND_EXT" style="text-indent:30px">C.2.2.4<span>FDP_NND_EXT No New Data Introduced by TOE</span></a><a href="#ext-comp-FDP_OBJ_EXT" style="text-indent:30px">C.2.2.5<span>FDP_OBJ_EXT Removal of Objects and Corresponding References</span></a><a href="#ext-comp-FDP_REM_EXT" style="text-indent:30px">C.2.2.6<span>FDP_REM_EXT Removal of Redacted Data</span></a><a href="#ext-comp-FDP_RIP_EXT" style="text-indent:30px">C.2.2.7<span>FDP_RIP_EXT Residual Information Removal</span></a><a href="#ext-comp-FDP_RPL_EXT" style="text-indent:30px">C.2.2.8<span>FDP_RPL_EXT Visible Space Replace</span></a><a href="#ext-comp-FDP_SEL_EXT" style="text-indent:30px">C.2.2.9<span>FDP_SEL_EXT Selected Redaction</span></a><a href="#ext-comp-FDP_VAL_EXT" style="text-indent:30px">C.2.2.10<span>FDP_VAL_EXT Validation of Data</span></a><a href="#ext-comp-" style="text-indent:20px">C.2.3<span>Class FMT: Security Management</span></a><a href="#ext-comp-FMT_RVW_EXT" style="text-indent:30px">C.2.3.1<span>FMT_RVW_EXT Element Review</span></a><a href="#acronyms" style="text-indent:0px">Appendix D - <span>Acronyms</span></a><a href="#appendix-bibliography" style="text-indent:0px">Appendix E - <span>Bibliography</span></a>
+            <a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#Compliant_Targets_of_Evaluation" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:20px">1.3.1<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.4<span>Use Cases</span></a><a href="#ConformanceClaims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#SecurityObjectivesTOEorEnvironment" style="text-indent:10px">4.1<span>Security Objectives for the Operational Environment</span></a><a href="#SOR" style="text-indent:10px">4.2<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#secreq-application" style="text-indent:10px">5.1<span>Protection Profile for Application Software Security Functional Requirements Direction </span></a><a href="#modsfr-application" style="text-indent:20px">5.1.1<span> Modified SFRs </span></a><a href="#man-sfrs" style="text-indent:10px">5.2<span>TOE Security Functional Requirements</span></a><a href="#m-fau" style="text-indent:20px">5.2.1<span>Class FAU: Security Audit</span></a><a href="#m-fdp" style="text-indent:20px">5.2.2<span>Class FDP: User Data Protection</span></a><a href="#m-fmt" style="text-indent:20px">5.2.3<span>Class FMT: Security Management</span></a><a href="#m-fpt" style="text-indent:20px">5.2.4<span>Class FPT: Protection of the TSF</span></a><a href="#obj-req-map" style="text-indent:10px">5.3<span>TOE Security Functional Requirements Rationale</span></a><a href="#mod-conrat" style="text-indent:0px">6<span>Consistency Rationale</span></a><a href="#conrat-application" style="text-indent:10px">6.1<span>Protection Profile for Application Software</span></a><a href="#contoe-application" style="text-indent:20px">6.1.1<span> Consistency of TOE Type </span></a><a href="#consecprob-application" style="text-indent:20px">6.1.2<span> Consistency of Security Problem Definition </span></a><a href="#conobj-" style="text-indent:20px">6.1.3<span> Consistency of OE Objectives </span></a><a href="#conreq-" style="text-indent:20px">6.1.4<span> Consistency of Requirements </span></a><a href="#opt-sfrs" style="text-indent:0px">Appendix A - <span>Optional SFRs</span></a><a href="#opt-sfrs" style="text-indent:10px">A.1<span>Strictly Optional Requirements </span></a><a href="#obj-sfrs" style="text-indent:10px">A.2<span>Objective Requirements </span></a><a href="#impl-dep-sfrs" style="text-indent:10px">A.3<span>Implementation-dependent Requirements </span></a><a href="#sel-sfrs" style="text-indent:0px">Appendix B - <span>Selection-based Requirements </span></a><a href="#ext-comp-defs" style="text-indent:0px">Appendix C - <span>Extended Component Definitions</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.1<span>Extended Components Table</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.2<span>Extended Component Definitions</span></a><a href="#ext-comp-" style="text-indent:20px">C.2.1<span>Class FAU: Security Audit</span></a><a href="#ext-comp-FAU_ALR_EXT" style="text-indent:30px">C.2.1.1<span>FAU_ALR_EXT Redaction Failure Notification</span></a><a href="#ext-comp-FAU_REP_EXT" style="text-indent:30px">C.2.1.2<span>FAU_REP_EXT Report Generation</span></a><a href="#ext-comp-FAU_SAR_EXT" style="text-indent:30px">C.2.1.3<span>FAU_SAR_EXT Report Review</span></a><a href="#ext-comp-" style="text-indent:20px">C.2.2<span>Class FDP: User Data Protection</span></a><a href="#ext-comp-FDP_DID_EXT" style="text-indent:30px">C.2.2.1<span>FDP_DID_EXT Identification of Data</span></a><a href="#ext-comp-FDP_DIN_EXT" style="text-indent:30px">C.2.2.2<span>FDP_DIN_EXT Deep Inspection</span></a><a href="#ext-comp-FDP_LOC_EXT" style="text-indent:30px">C.2.2.3<span>FDP_LOC_EXT Redact Content from Every Location</span></a><a href="#ext-comp-FDP_NND_EXT" style="text-indent:30px">C.2.2.4<span>FDP_NND_EXT No New Data Introduced by TOE</span></a><a href="#ext-comp-FDP_OBJ_EXT" style="text-indent:30px">C.2.2.5<span>FDP_OBJ_EXT Removal of Objects and Corresponding References</span></a><a href="#ext-comp-FDP_REM_EXT" style="text-indent:30px">C.2.2.6<span>FDP_REM_EXT Removal of Redacted Data</span></a><a href="#ext-comp-FDP_RIP_EXT" style="text-indent:30px">C.2.2.7<span>FDP_RIP_EXT Residual Information Removal</span></a><a href="#ext-comp-FDP_RPL_EXT" style="text-indent:30px">C.2.2.8<span>FDP_RPL_EXT Visible Space Replace</span></a><a href="#ext-comp-FDP_SEL_EXT" style="text-indent:30px">C.2.2.9<span>FDP_SEL_EXT Selected Redaction</span></a><a href="#ext-comp-FDP_VAL_EXT" style="text-indent:30px">C.2.2.10<span>FDP_VAL_EXT Validation of Data</span></a><a href="#ext-comp-" style="text-indent:20px">C.2.3<span>Class FMT: Security Management</span></a><a href="#ext-comp-FMT_RVW_EXT" style="text-indent:30px">C.2.3.1<span>FMT_RVW_EXT Element Review</span></a><a href="#acronyms" style="text-indent:0px">Appendix D - <span>Acronyms</span></a><a href="#appendix-bibliography" style="text-indent:0px">Appendix E - <span>Bibliography</span></a>
         </div>
         <h1 class="indexable" data-level="1" id="Introduction">1 Introduction</h1>
         <h2 class="indexable" data-level="2" id="Overview">1.1 Overview</h2>
-         The scope of the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for Redaction Tools, Version 1.0 is to describe the security functionality of redaction tools in terms of <a href="#bibCC">[CC]</a> and to define functional and assurance requirements for such products. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is intended for use with the following <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>: 
+         The scope of the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for Redaction Tools, Version 1.0 is to describe the security functionality of redaction tools in terms of <a href="#bibCC">[CC]</a> and to define functional and assurance requirements for such products. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is intended for use with the following Base-PP: 
         <ul>
             <li>Protection Profile for Application Software, Version 2.0</li>
         </ul>
-         This <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> is valid for this technology type because a redaction tool is a specific type of software application and can therefore be reasonably expected to implement security functionality that is typical of application software. Redaction is the process of selectively removing and replacing information from a document or other logical container of data for release to an audience not intended to view that information. Redacted information is not limited to classified material; other examples include privacy data, proprietary information, trade secrets, and legal strategy. Instances of redaction include replacing classified text with a black box to release a document to an unclassified environment, replacing privacy-related data such as telephone numbers with all Xs to release a database to a contractor, converting a proprietary format document to Portable Document Format (PDF) to release a what-you-see-is-what-you-get document. The risk from improper or incomplete redaction is the inadvertent disclosure of classified or sensitive data. 
+         This Base-PP is valid for this technology type because a redaction tool is a specific type of software application and can therefore be reasonably expected to implement security functionality that is typical of application software. Redaction is the process of selectively removing and replacing information from a document or other logical container of data for release to an audience not intended to view that information. Redacted information is not limited to classified material; other examples include privacy data, proprietary information, trade secrets, and legal strategy. Instances of redaction include replacing classified text with a black box to release a document to an unclassified environment, replacing privacy-related data such as telephone numbers with all Xs to release a database to a contractor, converting a proprietary format document to Portable Document Format (PDF) to release a what-you-see-is-what-you-get document. The risk from improper or incomplete redaction is the inadvertent disclosure of classified or sensitive data. 
         <p></p>
          Redaction is not sanitization. In the sanitization process, information is removed with no indication that the sanitization process took place. In the redaction process, selected visible information is removed and replaced with something innocuous (e.g., black box or text) so that the reader knows redaction took place. This replacement is a critical part of the process not shared with sanitization. 
         <p></p>
@@ -74,7 +74,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <div id="Base_Protection_Profile">Base Protection Profile (Base-PP)</div>
+                        <div id="Base_Protection_Profile">Base Protection Profile (base PP)</div>
                     </td><td>Protection Profile used as a basis to build a PP-Configuration.</td>
                 </tr>
                 <tr>
@@ -130,12 +130,12 @@
                 <tr>
                     <td>
                         <div id="Protection_Profile_Configuration">Protection Profile Configuration (PP-Configuration)</div>
-                    </td><td>A comprehensive set of security requirements for a product type that consists of at least one Base-PP and at least one PP-Module.</td>
+                    </td><td>A comprehensive set of security requirements for a product type that consists of at least one base PP and at least one PP-Module.</td>
                 </tr>
                 <tr>
                     <td>
                         <div id="Protection_Profile_Module">Protection Profile Module (PP-Module)</div>
-                    </td><td>An implementation-independent statement of security needs for a TOE type complementary to one or more Base-PPs.</td>
+                    </td><td>An implementation-independent statement of security needs for a TOE type complementary to one or more base PPs.</td>
                 </tr>
                 <tr>
                     <td>
@@ -241,7 +241,7 @@
         <p></p>
          Documents to be redacted may contain objects that are vulnerable to steganography, such as images or video. Functional data such as scripts can contain strings or images that may not be accessible to the redaction tool. Analysis of such objects for attacks or covert data transfer will occur outside of the redaction process. An organization&rsquo;s security policy will determine whether such objects are released or redacted in their entirety. 
         <h3 class="indexable" data-level="3" id="TOE_Boundary">1.3.1 TOE Boundary</h3>
-         The physical boundary for a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that conforms to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is a software application that is installed on top of a general-purpose or mobile operating system. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rsquo;s logical boundary includes all functionality required by the claimed <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> as well as the redaction functionality and related capabilities that are defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. Any functionality that is provided by the application that is not relevant to the security requirements defined by this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> or the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> is considered to be outside the scope of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
+         The physical boundary for a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that conforms to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is a software application that is installed on top of a general-purpose or mobile operating system. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rsquo;s logical boundary includes all functionality required by the claimed Base-PP as well as the redaction functionality and related capabilities that are defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. Any functionality that is provided by the application that is not relevant to the security requirements defined by this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> or the Base-PP is considered to be outside the scope of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
         <h2 class="indexable" data-level="2" id="Use_Cases">1.4 Use Cases</h2>
          Redaction tools perform tasks associated primarily with the following use case. 
         <dl>
@@ -277,7 +277,9 @@
             <dd>
                 The following <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules are allowed to be specified in a <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> with this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>: 
                 <ul>
-                    <li>Protection Profile for Application Software, Version 2.0</li>
+                    <li>
+                        <a href="https://www.niap-ccevs.org/protectionprofiles/516">Protection Profile for Application Software Version 2.0</a>.
+                    </li>
                 </ul>
             </dd>
             <dt>Package Claim</dt>
@@ -291,7 +293,7 @@
          The security problem is described in terms of the threats that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is expected to address, assumptions about its operational environment (<abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>), and any organizational security policies that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is expected to enforce.
         <br>
         <h2 class="indexable" data-level="2" id="threats">3.1 Threats</h2>
-         The following threats defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> add to the threats defined by the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. 
+         The following threats defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> add to the threats defined by the Base-PP. 
         <dl>
             <dt class="threat defined" id="T.CLUES_TO_ORIGINAL_DATA">T.CLUES_TO_ORIGINAL_DATA</dt>
             <dd>
@@ -307,7 +309,7 @@
         <p>
             These assumptions are made on the Operational Environment (<abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>) in order to be able to ensure that the security functionality specified in the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> can be provided by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is placed in an <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> that does not meet these assumptions, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may no longer be able to provide all of its security functionality.
         </p>
-         This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines assumptions that extend those defined in the supported <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. 
+         This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines assumptions that extend those defined in the supported Base-PP. 
         <dl>
             <dt class="assumption defined" id="A.KNOWLEDGEABLE_USER">A.KNOWLEDGEABLE_USER</dt>
             <dd>
@@ -329,7 +331,7 @@
         <p>
             The <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements technical and procedural measures to assist the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in correctly providing its security functionality (which is defined by the security objectives for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>). The security objectives for the <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> consist of a set of statements describing the goals that the <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> should achieve. This section defines the security objectives that are to be addressed by the IT domain or by non-technical or procedural means. The assumptions identified in Section 3 are incorporated as security objectives for the environment.
         </p>
-         This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines environmental security objectives that extend those defined in the supported <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. 
+         This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines environmental security objectives that extend those defined in the supported Base-PP. 
         <dl>
             <dt class="SOE defined" id="OE.KNOWLEDGEABLE_USER">OE.KNOWLEDGEABLE_USER</dt>
             <dd>
@@ -373,10 +375,10 @@
                  <b>Iteration</b> operation: Is indicated by appending the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> name with a slash and unique identifier suggesting the purpose of the operation, e.g. "/EXAMPLE1." 
             </li>
         </ul>
-        <h2 id="secreq-AppPP" class="indexable" data-level="2">5.1 Protection Profile for Application Software Security Functional Requirements Direction </h2>
+        <h2 id="secreq-application" class="indexable" data-level="2">5.1 Protection Profile for Application Software Security Functional Requirements Direction </h2>
          In a <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> that includes the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, there are no App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> requirements that must be claimed in a certain manner for redaction functionality to be correctly implemented. Therefore, all <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> operations may be performed at the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author's discretion. 
-        <h3 id="modsfr-AppPP" class="indexable" data-level="3">5.1.1 Modified SFRs </h3>
-         This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify any <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> defined by the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>. 
+        <h3 id="modsfr-application" class="indexable" data-level="3">5.1.1 Modified SFRs </h3>
+         This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify any <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> defined by the App. 
         <h2 id="man-sfrs" class="indexable" data-level="2">5.2 TOE Security Functional Requirements</h2>
          The following section describes the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> that must be satisfied by any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that claims conformance to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. These <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> must be claimed regardless of which <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> is used to define the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
         <h3 id="m-fau" class="indexable" data-level="3">5.2.1 Class FAU: Security Audit</h3>
@@ -702,56 +704,56 @@
             </table>
         </p>
         <h1 id="mod-conrat" class="indexable" data-level="1">6 Consistency Rationale</h1>
-        <h2 id="conrat-AppPP" class="indexable" data-level="2">6.1 Protection Profile for Application Software</h2>
-        <h3 id="contoe-AppPP" class="indexable" data-level="3">6.1.1 Consistency of TOE Type </h3>
+        <h2 id="conrat-application" class="indexable" data-level="2">6.1 Protection Profile for Application Software</h2>
+        <h3 id="contoe-application" class="indexable" data-level="3">6.1.1 Consistency of TOE Type </h3>
         If this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is used to extend the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> type for the overall <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is still a software application. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> boundary is simply extended to include the redaction tool functionality that is built into the application so that additional security functionality is claimed within the scope of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
         <br>
         <br>
-         The only asset for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is the software executable and sensitive data that comprises the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. The entire <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> as defined by the combination of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is a single asset. The only differences to the threat model are that the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> introduces threats related specifically to the failure of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to fully redact data, which is a use case specific to redaction tools. 
-        <h3 id="consecprob-AppPP" class="indexable" data-level="3">6.1.2 Consistency of Security Problem Definition </h3>
+         The only asset for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is the software executable and sensitive data that comprises the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. The entire <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> as defined by the combination of the Base-PP and this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is a single asset. The only differences to the threat model are that the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> introduces threats related specifically to the failure of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to fully redact data, which is a use case specific to redaction tools. 
+        <h3 id="consecprob-application" class="indexable" data-level="3">6.1.2 Consistency of Security Problem Definition </h3>
         Listed below are the threats, objectives, and OSPs defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> with rationale for their consistency with the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>. The <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> shares the executable application asset with the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> but defines additional threats because the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines a specific type of software application with potential exploits that are common to the application type.
         <table>
             <caption>
-                <span class="ctr" data-myid="t-con-sec-prob-def" data-counter-type="ct-Table" id="t-con-sec-prob-def">Table <span class="counter">3</span></span>: Consistency of Security Problem Definition (App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> base) 
+                <span class="ctr" data-myid="t-con-sec-prob-def" data-counter-type="ct-Table" id="t-con-sec-prob-def">Table <span class="counter">3</span></span>: Consistency of Security Problem Definition (App base) 
             </caption>
             <tr>
                 <th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> Threat, Assumption, OSP</th><th>Consistency Rationale</th>
             </tr>
             <tr>
-                <td><a href="#T.CLUES_TO_ORIGINAL_DATA">T.CLUES_TO_ORIGINAL_DATA</a></td><td>This threat is consistent with the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because it relates to functionality that is exclusive to the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td>
+                <td><a href="#T.CLUES_TO_ORIGINAL_DATA">T.CLUES_TO_ORIGINAL_DATA</a></td><td>This threat is consistent with the Base-PP because it relates to functionality that is exclusive to the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td>
             </tr>
             <tr>
-                <td><a href="#T.UNREDACTED_DATA">T.UNREDACTED_DATA</a></td><td>This threat is consistent with the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because it relates to functionality that is exclusive to the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td>
+                <td><a href="#T.UNREDACTED_DATA">T.UNREDACTED_DATA</a></td><td>This threat is consistent with the Base-PP because it relates to functionality that is exclusive to the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td>
             </tr>
             <tr>
-                <td><a href="#A.KNOWLEDGEABLE_USER">A.KNOWLEDGEABLE_USER</a></td><td>This assumption is an extension of the A.PROPER_USER and A.PROPER_ADMIN assumptions in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> but extends them to apply specifically to the operation of redaction tools.</td>
+                <td><a href="#A.KNOWLEDGEABLE_USER">A.KNOWLEDGEABLE_USER</a></td><td>This assumption is an extension of the A.PROPER_USER and A.PROPER_ADMIN assumptions in the Base-PP but extends them to apply specifically to the operation of redaction tools.</td>
             </tr>
             <tr>
-                <td><a href="#P.INFORMATION_RELEASE_POLICY">P.INFORMATION_RELEASE_POLICY</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not define any organizational security policies so there are no existing policies that this could contradict.</td>
+                <td><a href="#P.INFORMATION_RELEASE_POLICY">P.INFORMATION_RELEASE_POLICY</a></td><td>The Base-PP does not define any organizational security policies so there are no existing policies that this could contradict.</td>
             </tr>
         </table>
-        <h3 id="conobj-AppPP" class="indexable" data-level="3">6.1.3 Consistency of OE Objectives </h3>
+        <h3 id="conobj-" class="indexable" data-level="3">6.1.3 Consistency of OE Objectives </h3>
         <p>
             <table>
                 <caption>
-                    <span class="ctr" data-myid="t-con-oe-objs" data-counter-type="ct-Table" id="t-con-oe-objs">Table <span class="counter">4</span></span>: Consistency of <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> Objectives (App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> base) 
+                    <span class="ctr" data-myid="t-con-oe-objs" data-counter-type="ct-Table" id="t-con-oe-objs">Table <span class="counter">4</span></span>: Consistency of <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> Objectives (App base) 
                 </caption>
                 <tr>
                     <th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> Objective</th><th>Consistency Rationale</th>
                 </tr>
                 <tr>
-                    <td><a href="#OE.KNOWLEDGEABLE_USER">OE.KNOWLEDGEABLE_USER</a></td><td>This objective is an extension of the <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>.PROPER_USER and <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>.PROPER_ADMIN objectives in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> but extends them to apply specifically to the operation of redaction tools.</td>
+                    <td><a href="#OE.KNOWLEDGEABLE_USER">OE.KNOWLEDGEABLE_USER</a></td><td>This objective is an extension of the <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>.PROPER_USER and <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>.PROPER_ADMIN objectives in the Base-PP but extends them to apply specifically to the operation of redaction tools.</td>
                 </tr>
                 <tr>
-                    <td><a href="#OE.INFORMATION_RELEASE_POLICY">OE.INFORMATION_RELEASE_POLICY</a></td><td>This objective does not contradict the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because it describes the implementation of an organizational security policy.</td>
+                    <td><a href="#OE.INFORMATION_RELEASE_POLICY">OE.INFORMATION_RELEASE_POLICY</a></td><td>This objective does not contradict the Base-PP because it describes the implementation of an organizational security policy.</td>
                 </tr>
             </table>
         </p>
-        <h3 id="conreq-AppPP" class="indexable" data-level="3">6.1.4 Consistency of Requirements </h3>
-         This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> identifies several <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> from the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> that are needed to support Redaction Tool functionality. This is considered to be consistent because the functionality provided by the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is being used for its intended purpose. The rationale for why this does not conflict with the claims defined by the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> are as follows: 
+        <h3 id="conreq-" class="indexable" data-level="3">6.1.4 Consistency of Requirements </h3>
+         This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> identifies several <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> from the App that are needed to support Redaction Tool functionality. This is considered to be consistent because the functionality provided by the App is being used for its intended purpose. The rationale for why this does not conflict with the claims defined by the App are as follows: 
         <table>
             <caption>
-                <span class="ctr" data-myid="t-con-reqs" data-counter-type="ct-Table" id="t-con-reqs">Table <span class="counter">5</span></span>: Consistency of Requirements (App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> base) 
+                <span class="ctr" data-myid="t-con-reqs" data-counter-type="ct-Table" id="t-con-reqs">Table <span class="counter">5</span></span>: Consistency of Requirements (App base) 
             </caption>
             <tr>
                 <th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> Requirement</th><th>Consistency Rationale</th>
@@ -760,61 +762,61 @@
                 <th colspan="2"> Modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th>
             </tr>
             <tr>
-                <td colspan="2" style="text-align:center"> This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify any requirements when the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is the base. </td>
+                <td colspan="2" style="text-align:center"> This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify any requirements when the App is the base. </td>
             </tr>
             <tr>
                 <th colspan="2"> Additional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th>
             </tr>
             <tr>
-                <td colspan="2" style="text-align:center"> This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not add any requirements when the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is the base. </td>
+                <td colspan="2" style="text-align:center"> This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not add any requirements when the App is the base. </td>
             </tr>
             <tr>
                 <th colspan="2"> Mandatory <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th>
             </tr>
             <tr>
-                <td><a href="#FAU_ALR_EXT.1">FAU_ALR_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented. </td>
+                <td><a href="#FAU_ALR_EXT.1">FAU_ALR_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented. </td>
             </tr>
             <tr>
-                <td><a href="#FAU_REP_EXT.1">FAU_REP_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented. </td>
+                <td><a href="#FAU_REP_EXT.1">FAU_REP_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented. </td>
             </tr>
             <tr>
-                <td><a href="#FAU_SAR_EXT.1">FAU_SAR_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented. </td>
+                <td><a href="#FAU_SAR_EXT.1">FAU_SAR_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented. </td>
             </tr>
             <tr>
-                <td><a href="#FDP_DID_EXT.1">FDP_DID_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented. </td>
+                <td><a href="#FDP_DID_EXT.1">FDP_DID_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented. </td>
             </tr>
             <tr>
-                <td><a href="#FDP_DIN_EXT.1">FDP_DIN_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented. </td>
+                <td><a href="#FDP_DIN_EXT.1">FDP_DIN_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented. </td>
             </tr>
             <tr>
-                <td><a href="#FDP_LOC_EXT.1">FDP_LOC_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented. </td>
+                <td><a href="#FDP_LOC_EXT.1">FDP_LOC_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented. </td>
             </tr>
             <tr>
-                <td><a href="#FDP_NND_EXT.1">FDP_NND_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented. </td>
+                <td><a href="#FDP_NND_EXT.1">FDP_NND_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented. </td>
             </tr>
             <tr>
-                <td><a href="#FDP_OBJ_EXT.1">FDP_OBJ_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented. </td>
+                <td><a href="#FDP_OBJ_EXT.1">FDP_OBJ_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented. </td>
             </tr>
             <tr>
-                <td><a href="#FDP_REM_EXT.1">FDP_REM_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented. </td>
+                <td><a href="#FDP_REM_EXT.1">FDP_REM_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented. </td>
             </tr>
             <tr>
-                <td><a href="#FDP_RIP_EXT.1">FDP_RIP_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented. </td>
+                <td><a href="#FDP_RIP_EXT.1">FDP_RIP_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented. </td>
             </tr>
             <tr>
-                <td><a href="#FDP_RPL_EXT.1">FDP_RPL_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented. </td>
+                <td><a href="#FDP_RPL_EXT.1">FDP_RPL_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented. </td>
             </tr>
             <tr>
-                <td><a href="#FDP_SEL_EXT.1">FDP_SEL_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented. </td>
+                <td><a href="#FDP_SEL_EXT.1">FDP_SEL_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented. </td>
             </tr>
             <tr>
-                <td><a href="#FDP_VAL_EXT.1">FDP_VAL_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented. </td>
+                <td><a href="#FDP_VAL_EXT.1">FDP_VAL_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented. </td>
             </tr>
             <tr>
-                <td><a href="#FMT_RVW_EXT.1">FMT_RVW_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and does not prevent any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements from being implemented. </td>
+                <td><a href="#FMT_RVW_EXT.1">FMT_RVW_EXT.1</a></td><td>This requirement relates to redaction functionality, which is beyond the scope of the Base-PP and does not prevent any Base-PP requirements from being implemented. </td>
             </tr>
             <tr>
-                <td><a href="#FPT_FLS.1/Redaction">FPT_FLS.1/Redaction</a></td><td>This requirement relates to the preservation of a secure state in the event of a <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> failure. This is not defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> but the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> has no requirements that prohibit it. </td>
+                <td><a href="#FPT_FLS.1/Redaction">FPT_FLS.1/Redaction</a></td><td>This requirement relates to the preservation of a secure state in the event of a <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> failure. This is not defined in the Base-PP but the Base-PP has no requirements that prohibit it. </td>
             </tr>
             <tr>
                 <th colspan="2"> Optional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th>
@@ -1425,7 +1427,7 @@
                 <th>Acronym</th><th>Meaning</th>
             </tr>
             <tr>
-                <td><span class="term" id="abbr_Base-PP" data-plural="Base-PPs"><abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></span></td><td><span id="long_abbr_Base-PP">Base Protection Profile</span></td>
+                <td><span class="term" id="abbr_base PP" data-plural="base PPs"><abbr class="dyn-abbr"><a href="#abbr_base PP">base PP</a></abbr></span></td><td><span id="long_abbr_base PP">Base Protection Profile</span></td>
             </tr>
             <tr>
                 <td><span class="term" id="abbr_CC"><abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr></span></td><td><span id="long_abbr_CC">Common Criteria</span></td>
@@ -1528,6 +1530,9 @@
                             </li>
                         </ul>
                     </span></td>
+            </tr>
+            <tr>
+                <td><span id="bibERRv12">[ERR]</span></td><td><span class="description"><a href="https://www.commoncriteriaportal.org/files/ccfiles/CCMB-2025-001-v1_2-Errata_Interpretation_CC_CEM_2022.pdf"> Errata and Interpretation for CC:2022 (Release 1) and CEM:2022 (Release 1), Version 1.2</a>, CCMB-2025-02-001, 15 October 2025. </span></td>
             </tr>
         </table>
     </body>

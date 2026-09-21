@@ -350,8 +350,17 @@
       <cc-pt2-conf>extended</cc-pt2-conf>
       <cc-pt3-conf>extended</cc-pt3-conf>
       <cc-pp-conf/>
-      <cc-pp-config-with><PP-cc-ref>Protection Profile for Application Software, Version 2.0</PP-cc-ref></cc-pp-config-with>
-
+      <cc-pp-config-with>
+		<PP-cc-ref>
+			<cc-doc-ref id="application">
+				<git>
+					<url>https://github.com/commoncriteria/application</url>
+					<branch>release-2.0</branch>
+				</git>
+				<url>https://www.niap-ccevs.org/protectionprofiles/516</url>
+			</cc-doc-ref>
+		</PP-cc-ref>
+	  </cc-pp-config-with>
       <cc-pkg-claim/>
     </CClaimsInfo>
   </section>
@@ -544,12 +553,7 @@
         
             <!-- 5.1 App PP Security Functional Requirements Direction -->
 <!-- Note: How do we handle it when the Base-PP (in this case NDcPP) isn't on Github? -->
-      <base-pp id="AppPP" name="Application Software" product="Application" short="App" version="2.0">
-        <git>
-          <url>https://github.com/commoncriteria/application</url>
-          <branch>release-1.4</branch>
-        </git>
-        <url>https://www.niap-ccevs.org/protectionprofiles/516</url>
+      <base-pp ref="application">
 
 		<sec-func-req-dir> 
 		  In a PP-Configuration that includes the App PP, there are no App PP requirements that must be claimed in a certain manner for redaction functionality to be correctly implemented. Therefore, all SFR operations 
