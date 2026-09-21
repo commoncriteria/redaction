@@ -1,0 +1,1 @@
+/home/runner/work/redaction/redaction/output/effective.xml:7:13: error: element "PPTitle" not allowed here; expected element "PPVersion"
